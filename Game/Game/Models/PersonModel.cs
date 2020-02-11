@@ -44,8 +44,19 @@ namespace Game.Models
 
         public bool ActivateAbility();  // Checks if the superstar ability is on cool down and applies the modifier if not on cooldown 
         public void TurnManager(); // This method will calculate how much stamina is required for the user to conduct the moves it wants, if enough stamina is there then the move will be executed.
-        public bool CheckStamina();// check if the character has enough stamina to conduct the move the user wants. 
-        public void UpdateStamina(); // Updates the stamina field after the character turns. 
+        
+        // Check to see if the Person has enough stamina currently to perform an action
+        public bool CheckStamina(int actionCost)
+        {
+            return (CurrentStamina - actionCost >= 0);
+        }
+        
+        // Update the Person's CurrentStamina with the cost of performing a specific action
+        public void UpdateStamina(int actionCost)
+        {
+            CurrentStamina -= actionCost;
+        }
+
         public bool CheckCooldown(); // if ability is on cooldown 
 
         //Attributes 

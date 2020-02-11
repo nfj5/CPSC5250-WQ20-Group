@@ -16,8 +16,17 @@ namespace Game.Models
         public int TrianingPoints { get; set; } = 0; // Points used to upgrade speed, strength, hit_points, stamina.  
         public List<ItemModel> Items { get; set; } // Return list of all items the character currently has on its persons. 
 
-        //Methods 
-        public ItemModel RemoveItem(int index); // function to drop items 
+        //Methods
+
+        // Have the Person drop the item at the corresponding inventory index
+        public ItemModel RemoveItem(int index)
+        {
+            ItemModel item = Items[index];
+            Items.RemoveAt(index);
+
+            return item;
+        }
+
         public bool AddItem(ItemModel to_add); // function to pick up items 
         public bool ActivateAbility();  // Checks if the superstar ability is on cool down and applies the modifier if not on cooldown 
         public void TurnManager(); // This method will calculate how much stamina is required for the user to conduct the moves it wants, if enough stamina is there then the move will be executed.

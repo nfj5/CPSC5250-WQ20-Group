@@ -10,13 +10,13 @@ namespace Game.Models
 
         public string Name { get; set; } // The official name for the Character. Not editable by the player 
         public string Nickname { get; set; } // The player-editable name for the Character 
-        public Ability SuperstarAbility { get; set; } // uses separate Ability class which applies modifiers to the Character, tracks ability cooldown, et cetera 
+        public AbilityModel SuperstarAbility { get; set; } // uses separate Ability class which applies modifiers to the Character, tracks ability cooldown, et cetera 
         public int Speed { get; set; } // The speed the character can move, on a 1-99 scale. 
         public int Strength { get; set; } // The strength of the character, higher strength = further item can be throw, on a 1-99 scale. 
         public int HitPoints { get; set; } // How much total damage the character can take before dying, on a 1-99 scale.  
         public int MaxStamina { get; set; } // How much stamina the character has, on a 1 –99 scale. Stamina resets after matches, stamina determines run duration, number of throws. If not enough stamina then the user can not perform any actions. A math is 1 game(or 1 dungeon, or 1 round however you want to think of it). Also different actions take different amount of stamina so we are not assuming a character will get 99 turns.  
         public int CurrentStamina { get; set; } // How much stamina the character currently has during their turn
-        public int TrianingPoints { get; set; } = 0; // Points used to upgrade speed, strength, hit_points, stamina.  
+        public int TrainingPoints { get; set; } = 0; // Points used to upgrade speed, strength, hit_points, stamina.  
         public List<ItemModel> Items { get; set; } // Return list of all items the character currently has on its persons. 
 
         //Methods

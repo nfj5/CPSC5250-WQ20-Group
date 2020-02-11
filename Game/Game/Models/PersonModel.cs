@@ -16,6 +16,7 @@ namespace Game.Models
         private int CurrentSpeed { get; set; } // How quickly the character can currently move
         private int CurrentStrength { get; set; } // How strong the character currently is
         private int CurrentHitPoints { get; set; } // How much damage the character can currently take
+        private int CurrentCooldown { get; set; }
 
         public string Name { get; set; } // The official name for the Person. Not editable by the player 
         public string Nickname { get; set; } // The player-editable name for the Person 
@@ -56,7 +57,7 @@ namespace Game.Models
         // Check if the SuperstarAbility is on cooldown and applies modifiers if not on cooldown
         public bool ActivateAbility()
         {
-            if (SuperstarAbility.Cooldown)
+            if (CheckCooldown())
             {
                 return false;
             }
@@ -64,10 +65,20 @@ namespace Game.Models
             CurrentSpeed = (int) Math.Floor(MaxSpeed * SuperstarAbility.SpeedMultiplier);
             CurrentStrength = (int) Math.Floor(MaxStrength * SuperstarAbility.StrengthMultiplier);
             CurrentHitPoints = (int) Math.Floor(MaxHitPoints * SuperstarAbility.HitPointModifier);
+            
+            CurrentCooldown = SuperstarAbility.Cooldown;
+
             return true;
         }
 
-        public void TurnManager(); // This method will calculate how much stamina is required for the user to conduct the moves it wants, if enough stamina is there then the move will be executed.
+        // This move will handle automatic actions that occur every turn, such as ability cooldown
+        public void TurnManager()
+        {
+            if (CurrentCooldown > 0)
+            {
+                CurrentCooldown--;
+            }
+        }
         
         // Check to see if the Person has enough stamina currently to perform an action
         public bool CheckStamina(int actionCost)
@@ -81,7 +92,11 @@ namespace Game.Models
             CurrentStamina -= actionCost;
         }
 
-        public bool CheckCooldown(); // if ability is on cooldown 
+        // Check if the SuperstarAbility is on cooldown
+        public bool CheckCooldown()
+        {
+            return (CurrentCooldown != 0);
+        } 
 
         //Attributes 
         public int CooldownTime { get; set; } // cooldown will be number of turns 

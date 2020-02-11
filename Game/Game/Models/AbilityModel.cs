@@ -10,6 +10,6 @@ namespace Game.Models
         public float SpeedMultiplier { get; set; }
         public float StrengthMultiplier { get; set; }
         public float HitPointModifier { get; set; }
-        public bool Cooldown { get; set; } = false;
+        public int Cooldown { get; set; }
     }
 }

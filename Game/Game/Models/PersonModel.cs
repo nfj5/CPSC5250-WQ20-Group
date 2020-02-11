@@ -5,6 +5,9 @@ namespace Game.Models
 
     public class PersonModel
     {
+        // Private attributes
+        private const int MAX_ITEMS = 6;
+
         public string Name { get; set; } // The official name for the Character. Not editable by the player 
         public string Nickname { get; set; } // The player-editable name for the Character 
         public Ability SuperstarAbility { get; set; } // uses separate Ability class which applies modifiers to the Character, tracks ability cooldown, et cetera 
@@ -27,7 +30,18 @@ namespace Game.Models
             return item;
         }
 
-        public bool AddItem(ItemModel to_add); // function to pick up items 
+        // Add the ItemModel to the Person's inventory if they are at not carrying capacity
+        public bool AddItem(ItemModel toAdd)
+        {
+            if (Items.Count < MAX_ITEMS)
+            {
+                Items.Add(toAdd);
+                return true;
+            }
+
+            return false;
+        } 
+
         public bool ActivateAbility();  // Checks if the superstar ability is on cool down and applies the modifier if not on cooldown 
         public void TurnManager(); // This method will calculate how much stamina is required for the user to conduct the moves it wants, if enough stamina is there then the move will be executed.
         public bool CheckStamina();// check if the character has enough stamina to conduct the move the user wants. 

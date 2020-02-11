@@ -10,12 +10,78 @@
         <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" IconImageSource="icon_cancel.png"/>
         <ToolbarItem Text="Save" Clicked="Save_Clicked" IconImageSource="icon_save.png"/>
     </ContentPage.ToolbarItems>
-    
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+
+        <ScrollView>
+            <StackLayout Style="{StaticResource OuterBoxStack}"
+                         Spacing="10">
+                <Label Text="Create Character" Style="{StaticResource HeaderStyle}"/>
+
+                <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}" HorizontalOptions="CenterAndExpand" />
+
+                <Grid
+                    RowSpacing="1"
+                    ColumnSpacing="2"
+                    VerticalOptions="Center">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0"
+                           Text="Name"
+                           Style="{StaticResource LabelStyle}" />
+                    <Label Grid.Row="0" Grid.Column="1"
+                           Text="{Binding Data.Name}"
+                           Style="{StaticResource LabelStyle}" />
+
+                    <Label Grid.Row="1" Grid.Column="0"
+                           Text="Nickname"
+                           Style="{StaticResource LabelStyle}" />
+                    <Entry Grid.Row="1" Grid.Column="1"
+                           Text="{Binding Data.Nickname}"
+                           Style="{StaticResource EntryStyle}" />
+
+                    <StackLayout Style="{StaticResource HorizontalStack}" Padding="10">
+                        <Label Text="{Binding Data.MaxSpeed}"
+                               x:Name="SpeedValue"
+                               Style="{StaticResource ValueStyle}"
+                               Padding="0,0,10,0"
+                               HorizontalOptions="End"
+                               HorizontalTextAlignment="End" />
+                        <Stepper Value="{Binding Data.MaxSpeed, Mode=TwoWay}"
+                                 ValueChanged="Speed_OnStepperValueChanged"/>
+                    </StackLayout>
+
+                    <StackLayout Style="{StaticResource HorizontalStack}" Padding="10">
+                        <Label Text="{Binding Data.MaxStrength}"
+                               x:Name="StrengthValue"
+                               Style="{StaticResource ValueStyle}"
+                               Padding="0,0,10,0"
+                               HorizontalOptions="End"
+                               HorizontalTextAlignment="End" />
+                        <Stepper Value="{Binding Data.Strength, Mode=TwoWay}"
+                                 ValueChanged="Strength_OnStepperValueChanged"/>
+                    </StackLayout>
+
+                    <StackLayout Style="{StaticResource HorizontalStack}" Padding="10">
+                        <Label Text="{Binding Data.MaxHitPoints}"
+                               x:Name="HitPointsValue"
+                               Style="{StaticResource ValueStyle}"
+                               Padding="0,0,10,0"
+                               HorizontalOptions="End"
+                               HorizontalTextAlignment="End" />
+                        <Stepper Value="{Binding Data.MaxHitPoints, Mode=TwoWay}"
+                                 ValueChanged="HitPoints_OnStepperValueChanged"/>
+                    </StackLayout>
+
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+        
     </ContentPage.Content>
 </ContentPage>

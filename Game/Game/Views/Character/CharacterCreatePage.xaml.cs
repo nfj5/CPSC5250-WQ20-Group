@@ -22,9 +22,6 @@ namespace Game.Views
 
             BindingContext = this.ViewModel = data;
             this.ViewModel.Title = "Create";
-
-            LocationPicker.SelectedItem = data.Data.Location.ToString();
-            AttributePicker.SelectedItem = data.Data.Attribute.ToString();
         }
         
         async void Save_Clicked(object sender, EventArgs e)

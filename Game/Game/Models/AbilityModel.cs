@@ -6,9 +6,10 @@ namespace Game.Models
 {
     public class AbilityModel
     {
-        // Private attributes
-        private float SpeedMultiplier { get; set; }
-        private float StrengthMultiplier { get; set; }
-        private float HitPointModifier { get; set; }
+        // Public attributes
+        public float SpeedMultiplier { get; set; }
+        public float StrengthMultiplier { get; set; }
+        public float HitPointModifier { get; set; }
+        public bool Cooldown { get; set; } = false;
     }
 }

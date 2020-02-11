@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Game.Models
 {
-    class CharacterModel: PersonModel
+    public class CharacterModel: PersonModel
     {
     }
 }

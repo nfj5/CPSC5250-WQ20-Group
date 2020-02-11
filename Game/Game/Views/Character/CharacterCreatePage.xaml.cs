@@ -55,7 +55,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void Speed_OnValueStepperChanged(object sender, ValueChangedEventArgs e)
+        void Speed_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
         {
             SpeedValue.Text = String.Format("{0}", e.NewValue);
         }
@@ -65,7 +65,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void Strength_OnValueStepperChanged(object sender, ValueChangedEventArgs e)
+        void Strength_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
         {
             StrengthValue.Text = String.Format("{0}", e.NewValue);
         }
@@ -75,7 +75,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void HitPoints_OnValueStepperChanged(object sender, ValueChangedEventArgs e)
+        void HitPoints_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
         {
             HitPointsValue.Text = String.Format("{0}", e.NewValue);
         }

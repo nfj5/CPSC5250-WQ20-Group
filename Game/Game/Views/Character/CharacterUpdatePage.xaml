@@ -13,32 +13,48 @@
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-        <StackLayout Spacing="20" Padding="15">
-            <StackLayout Orientation="Horizontal">
-                <Image Source="http://clipart-library.com/images/6cr6KjGei.png"
-                   WidthRequest="200"
-                   HeightRequest="200"/>
+        <ScrollView>
+            <StackLayout Spacing="20" Padding="15">
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="{Binding Data.ImageURI}" 
+                           Style="{StaticResource ImageLargeStyle}"
+                           HorizontalOptions="CenterAndExpand" 
+                           WidthRequest="200"
+                           HeightRequest="200"/>
+                </StackLayout>
+
+                <Label Text="Name: " FontSize="Medium" />
+                <Entry Text="{Binding Data.Name}" d:Text="Item name" FontSize="Small" />
+
+                <Label Text="Nickname: " FontSize="Medium" />
+                <Editor Text="{Binding Data.Nickname}" d:Text="Nickname" FontSize="Small" Margin="0" AutoSize="TextChanges"/>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Strength: "/>
+                    <Editor Text="{Binding Data.BaseSpeed}" d:Text="Strength" FontSize="Small" Margin="0" AutoSize="TextChanges"/>
+                </StackLayout>
+
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Strength: "/>
+                    <Editor Text="{Binding Data.BaseStrength}" d:Text="Strength" FontSize="Small" Margin="0" AutoSize="TextChanges"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Hitpoints: "/>
+                    <Editor Text="{Binding Data.BaseHitPoints}" d:Text="Hitpoints" FontSize="Small" Margin="0" AutoSize="TextChanges"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Thiccness: "/>
+                    <Editor Text="{Binding Data.BaseThiccness}" d:Text="Thiccness" FontSize="Small" Margin="0" AutoSize="TextChanges"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Stamina: "/>
+                    <Editor Text="{Binding Data.BaseStamina}" d:Text="Stamina" FontSize="Small" Margin="0" AutoSize="TextChanges"/>
+                </StackLayout>
+
             </StackLayout>
-            <Label Text="Text" FontSize="Medium" />
-            <Entry Text="{Binding Data.Name}" d:Text="Item name" FontSize="Small" />
-
-            <Label Text="Description" FontSize="Medium" />
-            <Editor Text="{Binding Data.Description}" d:Text="Item description" FontSize="Small" Margin="0" AutoSize="TextChanges"/>
-
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Strength:"/>
-            </StackLayout>
-
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Defense:"/>
-            </StackLayout>
-
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Speed:"/>
-            </StackLayout>
-
- 
-        </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 
 </ContentPage>

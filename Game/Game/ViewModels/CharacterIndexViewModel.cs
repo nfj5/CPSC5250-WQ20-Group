@@ -42,7 +42,14 @@ namespace Game.ViewModels
 
         //Constructor
         //The constructor subscribes message listeners for crudi operations
+        public CharacterIndexViewModel()
+        {
+            Title = "Characters";
 
-        
+            #region Messages
+
+            
+        }
+
     }
 }

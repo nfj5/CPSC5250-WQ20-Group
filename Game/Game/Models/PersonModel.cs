@@ -68,7 +68,8 @@ namespace Game.Models
             CurrentSpeed = (int) Math.Floor(MaxSpeed * SuperstarAbility.SpeedMultiplier);
             CurrentStrength = (int) Math.Floor(MaxStrength * SuperstarAbility.StrengthMultiplier);
             CurrentHitPoints = (int) Math.Floor(MaxHitPoints * SuperstarAbility.HitPointModifier);
-            
+            CurrentThiccness = (int) Math.Floor(MaxThiccness * SuperstarAbility.ThiccnessModifier);
+
             CurrentCooldown = SuperstarAbility.Cooldown;
 
             return true;
@@ -77,9 +78,16 @@ namespace Game.Models
         // This move will handle automatic actions that occur every turn, such as ability cooldown
         public void TurnManager()
         {
-            if (CurrentCooldown > 0)
+            if (!CheckCooldown())
             {
                 CurrentCooldown--;
+            }
+            else
+            {
+                CurrentSpeed = MaxSpeed;
+                CurrentStamina = MaxStamina;
+                CurrentHitPoints = MaxHitPoints;
+                CurrentThiccness = MaxThiccness;
             }
         }
         

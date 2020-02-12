@@ -15,6 +15,12 @@ namespace Game.Views
         public CharacterIndexPage()
         {
             InitializeComponent();
+            
+        }
+
+        async void AddCharacter_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new CharacterCreatePage(new ViewModels.GenericViewModel<Models.CharacterModel>())));
         }
     }
 }

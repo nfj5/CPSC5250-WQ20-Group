@@ -9,10 +9,10 @@ namespace Game.Models
         // Private attributes
         private const int MAX_ITEMS = 6;
 
-        private int MaxSpeed { get; set; } // How quickly the character can move (max number of blocks per turn). Scale of 1-4
-        private int MaxStrength { get; set; } // How far the Person can throw Items. Scale of 1-4
-        private int MaxHitPoints { get; set; } // How much damage the character can take. Scale of 10-20
-        private int MaxThiccness { get; set;} // How much defense a character can have. 
+        private int BaseSpeed { get; set; } = 0;// How quickly the character can move (max number of blocks per turn). Scale of 1-4
+        private int BaseStrength { get; set; } = 0;// How far the Person can throw Items. Scale of 1-4
+        private int BaseHitPoints { get; set; } = 0; // How much damage the character can take. Scale of 10-20
+        private int BaseThiccness { get; set; } = 0;// How much defense a character can have. 
 
         private int CurrentSpeed { get; set; } // How quickly the character can currently move
         private int CurrentStrength { get; set; } // How strong the character currently is
@@ -23,7 +23,7 @@ namespace Game.Models
         public string Name { get; set; } // The official name for the Person. Not editable by the player 
         public string Nickname { get; set; } // The player-editable name for the Person 
         public AbilityModel SuperstarAbility { get; set; } // uses separate Ability class which applies modifiers to the Character, tracks ability cooldown, et cetera 
-        public int MaxStamina { get; set; } // How much stamina the character has, on a 1 –99 scale. Stamina resets after matches, stamina determines run duration, number of throws. If not enough stamina then the user can not perform any actions. A math is 1 game(or 1 dungeon, or 1 round however you want to think of it). Also different actions take different amount of stamina so we are not assuming a character will get 99 turns.  
+        public int BaseStamina { get; set; } // How much stamina the character has, on a 1 –99 scale. Stamina resets after matches, stamina determines run duration, number of throws. If not enough stamina then the user can not perform any actions. A math is 1 game(or 1 dungeon, or 1 round however you want to think of it). Also different actions take different amount of stamina so we are not assuming a character will get 99 turns.  
         public int CurrentStamina { get; set; } // How much stamina the character currently has during their turn
         public int TrainingPoints { get; set; } = 0; // Points used to upgrade speed, strength, hit_points, stamina.  
         public List<ItemModel> Items { get; set; } // Return list of all items the character currently has on its persons. 
@@ -65,10 +65,10 @@ namespace Game.Models
                 return false;
             }
 
-            CurrentSpeed = (int) Math.Floor(MaxSpeed * SuperstarAbility.SpeedMultiplier);
-            CurrentStrength = (int) Math.Floor(MaxStrength * SuperstarAbility.StrengthMultiplier);
-            CurrentHitPoints = (int) Math.Floor(MaxHitPoints * SuperstarAbility.HitPointModifier);
-            CurrentThiccness = (int) Math.Floor(MaxThiccness * SuperstarAbility.ThiccnessModifier);
+            CurrentSpeed = (int) Math.Floor(BaseSpeed * SuperstarAbility.SpeedMultiplier);
+            CurrentStrength = (int) Math.Floor(BaseStrength * SuperstarAbility.StrengthMultiplier);
+            CurrentHitPoints = (int) Math.Floor(BaseHitPoints * SuperstarAbility.HitPointModifier);
+            CurrentThiccness = (int) Math.Floor(BaseThiccness * SuperstarAbility.ThiccnessModifier);
 
             CurrentCooldown = SuperstarAbility.Cooldown;
 
@@ -84,10 +84,10 @@ namespace Game.Models
             }
             else
             {
-                CurrentSpeed = MaxSpeed;
-                CurrentStamina = MaxStamina;
-                CurrentHitPoints = MaxHitPoints;
-                CurrentThiccness = MaxThiccness;
+                CurrentSpeed = BaseSpeed;
+                CurrentStamina = BaseStamina;
+                CurrentHitPoints = BaseHitPoints;
+                CurrentThiccness = BaseThiccness;
             }
         }
         

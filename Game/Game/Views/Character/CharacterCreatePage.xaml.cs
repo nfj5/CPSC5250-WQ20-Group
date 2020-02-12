@@ -20,7 +20,10 @@ namespace Game.Views
         {
             InitializeComponent();
 
+            data.Data = new CharacterModel();
+
             BindingContext = this.ViewModel = data;
+            
             this.ViewModel.Title = "Create";
         }
         

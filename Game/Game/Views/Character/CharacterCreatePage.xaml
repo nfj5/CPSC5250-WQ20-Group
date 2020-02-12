@@ -47,51 +47,61 @@
                            Text="{Binding Data.Nickname}"
                            Style="{StaticResource EntryStyle}" />
 
-                    <Label Grid.Row="2" Grid.Column="0" Text="Speed" Style="{StaticResource LabelStyle}"/>
-                    <StackLayout Grid.Row="2" Grid.Column="1" Style="{StaticResource HorizontalStack}" Padding="10">
-                        <Label Text="{Binding Data.MaxSpeed}"
+                    <Label Grid.Row="2" Grid.Column="0" Text="Image URI" Style="{StaticResource LabelStyle}"/>
+                    <StackLayout Grid.Row="2" Grid.Column="1" Style="{StaticResource HorizontalStack}" HorizontalOptions="FillAndExpand">
+                        <Image 
+                            Source="{Binding Data.ImageURI}"
+                            Style="{StaticResource ImageSmallStyle}"/>
+                        <Entry 
+                            Text="{Binding Data.ImageURI}" 
+                            Style="{StaticResource EntryStyle}"/>
+                    </StackLayout>
+
+                    <Label Grid.Row="3" Grid.Column="0" Text="Speed" Style="{StaticResource LabelStyle}"/>
+                    <StackLayout Grid.Row="3" Grid.Column="1" Style="{StaticResource HorizontalStack}" Padding="10">
+                        <Label Text="{Binding Data.BaseSpeed}"
                                x:Name="SpeedValue"
                                Style="{StaticResource ValueStyle}"
                                Padding="0,0,10,0"
                                HorizontalOptions="End"
                                HorizontalTextAlignment="End" />
-                        <Stepper Value="{Binding Data.MaxSpeed, Mode=TwoWay}"
+                        <Stepper Value="{Binding Data.BaseSpeed, Mode=TwoWay}"
                                  ValueChanged="Speed_OnStepperValueChanged"/>
                     </StackLayout>
 
-                    <Label Grid.Row="3" Grid.Column="0" Text="Strength" Style="{StaticResource LabelStyle}"/>
-                    <StackLayout Grid.Row="3" Grid.Column="1" Style="{StaticResource HorizontalStack}" Padding="10">
-                        <Label Text="{Binding Data.MaxStrength}"
+                    <Label Grid.Row="4" Grid.Column="0" Text="Strength" Style="{StaticResource LabelStyle}"/>
+                    <StackLayout Grid.Row="4" Grid.Column="1" Style="{StaticResource HorizontalStack}" Padding="10">
+                        <Label Text="{Binding Data.BaseStrength}"
                                x:Name="StrengthValue"
                                Style="{StaticResource ValueStyle}"
                                Padding="0,0,10,0"
                                HorizontalOptions="End"
                                HorizontalTextAlignment="End" />
-                        <Stepper Value="{Binding Data.Strength, Mode=TwoWay}"
+                        <Stepper Value="{Binding Data.BaseStrength, Mode=TwoWay}"
                                  ValueChanged="Strength_OnStepperValueChanged"/>
                     </StackLayout>
 
-                    <Label Grid.Row="4" Grid.Column="0" Text="Hit Points" Style="{StaticResource LabelStyle}"/>
-                    <StackLayout Grid.Row="4" Grid.Column="1" Style="{StaticResource HorizontalStack}" Padding="10">
-                        <Label Text="{Binding Data.MaxHitPoints}"
+                    <Label Grid.Row="5" Grid.Column="0" Text="Hit Points" Style="{StaticResource LabelStyle}"/>
+                    <StackLayout Grid.Row="5" Grid.Column="1" Style="{StaticResource HorizontalStack}" Padding="10">
+                        <Label Text="{Binding Data.BaseHitPoints}"
                                x:Name="HitPointsValue"
                                Style="{StaticResource ValueStyle}"
                                Padding="0,0,10,0"
                                HorizontalOptions="End"
                                HorizontalTextAlignment="End" />
-                        <Stepper Value="{Binding Data.MaxHitPoints, Mode=TwoWay}"
+                        <Stepper Value="{Binding Data.BaseHitPoints, Mode=TwoWay}"
                                  ValueChanged="HitPoints_OnStepperValueChanged"/>
                     </StackLayout>
 
-                    <Label Grid.Row="5" Grid.Column="0" Text="Thiccness" Style="{StaticResource LabelStyle}"/>
-                    <StackLayout Grid.Row="5" Grid.Column="1" Style="{StaticResource HorizontalStack}" Padding="10">
-                        <Label Text="{Binding Data.MaxHitPoints}"
+                    <Label Grid.Row="6" Grid.Column="0" Text="Thiccness" Style="{StaticResource LabelStyle}"/>
+                    <StackLayout Grid.Row="6" Grid.Column="1" Style="{StaticResource HorizontalStack}" Padding="10">
+                        <Label Text="{Binding Data.BaseThiccness}"
                                x:Name="ThiccnessValue"
                                Style="{StaticResource ValueStyle}"
                                Padding="0,0,10,0"
                                HorizontalOptions="End"
                                HorizontalTextAlignment="End" />
-                        <Stepper Value="{Binding Data.MaxThiccness, Mode=TwoWay}"
+                        <Stepper Value="{Binding Data.BaseThiccness, Mode=TwoWay}"
                                  ValueChanged="Thiccness_OnStepperValueChanged"/>
                     </StackLayout>
 

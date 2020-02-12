@@ -5,11 +5,39 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Game.Views.CharacterDeletePage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked"/>
+        <ToolbarItem Text="Delete" Clicked="Delete_Clicked"/>
+    </ContentPage.ToolbarItems>
+
+    <StackLayout Spacing="20" Padding="15"
+                 VerticalOptions="CenterAndExpand"
+                 HorizontalOptions="CenterAndExpand">
+
+
+        <Label Text="Character:" FontSize="Medium" />
+        <Label Text="{Binding Data.Name}" d:Text="Item name" FontSize="Small"/>
+        <StackLayout HorizontalOptions="Center" 
+                     Padding="20"
+                     Orientation="Vertical">
+            <Label Text="Are you sure you want to delete this character?" 
+                   FontSize="Medium"></Label>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Button Text="Yes"
+                    Clicked="Delete_Clicked"
+                    HorizontalOptions="Center"
+                    FontSize="Medium"
+                    BorderWidth="1"
+                    BorderColor="Black">
+                </Button>
+                <Button Text="No"
+                    Clicked="Cancel_Clicked"
+                    HorizontalOptions="Center"
+                    FontSize="Medium"
+                    BorderWidth="1"
+                    BorderColor="Black">
+                </Button>
+            </StackLayout>
         </StackLayout>
-    </ContentPage.Content>
+    </StackLayout>
 </ContentPage>

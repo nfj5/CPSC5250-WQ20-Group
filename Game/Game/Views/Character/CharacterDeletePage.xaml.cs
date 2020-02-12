@@ -16,5 +16,16 @@ namespace Game.Views
         {
             InitializeComponent();
         }
+
+        async void Delete_Clicked(object sender, EventArgs e)
+        {
+            //MessagingCenter.Send(this, "Update", ViewModel.Data);
+            await Navigation.PopAsync();
+        }
+
+        async void Cancel_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
     }
 }

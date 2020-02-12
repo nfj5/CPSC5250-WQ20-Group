@@ -12,6 +12,7 @@ namespace Game.Models
         private int MaxSpeed { get; set; } // How quickly the character can move (max number of blocks per turn). Scale of 1-4
         private int MaxStrength { get; set; } // How far the Person can throw Items. Scale of 1-4
         private int MaxHitPoints { get; set; } // How much damage the character can take. Scale of 10-20
+        private int MaxThiccness { get; set;} // How much defense a character can have. 
 
         private int CurrentSpeed { get; set; } // How quickly the character can currently move
         private int CurrentStrength { get; set; } // How strong the character currently is

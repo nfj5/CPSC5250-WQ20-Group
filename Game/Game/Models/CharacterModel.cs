@@ -14,7 +14,7 @@ namespace Game.Models
                 return;
             }
 
-            BaseSpeed
+            BaseSpeed = newData.BaseSpeed;
             BaseStrength
             BaseHitPoints
             BaseThiccness

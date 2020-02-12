@@ -9,16 +9,16 @@ namespace Game.Models
         // Private attributes
         private const int MAX_ITEMS = 6;
 
-        private int BaseSpeed { get; set; } = 0;// How quickly the character can move (max number of blocks per turn). Scale of 1-4
-        private int BaseStrength { get; set; } = 0;// How far the Person can throw Items. Scale of 1-4
-        private int BaseHitPoints { get; set; } = 0; // How much damage the character can take. Scale of 10-20
-        private int BaseThiccness { get; set; } = 0;// How much defense a character can have. 
+        public int BaseSpeed { get; set; } = 0;// How quickly the character can move (max number of blocks per turn). Scale of 1-4
+        public int BaseStrength { get; set; } = 0;// How far the Person can throw Items. Scale of 1-4
+        public int BaseHitPoints { get; set; } = 0; // How much damage the character can take. Scale of 10-20
+        public int BaseThiccness { get; set; } = 0;// How much defense a character can have. 
 
-        private int CurrentSpeed { get; set; } // How quickly the character can currently move
-        private int CurrentStrength { get; set; } // How strong the character currently is
-        private int CurrentHitPoints { get; set; } // How much damage the character can currently take
-        private int CurrentCooldown { get; set; } // The current cooldown time of the characters special ability
-        private int CurrentThiccness { get; set;}  //The current thicness level of the character. 
+        public int CurrentSpeed { get; set; } // How quickly the character can currently move
+        public int CurrentStrength { get; set; } // How strong the character currently is
+        public int CurrentHitPoints { get; set; } // How much damage the character can currently take
+        public int CurrentCooldown { get; set; } // The current cooldown time of the characters special ability
+        public int CurrentThiccness { get; set;}  //The current thicness level of the character. 
 
         public string Name { get; set; } // The official name for the Person. Not editable by the player 
         public string Nickname { get; set; } // The player-editable name for the Person 

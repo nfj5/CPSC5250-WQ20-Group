@@ -24,28 +24,28 @@
                 <StackLayout Style="{StaticResource HorizontalStack}">
                     <Label Text="Speed : "
                            Style="{StaticResource LabelStyle}" />
-                    <Label Text="{Binding Data.MaxSpeed}"
+                    <Label Text="{Binding Data.BaseSpeed}"
                            Style="{StaticResource LabelStyle}" />
                 </StackLayout>
 
                 <StackLayout Style="{StaticResource HorizontalStack}">
                     <Label Text="Strength : "
                            Style="{StaticResource LabelStyle}" />
-                    <Label Text="{Binding Data.MaxStrength}"
+                    <Label Text="{Binding Data.BaseStrength}"
                            Style="{StaticResource LabelStyle}" />
                 </StackLayout>
 
                 <StackLayout Style="{StaticResource HorizontalStack}">
                     <Label Text="Hit Points : "
                            Style="{StaticResource LabelStyle}" />
-                    <Label Text="{Binding Data.MaxHitPoints}"
+                    <Label Text="{Binding Data.BaseHitPoints}"
                            Style="{StaticResource LabelStyle}" />
                 </StackLayout>
 
                 <StackLayout Style="{StaticResource HorizontalStack}">
                     <Label Text="Thiccness : "
                            Style="{StaticResource LabelStyle}" />
-                    <Label Text="{Binding Data.MaxThiccness}"
+                    <Label Text="{Binding Data.BaseThiccness}"
                            Style="{StaticResource LabelStyle}" />
                 </StackLayout>
             </StackLayout>

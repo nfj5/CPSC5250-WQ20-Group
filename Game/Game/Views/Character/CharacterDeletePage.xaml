@@ -15,9 +15,11 @@
                  VerticalOptions="CenterAndExpand"
                  HorizontalOptions="CenterAndExpand">
 
-        <Image Source="http://clipart-library.com/images/6cr6KjGei.png"
-                WidthRequest="200"
-                HeightRequest="200" />
+        <Image Source="{Binding Data.ImageURI}" 
+                           Style="{StaticResource ImageLargeStyle}"
+                           HorizontalOptions="CenterAndExpand" 
+                           WidthRequest="200"
+                           HeightRequest="200"/>
 
         <Label Text="Character:" FontSize="Medium" />
         <Label Text="{Binding Data.Name}" d:Text="Item name" FontSize="Small"/>

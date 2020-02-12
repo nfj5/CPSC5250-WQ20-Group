@@ -26,8 +26,8 @@ namespace Game.Models
         public int CurrentThiccness { get; set; } = 0; //The current thicness level of the character. 
         public int CurrentStamina { get; set; } = 0;// How much stamina the character currently has during their turn
 
-        public string Name { get; set; } // The official name for the Person. Not editable by the player 
-        public string Nickname { get; set; } // The player-editable name for the Person 
+        public string Name { get; set; } = "Character Name"; // The official name for the Person. Not editable by the player 
+        public string Nickname { get; set; } = "Character Nickname"; // The player-editable name for the Person 
         public AbilityModel SuperstarAbility { get; set; } // uses separate Ability class which applies modifiers to the Character, tracks ability cooldown, et cetera 
         
         public int TrainingPoints { get; set; } = 0; // Points used to upgrade speed, strength, hit_points, stamina.  

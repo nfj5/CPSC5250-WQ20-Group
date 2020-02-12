@@ -5,6 +5,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Game.Views.CharacterIndexPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Clicked="AddCharacter_Clicked" IconImageSource="icon_add.png"/>
+        </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Welcome to Xamarin.Forms!"

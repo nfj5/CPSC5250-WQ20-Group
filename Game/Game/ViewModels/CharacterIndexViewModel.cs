@@ -78,12 +78,38 @@ namespace Game.ViewModels
             //Register the Wipe data source message
             MessagingCenter.Subscribe<AboutPage, bool>(this, "WipeDataList", async (obj, data) =>
             {
-
                 await WipeDataListAsync();
             });
 
             #endregion Messages
         }
 
+        #endregion Constructor
+
+        #region DataOperations_CRUDI
+
+        //Returns items passed in
+        public CharacterModel CheckIfItemExists(CharacterModel data)
+        {
+            var myList = Dataset.Where(a => a.Name == data.Name).FirstOrDefault();
+
+            if (myList == null)
+            {
+                // its not a math, return false;
+                return null;
+            }
+
+            return myList;
+        }
+
+        //Load the defual data
+        public override List<CharacterModel> GetDefaultData()
+        {
+            return DefaultData.LoadData(new CharacterModel());
+        }
+
+        #endregion DataOperations_CRUDI
+
+        #region SortDataSet
     }
 }

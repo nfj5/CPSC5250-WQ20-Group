@@ -47,6 +47,52 @@ namespace Game.Services
             return datalist;
         }
 
+        public static List<CharacterModel> LoadData(CharacterModel temp)
+        {
+            var datalist = new List<CharacterModel>()
+            {
+                new CharacterModel
+                {
+                    Name = "Bob Jones",
+                    Nickname = "BJ",
+                    ImageURI = "http://www.clker.com/cliparts/e/L/A/m/I/c/sword-md.png",
+                    BaseSpeed = 9,
+                    BaseHitPoints = 9,
+                    BaseStrength = 9,
+                    BaseThiccness = 9,
+                },
+
+                new CharacterModel
+                {
+                    Name = "Adam Jones",
+                    Nickname = "AJ",
+                    ImageURI = "http://www.clker.com/cliparts/e/L/A/m/I/c/sword-md.png",
+                    BaseSpeed = 1,
+                    BaseHitPoints = 1,
+                    BaseStrength = 1,
+                    BaseThiccness = 1
+                },
+
+                new CharacterModel
+                {
+                    Name = "Derick Jones",
+                    Nickname = "DJ",
+                    ImageURI = "http://www.clker.com/cliparts/e/L/A/m/I/c/sword-md.png",
+                    BaseSpeed = 5,
+                    BaseHitPoints = 5,
+                    BaseStrength = 5,
+                    BaseThiccness = 5
+                }
+
+            };
+
+            return datalist;
+        }
+
+
+
+
+
         public static List<ScoreModel> LoadData(ScoreModel temp)
         {
             var datalist = new List<ScoreModel>()

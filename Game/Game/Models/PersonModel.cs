@@ -17,7 +17,8 @@ namespace Game.Models
         private int CurrentSpeed { get; set; } // How quickly the character can currently move
         private int CurrentStrength { get; set; } // How strong the character currently is
         private int CurrentHitPoints { get; set; } // How much damage the character can currently take
-        private int CurrentCooldown { get; set; }
+        private int CurrentCooldown { get; set; } // The current cooldown time of teh characters special ability
+        private int CurrentThiccness { get; set;}  //
 
         public string Name { get; set; } // The official name for the Person. Not editable by the player 
         public string Nickname { get; set; } // The player-editable name for the Person 

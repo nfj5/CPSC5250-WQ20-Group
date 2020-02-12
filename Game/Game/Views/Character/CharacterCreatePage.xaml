@@ -105,6 +105,18 @@
                                  ValueChanged="Thiccness_OnStepperValueChanged"/>
                     </StackLayout>
 
+                    <Label Grid.Row="7" Grid.Column="0" Text="Stamina" Style="{StaticResource LabelStyle}"/>
+                    <StackLayout Grid.Row="7" Grid.Column="1" Style="{StaticResource HorizontalStack}" Padding="10">
+                        <Label Text="{Binding Data.BaseStamina}"
+                               x:Name="ThiccnessValue"
+                               Style="{StaticResource ValueStyle}"
+                               Padding="0,0,10,0"
+                               HorizontalOptions="End"
+                               HorizontalTextAlignment="End" />
+                        <Stepper Value="{Binding Data.BaseStamina, Mode=TwoWay}"
+                                 ValueChanged="Thiccness_OnStepperValueChanged"/>
+                    </StackLayout>
+
                 </Grid>
             </StackLayout>
         </ScrollView>

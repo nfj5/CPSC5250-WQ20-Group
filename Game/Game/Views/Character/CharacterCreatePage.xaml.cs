@@ -92,5 +92,15 @@ namespace Game.Views
         {
             ThiccnessValue.Text = String.Format("{0}", e.NewValue);
         }
+
+        /// <summary>
+        ///  Capture value change for HitPoints stepper
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void Stamina_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+        {
+            StaminaValue.Text = String.Format("{0}", e.NewValue);
+        }
     }
 }

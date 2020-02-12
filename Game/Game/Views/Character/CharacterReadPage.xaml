@@ -22,6 +22,20 @@
                 <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}" HorizontalOptions="CenterAndExpand" />
 
                 <StackLayout Style="{StaticResource HorizontalStack}">
+                    <Label Text="Name : "
+                           Style="{StaticResource LabelStyle}" />
+                    <Label Text="{Binding Data.Name}"
+                           Style="{StaticResource LabelStyle}" />
+                </StackLayout>
+                
+                <StackLayout Style="{StaticResource HorizontalStack}">
+                    <Label Text="Nickname : "
+                           Style="{StaticResource LabelStyle}" />
+                    <Label Text="{Binding Data.Nickname}"
+                           Style="{StaticResource LabelStyle}" />
+                </StackLayout>
+
+                <StackLayout Style="{StaticResource HorizontalStack}">
                     <Label Text="Speed : "
                            Style="{StaticResource LabelStyle}" />
                     <Label Text="{Binding Data.BaseSpeed}"
@@ -46,6 +60,13 @@
                     <Label Text="Thiccness : "
                            Style="{StaticResource LabelStyle}" />
                     <Label Text="{Binding Data.BaseThiccness}"
+                           Style="{StaticResource LabelStyle}" />
+                </StackLayout>
+
+                <StackLayout Style="{StaticResource HorizontalStack}">
+                    <Label Text="Stamina : "
+                           Style="{StaticResource LabelStyle}" />
+                    <Label Text="{Binding Data.BaseStamina}"
                            Style="{StaticResource LabelStyle}" />
                 </StackLayout>
             </StackLayout>

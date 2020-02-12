@@ -7,7 +7,7 @@ namespace Game.Models
     // CharacterModel extends PersonModel (and is literally just uses that)
     public class CharacterModel: PersonModel
     {
-        public override void Update(CharacterModel newData)
+        public void Update(CharacterModel newData)
         {
             if(newData == null)
             {
@@ -15,9 +15,9 @@ namespace Game.Models
             }
 
             BaseSpeed = newData.BaseSpeed;
-            BaseStrength
-            BaseHitPoints
-            BaseThiccness
+            BaseStrength = newData.BaseStrength;
+            BaseHitPoints = newData.BaseHitPoints;
+            BaseThiccness = newData.BaseThiccness;
         }
 
     }

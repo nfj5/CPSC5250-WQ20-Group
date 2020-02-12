@@ -118,7 +118,7 @@ namespace Game.Models
         public int CooldownTime { get; set; } // cooldown will be number of turns 
         public float Modifier { get; set; } // multiplier to be applied to the specified stat. Result will be rounded down. The stat modified will depend on which special ability was given to the character at time of creation. We will have 3 different special abilities. The stats being modified are speed, strength, and stamina.  
 
-        public void Update(CharacterModel newData)
+        public override void Update(CharacterModel newData)
         {
             if (newData == null)
             {

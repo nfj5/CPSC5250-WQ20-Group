@@ -26,15 +26,13 @@ namespace Game.Views
 
         async void Update_Clicked(object sender, EventArgs e)
         {
-            // Uncomment when CharacterUpdatePage implemented
-            // await Navigation.PushModalAsync(new NavigationPage(new CharacterUpdatePage(new GenericViewModel<CharacterModel>(ViewModel.Data))));
+            await Navigation.PushModalAsync(new NavigationPage(new CharacterUpdatePage(new GenericViewModel<CharacterModel>(ViewModel.Data))));
             await Navigation.PopAsync();
         }
 
         async void Delete_Clicked(object sender, EventArgs e)
         {
-            // Uncomment when CharacterDeletePage implemented
-            // await Navigation.PushModalAsync(new NavigationPage(new CharacterDeletePage(new GenericViewModel<ItemModel>(ViewModel.Data))));
+            await Navigation.PushModalAsync(new NavigationPage(new CharacterDeletePage(new GenericViewModel<ItemModel>(ViewModel.Data))));
             await Navigation.PopAsync();
         }
     }

@@ -54,6 +54,13 @@ namespace Game.ViewModels
                 await CreateAsync(data as CharacterModel);
             });
 
+            //Register the Update message
+            MessagingCenter.Subscribe<CharacterUpdatePage, CharacterModel>(this, "update", async (obj, data) =>
+            {
+                data.Update(data);
+                await UpdateAsync(data as CharacterModel);
+            });
+
 
 
             #endregion Messages

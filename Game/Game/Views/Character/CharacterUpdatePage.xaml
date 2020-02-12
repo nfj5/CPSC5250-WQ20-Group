@@ -14,8 +14,14 @@
 
     <ContentPage.Content>
         <StackLayout Spacing="20" Padding="15">
+            <StackLayout Orientation="Horizontal">
+                <Image Source="http://clipart-library.com/images/6cr6KjGei.png"
+                   WidthRequest="200"
+                   HeightRequest="200"/>
+            </StackLayout>
             <Label Text="Text" FontSize="Medium" />
             <Entry Text="{Binding Data.Name}" d:Text="Item name" FontSize="Small" />
+
             <Label Text="Description" FontSize="Medium" />
             <Editor Text="{Binding Data.Description}" d:Text="Item description" FontSize="Small" Margin="0" AutoSize="TextChanges"/>
 
@@ -31,7 +37,7 @@
                 <Label Text="Speed:"/>
             </StackLayout>
 
-
+ 
         </StackLayout>
     </ContentPage.Content>
 

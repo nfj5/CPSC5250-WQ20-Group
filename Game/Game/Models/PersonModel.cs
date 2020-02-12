@@ -25,6 +25,7 @@ namespace Game.Models
         public int CurrentStamina { get; set; } // How much stamina the character currently has during their turn
         public int TrainingPoints { get; set; } = 0; // Points used to upgrade speed, strength, hit_points, stamina.  
         public List<ItemModel> Items { get; set; } // Return list of all items the character currently has on its persons. 
+        public string ImageURI { get; set; } // The image to use for this Person
 
         //Public methods
 

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Game.Models;
+using Game.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +14,28 @@ namespace Game.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CharacterReadPage : ContentPage
     {
-        public CharacterReadPage()
+        GenericViewModel<CharacterModel> ViewModel { get; set; }
+        
+        public CharacterReadPage(GenericViewModel<CharacterModel> data)
         {
             InitializeComponent();
+
+            BindingContext = this.ViewModel = data;
+            this.ViewModel.Title = "Read";
+        }
+
+        async void Update_Clicked(object sender, EventArgs e)
+        {
+            // Uncomment when CharacterUpdatePage implemented
+            // await Navigation.PushModalAsync(new NavigationPage(new CharacterUpdatePage(new GenericViewModel<CharacterModel>(ViewModel.Data))));
+            await Navigation.PopAsync();
+        }
+
+        async void Delete_Clicked(object sender, EventArgs e)
+        {
+            // Uncomment when CharacterDeletePage implemented
+            // await Navigation.PushModalAsync(new NavigationPage(new CharacterDeletePage(new GenericViewModel<ItemModel>(ViewModel.Data))));
+            await Navigation.PopAsync();
         }
     }
 }

@@ -58,6 +58,7 @@ namespace Game.Services
                     ImageURI = "http://www.clker.com/cliparts/e/L/A/m/I/c/sword-md.png",
                     BaseSpeed = 9,
                     BaseHitPoints = 9,
+                    BaseStamina = 9,
                     BaseStrength = 9,
                     BaseThiccness = 9,
                 },
@@ -68,6 +69,7 @@ namespace Game.Services
                     Nickname = "AJ",
                     ImageURI = "http://www.clker.com/cliparts/e/L/A/m/I/c/sword-md.png",
                     BaseSpeed = 1,
+                    BaseStamina = 1,
                     BaseHitPoints = 1,
                     BaseStrength = 1,
                     BaseThiccness = 1
@@ -80,6 +82,7 @@ namespace Game.Services
                     ImageURI = "http://www.clker.com/cliparts/e/L/A/m/I/c/sword-md.png",
                     BaseSpeed = 5,
                     BaseHitPoints = 5,
+                    BaseStamina = 5,
                     BaseStrength = 5,
                     BaseThiccness = 5
                 }

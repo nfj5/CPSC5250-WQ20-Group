@@ -79,5 +79,15 @@ namespace Game.Views
         {
             HitPointsValue.Text = String.Format("{0}", e.NewValue);
         }
+
+        /// <summary>
+        ///  Capture value change for HitPoints stepper
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void Thiccness_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+        {
+            ThiccnessValue.Text = String.Format("{0}", e.NewValue);
+        }
     }
 }

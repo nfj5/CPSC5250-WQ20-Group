@@ -22,5 +22,7 @@ namespace Game.Views
         {
             await Navigation.PushModalAsync(new NavigationPage(new CharacterCreatePage(new ViewModels.GenericViewModel<Models.CharacterModel>())));
         }
+
+        
     }
 }

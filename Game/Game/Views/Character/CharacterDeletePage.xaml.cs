@@ -27,13 +27,13 @@ namespace Game.Views
 
         async void Delete_Clicked(object sender, EventArgs e)
         {
-            //MessagingCenter.Send(this, "Update", ViewModel.Data);
-            await Navigation.PopAsync();
+            MessagingCenter.Send(this, "Delete", ViewModel.Data);
+            await Navigation.PopModalAsync();
         }
 
         async void Cancel_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PopAsync();
+            await Navigation.PopModalAsync();
         }
     }
 }

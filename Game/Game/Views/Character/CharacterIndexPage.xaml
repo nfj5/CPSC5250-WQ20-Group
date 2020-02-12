@@ -6,15 +6,12 @@
              mc:Ignorable="d"
              x:Class="Game.Views.CharacterIndexPage">
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Clicked="AddCharacter_Clicked" IconImageSource="icon_add.png"/>
-        </ContentPage.ToolbarItems>
-
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Style="{StaticResource OuterBoxStack}">
+
+            <Label Text="Character Index Page" Style="{StaticResource HeaderStyle}"/>
+
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

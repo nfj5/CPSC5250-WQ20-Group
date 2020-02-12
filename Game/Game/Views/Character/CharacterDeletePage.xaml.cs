@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Game.Models;
+using Game.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +14,15 @@ namespace Game.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CharacterDeletePage : ContentPage
     {
-        public CharacterDeletePage()
+        GenericViewModel<CharacterModel> ViewModel;
+
+        public CharacterDeletePage(GenericViewModel<CharacterModel> data)
         {
             InitializeComponent();
+
+
+            BindingContext = this.ViewModel = data;
+
         }
 
         async void Delete_Clicked(object sender, EventArgs e)

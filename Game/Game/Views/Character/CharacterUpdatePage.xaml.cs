@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Game.Models;
+using Game.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,15 +16,18 @@ namespace Game.Views
     {
 
         //Change to characterviewmodel viewmodel;
-        //ItemViewModel ViewModel;
-        public CharacterUpdatePage()
+        GenericViewModel<CharacterModel> ViewModel;
+        
+        public CharacterUpdatePage(GenericViewModel<CharacterModel> data)
         {
             InitializeComponent();
+
+            BindingContext = this.ViewModel = data;
         }
 
         async void Save_Clicked(object sender, EventArgs e)
         {
-            //MessagingCenter.Send(this, "Update", ViewModel.Data);
+            MessagingCenter.Send(this, "Update", ViewModel.Data);
             await Navigation.PopAsync();
         }
 

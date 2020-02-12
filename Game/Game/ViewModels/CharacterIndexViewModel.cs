@@ -68,6 +68,13 @@ namespace Game.ViewModels
                 await DeleteAsync(data as CharacterModel);
             });
 
+            //Register the Set data source message
+            MessagingCenter.Subscribe<AboutPage, int>(this, "SetDataSource", async (obj, data) =>
+            {
+
+                await SetDataSource(data);
+            });
+
 
             #endregion Messages
         }

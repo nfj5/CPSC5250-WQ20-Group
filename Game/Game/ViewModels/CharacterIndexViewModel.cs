@@ -111,5 +111,11 @@ namespace Game.ViewModels
         #endregion DataOperations_CRUDI
 
         #region SortDataSet
+        //The sort order for the Character Model
+        public List<CharacterModel> SortDataSet(List<CharacterModel> dataset)
+        {
+            return dataset.OrderBy(a => a.Name).ToList();
+        }
+        #endregion SortDataSet
     }
 }

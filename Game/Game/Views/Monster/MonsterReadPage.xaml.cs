@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Game.ViewModels;
 using Game.Models;
 using Xamarin.Forms;
+using Game.Views.Monster;
 
 namespace Game.Views
 {
@@ -16,6 +17,18 @@ namespace Game.Views
 
             BindingContext = this.ViewModel = data;
             this.ViewModel.Title = "Read";
+        }
+
+        async void Update_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new MonsterUpdatePage(new GenericViewModel<MonsterModel>(ViewModel.Data))));
+            await Navigation.PopAsync();
+        }
+
+        async void Delete_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new MonsterDeletePage(new GenericViewModel<MonsterModel>(ViewModel.Data))));
+            await Navigation.PopAsync();
         }
     }
 }

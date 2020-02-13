@@ -18,9 +18,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Views\Monster\MonsterIndexPage.xaml.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Update="Views\Battle\PickItemsPage.xaml.cs">
       <DependentUpon>PickItemsPage.xaml</DependentUpon>
     </Compile>
@@ -63,7 +60,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Remove="Views\Monster\MonsterIndexPage.xaml" />
     <EmbeddedResource Remove="Views\Monster\MonsterUpdatePage.xaml" />
   </ItemGroup>
   <ItemGroup>

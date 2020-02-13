@@ -30,7 +30,7 @@
                 <Editor Text="{Binding Data.Nickname}" d:Text="Nickname" FontSize="Small" Margin="0" AutoSize="TextChanges"/>
 
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="Strength: "/>
+                    <Label Text="Speed: "/>
                     <Editor Text="{Binding Data.BaseSpeed}" d:Text="Strength" FontSize="Small" Margin="0" AutoSize="TextChanges"/>
                 </StackLayout>
 

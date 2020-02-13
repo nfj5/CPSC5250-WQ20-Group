@@ -17,9 +17,9 @@ namespace Game.Views
 
         public MonsterIndexPage()
         {
-            //InitializeComponent();
+            InitializeComponent();
 
-            //BindingContext = ViewModel = MonsterIndexViewModel.Instance;
+            BindingContext = ViewModel = MonsterIndexViewModel.Instance;
         }
 
         async void AddMonster_Clicked(object sender, EventArgs e)
@@ -39,6 +39,27 @@ namespace Game.Views
             await Navigation.PushAsync(new MonsterReadPage(new GenericViewModel<MonsterModel>(data)));
 
             MonsterListView.SelectedItem = null;
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            BindingContext = null;
+
+            // If no data, then set it for needing refresh
+            if (ViewModel.Dataset.Count == 0)
+            {
+                ViewModel.SetNeedsRefresh(true);
+            }
+
+            // If the needs Refresh flag is set update it
+            if (ViewModel.NeedsRefresh())
+            {
+                ViewModel.LoadDatasetCommand.Execute(null);
+            }
+
+            BindingContext = ViewModel;
         }
 
     }

@@ -22,7 +22,6 @@
     <Compile Remove="Views\Monster\MonsterIndexPage.xaml.cs" />
     <Compile Remove="Views\Monster\MonsterCreatePage.xaml.cs" />
     <Compile Remove="Views\Monster\MonsterDeletePage.xaml.cs" />
-    <Compile Remove="ViewModels\MonsterIndexViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Views\Battle\PickItemsPage.xaml.cs">

@@ -34,7 +34,6 @@
                     <Editor Text="{Binding Data.BaseSpeed}" d:Text="Strength" FontSize="Small" Margin="0" AutoSize="TextChanges"/>
                 </StackLayout>
 
-
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Strength: "/>
                     <Editor Text="{Binding Data.BaseStrength}" d:Text="Strength" FontSize="Small" Margin="0" AutoSize="TextChanges"/>
@@ -50,6 +49,10 @@
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Stamina: "/>
+                    <Editor Text="{Binding Data.BaseStamina}" d:Text="Stamina" FontSize="Small" Margin="0" AutoSize="TextChanges"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Level: "/>
                     <Editor Text="{Binding Data.BaseStamina}" d:Text="Stamina" FontSize="Small" Margin="0" AutoSize="TextChanges"/>
                 </StackLayout>
 

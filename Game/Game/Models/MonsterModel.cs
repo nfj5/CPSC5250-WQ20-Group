@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using Game.Services;
+
 namespace Game.Models
 {
 
@@ -7,29 +10,29 @@ namespace Game.Models
         // Private attributes
         private const int MAX_ITEMS = 6;
 
-        public int BaseSpeed { get; set; } = 0;// How quickly the character can move (max number of blocks per turn). Scale of 1-4
+        public int BaseSpeed { get; set; } = 0;// How quickly the monster can move (max number of blocks per turn). Scale of 1-4
         public int BaseStrength { get; set; } = 0;// How far the Person can throw Items. Scale of 1-4
-        public int BaseHitPoints { get; set; } = 0; // How much damage the character can take. Scale of 10-20
-        public int BaseThiccness { get; set; } = 0;// How much defense a character can have.
-        public int BaseStamina { get; set; } = 0; 
-        // How much stamina the character has, on a 1 –99 scale. Stamina resets after matches, stamina determines run duration, number of throws.
+        public int BaseHitPoints { get; set; } = 0; // How much damage the monster can take. Scale of 10-20
+        public int BaseThiccness { get; set; } = 0;// How much defense a monster can have.
+        public int BaseStamina { get; set; } = 0;
+        // How much stamina the monster has, on a 1 –99 scale. Stamina resets after matches, stamina determines run duration, number of throws.
         //If not enough stamina then the user can not perform any actions. A math is 1 game(or 1 dungeon, or 1 round however you want to think of it).
         // Also different actions take different amount of stamina so we are not assuming a character will get 99 turns.  
 
-        public int CurrentSpeed { get; set; } = 0;// How quickly the character can currently move
-        public int CurrentStrength { get; set; } = 0; // How strong the character currently is
-        public int CurrentHitPoints { get; set; } = 0;// How much damage the character can currently take
-        public int CurrentCooldown { get; set; } = 0;// The current cooldown time of the characters special ability
+        public int CurrentSpeed { get; set; } = 0;// How quickly the monster can currently move
+        public int CurrentStrength { get; set; } = 0; // How strong the monster currently is
+        public int CurrentHitPoints { get; set; } = 0;// How much damage the monster can currently take
+        public int CurrentCooldown { get; set; } = 0;// The current cooldown time of the monster special ability
         public int CurrentThiccness { get; set; } = 0; //The current thicness level of the character. 
-        public int CurrentStamina { get; set; } = 0;// How much stamina the character currently has during their turn
+        public int CurrentStamina { get; set; } = 0;// How much stamina the monster currently has during their turn
 
         new public string Name { get; set; } = "Character Name"; // The official name for the Person. Not editable by the player 
         public string Nickname { get; set; } = "Character Nickname"; // The player-editable name for the Person 
-        public AbilityModel SuperstarAbility { get; set; } // uses separate Ability class which applies modifiers to the Character, tracks ability cooldown, et cetera 
-        
+        public AbilityModel SuperstarAbility { get; set; } // uses separate Ability class which applies modifiers to the monster, tracks ability cooldown, et cetera 
+
         public int TrainingPoints { get; set; } = 0; // Points used to upgrade speed, strength, hit_points, stamina.  
-        public List<ItemModel> Items { get; set; } = new List<ItemModel>(); // Return list of all items the character currently has on its persons. 
-        new public string ImageURI { get; set; } = CharacterService.DefaultImageURI; // The image to use for this Person
+        public List<ItemModel> Items { get; set; } = new List<ItemModel>(); // Return list of all items the monster currently has on its persons. 
+        new public string ImageURI { get; set; } = MonsterService.DefaultImageURI; // The image to use for this Person
 
         //Public methods
 
@@ -115,7 +118,7 @@ namespace Game.Models
         public int CooldownTime { get; set; } // cooldown will be number of turns 
         public float Modifier { get; set; } // multiplier to be applied to the specified stat. Result will be rounded down. The stat modified will depend on which special ability was given to the character at time of creation. We will have 3 different special abilities. The stats being modified are speed, strength, and stamina.  
 
-        public override void Update(CharacterModel newData)
+        public override void Update(MonsterModel newData)
         {
             if (newData == null)
             {

@@ -1,4 +1,5 @@
-﻿using Game.Models;
+﻿using System;
+using Game.Models;
 
 namespace Game.ViewModels
 {
@@ -27,6 +28,11 @@ namespace Game.ViewModels
         // Generic Constructor
         public GenericViewModel()
         {
+        }
+
+        public static implicit operator GenericViewModel<T>(GenericViewModel<CharacterModel> v)
+        {
+            throw new NotImplementedException();
         }
     }
 }

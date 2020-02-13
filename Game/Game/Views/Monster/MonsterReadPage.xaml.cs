@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Game.ViewModels;
 using Game.Models;
 using Xamarin.Forms;
-using Game.Views.Monster;
 
 namespace Game.Views
 {

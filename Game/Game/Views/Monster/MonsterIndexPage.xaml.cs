@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Game.Models;
 using Game.ViewModels;
-using Game.Views.Monster;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

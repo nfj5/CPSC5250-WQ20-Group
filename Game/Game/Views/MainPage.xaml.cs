@@ -1,5 +1,4 @@
 ﻿using Game.Models;
-using Game.Views.Monster;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Threading.Tasks;

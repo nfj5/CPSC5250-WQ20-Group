@@ -4,7 +4,6 @@ using System.Linq;
 using Game.Models;
 using Game.Services;
 using Game.Views;
-using Game.Views.Monster;
 using Xamarin.Forms;
 
 namespace Game.ViewModels

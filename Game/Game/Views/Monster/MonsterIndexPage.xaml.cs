@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Game.ViewModels;
+using Game.Views.Monster;
 using Xamarin.Forms;
 
 namespace Game.Views
@@ -11,9 +12,14 @@ namespace Game.Views
 
         public MonsterIndexPage()
         {
-            InitializeComponent();
+            //InitializeComponent();
 
-            BindingContext = ViewModel = MonsterIndexViewModel.Instance;
+            //BindingContext = ViewModel = MonsterIndexViewModel.Instance;
+        }
+
+        async void AddMonster_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new MonsterCreatePage(new ViewModel.GenericViewModel<Models.MonsterModel>())));
         }
 
     }

@@ -4,7 +4,7 @@ using Game.Models;
 using Game.ViewModels;
 using Xamarin.Forms;
 
-namespace Game.Views.Monster
+namespace Game.Views
 {
     public partial class MonsterCreatePage : ContentPage
     {

@@ -12,11 +12,11 @@ namespace Game.Views
     {
         GenericViewModel<MonsterModel> ViewModel { get; set; }
 
-        public MonsterCreatePage(GenericViewModel<CharacterModel> data)
+        public MonsterCreatePage(GenericViewModel<MonsterModel> data)
         {
             InitializeComponent();
 
-            data.Data = new CharacterModel();
+            data.Data = new MonsterModel();
 
             BindingContext = this.ViewModel = data;
 

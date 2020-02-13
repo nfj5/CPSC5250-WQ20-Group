@@ -25,12 +25,21 @@ namespace Game.Views
 
         }
 
+
+
+        /*This function registers the Delete_Clicked event triggered 
+        when the user presses the Delete button on the toolbar
+        */
         async void Delete_Clicked(object sender, EventArgs e)
         {
             MessagingCenter.Send(this, "Delete", ViewModel.Data);
             await Navigation.PopModalAsync();
         }
 
+
+        /*This function registers the Cancel_Clicked event triggered 
+        when the user presses the Cancel button on the toolbar
+        */
         async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();

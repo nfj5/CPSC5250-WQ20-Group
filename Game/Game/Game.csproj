@@ -18,6 +18,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Monster\MonsterReadPage.xaml.cs" />
+    <Compile Remove="Views\Monster\MonsterIndexPage.xaml.cs" />
+    <Compile Remove="Views\Monster\MonsterCreatePage.xaml.cs" />
+    <Compile Remove="Views\Monster\MonsterDeletePage.xaml.cs" />
+    <Compile Remove="ViewModels\MonsterIndexViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Update="Views\Battle\PickItemsPage.xaml.cs">
       <DependentUpon>PickItemsPage.xaml</DependentUpon>
     </Compile>
@@ -59,6 +66,13 @@
     </Compile>
   </ItemGroup>
 
+  <ItemGroup>
+    <EmbeddedResource Remove="Views\Monster\MonsterIndexPage.xaml" />
+    <EmbeddedResource Remove="Views\Monster\MonsterUpdatePage.xaml" />
+    <EmbeddedResource Remove="Views\Monster\MonsterDeletePage.xaml" />
+    <EmbeddedResource Remove="Views\Monster\MonsterReadPage.xaml" />
+    <EmbeddedResource Remove="Views\Monster\MonsterCreatePage.xaml" />
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Views\Character\CharacterCreatePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>

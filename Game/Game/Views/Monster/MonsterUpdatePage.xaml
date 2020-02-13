@@ -1,5 +1,60 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Game.Views.Monster.MonsterUpdatePage">
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Game.Views.MonsterUpdatePage"
+             Title="Update">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" IconImageSource="icon_cancel.png"/>
+        <ToolbarItem Text="Save" Clicked="Save_Clicked" IconImageSource="icon_save.png"/>
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="20" Padding="15">
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="{Binding Data.ImageURI}" 
+                           Style="{StaticResource ImageLargeStyle}"
+                           HorizontalOptions="CenterAndExpand" 
+                           WidthRequest="200"
+                           HeightRequest="200"/>
+                </StackLayout>
+
+                <Label Text="Name: " FontSize="Medium" />
+                <Entry Text="{Binding Data.Name}" d:Text="Item name" FontSize="Small" />
+
+                <Label Text="Nickname: " FontSize="Medium" />
+                <Editor Text="{Binding Data.Nickname}" d:Text="Nickname" FontSize="Small" Margin="0" AutoSize="TextChanges"/>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Strength: "/>
+                    <Editor Text="{Binding Data.BaseSpeed}" d:Text="Strength" FontSize="Small" Margin="0" AutoSize="TextChanges"/>
+                </StackLayout>
+
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Strength: "/>
+                    <Editor Text="{Binding Data.BaseStrength}" d:Text="Strength" FontSize="Small" Margin="0" AutoSize="TextChanges"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Hitpoints: "/>
+                    <Editor Text="{Binding Data.BaseHitPoints}" d:Text="Hitpoints" FontSize="Small" Margin="0" AutoSize="TextChanges"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Thiccness: "/>
+                    <Editor Text="{Binding Data.BaseThiccness}" d:Text="Thiccness" FontSize="Small" Margin="0" AutoSize="TextChanges"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Stamina: "/>
+                    <Editor Text="{Binding Data.BaseStamina}" d:Text="Stamina" FontSize="Small" Margin="0" AutoSize="TextChanges"/>
+                </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
+
 </ContentPage>

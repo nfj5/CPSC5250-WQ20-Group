@@ -1,10 +1,11 @@
 ﻿using System;
 namespace Game.Services
 {
-    public class MonsterService
+    static class MonsterService
     {
-        public MonsterService()
-        {
-        }
+        
+     // Return the default Image URI for a new Character
+     public static string DefaultImageURI = "icon_new.png";
+        
     }
 }

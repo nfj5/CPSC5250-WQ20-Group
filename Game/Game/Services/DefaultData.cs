@@ -47,6 +47,11 @@ namespace Game.Services
             return datalist;
         }
 
+        /// <summary>
+        /// Load the Default data for Characters
+        /// </summary>
+        /// <param name="temp"></param>
+        /// <returns></returns>
         public static List<CharacterModel> LoadData(CharacterModel temp)
         {
             var datalist = new List<CharacterModel>()
@@ -92,10 +97,61 @@ namespace Game.Services
             return datalist;
         }
 
+        /// <summary>
+        /// Load the Default data for Characters
+        /// </summary>
+        /// <param name="temp"></param>
+        /// <returns></returns>
+        public static List<MonsterModel> LoadData(MonsterModel temp)
+        {
+            var datalist = new List<MonsterModel>()
+            {
+                new MonsterModel
+                {
+                    Name = "Bob Jones",
+                    Nickname = "BJ",
+                    ImageURI = "http://www.clker.com/cliparts/e/L/A/m/I/c/sword-md.png",
+                    BaseSpeed = 9,
+                    BaseHitPoints = 9,
+                    BaseStamina = 9,
+                    BaseStrength = 9,
+                    BaseThiccness = 9,
+                },
 
+                new MonsterModel
+                {
+                    Name = "Adam Jones",
+                    Nickname = "AJ",
+                    ImageURI = "http://www.clker.com/cliparts/e/L/A/m/I/c/sword-md.png",
+                    BaseSpeed = 1,
+                    BaseStamina = 1,
+                    BaseHitPoints = 1,
+                    BaseStrength = 1,
+                    BaseThiccness = 1
+                },
 
+                new MonsterModel
+                {
+                    Name = "Derick Jones",
+                    Nickname = "DJ",
+                    ImageURI = "http://www.clker.com/cliparts/e/L/A/m/I/c/sword-md.png",
+                    BaseSpeed = 5,
+                    BaseHitPoints = 5,
+                    BaseStamina = 5,
+                    BaseStrength = 5,
+                    BaseThiccness = 5
+                }
 
+            };
 
+            return datalist;
+        }
+
+        /// <summary>
+        /// Load the default Score data
+        /// </summary>
+        /// <param name="temp"></param>
+        /// <returns></returns>
         public static List<ScoreModel> LoadData(ScoreModel temp)
         {
             var datalist = new List<ScoreModel>()

@@ -30,7 +30,7 @@ namespace Game.Views
 
             //Need to make the SelectedItem a string, so it can select the correct item.
             LocationPicker.SelectedItem = data.Data.Location.ToString();
-            AttributePicker.SelectedItem = data.Data.Attribute.ToString();
+            //AttributePicker.SelectedItem = data.Data.Attribute.ToString();
         }
 
         /// <summary>
@@ -65,10 +65,10 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void Range_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
-        {
-            RangeValue.Text = String.Format("{0}", e.NewValue);
-        }
+        //void Range_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+        //{
+        //    RangeValue.Text = String.Format("{0}", e.NewValue);
+        //}
 
         /// <summary>
         /// Catch the change to the stepper for Value

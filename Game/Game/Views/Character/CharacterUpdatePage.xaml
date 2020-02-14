@@ -13,8 +13,13 @@
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
+        
         <ScrollView>
+            
             <StackLayout Spacing="20" Padding="15">
+
+
+                <Label Text="Update Page" Style="{StaticResource HeaderStyle}"/>
                 <StackLayout Orientation="Horizontal">
                     <Image Source="{Binding Data.ImageURI}" 
                            Style="{StaticResource ImageLargeStyle}"

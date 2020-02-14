@@ -15,6 +15,9 @@
                  VerticalOptions="CenterAndExpand"
                  HorizontalOptions="CenterAndExpand">
 
+
+        <Label Text="Delete Page" Style="{StaticResource HeaderStyle}"/>
+        
         <Image Source="{Binding Data.ImageURI}" 
                            Style="{StaticResource ImageLargeStyle}"
                            HorizontalOptions="CenterAndExpand" 

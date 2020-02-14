@@ -114,7 +114,7 @@
                                HorizontalOptions="End"
                                HorizontalTextAlignment="End" />
                         <Stepper Value="{Binding Data.BaseStamina, Mode=TwoWay}"
-                                 ValueChanged="Thiccness_OnStepperValueChanged"/>
+                                 ValueChanged="Stamina_OnStepperValueChanged"/>
                     </StackLayout>
 
                 </Grid>

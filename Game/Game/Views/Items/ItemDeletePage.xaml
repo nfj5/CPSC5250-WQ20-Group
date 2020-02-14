@@ -12,49 +12,42 @@
         <ToolbarItem Text="Delete" Clicked="Delete_Clicked" IconImageSource="icon_delete.png"/>
     </ContentPage.ToolbarItems>
 
-    <ScrollView>
-        <StackLayout Style="{StaticResource OuterBoxStack}"
-                Spacing="10">
-
-            <Label Text="Delete Page" Style="{StaticResource HeaderStyle}"/>
-
-            <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}"/>
-
-            <StackLayout Style="{StaticResource HorizontalStack}">
-                <Label 
-                   Text="Name : " 
-                    Style="{StaticResource LabelStyle}"/>
-                <Label 
-                    Text="{Binding Data.Name}" 
-                    Style="{StaticResource ValueStyle}"/>
-            </StackLayout>
-
-            <StackLayout Style="{StaticResource HorizontalStack}">
-                <Label 
-                    Text="Description : " 
-                    Style="{StaticResource LabelStyle}"/>
-                <Label 
-                    Text="{Binding Data.Description}" 
-                    Style="{StaticResource ValueStyle}"/>
-            </StackLayout>
+    <StackLayout Spacing="20" Padding="15"
+                 VerticalOptions="CenterAndExpand"
+                 HorizontalOptions="CenterAndExpand">
 
 
-            <StackLayout 
-            HorizontalOptions="Center" 
-            Padding="20">
+        <Label Text="Delete Page" Style="{StaticResource HeaderStyle}"/>
 
-                <Label Text="Really delete this?" Style="{StaticResource MessageStyle}"/>
+        <Image Source="{Binding Data.ImageURI}" 
+                           Style="{StaticResource ImageLargeStyle}"
+                           HorizontalOptions="CenterAndExpand" 
+                           WidthRequest="200"
+                           HeightRequest="200"/>
 
-                <Button 
-                Text="Yes" 
-                Clicked="Delete_Clicked" 
-                HorizontalOptions="Center"
-                FontSize="Medium"
-                BorderWidth="1" 
-                BorderColor="black">
+        <Label Text="Item:" FontSize="Medium" />
+        <Label Text="{Binding Data.Name}" d:Text="Item name" FontSize="Small"/>
+        <StackLayout HorizontalOptions="Center" 
+                     Padding="20"
+                     Orientation="Vertical">
+            <Label Text="Are you sure you want to delete this item?" 
+                   FontSize="Medium"></Label>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Button Text="Yes"
+                    Clicked="Delete_Clicked"
+                    HorizontalOptions="Center"
+                    FontSize="Medium"
+                    BorderWidth="1"
+                    BorderColor="Black">
+                </Button>
+                <Button Text="No"
+                    Clicked="Cancel_Clicked"
+                    HorizontalOptions="Center"
+                    FontSize="Medium"
+                    BorderWidth="1"
+                    BorderColor="Black">
                 </Button>
             </StackLayout>
-            
         </StackLayout>
-    </ScrollView>
+    </StackLayout>
 </ContentPage>

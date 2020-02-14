@@ -20,13 +20,13 @@ namespace Game.Views
 
             BindingContext = ViewModel = MonsterIndexViewModel.Instance;
         }
-
+        //Logic for clicking the add monster button. Adds new monster.
         async void AddMonster_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new MonsterCreatePage(new ViewModels.GenericViewModel<Models.MonsterModel>())));
             
         }
-
+        //Logic selecting a monster and seeing its stats from the list view on the monster page.
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
             MonsterModel data = args.SelectedItem as MonsterModel;
@@ -39,7 +39,7 @@ namespace Game.Views
 
             MonsterListView.SelectedItem = null;
         }
-
+        //Refreshes the list view after adding or deleting a monster
         protected override void OnAppearing()
         {
             base.OnAppearing();

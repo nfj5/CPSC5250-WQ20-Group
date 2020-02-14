@@ -22,12 +22,22 @@ namespace Game.Views
             BindingContext = this.ViewModel = data;
         }
 
+        /// <summary>
+        /// Deletes the indexed monster.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void Delete_Clicked(object sender, EventArgs e)
         {
             MessagingCenter.Send(this, "Delete", ViewModel.Data);
             await Navigation.PopModalAsync();
         }
 
+        /// <summary>
+        /// Calcels the delte of a monster by canceling the confirm screen.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();

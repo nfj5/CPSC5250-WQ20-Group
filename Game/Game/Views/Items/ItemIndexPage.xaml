@@ -9,7 +9,7 @@
              Title="{Binding Title}">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Clicked="AddItem_Clicked" IconImageSource="icon_add.png"/>
+        <ToolbarItem Text="Create" Clicked="AddItem_Clicked" IconImageSource="icon_add.png"/>
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>

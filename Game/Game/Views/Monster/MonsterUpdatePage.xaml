@@ -15,6 +15,8 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Spacing="20" Padding="15">
+
+                <Label Text="Update Page" Style="{StaticResource HeaderStyle}"/>
                 <StackLayout Orientation="Horizontal">
                     <Image Source="{Binding Data.ImageURI}" 
                            Style="{StaticResource ImageLargeStyle}"
@@ -30,31 +32,65 @@
                 <Editor Text="{Binding Data.Nickname}" d:Text="Nickname" FontSize="Small" Margin="0" AutoSize="TextChanges"/>
 
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="Strength: "/>
-                    <Editor Text="{Binding Data.BaseSpeed}" d:Text="Strength" FontSize="Small" Margin="0" AutoSize="TextChanges"/>
+                    <Label Text="Speed: " Style="{StaticResource LabelStyle}"/>
+                    <Label Text="{Binding Data.BaseSpeed}"
+                            x:Name="SpeedValue"
+                            Style="{StaticResource ValueStyle}"
+                            Padding="0,0,10,0"
+                            HorizontalOptions="End"
+                            HorizontalTextAlignment="End" />
+                    <Stepper Value="{Binding Data.BaseSpeed, Mode=TwoWay}"
+                            ValueChanged="Speed_OnStepperValueChanged"/>
                 </StackLayout>
 
-
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="Strength: "/>
-                    <Editor Text="{Binding Data.BaseStrength}" d:Text="Strength" FontSize="Small" Margin="0" AutoSize="TextChanges"/>
+                    <Label Text="Strength: " Style="{StaticResource LabelStyle}"/>
+                    <Label Text="{Binding Data.BaseStrength}"
+                            x:Name="StrengthValue"
+                            Style="{StaticResource ValueStyle}"
+                            Padding="0,0,10,0"
+                            HorizontalOptions="End"
+                            HorizontalTextAlignment="End" />
+                    <Stepper Value="{Binding Data.BaseStrength, Mode=TwoWay}"
+                            ValueChanged="Strength_OnStepperValueChanged"/>
                 </StackLayout>
 
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="Hitpoints: "/>
-                    <Editor Text="{Binding Data.BaseHitPoints}" d:Text="Hitpoints" FontSize="Small" Margin="0" AutoSize="TextChanges"/>
-                </StackLayout>
-                <StackLayout Orientation="Horizontal">
-                    <Label Text="Thiccness: "/>
-                    <Editor Text="{Binding Data.BaseThiccness}" d:Text="Thiccness" FontSize="Small" Margin="0" AutoSize="TextChanges"/>
-                </StackLayout>
-                <StackLayout Orientation="Horizontal">
-                    <Label Text="Stamina: "/>
-                    <Editor Text="{Binding Data.BaseStamina}" d:Text="Stamina" FontSize="Small" Margin="0" AutoSize="TextChanges"/>
+                    <Label Text="Hit Points: " Style="{StaticResource LabelStyle}"/>
+                    <Label Text="{Binding Data.BaseHitPoints}"
+                            x:Name="HitPointsValue"
+                            Style="{StaticResource ValueStyle}"
+                            Padding="0,0,10,0"
+                            HorizontalOptions="End"
+                            HorizontalTextAlignment="End" />
+                    <Stepper Value="{Binding Data.BaseHitPoints, Mode=TwoWay}"
+                            ValueChanged="HitPoints_OnStepperValueChanged"/>
                 </StackLayout>
 
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Thiccness: " Style="{StaticResource LabelStyle}"/>
+                    <Label Text="{Binding Data.BaseThiccness}"
+                            x:Name="ThiccnessValue"
+                            Style="{StaticResource ValueStyle}"
+                            Padding="0,0,10,0"
+                            HorizontalOptions="End"
+                            HorizontalTextAlignment="End" />
+                    <Stepper Value="{Binding Data.BaseThiccness, Mode=TwoWay}"
+                            ValueChanged="Thiccness_OnStepperValueChanged"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Stamina: " Style="{StaticResource LabelStyle}"/>
+                    <Label Text="{Binding Data.BaseStamina}"
+                            x:Name="StaminaValue"
+                            Style="{StaticResource ValueStyle}"
+                            Padding="0,0,10,0"
+                            HorizontalOptions="End"
+                            HorizontalTextAlignment="End" />
+                    <Stepper Value="{Binding Data.BaseStamina, Mode=TwoWay}"
+                            ValueChanged="Stamina_OnStepperValueChanged"/>
+                </StackLayout>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
-
 </ContentPage>

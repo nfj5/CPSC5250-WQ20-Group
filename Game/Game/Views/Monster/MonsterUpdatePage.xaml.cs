@@ -36,5 +36,55 @@ namespace Game.Views
             await Navigation.PopModalAsync();
         }
 
+        /// <summary>
+        /// Capture value change for Speed stepper
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void Speed_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+        {
+            SpeedValue.Text = String.Format("{0}", e.NewValue);
+        }
+
+        /// <summary>
+        /// Capture value change for Strength stepper
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void Strength_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+        {
+            StrengthValue.Text = String.Format("{0}", e.NewValue);
+        }
+
+        /// <summary>
+        ///  Capture value change for HitPoints stepper
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void HitPoints_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+        {
+            HitPointsValue.Text = String.Format("{0}", e.NewValue);
+        }
+
+        /// <summary>
+        ///  Capture value change for Thiccness stepper
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void Thiccness_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+        {
+            ThiccnessValue.Text = String.Format("{0}", e.NewValue);
+        }
+
+        /// <summary>
+        ///  Capture value change for Stamina stepper
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void Stamina_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+        {
+            StaminaValue.Text = String.Format("{0}", e.NewValue);
+        }
+
     }
 }

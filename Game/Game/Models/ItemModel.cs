@@ -17,6 +17,10 @@ namespace Game.Models
     /// </summary>
     public class ItemModel : BaseModel<ItemModel>
     {
+        // Weight of the item; determines how far it can be thrown
+        public int Weight { get; set; } = 0;
+
+
         // Range of the item, swords are 1, hats/rings are 0, bows are >1
         public int Range { get; set; } = 0;
 
@@ -72,6 +76,7 @@ namespace Game.Models
             Description = newData.Description;
             ImageURI = newData.ImageURI;
             Range = newData.Range;
+            Weight = newData.Weight;
             Damage = newData.Damage;
         }
 
@@ -84,6 +89,7 @@ namespace Game.Models
                             Attribute.ToString() +
                             "+" + Value + " , " +
                             "Damage : " + Damage + " , " +
+                            "Weight : " + Damage + " , " +
                             "Range : " + Range;
 
             return myReturn.Trim();

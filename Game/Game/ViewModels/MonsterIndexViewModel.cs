@@ -11,10 +11,10 @@ namespace Game.ViewModels
     public class MonsterIndexViewModel : BaseViewModel<MonsterModel>
     {
         #region Singleton
-
+        //Instance of the model for singleton
         private static volatile MonsterIndexViewModel instance;
         private static readonly object syncRoot = new Object();
-
+        
         public static MonsterIndexViewModel Instance
         {
             get {

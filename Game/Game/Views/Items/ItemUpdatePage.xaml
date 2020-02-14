@@ -131,7 +131,7 @@
                             HorizontalTextAlignment="End"/>
 
                         <Stepper 
-                            Value="{Binding Data.Value, Mode=TwoWay}"
+                            Value="{Binding Data.Weight, Mode=TwoWay}"
                             ValueChanged="Weight_OnStepperValueChanged"/>
 
                     </StackLayout>

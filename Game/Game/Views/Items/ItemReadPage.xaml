@@ -53,7 +53,7 @@
                     Text="Weight : " 
                     Style="{StaticResource LabelStyle}"/>
                 <Label 
-                    Text="{Binding Data.BaseWeight}" 
+                    Text="{Binding Data.Weight}" 
                     Style="{StaticResource ValueStyle}"/>
             </StackLayout>
 
@@ -62,7 +62,7 @@
                     Text="Damage : " 
                     Style="{StaticResource LabelStyle}"/>
                 <Label 
-                    Text="{Binding Data.BaseDamage}" 
+                    Text="{Binding Data.Damage}" 
                     Style="{StaticResource ValueStyle}"/>
             </StackLayout>
 

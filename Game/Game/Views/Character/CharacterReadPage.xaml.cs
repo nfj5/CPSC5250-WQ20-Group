@@ -24,12 +24,22 @@ namespace Game.Views
             this.ViewModel.Title = "Read";
         }
 
+        /// <summary>
+        /// Navigate to page to Edit the Character
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void Update_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new CharacterUpdatePage(new GenericViewModel<CharacterModel>(ViewModel.Data))));
             await Navigation.PopAsync();
         }
 
+        /// <summary>
+        /// Navigate to page to Delete the Character
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void Delete_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new CharacterDeletePage(new GenericViewModel<CharacterModel>(ViewModel.Data))));

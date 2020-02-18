@@ -25,18 +25,22 @@ namespace Game.Views
             BindingContext = this.ViewModel = data;
         }
 
-        /*This function registers the Save_Clicked event triggered 
-        when the user presses the Save button on the toolbar
-        */
+        /// <summary>
+        /// Save the updated Character 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void Save_Clicked(object sender, EventArgs e)
         {
             MessagingCenter.Send(this, "Update", ViewModel.Data);
             await Navigation.PopModalAsync();
         }
 
-        /*This function registers the Cancel_Clicked event triggered 
-        when the user presses the Cancel button on the toolbar
-        */
+        /// <summary>
+        /// Cancel Character update
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param> 
         async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();

@@ -34,7 +34,7 @@ namespace Game.Views
         }
 
         /// <summary>
-        /// Calcels the delte of a monster by canceling the confirm screen.
+        /// Cancel and close this page
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

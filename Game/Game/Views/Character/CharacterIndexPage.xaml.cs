@@ -23,11 +23,21 @@ namespace Game.Views
             
         }
 
+        /// <summary>
+        /// Add a new Character 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void AddCharacter_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new CharacterCreatePage(new ViewModels.GenericViewModel<Models.CharacterModel>())));
         }
 
+        /// <summary>
+        /// Read a selected Character
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
             CharacterModel data = args.SelectedItem as CharacterModel;
@@ -41,6 +51,9 @@ namespace Game.Views
             CharactersListView.SelectedItem = null; 
         }
 
+        /// <summary>
+        /// Refreshes the list view after adding or deleting a Character
+        /// </summary>
         protected override void OnAppearing()
         {
             base.OnAppearing();

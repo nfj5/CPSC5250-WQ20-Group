@@ -34,7 +34,7 @@ namespace Game.Views
         }
 
         /// <summary>
-        /// Save by calling for Create
+        /// Save the new Item by calling for Create
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -51,7 +51,7 @@ namespace Game.Views
         }
 
         /// <summary>
-        /// Cancel the Create
+        /// Cancel Item creation
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

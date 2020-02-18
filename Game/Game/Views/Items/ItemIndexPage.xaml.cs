@@ -29,10 +29,10 @@ namespace Game.Views
         }
 
         /// <summary>
-        /// The row selected from the list
+        /// Read a selected Item
         /// </summary>
         /// <param name="sender"></param>
-        /// <param name="args"></param>
+        /// <param name="e"></param>
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
             ItemModel data = args.SelectedItem as ItemModel;
@@ -49,7 +49,7 @@ namespace Game.Views
         }
 
         /// <summary>
-        /// Call to Add a new record
+        /// Add a new Item 
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -59,7 +59,7 @@ namespace Game.Views
         }
 
         /// <summary>
-        /// Refresh the list on page appearing
+        /// Refreshes the list view after adding or deleting an Item
         /// </summary>
         protected override void OnAppearing()
         {

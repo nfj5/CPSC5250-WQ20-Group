@@ -29,7 +29,7 @@ namespace Game.Views
         }
 
         /// <summary>
-        /// Save calls to Update
+        /// Navigate to page to Edit the Item
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -40,7 +40,7 @@ namespace Game.Views
         }
 
         /// <summary>
-        /// Calls for Delete
+        /// Navigate to page to Delete the Item
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

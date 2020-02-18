@@ -26,7 +26,7 @@ namespace Game.Views
         }
 
         /// <summary>
-        /// Save calls to Update
+        /// Deletes the indexed Item.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

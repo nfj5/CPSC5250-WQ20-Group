@@ -18,12 +18,23 @@ namespace Game.Views
             this.ViewModel.Title = "Read";
         }
 
+
+        /// <summary>
+        /// Navigate to page to Edit the Monster
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void Update_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new MonsterUpdatePage(new GenericViewModel<MonsterModel>(ViewModel.Data))));
             await Navigation.PopAsync();
         }
 
+        /// <summary>
+        /// Navigate to page to Delete the Monster
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void Delete_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new MonsterDeletePage(new GenericViewModel<MonsterModel>(ViewModel.Data))));

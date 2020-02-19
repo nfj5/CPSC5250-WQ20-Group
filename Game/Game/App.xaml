@@ -32,8 +32,8 @@
             <Color x:Key="LightBackgroundColor">Bisque</Color>
 
             <Color x:Key="PrimaryTextColor">#FFF4E8</Color>
-            <Color x:Key="SecondaryTextColor">#B3B2B1</Color>
-            <Color x:Key="TriciaryTextColor">#66605B</Color>
+            <Color x:Key="SecondaryTextColor">#FFF6DB</Color>
+            <Color x:Key="TriciaryTextColor">#FFF6DB</Color>
 
             <Color x:Key="TransparentColor">Transparent</Color>
 

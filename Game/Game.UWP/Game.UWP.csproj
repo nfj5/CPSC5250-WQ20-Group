@@ -188,9 +188,6 @@
       <Name>Game</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="football_monster.jpeg" />
-  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

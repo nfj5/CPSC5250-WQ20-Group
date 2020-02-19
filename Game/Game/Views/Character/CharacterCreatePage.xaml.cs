@@ -25,6 +25,9 @@ namespace Game.Views
             BindingContext = this.ViewModel = data;
             
             this.ViewModel.Title = "Create";
+
+            
+            AbilityPicker.SelectedItem = data.Data.Ability.ToString();
         }
         
         /// <summary>

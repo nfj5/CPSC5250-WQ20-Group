@@ -96,6 +96,24 @@ namespace Game.ViewModels
         #region DataOperations_CRUDi
 
         /// <summary>
+        /// Get an ItemModel based on the GUID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ItemModel GetItem(String id)
+        {
+            var myList = Dataset.Where(a => a.Id == id).FirstOrDefault();
+
+            if (myList == null)
+            {
+                // we couldn't find the item
+                return null;
+            }
+
+            return myList;
+        }
+
+        /// <summary>
         /// Returns the item passed in
         /// </summary>
         /// <param name="data"></param>

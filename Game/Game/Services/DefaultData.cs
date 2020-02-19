@@ -22,7 +22,7 @@ namespace Game.Services
                     Weight = 9,
                     Value = 9,
                     Location = ItemLocationEnum.Unknown,
-                    Attribute = AttributeEnum.Attack},
+                    Attribute = AttributeEnum.CurrentHealth},
 
                 new ItemModel {
                     Name = "Pad Lock",
@@ -43,18 +43,18 @@ namespace Game.Services
                     Damage = 0,
                     Weight = 5,
                     Value = 9,
-                    Location = ItemLocationEnum.Unknown,
+                    Location = ItemLocationEnum.Head,
                     Attribute = AttributeEnum.Speed},
 
                 new ItemModel {
                     Name = "Protein Shake",
-                    Description = "Drinking this make your grow stronger",
+                    Description = "Drinking this will make you gorw stronger",
                     ImageURI = "protein_shake.png",
                     Range = 0,
                     Damage = 0,
                     Weight = 5,
                     Value = 9,
-                    Location = ItemLocationEnum.Unknown,
+                    Location = ItemLocationEnum.Head,
                     Attribute = AttributeEnum.Attack},
             };
 
@@ -74,7 +74,7 @@ namespace Game.Services
                 {
                     Name = "Bob Jones",
                     Nickname = "BJ",
-                    ImageURI = "http://www.clker.com/cliparts/e/L/A/m/I/c/sword-md.png",
+                    ImageURI = "football_charcter.png",
                     BaseSpeed = 9,
                     BaseHitPoints = 9,
                     BaseStamina = 9,
@@ -86,7 +86,7 @@ namespace Game.Services
                 {
                     Name = "Adam Jones",
                     Nickname = "AJ",
-                    ImageURI = "http://www.clker.com/cliparts/e/L/A/m/I/c/sword-md.png",
+                    ImageURI = "football_charcter.png",
                     BaseSpeed = 1,
                     BaseStamina = 1,
                     BaseHitPoints = 1,
@@ -98,7 +98,7 @@ namespace Game.Services
                 {
                     Name = "Derick Jones",
                     Nickname = "DJ",
-                    ImageURI = "http://www.clker.com/cliparts/e/L/A/m/I/c/sword-md.png",
+                    ImageURI = "football_charcter.png",
                     BaseSpeed = 5,
                     BaseHitPoints = 5,
                     BaseStamina = 5,

@@ -1,4 +1,5 @@
 using Game.Services;
+using Game.ViewModels;
 using System;
 using System.Collections.Generic;
 
@@ -17,7 +18,7 @@ namespace Game.Models
         };
 
         // Private attributes
-        private const int MAX_ITEMS = 6;
+        private const int MAX_ITEMS = 6; // How many Items the Character is able to hold at once
 
         public int BaseSpeed { get; set; } = 0;// How quickly the character can move (max number of blocks per turn). Scale of 1-4
         public int BaseStrength { get; set; } = 0;// How far the Person can throw Items. Scale of 1-4
@@ -41,39 +42,135 @@ namespace Game.Models
         public SuperstarAbility Ability { get; set; } // To decide which stat to apply the ability to
         public float SuperstarModifier { get; set; } // The actual modifier for the ability
         public int BaseCooldown { get; set; } // How long it should take before the ability can be used again
-        public int CurrentCooldown { get; set; } = 0; // The current cooldown time of the characters special ability
+        public int CurrentCooldown { get; set; } = 0; // The current cooldown time (in units of turns taken) of the characters special ability
 
-        public int TrainingPoints { get; set; } = 0; // Points used to upgrade speed, strength, hit_points, stamina.  
-        public List<ItemModel> Items { get; set; } = new List<ItemModel>(); // Return list of all items the character currently has on its persons. 
+        public int TrainingPoints { get; set; } = 0; // Points used to upgrade speed, strength, hit_points, stamina.
         new public string ImageURI { get; set; } = CharacterService.DefaultImageURI; // The image to use for this Person
+
+        public int NumItems { get; set; } = 0; // Keep track of how many items the Character is currently holding
+
+        // Strings to hold the GUID of each item for each slot
+        public string ItemOne { get; set; } = null;
+        public string ItemTwo { get; set; } = null;
+        public string ItemThree { get; set; } = null;
+        public string ItemFour { get; set; } = null;
+        public string ItemFive { get; set; } = null;
+        public string ItemSix { get; set; } = null;
 
         //Public methods
 
         // Have the Person drop the item at the corresponding inventory index if it exists
         public ItemModel RemoveItem(int index)
         {
-            if (Items.Count - 1 < index)
+            ItemModel item = GetItem(index);
+
+            if (item == null)
             {
                 return null;
             }
 
-            ItemModel item = Items[index];
-            Items.RemoveAt(index);
+            switch (index)
+            {
+                case 1:
+                    ItemOne = null;
+                    break;
+                case 2:
+                    ItemTwo = null;
+                    break;
+                case 3:
+                    ItemThree = null;
+                    break;
+                case 4:
+                    ItemFour = null;
+                    break;
+                case 5:
+                    ItemFive = null;
+                    break;
+                case 6:
+                    ItemSix = null;
+                    break;
+            }
 
+            NumItems--;
             return item;
         }
 
         // Add the ItemModel to the Person's inventory if they are at not carrying capacity
         public bool AddItem(ItemModel toAdd)
         {
-            if (Items.Count == MAX_ITEMS)
+            if (NumItems == MAX_ITEMS)
             {
                 return false;
             }
 
-            Items.Add(toAdd);
+            switch (NumItems+1)
+            {
+                case 1:
+                    ItemOne = toAdd.Id;
+                    break;
+                case 2:
+                    ItemTwo = toAdd.Id;
+                    break;
+                case 3:
+                    ItemThree = toAdd.Id;
+                    break;
+                case 4:
+                    ItemFour = toAdd.Id;
+                    break;
+                case 5:
+                    ItemFive = toAdd.Id;
+                    break;
+                case 6:
+                    ItemSix = toAdd.Id;
+                    break;
+            }
+
+            NumItems++;
             return true;
-        } 
+        }
+
+        /// <summary>
+        /// Get the ItemModel for the item at the given index
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public ItemModel GetItem(int index)
+        {
+            if (NumItems < index || index < 1)
+            {
+                return null;
+            }
+
+            string item = null;
+            switch (index)
+            {
+                case 1:
+                    item = ItemOne;
+                    break;
+                case 2:
+                    item = ItemTwo;
+                    break;
+                case 3:
+                    item = ItemThree;
+                    break;
+                case 4:
+                    item = ItemFour;
+                    break;
+                case 5:
+                    item = ItemFive;
+                    break;
+                case 6:
+                    item = ItemSix;
+                    break;
+            }
+
+            if (item == null)
+            {
+                return null;
+            }
+
+            return ItemIndexViewModel.Instance.GetItem(item);
+        }
 
         // Check if the SuperstarAbility is on cooldown and applies modifiers if not on cooldown
         public bool ActivateAbility()

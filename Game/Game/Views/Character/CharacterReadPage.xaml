@@ -36,6 +36,13 @@
                 </StackLayout>
 
                 <StackLayout Style="{StaticResource HorizontalStack}">
+                    <Label Text="Ability : "
+                           Style="{StaticResource LabelStyle}" />
+                    <Label Text="{Binding Data.Ability}"
+                           Style="{StaticResource LabelStyle}" />
+                </StackLayout>
+
+                <StackLayout Style="{StaticResource HorizontalStack}">
                     <Label Text="Speed : "
                            Style="{StaticResource LabelStyle}" />
                     <Label Text="{Binding Data.BaseSpeed}"

@@ -21,7 +21,7 @@ namespace Game.Services
                     Damage = 9,
                     Weight = 9,
                     Value = 9,
-                    Location = ItemLocationEnum.PrimaryHand,
+                    Location = ItemLocationEnum.Unknown,
                     Attribute = AttributeEnum.Attack},
 
                 new ItemModel {
@@ -43,8 +43,19 @@ namespace Game.Services
                     Damage = 0,
                     Weight = 5,
                     Value = 9,
-                    Location = ItemLocationEnum.Head,
+                    Location = ItemLocationEnum.Unknown,
                     Attribute = AttributeEnum.Speed},
+
+                new ItemModel {
+                    Name = "Protein Shake",
+                    Description = "Drinking this make your grow stronger",
+                    ImageURI = "protein_shake.png",
+                    Range = 0,
+                    Damage = 0,
+                    Weight = 5,
+                    Value = 9,
+                    Location = ItemLocationEnum.Unknown,
+                    Attribute = AttributeEnum.Attack},
             };
 
             return datalist;

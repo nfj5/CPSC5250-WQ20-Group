@@ -1,71 +1,176 @@
-﻿using System;
+﻿using Game.Services;
+using Game.ViewModels;
+using System;
 using System.Collections.Generic;
-using Game.Services;
 
 namespace Game.Models
 {
 
-    public class MonsterModel: BaseModel<MonsterModel>
+    public class MonsterModel : BaseModel<MonsterModel>
     {
-        // Private attributes
-        private const int MAX_ITEMS = 6;
+        // SuperstarAbility enum declaration
+        public enum SuperstarAbility
+        {
+            SpeedAbility,
+            StrengthAbility,
+            ThiccnessAbility,
+            StaminaAbility
+        };
 
-        // Public attributes 
+        // Private attributes
+        private const int MAX_ITEMS = 6; // How many Items the Monster is able to hold at once
+
         public int BaseSpeed { get; set; } = 0;// How quickly the monster can move (max number of blocks per turn). Scale of 1-4
         public int BaseStrength { get; set; } = 0;// How far the Person can throw Items. Scale of 1-4
         public int BaseHitPoints { get; set; } = 0; // How much damage the monster can take. Scale of 10-20
         public int BaseThiccness { get; set; } = 0;// How much defense a monster can have.
         public int BaseStamina { get; set; } = 0;
         // How much stamina the monster has, on a 1 –99 scale. Stamina resets after matches, stamina determines run duration, number of throws.
-        //If not enough stamina then the user can not perform any actions. A math is 1 game(or 1 dungeon, or 1 round however you want to think of it).
-        // Also different actions take different amount of stamina so we are not assuming a character will get 99 turns.  
+        // If not enough stamina then the user can not perform any actions. A math is 1 game(or 1 dungeon, or 1 round however you want to think of it).
+        // Also different actions take different amount of stamina so we are not assuming a monster will get 99 turns.  
 
         public int CurrentSpeed { get; set; } = 0;// How quickly the monster can currently move
         public int CurrentStrength { get; set; } = 0; // How strong the monster currently is
         public int CurrentHitPoints { get; set; } = 0;// How much damage the monster can currently take
-        public int CurrentCooldown { get; set; } = 0;// The current cooldown time of the monster special ability
-        public int CurrentThiccness { get; set; } = 0; //The current thicness level of the character. 
+        public int CurrentThiccness { get; set; } = 0; //The current thicness level of the monster. 
         public int CurrentStamina { get; set; } = 0;// How much stamina the monster currently has during their turn
 
-        new public string Name { get; set; } = "Character Name"; // The official name for the Person. Not editable by the player 
-        public string Nickname { get; set; } = "Character Nickname"; // The player-editable name for the Person 
-        public AbilityModel SuperstarAbility { get; set; } // uses separate Ability class which applies modifiers to the monster, tracks ability cooldown, et cetera 
+        new public string Name { get; set; } = "Monster Name"; // The official name for the Person. Not editable by the player 
+        public string Nickname { get; set; } = "Monster Nickname"; // The player-editable name for the Person 
 
-        public int TrainingPoints { get; set; } = 0; // Points used to upgrade speed, strength, hit_points, stamina.  
-        public List<ItemModel> Items { get; set; } = new List<ItemModel>(); // Return list of all items the monster currently has on its persons. 
+        // Ability code
+        public SuperstarAbility Ability { get; set; } // To decide which stat to apply the ability to
+        public float SuperstarModifier { get; set; } // The actual modifier for the ability
+        public int BaseCooldown { get; set; } // How long it should take before the ability can be used again
+        public int CurrentCooldown { get; set; } = 0; // The current cooldown time (in units of turns taken) of the monsters special ability
+
+        public int TrainingPoints { get; set; } = 0; // Points used to upgrade speed, strength, hit_points, stamina.
         new public string ImageURI { get; set; } = MonsterService.DefaultImageURI; // The image to use for this Person
 
-        public int CooldownTime { get; set; } // cooldown will be number of turns 
-        public float Modifier { get; set; } // multiplier to be applied to the specified stat. Result will be rounded down. The stat modified will depend on which special ability was given to the character at time of creation. We will have 3 different special abilities. The stats being modified are speed, strength, and stamina.  
+        public int NumItems { get; set; } = 0; // Keep track of how many items the Monster is currently holding
 
+        // Strings to hold the GUID of each item for each slot
+        public string ItemOne { get; set; } = null;
+        public string ItemTwo { get; set; } = null;
+        public string ItemThree { get; set; } = null;
+        public string ItemFour { get; set; } = null;
+        public string ItemFive { get; set; } = null;
+        public string ItemSix { get; set; } = null;
 
         //Public methods
 
         // Have the Person drop the item at the corresponding inventory index if it exists
         public ItemModel RemoveItem(int index)
         {
-            if (Items.Count - 1 < index)
+            ItemModel item = GetItem(index);
+
+            if (item == null)
             {
                 return null;
             }
 
-            ItemModel item = Items[index];
-            Items.RemoveAt(index);
+            switch (index)
+            {
+                case 1:
+                    ItemOne = null;
+                    break;
+                case 2:
+                    ItemTwo = null;
+                    break;
+                case 3:
+                    ItemThree = null;
+                    break;
+                case 4:
+                    ItemFour = null;
+                    break;
+                case 5:
+                    ItemFive = null;
+                    break;
+                case 6:
+                    ItemSix = null;
+                    break;
+            }
 
+            NumItems--;
             return item;
         }
 
         // Add the ItemModel to the Person's inventory if they are at not carrying capacity
         public bool AddItem(ItemModel toAdd)
         {
-            if (Items.Count == MAX_ITEMS)
+            if (NumItems == MAX_ITEMS)
             {
                 return false;
             }
 
-            Items.Add(toAdd);
+            switch (NumItems + 1)
+            {
+                case 1:
+                    ItemOne = toAdd.Id;
+                    break;
+                case 2:
+                    ItemTwo = toAdd.Id;
+                    break;
+                case 3:
+                    ItemThree = toAdd.Id;
+                    break;
+                case 4:
+                    ItemFour = toAdd.Id;
+                    break;
+                case 5:
+                    ItemFive = toAdd.Id;
+                    break;
+                case 6:
+                    ItemSix = toAdd.Id;
+                    break;
+            }
+
+            NumItems++;
             return true;
-        } 
+        }
+
+        /// <summary>
+        /// Get the ItemModel for the item at the given index
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public ItemModel GetItem(int index)
+        {
+            if (NumItems < index || index < 1)
+            {
+                return null;
+            }
+
+            string item = null;
+            switch (index)
+            {
+                case 1:
+                    item = ItemOne;
+                    break;
+                case 2:
+                    item = ItemTwo;
+                    break;
+                case 3:
+                    item = ItemThree;
+                    break;
+                case 4:
+                    item = ItemFour;
+                    break;
+                case 5:
+                    item = ItemFive;
+                    break;
+                case 6:
+                    item = ItemSix;
+                    break;
+            }
+
+            if (item == null)
+            {
+                return null;
+            }
+
+            return ItemIndexViewModel.Instance.GetItem(item);
+        }
 
         // Check if the SuperstarAbility is on cooldown and applies modifiers if not on cooldown
         public bool ActivateAbility()
@@ -75,12 +180,23 @@ namespace Game.Models
                 return false;
             }
 
-            CurrentSpeed = (int) Math.Floor(BaseSpeed * SuperstarAbility.SpeedMultiplier);
-            CurrentStrength = (int) Math.Floor(BaseStrength * SuperstarAbility.StrengthMultiplier);
-            CurrentHitPoints = (int) Math.Floor(BaseHitPoints * SuperstarAbility.HitPointModifier);
-            CurrentThiccness = (int) Math.Floor(BaseThiccness * SuperstarAbility.ThiccnessModifier);
+            switch (Ability)
+            {
+                case SuperstarAbility.SpeedAbility:
+                    CurrentSpeed = (int)(CurrentSpeed * SuperstarModifier);
+                    break;
+                case SuperstarAbility.StaminaAbility:
+                    CurrentStamina = (int)(CurrentStamina * SuperstarModifier);
+                    break;
+                case SuperstarAbility.StrengthAbility:
+                    CurrentStrength = (int)(CurrentStrength * SuperstarModifier);
+                    break;
+                case SuperstarAbility.ThiccnessAbility:
+                    CurrentThiccness = (int)(CurrentThiccness * SuperstarModifier);
+                    break;
+            }
 
-            CurrentCooldown = SuperstarAbility.Cooldown;
+            CurrentCooldown = BaseCooldown;
 
             return true;
         }
@@ -100,13 +216,13 @@ namespace Game.Models
                 CurrentThiccness = BaseThiccness;
             }
         }
-        
+
         // Check to see if the Person has enough stamina currently to perform an action
         public bool CheckStamina(int actionCost)
         {
             return (CurrentStamina - actionCost >= 0);
         }
-        
+
         // Update the Person's CurrentStamina with the cost of performing a specific action
         public void UpdateStamina(int actionCost)
         {
@@ -117,9 +233,9 @@ namespace Game.Models
         public bool CheckCooldown()
         {
             return (CurrentCooldown != 0);
-        } 
+        }
 
-        // Update the Monster's Speed, Strength, Hitpoints, and Thiccness
+        // Replace the Monster attributes with the MonsterModel passed
         public override void Update(MonsterModel newData)
         {
             if (newData == null)

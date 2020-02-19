@@ -121,7 +121,8 @@
     <BundleResource Include="Resources\xamarin_logo%402x.png" />
     <BundleResource Include="Resources\xamarin_logo%403x.png" />
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
-    <BundleResource Include="Resources\football_monster.jpeg" />
+    <BundleResource Include="Resources\football_monster.png" />
+    <BundleResource Include="Resources\football_charcter.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

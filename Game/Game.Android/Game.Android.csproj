@@ -89,7 +89,11 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
     <AndroidResource Include="Resources\drawable\xamarin_logo.png" />
-    <AndroidResource Include="Resources\drawable\football_monster.jpeg">
+    <AndroidResource Include="Resources\drawable\football_monster.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\football_charcter.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>

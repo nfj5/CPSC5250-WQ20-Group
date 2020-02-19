@@ -124,7 +124,7 @@ namespace Game.Services
                 {
                     Name = "Bob Jones",
                     Nickname = "BJ",
-                    ImageURI = "http://www.clker.com/cliparts/e/L/A/m/I/c/sword-md.png",
+                    ImageURI = "football_monster.png",
                     BaseSpeed = 9,
                     BaseHitPoints = 9,
                     BaseStamina = 9,
@@ -136,7 +136,7 @@ namespace Game.Services
                 {
                     Name = "Adam Jones",
                     Nickname = "AJ",
-                    ImageURI = "http://www.clker.com/cliparts/e/L/A/m/I/c/sword-md.png",
+                    ImageURI = "football_monster.png",
                     BaseSpeed = 1,
                     BaseStamina = 1,
                     BaseHitPoints = 1,
@@ -148,7 +148,7 @@ namespace Game.Services
                 {
                     Name = "Derick Jones",
                     Nickname = "DJ",
-                    ImageURI = "http://www.clker.com/cliparts/e/L/A/m/I/c/sword-md.png",
+                    ImageURI = "football_monster.png",
                     BaseSpeed = 5,
                     BaseHitPoints = 5,
                     BaseStamina = 5,

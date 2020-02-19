@@ -112,6 +112,7 @@
     <Content Include="dungeon_door.png" />
     <Content Include="footballlogo.png" />
     <Content Include="football_charcter.png" />
+    <Content Include="football_helmet.png" />
     <Content Include="football_monster.png" />
     <Content Include="gameover.png" />
     <Content Include="grey_door.png" />
@@ -125,6 +126,8 @@
     <Content Include="items.png" />
     <Content Include="knight.png" />
     <Content Include="icon_new.png" />
+    <Content Include="medal.png" />
+    <Content Include="padlock.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-200.png" />
@@ -153,11 +156,17 @@
     <Content Include="Assets\Wide310x150Logo.scale-100.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="protein_shake.png" />
     <Content Include="score.png" />
+    <Content Include="shoe.png" />
+    <Content Include="smelly_jersery.png" />
     <Content Include="splashscreen.jpg" />
+    <Content Include="towel.png" />
     <Content Include="troll.png" />
+    <Content Include="trophy.png" />
     <Content Include="village.jpg" />
     <Content Include="village.png" />
+    <Content Include="water_bottle.png" />
     <Content Include="xamarin_logo.png" />
     <Content Include="add.png" />
     <Content Include="save.png" />

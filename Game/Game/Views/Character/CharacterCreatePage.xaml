@@ -61,10 +61,7 @@
                     <StackLayout Grid.Row="3" Grid.Column="1" Style="{StaticResource HorizontalStack}" Padding="10">
                         <Label Text="{Binding Data.BaseSpeed}"
                                x:Name="SpeedValue"
-                               Style="{StaticResource ValueStyle}"
-                               Padding="0,0,10,0"
-                               HorizontalOptions="End"
-                               HorizontalTextAlignment="End" />
+                               Style="{StaticResource ValueStyle}"/>
                         <Stepper Value="{Binding Data.BaseSpeed, Mode=TwoWay}"
                                  ValueChanged="Speed_OnStepperValueChanged"/>
                     </StackLayout>
@@ -73,10 +70,7 @@
                     <StackLayout Grid.Row="4" Grid.Column="1" Style="{StaticResource HorizontalStack}" Padding="10">
                         <Label Text="{Binding Data.BaseStrength}"
                                x:Name="StrengthValue"
-                               Style="{StaticResource ValueStyle}"
-                               Padding="0,0,10,0"
-                               HorizontalOptions="End"
-                               HorizontalTextAlignment="End" />
+                               Style="{StaticResource ValueStyle}" />
                         <Stepper Value="{Binding Data.BaseStrength, Mode=TwoWay}"
                                  ValueChanged="Strength_OnStepperValueChanged"/>
                     </StackLayout>
@@ -85,10 +79,7 @@
                     <StackLayout Grid.Row="5" Grid.Column="1" Style="{StaticResource HorizontalStack}" Padding="10">
                         <Label Text="{Binding Data.BaseHitPoints}"
                                x:Name="HitPointsValue"
-                               Style="{StaticResource ValueStyle}"
-                               Padding="0,0,10,0"
-                               HorizontalOptions="End"
-                               HorizontalTextAlignment="End" />
+                               Style="{StaticResource ValueStyle}" />
                         <Stepper Value="{Binding Data.BaseHitPoints, Mode=TwoWay}"
                                  ValueChanged="HitPoints_OnStepperValueChanged"/>
                     </StackLayout>
@@ -97,10 +88,7 @@
                     <StackLayout Grid.Row="6" Grid.Column="1" Style="{StaticResource HorizontalStack}" Padding="10">
                         <Label Text="{Binding Data.BaseThiccness}"
                                x:Name="ThiccnessValue"
-                               Style="{StaticResource ValueStyle}"
-                               Padding="0,0,10,0"
-                               HorizontalOptions="End"
-                               HorizontalTextAlignment="End" />
+                               Style="{StaticResource ValueStyle}" />
                         <Stepper Value="{Binding Data.BaseThiccness, Mode=TwoWay}"
                                  ValueChanged="Thiccness_OnStepperValueChanged"/>
                     </StackLayout>
@@ -109,10 +97,7 @@
                     <StackLayout Grid.Row="7" Grid.Column="1" Style="{StaticResource HorizontalStack}" Padding="10">
                         <Label Text="{Binding Data.BaseStamina}"
                                x:Name="StaminaValue"
-                               Style="{StaticResource ValueStyle}"
-                               Padding="0,0,10,0"
-                               HorizontalOptions="End"
-                               HorizontalTextAlignment="End" />
+                               Style="{StaticResource ValueStyle}" />
                         <Stepper Value="{Binding Data.BaseStamina, Mode=TwoWay}"
                                  ValueChanged="Stamina_OnStepperValueChanged"/>
                     </StackLayout>

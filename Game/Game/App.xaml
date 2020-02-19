@@ -87,6 +87,9 @@
                 x:Key="ValueStyle"
                 BasedOn="{StaticResource LabelStyle}">
                 <Setter Property="TextColor" Value="{StaticResource SecondaryTextColor}" />
+                <Setter Property="Padding" Value="0,0,10,0"/>
+                <Setter Property="HorizontalOptions" Value="End"/>
+                <Setter Property="HorizontalTextAlignment" Value="End"/>
             </Style>
 
             <Style TargetType="Label"

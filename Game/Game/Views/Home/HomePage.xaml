@@ -23,7 +23,7 @@
                          Style="{StaticResource ImageLargeStyle}"/>
 
                     <Image
-                         Source="troll.png"
+                         Source="football_monster.png"
                          Style="{StaticResource ImageLargeStyle}"/>
                 
                 </StackLayout>

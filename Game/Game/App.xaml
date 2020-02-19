@@ -14,8 +14,8 @@
 
             <!--
                 Light
-                    #BF895A
-                    #D9C6B0
+                    #BF895A - > 60ADFF
+                    #D9C6B0 - > 3270B3
                     #733612
                     #8C3D20
                     #400D01
@@ -23,11 +23,11 @@
                 -->
 
             <Color x:Key="PageBackgroundColor">#3270B3</Color>
-            <Color x:Key="ViewBackgroundColor">#BF895A</Color>
+            <Color x:Key="ViewBackgroundColor">#60ADFF</Color>
             <Color x:Key="NavigationBarColor">#3270B3</Color>
 
             <Color x:Key="PrimaryBackgroundColor">#3270B3</Color>
-            <Color x:Key="SecondaryBackgroundColor">#BF895A</Color>
+            <Color x:Key="SecondaryBackgroundColor">#60ADFF</Color>
             <Color x:Key="TriciaryBackgroundColor">#733612</Color>
             <Color x:Key="LightBackgroundColor">Bisque</Color>
 

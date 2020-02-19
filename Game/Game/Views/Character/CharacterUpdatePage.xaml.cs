@@ -23,6 +23,8 @@ namespace Game.Views
             InitializeComponent();
 
             BindingContext = this.ViewModel = data;
+
+            AbilityPicker.SelectedItem = data.Data.Ability.ToString();
         }
 
         /// <summary>

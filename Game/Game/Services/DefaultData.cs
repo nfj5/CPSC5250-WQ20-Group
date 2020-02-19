@@ -14,31 +14,31 @@ namespace Game.Services
             var datalist = new List<ItemModel>()
             {
                 new ItemModel {
-                    Name = "Gold Sword",
-                    Description = "Sword made of Gold, really expensive looking",
-                    ImageURI = "http://www.clker.com/cliparts/e/L/A/m/I/c/sword-md.png",
+                    Name = "Smelly jersery",
+                    Description = "Smells so bad the monster wont come near you",
+                    ImageURI = "smelly_jersery.png",
                     Range = 0,
                     Damage = 9,
                     Weight = 9,
                     Value = 9,
                     Location = ItemLocationEnum.PrimaryHand,
-                    Attribute = AttributeEnum.Defense},
+                    Attribute = AttributeEnum.Attack},
 
                 new ItemModel {
-                    Name = "Strong Shield",
-                    Description = "Enough to hide behind",
-                    ImageURI = "http://www.clipartbest.com/cliparts/4T9/LaR/4T9LaReTE.png",
+                    Name = "Pad Lock",
+                    Description = "Strong enough to lock anyone down",
+                    ImageURI = "padlock.png",
                     Range = 0,
                     Damage = 0,
                     Weight = 3,
                     Value = 9,
-                    Location = ItemLocationEnum.OffHand,
+                    Location = ItemLocationEnum.Unknown,
                     Attribute = AttributeEnum.Defense},
 
                 new ItemModel {
-                    Name = "Bunny Hat",
-                    Description = "Pink hat with fluffy ears",
-                    ImageURI = "http://www.clipartbest.com/cliparts/yik/e9k/yike9kMyT.png",
+                    Name = "Shoes",
+                    Description = "No one will be able to catch you in these",
+                    ImageURI = "shoe.png",
                     Range = 0,
                     Damage = 0,
                     Weight = 5,

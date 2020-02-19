@@ -12,6 +12,11 @@
                 VerticalOptions="Center"
                 HorizontalOptions="Center">
 
+                <Label Text="Football Brawler"
+                       FontSize="Header"
+                       HorizontalOptions="Center"   
+                       VerticalOptions="Center"/>
+
                 <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center">
                     <Image
                          Source="knight.png"
@@ -22,7 +27,7 @@
                          Style="{StaticResource ImageLargeStyle}"/>
                 
                 </StackLayout>
-                
+
                 <StackLayout HorizontalOptions="Center" Padding="75,5,75,5"> 
                
                     <Label 
@@ -42,7 +47,8 @@
 
                 <Button
                     Text="Enter"
-                    Clicked="GameButton_Clicked"/>
+                    Clicked="GameButton_Clicked"
+                    TextColor="Black"/>
 
             </StackLayout>
         </ScrollView>

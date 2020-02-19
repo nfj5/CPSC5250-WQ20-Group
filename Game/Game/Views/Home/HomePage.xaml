@@ -19,7 +19,7 @@
 
                 <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center">
                     <Image
-                         Source="knight.png"
+                         Source="football_charcter.png"
                          Style="{StaticResource ImageLargeStyle}"/>
 
                     <Image

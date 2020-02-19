@@ -123,6 +123,15 @@
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
     <BundleResource Include="Resources\football_monster.png" />
     <BundleResource Include="Resources\football_charcter.png" />
+    <BundleResource Include="Resources\football_helmet.png" />
+    <BundleResource Include="Resources\medal.png" />
+    <BundleResource Include="Resources\padlock.png" />
+    <BundleResource Include="Resources\protein_shake.png" />
+    <BundleResource Include="Resources\shoe.png" />
+    <BundleResource Include="Resources\smelly_jersery.png" />
+    <BundleResource Include="Resources\towel.png" />
+    <BundleResource Include="Resources\trophy.png" />
+    <BundleResource Include="Resources\water_bottle.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

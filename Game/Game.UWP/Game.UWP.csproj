@@ -111,6 +111,8 @@
     <Content Include="door.png" />
     <Content Include="dungeon_door.png" />
     <Content Include="footballlogo.png" />
+    <Content Include="football_charcter.png" />
+    <Content Include="football_monster.png" />
     <Content Include="gameover.png" />
     <Content Include="grey_door.png" />
     <Content Include="home_background.png" />
@@ -187,10 +189,6 @@
       <Project>{0F0BC0CD-CC31-4BE0-8FE4-42C7A3EF8A83}</Project>
       <Name>Game</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="football_monster.png" />
-    <None Include="football_charcter.png" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

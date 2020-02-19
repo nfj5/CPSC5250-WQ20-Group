@@ -29,7 +29,7 @@
             <Color x:Key="PrimaryBackgroundColor">#3270B3</Color>
             <Color x:Key="SecondaryBackgroundColor">#60ADFF</Color>
             <Color x:Key="TriciaryBackgroundColor">#733612</Color>
-            <Color x:Key="LightBackgroundColor">Bisque</Color>
+            <Color x:Key="LightBackgroundColor">#FFF4E8</Color>
 
             <Color x:Key="PrimaryTextColor">#FFF4E8</Color>
             <Color x:Key="SecondaryTextColor">#FFF6DB</Color>
@@ -192,8 +192,8 @@
                 <Setter Property="FontSize" Value="Small" />
                 <Setter Property="HorizontalOptions" Value="FillAndExpand" />
                 <Setter Property="VerticalOptions" Value="Center" />
-                <Setter Property="TextColor" Value="{StaticResource SecondaryTextColor}" />
-                <Setter Property="BackgroundColor" Value="{StaticResource LightBackgroundColor}" />
+                <Setter Property="TextColor" Value="{StaticResource PrimaryTextColor}" />
+                <Setter Property="BackgroundColor" Value="{StaticResource ViewBackgroundColor}" />
                 <Setter Property="PlaceholderColor" Value="{StaticResource TriciaryTextColor}" />
             </Style>
 

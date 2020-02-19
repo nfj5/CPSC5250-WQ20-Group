@@ -7,6 +7,15 @@ namespace Game.Models
 
     public class CharacterModel: BaseModel<CharacterModel>
     {
+        // SuperstarAbility enum declaration
+        public enum SuperstarAbility
+        {
+            SpeedAbility,
+            StrengthAbility,
+            ThiccnessAbility,
+            StaminaAbility
+        };
+
         // Private attributes
         private const int MAX_ITEMS = 6;
 
@@ -16,20 +25,24 @@ namespace Game.Models
         public int BaseThiccness { get; set; } = 0;// How much defense a character can have.
         public int BaseStamina { get; set; } = 0; 
         // How much stamina the character has, on a 1 –99 scale. Stamina resets after matches, stamina determines run duration, number of throws.
-        //If not enough stamina then the user can not perform any actions. A math is 1 game(or 1 dungeon, or 1 round however you want to think of it).
+        // If not enough stamina then the user can not perform any actions. A math is 1 game(or 1 dungeon, or 1 round however you want to think of it).
         // Also different actions take different amount of stamina so we are not assuming a character will get 99 turns.  
 
         public int CurrentSpeed { get; set; } = 0;// How quickly the character can currently move
         public int CurrentStrength { get; set; } = 0; // How strong the character currently is
         public int CurrentHitPoints { get; set; } = 0;// How much damage the character can currently take
-        public int CurrentCooldown { get; set; } = 0;// The current cooldown time of the characters special ability
         public int CurrentThiccness { get; set; } = 0; //The current thicness level of the character. 
         public int CurrentStamina { get; set; } = 0;// How much stamina the character currently has during their turn
 
         new public string Name { get; set; } = "Character Name"; // The official name for the Person. Not editable by the player 
         public string Nickname { get; set; } = "Character Nickname"; // The player-editable name for the Person 
-        public AbilityModel SuperstarAbility { get; set; } // uses separate Ability class which applies modifiers to the Character, tracks ability cooldown, et cetera 
         
+        // Ability code
+        public SuperstarAbility Ability { get; set; } // To decide which stat to apply the ability to
+        public float SuperstarModifier { get; set; } // The actual modifier for the ability
+        public int BaseCooldown { get; set; } // How long it should take before the ability can be used again
+        public int CurrentCooldown { get; set; } = 0; // The current cooldown time of the characters special ability
+
         public int TrainingPoints { get; set; } = 0; // Points used to upgrade speed, strength, hit_points, stamina.  
         public List<ItemModel> Items { get; set; } = new List<ItemModel>(); // Return list of all items the character currently has on its persons. 
         new public string ImageURI { get; set; } = CharacterService.DefaultImageURI; // The image to use for this Person
@@ -70,12 +83,23 @@ namespace Game.Models
                 return false;
             }
 
-            CurrentSpeed = (int) Math.Floor(BaseSpeed * SuperstarAbility.SpeedMultiplier);
-            CurrentStrength = (int) Math.Floor(BaseStrength * SuperstarAbility.StrengthMultiplier);
-            CurrentHitPoints = (int) Math.Floor(BaseHitPoints * SuperstarAbility.HitPointModifier);
-            CurrentThiccness = (int) Math.Floor(BaseThiccness * SuperstarAbility.ThiccnessModifier);
+            switch (Ability)
+            {
+                case SuperstarAbility.SpeedAbility:
+                    CurrentSpeed = (int)(CurrentSpeed * SuperstarModifier);
+                    break;
+                case SuperstarAbility.StaminaAbility:
+                    CurrentStamina = (int)(CurrentStamina * SuperstarModifier);
+                    break;
+                case SuperstarAbility.StrengthAbility:
+                    CurrentStrength = (int)(CurrentStrength * SuperstarModifier);
+                    break;
+                case SuperstarAbility.ThiccnessAbility:
+                    CurrentThiccness = (int)(CurrentThiccness * SuperstarModifier);
+                    break;
+            }
 
-            CurrentCooldown = SuperstarAbility.Cooldown;
+            CurrentCooldown = BaseCooldown;
 
             return true;
         }

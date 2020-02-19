@@ -14,26 +14,26 @@
 
             <!--
                 Light
-                    #BF895A
-                    #D9C6B0
-                    #733612
-                    #8C3D20
-                    #400D01
+                    #BF895A - > 60ADFF
+                    #D9C6B0 - > 3270B3
+                    #733612 -> B38332
+                    #8C3D20 - > 664408
+                    #400D01 -> 123B66
                 Dark
                 -->
 
-            <Color x:Key="PageBackgroundColor">#D9C6B0</Color>
-            <Color x:Key="ViewBackgroundColor">#BF895A</Color>
-            <Color x:Key="NavigationBarColor">#D9C6B0</Color>
+            <Color x:Key="PageBackgroundColor">#3270B3</Color>
+            <Color x:Key="ViewBackgroundColor">#60ADFF</Color>
+            <Color x:Key="NavigationBarColor">#3270B3</Color>
 
-            <Color x:Key="PrimaryBackgroundColor">#D9C6B0</Color>
-            <Color x:Key="SecondaryBackgroundColor">#BF895A</Color>
+            <Color x:Key="PrimaryBackgroundColor">#3270B3</Color>
+            <Color x:Key="SecondaryBackgroundColor">#60ADFF</Color>
             <Color x:Key="TriciaryBackgroundColor">#733612</Color>
             <Color x:Key="LightBackgroundColor">Bisque</Color>
 
-            <Color x:Key="PrimaryTextColor">#400D01</Color>
-            <Color x:Key="SecondaryTextColor">#8C3D20</Color>
-            <Color x:Key="TriciaryTextColor">#733612</Color>
+            <Color x:Key="PrimaryTextColor">#FFF4E8</Color>
+            <Color x:Key="SecondaryTextColor">#B3B2B1</Color>
+            <Color x:Key="TriciaryTextColor">#66605B</Color>
 
             <Color x:Key="TransparentColor">Transparent</Color>
 

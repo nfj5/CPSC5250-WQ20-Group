@@ -10,6 +10,7 @@ namespace Game.Models
         // Private attributes
         private const int MAX_ITEMS = 6;
 
+        // Public attributes 
         public int BaseSpeed { get; set; } = 0;// How quickly the monster can move (max number of blocks per turn). Scale of 1-4
         public int BaseStrength { get; set; } = 0;// How far the Person can throw Items. Scale of 1-4
         public int BaseHitPoints { get; set; } = 0; // How much damage the monster can take. Scale of 10-20
@@ -33,6 +34,10 @@ namespace Game.Models
         public int TrainingPoints { get; set; } = 0; // Points used to upgrade speed, strength, hit_points, stamina.  
         public List<ItemModel> Items { get; set; } = new List<ItemModel>(); // Return list of all items the monster currently has on its persons. 
         new public string ImageURI { get; set; } = MonsterService.DefaultImageURI; // The image to use for this Person
+
+        public int CooldownTime { get; set; } // cooldown will be number of turns 
+        public float Modifier { get; set; } // multiplier to be applied to the specified stat. Result will be rounded down. The stat modified will depend on which special ability was given to the character at time of creation. We will have 3 different special abilities. The stats being modified are speed, strength, and stamina.  
+
 
         //Public methods
 
@@ -114,10 +119,7 @@ namespace Game.Models
             return (CurrentCooldown != 0);
         } 
 
-        //Attributes 
-        public int CooldownTime { get; set; } // cooldown will be number of turns 
-        public float Modifier { get; set; } // multiplier to be applied to the specified stat. Result will be rounded down. The stat modified will depend on which special ability was given to the character at time of creation. We will have 3 different special abilities. The stats being modified are speed, strength, and stamina.  
-
+        // Update the Monster's Speed, Strength, Hitpoints, and Thiccness
         public override void Update(MonsterModel newData)
         {
             if (newData == null)

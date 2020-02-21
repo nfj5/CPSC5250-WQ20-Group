@@ -15,7 +15,7 @@ namespace Game.Models
         // Experience points to achieve the level
         public int Experience;
 
-        // Attack Bonus
+        // Strength Bonus
         public int Strength;
 
         // Defense Bonus
@@ -29,8 +29,8 @@ namespace Game.Models
         /// </summary>
         /// <param name="level"></param>
         /// <param name="experience"></param>
-        /// <param name="attack"></param>
-        /// <param name="defense"></param>
+        /// <param name="strength"></param>
+        /// <param name="thiccness"></param>
         /// <param name="speed"></param>
         public LevelDetailsModel(int level, int experience, int strength, int thiccness, int speed)
         {

@@ -50,7 +50,7 @@ namespace Game.Views
                         break;
 
                     case (int)MenuItemEnum.Village:
-                        MenuPages.Add(id, new NavigationPage(new VillagePage()));
+                        MenuPages.Add(id, new NavigationPage(new LockerRoomPage()));
                         break;
 
                     case (int)MenuItemEnum.Battle:

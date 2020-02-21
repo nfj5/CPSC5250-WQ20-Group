@@ -36,8 +36,8 @@
     <Compile Update="Views\Battle\BattlePage.xaml.cs">
       <DependentUpon>BattlePage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\Village\VillagePage.xaml.cs">
-      <DependentUpon>VillagePage.xaml</DependentUpon>
+    <Compile Update="Views\LockerRoom\LockerRoomPage.xaml.cs">
+      <DependentUpon>LockerRoomPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\Home\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>

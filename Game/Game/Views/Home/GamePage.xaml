@@ -18,10 +18,10 @@
                     <ImageButton
                         Source="village.png"
                         Style="{StaticResource ImageLargeStyle}"
-                        Clicked="VillageButton_Clicked"/>
+                        Clicked="LockerRoomButton_Clicked"/>
 
                     <Label 
-                        Text="Village"
+                        Text="Locker room"
                         Style="{StaticResource CenterMessageStyle}"/>
                 </StackLayout>
 

@@ -23,11 +23,14 @@ namespace Game.Models
         // To denote which kind of Person this model is being used as
         public PersonTypeEnum PersonType { get; set; }
 
+        // The amount of experience that the Person has
+        public int ExperiencePoints { get; set; } = 0;
+
         // Private attributes
         private const int MAX_ITEMS = 6; // How many Items the Character is able to hold at once
 
-        public int BaseSpeed { get; set; } = 0;// How quickly the character can move (max number of blocks per turn). Scale of 1-4
-        public int BaseStrength { get; set; } = 0;// How far the Person can throw Items. Scale of 1-4
+        public int BaseSpeed { get; set; } = 0;// How quickly the character can move (max number of blocks per turn). Scale of 1-5
+        public int BaseStrength { get; set; } = 0;// How far the Person can throw Items. Scale of 1-9
         public int BaseHitPoints { get; set; } = 0; // How much damage the character can take. Scale of 10-20
         public int BaseThiccness { get; set; } = 0;// How much defense a character can have.
         public int BaseStamina { get; set; } = 0;

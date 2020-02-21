@@ -5,12 +5,23 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Game.Views.CharacterCreatePage"
+             xmlns:local="using:Game.Models"
+             xmlns:local_helpers="clr-namespace:Game.Helpers"
+             xmlns:local_enum="clr-namespace:Game.Models"
              Title="Create">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" IconImageSource="icon_cancel.png"/>
         <ToolbarItem Text="Save" Clicked="Save_Clicked" IconImageSource="icon_save.png"/>
     </ContentPage.ToolbarItems>
+
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local_helpers:StringEnumConverter x:Key="StringEnum"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
 
     <ContentPage.Content>
 
@@ -57,8 +68,15 @@
                             Style="{StaticResource EntryStyle}"/>
                     </StackLayout>
 
-                    <Label Grid.Row="3" Grid.Column="0" Text="Speed" Style="{StaticResource LabelStyle}"/>
-                    <StackLayout Grid.Row="3" Grid.Column="1" Style="{StaticResource HorizontalStack}" Padding="10">
+                    <Label Grid.Row="3" Grid.Column="0" Text="Ability Picker: " Style="{StaticResource LabelStyle}"/>
+                    <Picker Grid.Row="3" Grid.Column="1"
+                        ItemsSource="{x:Static local_helpers:AbilityEnumHelper.GetListCharacter}" 
+                        SelectedItem="{Binding Data.Ability, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
+                        x:Name="AbilityPicker"
+                        TextColor="Black"/>
+
+                    <Label Grid.Row="4" Grid.Column="0" Text="Speed" Style="{StaticResource LabelStyle}"/>
+                    <StackLayout Grid.Row="4" Grid.Column="1" Style="{StaticResource HorizontalStack}" Padding="10">
                         <Label Text="{Binding Data.BaseSpeed}"
                                x:Name="SpeedValue"
                                Style="{StaticResource ValueStyle}"/>
@@ -66,8 +84,8 @@
                                  ValueChanged="Speed_OnStepperValueChanged"/>
                     </StackLayout>
 
-                    <Label Grid.Row="4" Grid.Column="0" Text="Strength" Style="{StaticResource LabelStyle}"/>
-                    <StackLayout Grid.Row="4" Grid.Column="1" Style="{StaticResource HorizontalStack}" Padding="10">
+                    <Label Grid.Row="5" Grid.Column="0" Text="Strength" Style="{StaticResource LabelStyle}"/>
+                    <StackLayout Grid.Row="5" Grid.Column="1" Style="{StaticResource HorizontalStack}" Padding="10">
                         <Label Text="{Binding Data.BaseStrength}"
                                x:Name="StrengthValue"
                                Style="{StaticResource ValueStyle}" />
@@ -75,8 +93,8 @@
                                  ValueChanged="Strength_OnStepperValueChanged"/>
                     </StackLayout>
 
-                    <Label Grid.Row="5" Grid.Column="0" Text="Hit Points" Style="{StaticResource LabelStyle}"/>
-                    <StackLayout Grid.Row="5" Grid.Column="1" Style="{StaticResource HorizontalStack}" Padding="10">
+                    <Label Grid.Row="6" Grid.Column="0" Text="Hit Points" Style="{StaticResource LabelStyle}"/>
+                    <StackLayout Grid.Row="6" Grid.Column="1" Style="{StaticResource HorizontalStack}" Padding="10">
                         <Label Text="{Binding Data.BaseHitPoints}"
                                x:Name="HitPointsValue"
                                Style="{StaticResource ValueStyle}" />
@@ -84,8 +102,8 @@
                                  ValueChanged="HitPoints_OnStepperValueChanged"/>
                     </StackLayout>
 
-                    <Label Grid.Row="6" Grid.Column="0" Text="Thiccness" Style="{StaticResource LabelStyle}"/>
-                    <StackLayout Grid.Row="6" Grid.Column="1" Style="{StaticResource HorizontalStack}" Padding="10">
+                    <Label Grid.Row="7" Grid.Column="0" Text="Thiccness" Style="{StaticResource LabelStyle}"/>
+                    <StackLayout Grid.Row="7" Grid.Column="1" Style="{StaticResource HorizontalStack}" Padding="10">
                         <Label Text="{Binding Data.BaseThiccness}"
                                x:Name="ThiccnessValue"
                                Style="{StaticResource ValueStyle}" />
@@ -93,8 +111,8 @@
                                  ValueChanged="Thiccness_OnStepperValueChanged"/>
                     </StackLayout>
 
-                    <Label Grid.Row="7" Grid.Column="0" Text="Stamina" Style="{StaticResource LabelStyle}"/>
-                    <StackLayout Grid.Row="7" Grid.Column="1" Style="{StaticResource HorizontalStack}" Padding="10">
+                    <Label Grid.Row="8" Grid.Column="0" Text="Stamina" Style="{StaticResource LabelStyle}"/>
+                    <StackLayout Grid.Row="8" Grid.Column="1" Style="{StaticResource HorizontalStack}" Padding="10">
                         <Label Text="{Binding Data.BaseStamina}"
                                x:Name="StaminaValue"
                                Style="{StaticResource ValueStyle}" />
@@ -102,8 +120,9 @@
                                  ValueChanged="Stamina_OnStepperValueChanged"/>
                     </StackLayout>
 
+
                 </Grid>
-            </StackLayout>
+            </StackLayout>  
         </ScrollView>
         
     </ContentPage.Content>

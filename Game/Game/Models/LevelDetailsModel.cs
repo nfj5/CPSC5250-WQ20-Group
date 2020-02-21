@@ -16,10 +16,10 @@ namespace Game.Models
         public int Experience;
 
         // Attack Bonus
-        public int Attack;
+        public int Strength;
 
         // Defense Bonus
-        public int Defense;
+        public int Thiccness;
 
         // Speed Bonus
         public int Speed;
@@ -32,12 +32,12 @@ namespace Game.Models
         /// <param name="attack"></param>
         /// <param name="defense"></param>
         /// <param name="speed"></param>
-        public LevelDetailsModel(int level, int experience, int attack, int defense, int speed)
+        public LevelDetailsModel(int level, int experience, int strength, int thiccness, int speed)
         {
             Level = level;
             Experience = experience;
-            Attack = attack;
-            Defense = defense;
+            Strength = strength;
+            Thiccness = thiccness;
             Speed = speed;
         }
     }

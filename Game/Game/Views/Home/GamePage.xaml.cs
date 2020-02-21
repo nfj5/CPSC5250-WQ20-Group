@@ -33,9 +33,9 @@ namespace Game.Views
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		async void VillageButton_Clicked(object sender, EventArgs e)
+		async void LockerRoomButton_Clicked(object sender, EventArgs e)
 		{
-			await Navigation.PushAsync(new VillagePage());
+			await Navigation.PushAsync(new LockerRoomPage());
 		}
 
 		/// <summary>

@@ -15,7 +15,7 @@ namespace Game.Models
         // Experience points to achieve the level
         public int Experience;
 
-        // Strength Bonus
+        // Attack Bonus
         public int Strength;
 
         // Defense Bonus
@@ -24,13 +24,13 @@ namespace Game.Models
         // Speed Bonus
         public int Speed;
 
-        //Stamina Bonus
+        //Stamina bonus.
         public int Stamina;
 
-        //HitPoints Bonus
+        //Hitpoints Bonus
         public int Hitpoints;
 
-        //SuperStar Abilty Bonus
+        //SuperStar bonus
         public int Superstar;
 
         /// <summary>
@@ -38,20 +38,20 @@ namespace Game.Models
         /// </summary>
         /// <param name="level"></param>
         /// <param name="experience"></param>
-        /// <param name="strength"></param>
-        /// <param name="thiccness"></param>
+        /// <param name="attack"></param>
+        /// <param name="defense"></param>
         /// <param name="speed"></param>
-        public LevelDetailsModel(int experince, int level, int strength,
-            int thiccness, int speed, int stamina, int hitpoints, int superstar)
+        public LevelDetailsModel(int level, int experience, int strength, int thiccness, int speed, int stamimna, int hitpoints, int superstar)
         {
-            Experience = experience;
             Level = level;
+            Experience = experience;
             Strength = strength;
             Thiccness = thiccness;
             Speed = speed;
-            Stamina = stamina;
+            Stamina = stamimna;
             Hitpoints = hitpoints;
             Superstar = superstar;
+
         }
     }
 }

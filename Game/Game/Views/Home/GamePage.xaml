@@ -28,7 +28,7 @@
                 <StackLayout Style="{StaticResource CardImageTextBox}">
 
                     <ImageButton
-                        Source="dungeon_door.png"
+                        Source="stadium.png"
                         Style="{StaticResource ImageLargeStyle}"
                         Clicked="StadiumButton_Clicked"/>
 

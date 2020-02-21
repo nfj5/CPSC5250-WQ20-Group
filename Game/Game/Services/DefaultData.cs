@@ -20,7 +20,7 @@ namespace Game.Services
                     Range = 0,
                     Damage = 9,
                     Value = 9,
-                    Location = ItemLocationEnum.Unknown,
+                    Location = ItemLocationEnum.Head,
                     Attribute = AttributeEnum.CurrentHealth},
 
                 new ItemModel {
@@ -30,7 +30,7 @@ namespace Game.Services
                     Range = 0,
                     Damage = 0,
                     Value = 9,
-                    Location = ItemLocationEnum.Unknown,
+                    Location = ItemLocationEnum.Head,
                     Attribute = AttributeEnum.Defense},
 
                 new ItemModel {
@@ -123,7 +123,7 @@ namespace Game.Services
                     ImageURI = "football_monster.png",
                     BaseSpeed = 9,
                     BaseHitPoints = 9,
-                    BaseStamina = 9,
+                    BaseStamina = 90,
                     BaseStrength = 9,
                     BaseThiccness = 9,
                 },
@@ -134,7 +134,7 @@ namespace Game.Services
                     Nickname = "AJ",
                     ImageURI = "football_monster.png",
                     BaseSpeed = 1,
-                    BaseStamina = 1,
+                    BaseStamina = 10,
                     BaseHitPoints = 1,
                     BaseStrength = 1,
                     BaseThiccness = 1
@@ -147,7 +147,7 @@ namespace Game.Services
                     ImageURI = "football_monster.png",
                     BaseSpeed = 5,
                     BaseHitPoints = 5,
-                    BaseStamina = 5,
+                    BaseStamina = 50,
                     BaseStrength = 5,
                     BaseThiccness = 5
                 }

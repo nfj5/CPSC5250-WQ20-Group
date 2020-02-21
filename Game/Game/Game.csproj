@@ -78,5 +78,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Monster\" />
+    <Folder Include="Engine\" />
   </ItemGroup>
 </Project>

@@ -24,6 +24,15 @@ namespace Game.Models
         // Speed Bonus
         public int Speed;
 
+        //Stamina Bonus
+        public int Stamina;
+
+        //HitPoints Bonus
+        public int Hitpoints;
+
+        //SuperStar Abilty Bonus
+        public int Superstar;
+
         /// <summary>
         /// Create a new level based on values passed in
         /// </summary>
@@ -32,13 +41,17 @@ namespace Game.Models
         /// <param name="strength"></param>
         /// <param name="thiccness"></param>
         /// <param name="speed"></param>
-        public LevelDetailsModel(int level, int experience, int strength, int thiccness, int speed)
+        public LevelDetailsModel(int experince, int level, int strength,
+            int thiccness, int speed, int stamina, int hitpoints, int superstar)
         {
-            Level = level;
             Experience = experience;
+            Level = level;
             Strength = strength;
             Thiccness = thiccness;
             Speed = speed;
+            Stamina = stamina;
+            Hitpoints = hitpoints;
+            Superstar = superstar;
         }
     }
 }

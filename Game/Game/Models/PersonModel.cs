@@ -181,6 +181,11 @@ namespace Game.Models
         // Check if the SuperstarAbility is on cooldown and applies modifiers if not on cooldown
         public bool ActivateAbility()
         {
+            if (PersonType == PersonTypeEnum.Monster)
+            {
+                return false;
+            }
+
             if (CheckCooldown())
             {
                 return false;

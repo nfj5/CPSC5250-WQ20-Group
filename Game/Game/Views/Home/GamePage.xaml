@@ -30,10 +30,10 @@
                     <ImageButton
                         Source="dungeon_door.png"
                         Style="{StaticResource ImageLargeStyle}"
-                        Clicked="DungeonButton_Clicked"/>
+                        Clicked="StadiumButton_Clicked"/>
 
                     <Label 
-                        Text="Dungeon"
+                        Text="Stadium"
                         Style="{StaticResource CenterMessageStyle}"/>
                 </StackLayout>
 

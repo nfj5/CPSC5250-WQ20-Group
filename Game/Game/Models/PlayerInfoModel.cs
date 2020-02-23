@@ -21,11 +21,10 @@ namespace Game.Models
         /// <param name="data"></param>
         public PlayerInfoModel(PlayerInfoModel data)
         {
-            /*
-            PlayerType = data.PlayerType;
-            Guid = data.Guid;
+            
+            PersonType = data.PersonType;
             Alive = data.Alive;
-            ExperiencePoints = data.ExperienceTotal;
+            ExperiencePoints = data.ExperiencePoints;
             Level = data.Level;
             Name = data.Name;
             Description = data.Description;
@@ -41,7 +40,7 @@ namespace Game.Models
             RightFinger = data.RightFinger;
             LeftFinger = data.LeftFinger;
             Feet = data.Feet;
-            */
+            
         }
 
         /// <summary>
@@ -50,7 +49,7 @@ namespace Game.Models
         /// <param name="data"></param>
         public PlayerInfoModel(CharacterModel data)
         {
-            /*
+            
             PlayerType = data.PlayerType;
             Guid = data.Guid;
             Alive = data.Alive;
@@ -70,7 +69,7 @@ namespace Game.Models
             RightFinger = data.RightFinger;
             LeftFinger = data.LeftFinger;
             Feet = data.Feet;
-            */
+            
         }
 
         /// <summary>
@@ -79,7 +78,7 @@ namespace Game.Models
         /// <param name="data"></param>
         public PlayerInfoModel(MonsterModel data)
         {
-            /*
+            
             PlayerType = data.PlayerType;
             Guid = data.Guid;
             Alive = data.Alive;
@@ -99,7 +98,7 @@ namespace Game.Models
             RightFinger = data.RightFinger;
             LeftFinger = data.LeftFinger;
             Feet = data.Feet;
-            */
+            
         }
     }
 }

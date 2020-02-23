@@ -1,5 +1,6 @@
 ﻿using Game.Services;
 using Game.ViewModels;
+using SQLite;
 using System;
 using System.Collections.Generic;
 
@@ -19,7 +20,13 @@ namespace Game.Models
             ThiccnessAbility,
             StaminaAbility
         };
-        
+
+        // alive status, !alive will be removed from the list
+        [Ignore]
+        public bool Alive { get; set; } = true;
+
+
+
         // To denote which kind of Person this model is being used as
         public PersonTypeEnum PersonType { get; set; }
 

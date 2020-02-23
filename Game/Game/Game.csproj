@@ -79,4 +79,8 @@
   <ItemGroup>
     <Folder Include="Views\Monster\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove=".DS_Store" />
+    <None Remove="Views\.DS_Store" />
+  </ItemGroup>
 </Project>

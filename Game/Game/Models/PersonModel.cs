@@ -25,7 +25,8 @@ namespace Game.Models
         [Ignore]
         public bool Alive { get; set; } = true;
 
-
+        // Level of character or monster
+        public int Level { get; set; } = 1;
 
         // To denote which kind of Person this model is being used as
         public PersonTypeEnum PersonType { get; set; }

@@ -54,7 +54,7 @@ namespace Game.Models
         public void LoadLevelData()
         {
             // Init the level list, going to index into it like an array, so making 0 be a null value.  That way Level can be Array Index.
-            LevelDetailsList.Add(new LevelDetailsModel(0, 0, 0, 0, 0, 0, 0,0);
+            LevelDetailsList.Add(new LevelDetailsModel(0, 0, 0, 0, 0, 0, 0,0));
 
             // Character Level Chart...
 

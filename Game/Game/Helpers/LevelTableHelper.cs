@@ -83,8 +83,6 @@ namespace Game.Models
             LevelDetailsList.Add(new LevelDetailsModel(355000, 20, 5, 5, 5, 4, 20, 3));
 
 
-            // Level 21, is for Monster Experience points...
-            
         }
     }
 }

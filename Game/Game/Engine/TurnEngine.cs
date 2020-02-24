@@ -142,7 +142,7 @@ namespace Game.Engine
             // Attack the Weakness (lowest HP) MonsterModel first 
             var Defender = MonsterList
                 .Where(m => m.Alive)
-                .OrderBy(m => m.CurrentHealth).FirstOrDefault();
+                .OrderBy(m => m.BaseHitPoints).FirstOrDefault();
 
             return Defender;
         }
@@ -171,10 +171,10 @@ namespace Game.Engine
             BattleMessagesModel.TurnMessageSpecial = string.Empty;
             BattleMessagesModel.AttackStatus = string.Empty;
 
-            BattleMessagesModel.PlayerType = PlayerTypeEnum.Monster;
+            BattleMessagesModel.PlayerType = PersonTypeEnum.Monster;
 
-            var AttackScore = Attacker.Level + Attacker.GetAttack();
-            var DefenseScore = Target.GetDefense() + Target.Level;
+            var AttackScore = Attacker.Level + Attacker.CurrentStrength;
+            var DefenseScore = Target.CurrentThiccness + Target.Level;
 
             // Choose who to attack
 
@@ -200,7 +200,7 @@ namespace Game.Engine
                 Target.TakeDamage(BattleMessagesModel.DamageAmount);
             }
 
-            BattleMessagesModel.CurrentHealth = Target.CurrentHealth;
+            BattleMessagesModel.CurrentHealth = Target.CurrentHitPoints;
             BattleMessagesModel.TurnMessageSpecial = BattleMessagesModel.GetCurrentHealthMessage();
 
             RemoveIfDead(Target);
@@ -243,9 +243,9 @@ namespace Game.Engine
             // Remove target from list...
 
             // Using a switch so in the future additional PlayerTypes can be added (Boss...)
-            switch (Target.PlayerType)
+            switch (Target.PersonType)
             {
-                case PlayerTypeEnum.Character:
+                case PersonTypeEnum.Character:
                     CharacterList.Remove(Target);
 
                     // Add the MonsterModel to the killed list
@@ -255,7 +255,7 @@ namespace Game.Engine
 
                     return true;
 
-                case PlayerTypeEnum.Monster:
+                case PersonTypeEnum.Monster:
                 default:
                     MonsterList.Remove(Target);
 

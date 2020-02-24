@@ -156,10 +156,10 @@ namespace Game.Engine
             // Work with the Class variable PlayerList
             PlayerList = MakePlayerList();
 
-            PlayerList = PlayerList.OrderByDescending(a => a.GetSpeed())
+            PlayerList = PlayerList.OrderByDescending(a => a.CurrentSpeed)
                 .ThenByDescending(a => a.Level)
                 .ThenByDescending(a => a.ExperiencePoints)
-                .ThenByDescending(a => a.PlayerType)
+                .ThenByDescending(a => a.PersonType)
                 .ThenBy(a => a.Name)
                 .ThenBy(a => a.ListOrder)
                 .ToList();
@@ -234,6 +234,7 @@ namespace Game.Engine
             }
 
             // Find current player in the list
+            //Commenting out untill we figuere out if we need a GUID. 
             var index = PlayerList.FindIndex(m => m.Guid.Equals(PlayerCurrent.Guid));
 
             // If at the end of the list, return the first element
@@ -274,13 +275,12 @@ namespace Game.Engine
         {
             // Have the character, walk the items in the pool, and decide if any are better than current one.
 
-            GetItemFromPoolIfBetter(character, ItemLocationEnum.Head);
-            GetItemFromPoolIfBetter(character, ItemLocationEnum.Necklass);
-            GetItemFromPoolIfBetter(character, ItemLocationEnum.PrimaryHand);
-            GetItemFromPoolIfBetter(character, ItemLocationEnum.OffHand);
-            GetItemFromPoolIfBetter(character, ItemLocationEnum.RightFinger);
-            GetItemFromPoolIfBetter(character, ItemLocationEnum.LeftFinger);
-            GetItemFromPoolIfBetter(character, ItemLocationEnum.Feet);
+            GetItemFromPoolIfBetter(character, ItemLocationEnum.ItemOne);
+            GetItemFromPoolIfBetter(character, ItemLocationEnum.ItemTwo);
+            GetItemFromPoolIfBetter(character, ItemLocationEnum.ItemThree);
+            GetItemFromPoolIfBetter(character, ItemLocationEnum.ItemFour);
+            GetItemFromPoolIfBetter(character, ItemLocationEnum.ItemFive);
+            GetItemFromPoolIfBetter(character, ItemLocationEnum.ItemSix); 
 
             return true;
         }

@@ -87,7 +87,7 @@ namespace Game.Engine
         /// <returns></returns>
         public PlayerInfoModel AttackChoice(PlayerInfoModel data)
         {
-            switch (data.PersonTypeEnum)
+            switch (data.PersonType)
             {
                 case PersonTypeEnum.Monster:
                     return SelectCharacterToAttack();

@@ -21,6 +21,9 @@ namespace Game.Models
             StaminaAbility
         };
 
+        [Ignore]
+        public int ListOrder { get; set; } = 0;
+
         // alive status, !alive will be removed from the list
         [Ignore]
         public bool Alive { get; set; } = true;

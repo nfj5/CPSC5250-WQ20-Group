@@ -73,9 +73,9 @@ namespace Game.Services
                     ImageURI = "football_charcter.png",
                     BaseSpeed = 9,
                     BaseHitPoints = 9,
-                    BaseStamina = 9,
-                    BaseStrength = 9,
-                    BaseThiccness = 9,
+                    BaseStamina = 7,
+                    BaseStrength = 1,
+                    BaseThiccness = 1,
                 },
 
                 new CharacterModel
@@ -83,8 +83,9 @@ namespace Game.Services
                     Name = "Adam Jones",
                     Nickname = "AJ",
                     ImageURI = "football_charcter.png",
+                    Level = 1,
                     BaseSpeed = 1,
-                    BaseStamina = 1,
+                    BaseStamina = 7,
                     BaseHitPoints = 1,
                     BaseStrength = 1,
                     BaseThiccness = 1
@@ -95,11 +96,51 @@ namespace Game.Services
                     Name = "Derick Jones",
                     Nickname = "DJ",
                     ImageURI = "football_charcter.png",
+                    Level = 2,
                     BaseSpeed = 5,
                     BaseHitPoints = 5,
-                    BaseStamina = 5,
-                    BaseStrength = 5,
-                    BaseThiccness = 5
+                    BaseStamina = 7,
+                    BaseStrength = 1,
+                    BaseThiccness = 1
+                },
+
+                new CharacterModel
+                {
+                    Name = "Aaron Jones",
+                    Nickname = "AJ",
+                    ImageURI = "football_charcter.png",
+                    Level = 1,
+                    BaseSpeed = 4,
+                    BaseHitPoints = 9,
+                    BaseStamina = 7,
+                    BaseStrength = 1,
+                    BaseThiccness = 1,
+                },
+
+                new CharacterModel
+                {
+                    Name = "Sam Jones",
+                    Nickname = "SJ",
+                    ImageURI = "football_charcter.png",
+                    Level = 1,
+                    BaseSpeed = 5,
+                    BaseStamina = 7,
+                    BaseHitPoints = 1,
+                    BaseStrength = 1,
+                    BaseThiccness = 1
+                },
+
+                new CharacterModel
+                {
+                    Name = "Kane Jones",
+                    Nickname = "KJ",
+                    ImageURI = "football_charcter.png",
+                    Level = 2,
+                    BaseSpeed = ,6
+                    BaseHitPoints = 5,
+                    BaseStamina = 7,
+                    BaseStrength = 1,
+                    BaseThiccness = 1
                 }
 
             };
@@ -121,11 +162,12 @@ namespace Game.Services
                     Name = "Bob Jones",
                     Nickname = "BJ",
                     ImageURI = "football_monster.png",
-                    BaseSpeed = 9,
-                    BaseHitPoints = 9,
-                    BaseStamina = 90,
-                    BaseStrength = 9,
-                    BaseThiccness = 9,
+                    Level = 2,
+                    BaseSpeed = 2,
+                    BaseHitPoints = 1,
+                    BaseStamina = 10,
+                    BaseStrength = 1,
+                    BaseThiccness = 1,
                 },
 
                 new MonsterModel
@@ -133,7 +175,8 @@ namespace Game.Services
                     Name = "Adam Jones",
                     Nickname = "AJ",
                     ImageURI = "football_monster.png",
-                    BaseSpeed = 1,
+                    Level = 2,
+                    BaseSpeed = 3,
                     BaseStamina = 10,
                     BaseHitPoints = 1,
                     BaseStrength = 1,
@@ -145,11 +188,51 @@ namespace Game.Services
                     Name = "Derick Jones",
                     Nickname = "DJ",
                     ImageURI = "football_monster.png",
+                    Level = 2,
                     BaseSpeed = 5,
-                    BaseHitPoints = 5,
-                    BaseStamina = 50,
-                    BaseStrength = 5,
-                    BaseThiccness = 5
+                    BaseHitPoints = 1,
+                    BaseStamina = 10,
+                    BaseStrength = 1,
+                    BaseThiccness = 1
+                },
+
+                new MonsterModel
+                {
+                    Name = "Aaron Jones",
+                    Nickname = "AJ",
+                    ImageURI = "football_monster.png",
+                    Level = 2,
+                    BaseSpeed = 9,
+                    BaseHitPoints = 1,
+                    BaseStamina = 10,
+                    BaseStrength = 1,
+                    BaseThiccness = 1,
+                },
+
+                new MonsterModel
+                {
+                    Name = "Sam Jones",
+                    Nickname = "SJ",
+                    ImageURI = "football_monster.png",
+                    Level = 2,
+                    BaseSpeed = 1,
+                    BaseStamina = 10,
+                    BaseHitPoints = 1,
+                    BaseStrength = 1,
+                    BaseThiccness = 1
+                },
+
+                new MonsterModel
+                {
+                    Name = "Kane Jones",
+                    Nickname = "KJ",
+                    ImageURI = "football_monster.png",
+                    Level = 2,
+                    BaseSpeed = 4,
+                    BaseHitPoints = 1,
+                    BaseStamina = 10,
+                    BaseStrength = 1,
+                    BaseThiccness = 1
                 }
 
             };

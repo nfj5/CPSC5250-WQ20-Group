@@ -17,9 +17,7 @@ namespace Game.Helpers
             {
                 var myList = Enum.GetNames(typeof(ItemLocationEnum)).ToList();
                 var myReturn = myList.Where(a =>
-                                            a.ToString() != ItemLocationEnum.Unknown.ToString() &&
-                                            a.ToString() != ItemLocationEnum.LeftFinger.ToString() &&
-                                            a.ToString() != ItemLocationEnum.RightFinger.ToString()
+                                            a.ToString() != ItemLocationEnum.Unknown.ToString()
                                             )
                                             .OrderBy(a => a)
                                             .ToList();
@@ -37,8 +35,7 @@ namespace Game.Helpers
             {
                 var myList = Enum.GetNames(typeof(ItemLocationEnum)).ToList();
                 var myReturn = myList.Where(a =>
-                                           a.ToString() != ItemLocationEnum.Unknown.ToString() &&
-                                            a.ToString() != ItemLocationEnum.Finger.ToString()
+                                           a.ToString() != ItemLocationEnum.Unknown.ToString()
                                             )
                                             .OrderBy(a => a)
                                             .ToList();
@@ -68,26 +65,23 @@ namespace Game.Helpers
             switch (position)
             {
                 case 1:
-                    return ItemLocationEnum.Head;
+                    return ItemLocationEnum.ItemOne;
 
                 case 2:
-                    return ItemLocationEnum.Necklass;
+                    return ItemLocationEnum.ItemTwo;
 
                 case 3:
-                    return ItemLocationEnum.PrimaryHand;
+                    return ItemLocationEnum.ItemThree;
 
                 case 4:
-                    return ItemLocationEnum.OffHand;
+                    return ItemLocationEnum.ItemFour;
 
                 case 5:
-                    return ItemLocationEnum.RightFinger;
+                    return ItemLocationEnum.ItemFive;
 
                 case 6:
-                    return ItemLocationEnum.LeftFinger;
-
-                case 7:
                 default:
-                    return ItemLocationEnum.Feet;
+                    return ItemLocationEnum.ItemSix;
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using Game.Services;
+﻿using Game.Helpers;
+using Game.Services;
 using Game.ViewModels;
 using SQLite;
 using System;
@@ -76,6 +77,10 @@ namespace Game.Models
         public string ItemFour { get; set; } = null;
         public string ItemFive { get; set; } = null;
         public string ItemSix { get; set; } = null;
+
+        [Ignore]
+        // Return the Damage value, it is 25% of the Level rounded up
+        public int GetDamageLevelBonus { get { return Convert.ToInt32(Math.Ceiling(Level * .25)); } }
 
         //Public methods
 
@@ -260,5 +265,195 @@ namespace Game.Models
             return (CurrentCooldown != 0);
         }
 
+        /// <summary>
+        /// Roll the Damage Dice, and add to the Damage
+        /// </summary>
+        /// <returns></returns>
+        public int GetDamageRollValue()
+        {
+            var myReturn = 0;
+
+            //Come back and do something about using other items. 
+            var myItem = ItemIndexViewModel.Instance.GetItem(ItemOne);
+            if (myItem != null)
+            {
+                // Dice of the weapon.  So sword of Damage 10 is d10
+                myReturn += DiceHelper.RollDice(1, myItem.Damage);
+            }
+
+            // Add in the Level as extra damage per game rules
+            myReturn += GetDamageLevelBonus;
+
+            return myReturn;
+        }
+
+
+        // Take Damage
+        // If the damage recived, is > health, then death occurs
+        // Return the number of experience received for this attack 
+        // monsters give experience to characters.  Characters don't accept expereince from monsters
+        public bool TakeDamage(int damage)
+        {
+            if (damage <= 0)
+            {
+                return false;
+            }
+
+            CurrentHitPoints = CurrentHitPoints - damage;
+            if (CurrentHitPoints <= 0)
+            {
+                CurrentHitPoints = 0;
+
+                // Death...
+                CauseDeath();
+            }
+
+            return true;
+        }
+
+        // Death
+        // Alive turns to False
+        public bool CauseDeath()
+        {
+            Alive = false;
+            return Alive;
+        }
+
+        // Remove ItemModel from a set location
+        // Does this by adding a new ItemModel of Null to the location
+        // This will return the previous ItemModel, and put null in its place
+        // Returns the ItemModel that was at the location
+        // Nulls out the location
+        public ItemModel RemoveItem(ItemLocationEnum itemlocation)
+        {
+            var myReturn = AddItem(itemlocation, null);
+
+            // Save Changes
+            return myReturn;
+        }
+
+
+        // Drop All Items
+        // Return a list of items for the pool of items
+        public List<ItemModel> DropAllItems()
+        {
+            var myReturn = new List<ItemModel>();
+
+            // Drop all Items
+            ItemModel myItem;
+
+            myItem = RemoveItem(ItemLocationEnum.ItemOne);
+            if (myItem != null)
+            {
+                myReturn.Add(myItem);
+            }
+
+            myItem = RemoveItem(ItemLocationEnum.ItemTwo);
+            if (myItem != null)
+            {
+                myReturn.Add(myItem);
+            }
+
+            myItem = RemoveItem(ItemLocationEnum.ItemThree);
+            if (myItem != null)
+            {
+                myReturn.Add(myItem);
+            }
+
+            myItem = RemoveItem(ItemLocationEnum.ItemFour);
+            if (myItem != null)
+            {
+                myReturn.Add(myItem);
+            }
+
+            myItem = RemoveItem(ItemLocationEnum.ItemFive);
+            if (myItem != null)
+            {
+                myReturn.Add(myItem);
+            }
+
+            myItem = RemoveItem(ItemLocationEnum.ItemSix);
+            if (myItem != null)
+            {
+                myReturn.Add(myItem);
+            }
+
+            return myReturn;
+        }
+
+        public string FormatOutput() { return ""; }
+
+        // Add ItemModel
+        // Looks up the ItemModel
+        // Puts the ItemModel ID as a string in the location slot
+        // If ItemModel is null, then puts null in the slot
+        // Returns the ItemModel that was in the location
+        public ItemModel AddItem(ItemLocationEnum itemLocation, string itemID)
+        {
+            var myReturn = GetItemByLocation(itemLocation);
+
+            switch (itemLocation)
+            {
+                case ItemLocationEnum.ItemOne:
+                    ItemOne = itemID;
+                    break;
+
+                case ItemLocationEnum.ItemTwo:
+                    ItemTwo = itemID;
+                    break;
+
+                case ItemLocationEnum.ItemThree:
+                    ItemThree = itemID;
+                    break;
+
+                case ItemLocationEnum.ItemFour:
+                    ItemFour = itemID;
+                    break;
+
+                case ItemLocationEnum.ItemFive:
+                    ItemFive = itemID;
+                    break;
+
+                case ItemLocationEnum.ItemSix:
+                    ItemSix = itemID;
+                    break;
+
+                default:
+                    myReturn = null;
+                    break;
+            }
+
+            return myReturn;
+        }
+
+        // Get the ItemModel at a known string location (head, foot etc.)
+        public ItemModel GetItemByLocation(ItemLocationEnum itemLocation)
+        {
+            switch (itemLocation)
+            {
+                case ItemLocationEnum.ItemOne:
+                    return GetItem(1);
+
+                case ItemLocationEnum.ItemTwo:
+                    return GetItem(2);
+
+                case ItemLocationEnum.ItemThree:
+                    return GetItem(3);
+
+                case ItemLocationEnum.ItemFour:
+                    return GetItem(4);
+
+                case ItemLocationEnum.ItemFive:
+                    return GetItem(5);
+
+                case ItemLocationEnum.ItemSix:
+                    return GetItem(6);
+
+                
+            }
+
+            return null;
+        }
     }
+
 }

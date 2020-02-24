@@ -18,7 +18,7 @@
         ItemFour = 22,
 
         // Any finger, used for rings, because they can go on any finger.
-        itemFive = 30,
+        ItemFive = 30,
 
         // A finger on the Right hand for rings.  Can only have one right on the right hand
         ItemSix = 31,

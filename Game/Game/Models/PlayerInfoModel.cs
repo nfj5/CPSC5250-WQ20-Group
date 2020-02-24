@@ -28,18 +28,21 @@ namespace Game.Models
             Level = data.Level;
             Name = data.Name;
             Description = data.Description;
-            Speed = data.GetSpeed();
+            BaseSpeed = data.CurrentSpeed;
             ImageURI = data.ImageURI;
-            CurrentHealth = data.GetCurrentHealthTotal;
-            MaxHealth = data.GetMaxHealthTotal;
+            BaseHitPoints = data.CurrentHitPoints;
+
+            //We dont have a max health at the moment. Might add later if needed.
+            //MaxHealth = data.GetMaxHealthTotal;
 
             // Set the strings for the items
-            Head = data.Head;
-            Feet = data.Feet;
-            Necklass = data.Necklass;
-            RightFinger = data.RightFinger;
-            LeftFinger = data.LeftFinger;
-            Feet = data.Feet;
+            ItemOne = data.ItemOne;
+            ItemTwo = data.ItemTwo;
+            ItemThree = data.ItemThree;
+            ItemFour = data.ItemFour;
+            ItemFive = data.ItemFive;
+            ItemSix = data.ItemSix;
+            
             
         }
 
@@ -49,27 +52,28 @@ namespace Game.Models
         /// <param name="data"></param>
         public PlayerInfoModel(CharacterModel data)
         {
-            
-            PlayerType = data.PlayerType;
-            Guid = data.Guid;
+
+            PersonType = data.PersonType;
             Alive = data.Alive;
-            ExperiencePoints = data.ExperienceTotal;
+            ExperiencePoints = data.ExperiencePoints;
             Level = data.Level;
             Name = data.Name;
             Description = data.Description;
-            Speed = data.GetSpeed();
+            BaseSpeed = data.CurrentSpeed;
             ImageURI = data.ImageURI;
-            CurrentHealth = data.GetCurrentHealthTotal;
-            MaxHealth = data.GetMaxHealthTotal;
+            BaseHitPoints = data.CurrentHitPoints;
+
+            //We dont have a max health at the moment. Might add later if needed.
+            //MaxHealth = data.GetMaxHealthTotal;
 
             // Set the strings for the items
-            Head = data.Head;
-            Feet = data.Feet;
-            Necklass = data.Necklass;
-            RightFinger = data.RightFinger;
-            LeftFinger = data.LeftFinger;
-            Feet = data.Feet;
-            
+            ItemOne = data.ItemOne;
+            ItemTwo = data.ItemTwo;
+            ItemThree = data.ItemThree;
+            ItemFour = data.ItemFour;
+            ItemFive = data.ItemFive;
+            ItemSix = data.ItemSix;
+
         }
 
         /// <summary>
@@ -78,27 +82,25 @@ namespace Game.Models
         /// <param name="data"></param>
         public PlayerInfoModel(MonsterModel data)
         {
-            
-            PlayerType = data.PlayerType;
-            Guid = data.Guid;
+
+            PersonType = data.PersonType;
             Alive = data.Alive;
-            ExperiencePoints = data.ExperienceTotal;
+            ExperiencePoints = data.ExperiencePoints;
             Level = data.Level;
             Name = data.Name;
             Description = data.Description;
-            Speed = data.GetSpeed();
+            BaseSpeed = data.CurrentSpeed;
             ImageURI = data.ImageURI;
-            CurrentHealth = data.GetCurrentHealthTotal;
-            MaxHealth = data.GetMaxHealthTotal;
+            BaseHitPoints = data.CurrentHitPoints;
 
             // Set the strings for the items
-            Head = data.Head;
-            Feet = data.Feet;
-            Necklass = data.Necklass;
-            RightFinger = data.RightFinger;
-            LeftFinger = data.LeftFinger;
-            Feet = data.Feet;
-            
+            ItemOne = data.ItemOne;
+            ItemTwo = data.ItemTwo;
+            ItemThree = data.ItemThree;
+            ItemFour = data.ItemFour;
+            ItemFive = data.ItemFive;
+            ItemSix = data.ItemSix;
+
         }
     }
 }

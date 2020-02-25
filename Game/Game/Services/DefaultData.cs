@@ -136,7 +136,7 @@ namespace Game.Services
                     Nickname = "KJ",
                     ImageURI = "football_charcter.png",
                     Level = 2,
-                    BaseSpeed = ,6
+                    BaseSpeed = 6,
                     BaseHitPoints = 5,
                     BaseStamina = 7,
                     BaseStrength = 1,

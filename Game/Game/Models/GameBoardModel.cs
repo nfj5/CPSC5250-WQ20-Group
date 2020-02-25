@@ -4,7 +4,6 @@ namespace Game.Models
 {
     public class GameBoardModel
     {
-        private DefaultModel[,] Gameboard;
         private PlayerInfoModel[,] PlayerLocations;
         private ItemModel[,] ItemLocations;
         private int Size = 10;

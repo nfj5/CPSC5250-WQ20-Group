@@ -60,6 +60,19 @@ namespace Game.Engine
                     // Move towards the Item, conserving 3 stamina for the attack
                     Attacker.CurrentStamina = MoveTowards(Attacker, closestItem, 3);
                 }
+
+                int[] PlayerLocation = GameBoard.GetPlayerLocation(Attacker);
+
+                int[] newestClosest = GetClosestItem(Attacker);
+                if (newestClosest[0] != Int32.MaxValue && newestClosest[1] != Int32.MaxValue &&
+                    GameBoardHelper.Distance(newestClosest[0], newestClosest[1], PlayerLocation[0], PlayerLocation[1]) <= 1)
+                {
+                    Debug.WriteLine("NC " + newestClosest[0] + ", " + newestClosest[1]);
+                    ItemModel temp = GameBoard.ItemLocations[newestClosest[0], newestClosest[1]];
+                    Attacker.ItemOne = temp.Id;
+                    Debug.WriteLine(Attacker.Name + " picked up " + temp.Name);
+                    GameBoard.ItemLocations[newestClosest[0], newestClosest[1]] = null;
+                }
             }
 
             // then try an attack
@@ -354,6 +367,7 @@ namespace Game.Engine
             if (BattleMessagesModel.HitStatus == HitStatusEnum.Hit)
             {
                 //Calculate Damage
+                Debug.WriteLine("Item " + Attacker.ItemOne);
                 BattleMessagesModel.DamageAmount = Attacker.CurrentStrength + ItemIndexViewModel.Instance.GetItem(Attacker.ItemOne).Value;
 
                 Target.TakeDamage(BattleMessagesModel.DamageAmount);

@@ -24,7 +24,6 @@
                     ItemSelected="OnItemSelected"
                     HasUnevenRows="true"
                     Margin="5,0,5,0"
-                    RowHeight="80"
                     >
                 
                 <ListView.ItemTemplate>
@@ -50,6 +49,20 @@
                                 <Label Grid.Column="1" Grid.Row="0"
                                        Text="{Binding Name}" 
                                        Style="{StaticResource ListStyle}"/>
+
+                                <StackLayout Orientation="Horizontal"
+                                             Grid.Column="1" Grid.Row="1">
+                                    <Label Text="Level "
+                                           Style="{StaticResource ListStyle}"/>
+                                    <Label Text="{Binding Level}"
+                                           Style="{StaticResource ListStyle}"/>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal"
+                                             Grid.Column="1" Grid.Row="2">
+                                    <Label Text="{Binding Ability}"
+                                           Style="{StaticResource ListStyle}"/>
+                                </StackLayout>
 
                             </Grid>
                         </ViewCell>

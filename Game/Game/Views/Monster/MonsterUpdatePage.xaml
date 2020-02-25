@@ -29,7 +29,7 @@
                 <Entry Text="{Binding Data.Name}" d:Text="Item name" FontSize="Small" />
 
                 <Label Text="Nickname: " FontSize="Medium" />
-                <Editor Text="{Binding Data.Nickname}" d:Text="Nickname" FontSize="Small" Margin="0" AutoSize="TextChanges"/>
+                <Entry Text="{Binding Data.Nickname}" d:Text="Nickname" FontSize="Small" Margin="0"/>
 
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Speed: " Style="{StaticResource LabelStyle}"/>

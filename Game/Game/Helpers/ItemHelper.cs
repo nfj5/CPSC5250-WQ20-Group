@@ -10,9 +10,8 @@ namespace Game.Helpers
     {
         public static ItemModel GetRandomItem()
         {
-            List<ItemModel> defaults = ItemIndexViewModel.Instance.GetDefaultData();
-            int item = DiceHelper.RollDice(1, defaults.Count) - 1;
-            return defaults[item];
+            int item = DiceHelper.RollDice(1, ItemIndexViewModel.Instance.Dataset.Count) - 1;
+            return ItemIndexViewModel.Instance.Dataset[item];
         }
     }
 }

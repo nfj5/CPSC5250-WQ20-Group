@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 using Game.Models;
+using Game.ViewModels;
 
 namespace Game.Engine
 {
@@ -56,9 +57,8 @@ namespace Game.Engine
             // Prepare for Battle
 
             // Picks 6 Characters
-            for (int i = CharacterList.Count(); i < MaxNumberPartyCharacters; i++)
+            foreach (var data in CharacterIndexViewModel.Instance.Dataset)
             {
-                var data = new CharacterModel(i);
                 PopulateCharacterList(data);
             }
 

@@ -5,50 +5,84 @@ namespace Game.Models
     public class GameBoardModel
     {
         private DefaultModel[,] Gameboard;
+        private PlayerInfoModel[,] PlayerLocations;
+        private ItemModel[,] ItemLocations;
         private int Size = 10;
 
         public GameBoardModel()
         {
-            Gameboard = new DefaultModel[Size, Size];
+            PlayerLocations = new PlayerInfoModel[Size, Size];
+            ItemLocations = new ItemModel[Size, Size];
 
             // Initialize the Gameboard to null
             for (int i = 0; i < Size; ++i)
             {
                 for (int j = 0; j < Size; ++j)
                 {
-                    Gameboard[i, j] = null;
+                    PlayerLocations[i, j] = null;
+                    ItemLocations[i, j] = null;
                 }
             }
         }
 
         /// <summary>
-        /// Place a DefaultModel at the specified location, if it is empty.
+        /// Place a PlayerInfoModel at the specified location, if there is not another player there.
         /// </summary>
         /// <param name="model"></param>
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns></returns>
-        public bool place(DefaultModel model, int x, int y)
+        public bool place(PlayerInfoModel player, int x, int y)
         {
-            if (Gameboard[x,y] != null)
+            if (PlayerLocations[x,y] != null)
             {
                 return false;
             }
 
-            Gameboard[x, y] = model;
+            PlayerLocations[x, y] = player;
 
             return true;
         }
 
         /// <summary>
-        /// Get the DefaultModel from the desired position
+        /// Place an ItemModel at the specified location, if there is not another Item there.
+        /// </summary>
+        /// <param name="model"></param>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
+        public bool place(ItemModel item, int x, int y)
+        {
+            if (ItemLocations[x, y] != null)
+            {
+                return false;
+            }
+
+            ItemLocations[x, y] = item;
+
+            return true;
+        }
+
+        /// <summary>
+        /// Get the PlayerInfoModel from the desired position
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns></returns>
-        public DefaultModel get(int x, int y)
+        public PlayerInfoModel getPlayer(int x, int y)
         {
-            return Gameboard[x, y];
+            return PlayerLocations[x, y];
+        }
+
+        /// <summary>
+        /// Get the ItemModel from the desired position
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
+        public ItemModel getItem(int x, int y)
+        {
+            return ItemLocations[x, y];
         }
     }
 }

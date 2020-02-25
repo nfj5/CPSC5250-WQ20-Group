@@ -67,7 +67,7 @@ namespace Game.Engine
             {
                 GameBoard.Place(monster, x, y);
                 Debug.WriteLine("[Monster] Placed " + monster.Name + " at (" + x + ", " + y + ")");
-                x++;
+                y++;
             }
 
             // place items

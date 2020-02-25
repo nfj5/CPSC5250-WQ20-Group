@@ -1,11 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Diagnostics;
-
+﻿using Game.Helpers;
 using Game.Models;
-using Game.Helpers;
 using Game.ViewModels;
 using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 
 namespace Game.Engine
 {
@@ -58,7 +57,7 @@ namespace Game.Engine
                 if (closestItem[0] != Int32.MaxValue && closestItem[1] != Int32.MaxValue)
                 {
                     // Move towards the Item, conserving 3 stamina for the attack
-                    Attacker.CurrentStamina = MoveTowards(Attacker, closestItem, 3);
+                    Attacker.CurrentStamina = MoveTowards(Attacker, closestItem, 3, GameBoard.GetItem(closestItem[0], closestItem[1]).Name);
                 }
 
                 int[] PlayerLocation = GameBoard.GetPlayerLocation(Attacker);
@@ -67,7 +66,6 @@ namespace Game.Engine
                 if (newestClosest[0] != Int32.MaxValue && newestClosest[1] != Int32.MaxValue &&
                     GameBoardHelper.Distance(newestClosest[0], newestClosest[1], PlayerLocation[0], PlayerLocation[1]) <= 1)
                 {
-                    Debug.WriteLine("NC " + newestClosest[0] + ", " + newestClosest[1]);
                     ItemModel temp = GameBoard.ItemLocations[newestClosest[0], newestClosest[1]];
                     Attacker.ItemOne = temp.Id;
                     Debug.WriteLine(Attacker.Name + " picked up " + temp.Name);
@@ -80,6 +78,8 @@ namespace Game.Engine
             if (!attacks)
             {
                 // move toward enemy
+                int[] TargetLocation = AttackChoice(Attacker);
+                Attacker.CurrentStamina = MoveTowards(Attacker, TargetLocation, 0, GameBoard.GetPlayer(TargetLocation[0], TargetLocation[1]).Name);
             }
 
             BattleScore.TurnCount++;
@@ -125,7 +125,7 @@ namespace Game.Engine
         /// <param name="location"></param>
         /// <param name="StaminaToConserve"></param>
         /// <returns></returns>
-        public int MoveTowards(PlayerInfoModel player, int[] location, int StaminaToConserve)
+        public int MoveTowards(PlayerInfoModel player, int[] location, int StaminaToConserve, string label)
         {
             int[] PlayerLocation = GameBoard.GetPlayerLocation(player);
             int Distance = GameBoardHelper.Distance(location[0], location[1], PlayerLocation[0], PlayerLocation[1]);
@@ -150,7 +150,7 @@ namespace Game.Engine
             GameBoard.PlayerLocations[PlayerLocation[0], PlayerLocation[1]] = null;
             GameBoard.PlayerLocations[PlayerLocation[0] + xMovement, PlayerLocation[1] + yMovement] = player;
 
-            Debug.WriteLine(player.Name + " moved towards (" + location[0] + ", " + location[1] + ")");
+            Debug.WriteLine(player.Name + " moved towards \"" + label + "\" (" + location[0] + ", " + location[1] + ")");
 
             // Update the Player stamina
             player.CurrentStamina -= BlocksToMove;
@@ -366,9 +366,15 @@ namespace Game.Engine
             // It's a Hit
             if (BattleMessagesModel.HitStatus == HitStatusEnum.Hit)
             {
+                int Damage = Attacker.CurrentStrength;
+
                 //Calculate Damage
-                Debug.WriteLine("Item " + Attacker.ItemOne);
-                BattleMessagesModel.DamageAmount = Attacker.CurrentStrength + ItemIndexViewModel.Instance.GetItem(Attacker.ItemOne).Value;
+                if (Attacker.ItemOne != null)
+                {
+                    Damage = Attacker.CurrentStrength + ItemIndexViewModel.Instance.GetItem(Attacker.ItemOne).Value;
+                }
+
+                BattleMessagesModel.DamageAmount = Damage;
 
                 Target.TakeDamage(BattleMessagesModel.DamageAmount);
             }
@@ -438,7 +444,8 @@ namespace Game.Engine
                     // Add the MonsterModel to the killed list
                     BattleScore.MonstersKilledList += Target.FormatOutput() + "\n";
 
-                    DropItems(Target);
+                    // We don't do Item drops
+                    // DropItems(Target);
 
                     return true;
             }

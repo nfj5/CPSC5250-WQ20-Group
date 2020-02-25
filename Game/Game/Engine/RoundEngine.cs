@@ -53,7 +53,7 @@ namespace Game.Engine
         public void PopulateGameBoard()
         {
             // place characters
-            int x = 2, y = 9;
+            int x = 0, y = 5;
             foreach(PlayerInfoModel character in CharacterList)
             {
                 GameBoard.Place(character, x, y);
@@ -62,7 +62,7 @@ namespace Game.Engine
             }
 
             // place monsters
-            x = 0; y = 2;
+            x = 0; y = 0;
             foreach(PlayerInfoModel monster in MonsterList)
             {
                 GameBoard.Place(monster, x, y);
@@ -73,8 +73,8 @@ namespace Game.Engine
             // place items
             for (int i = 0; i < MaxStartItems; ++i)
             {
-                x = DiceHelper.RollDice(1, 8);
-                y = DiceHelper.RollDice(1, 8);
+                x = DiceHelper.RollDice(1, 5);
+                y = DiceHelper.RollDice(1, 5);
 
                 var item = ItemHelper.GetRandomItem();
                 if (!GameBoard.Place(item, x, y))
@@ -163,6 +163,7 @@ namespace Game.Engine
             // Decide Who gets next turn
             // Remember who just went...
             PlayerCurrent = GetNextPlayerTurn();
+            Debug.WriteLine(PlayerCurrent.Name + "'s Turn");
 
             // Do the turn....
             TakeTurn(PlayerCurrent);

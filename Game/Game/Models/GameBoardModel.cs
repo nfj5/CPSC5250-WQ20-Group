@@ -7,7 +7,7 @@ namespace Game.Models
     {
         public PlayerInfoModel[,] PlayerLocations;
         public ItemModel[,] ItemLocations;
-        public static int Size = 10;
+        public static int Size = 6;
 
         public GameBoardModel()
         {

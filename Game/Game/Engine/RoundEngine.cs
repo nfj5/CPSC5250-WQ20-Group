@@ -1,15 +1,20 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-
+using Game.Helpers;
 using Game.Models;
 
 namespace Game.Engine
 {
+
     /// <summary>
     /// Manages the Rounds
     /// </summary>
     public class RoundEngine : TurnEngine
     {
+        private GameBoardModel gameBoard;
+        private int MaxStartItems = 7;
+
         /// <summary>
         /// Clear the List between Rounds
         /// </summary>
@@ -33,10 +38,51 @@ namespace Game.Engine
             // Make the PlayerList
             MakePlayerList();
 
+            // Create GameBoard
+            CreateGameBoard();
+
             // Update Score for the RoundCount
             BattleScore.RoundCount++;
 
             return true;
+        }
+
+        /// <summary>
+        /// Create the Gameboard object and put Characters, Monsters and default Items.
+        /// </summary>
+        public void CreateGameBoard()
+        {
+            gameBoard = new GameBoardModel();
+
+            // place characters
+            int x = 2, y = 9;
+            foreach(PlayerInfoModel character in CharacterList)
+            {
+                gameBoard.place(character, x, y);
+                Debug.WriteLine("Placed " + gameBoard.get(x, y).BaseSpeed + " at (" + x + ", " + y + ")");
+                x++;
+            }
+
+            // place monsters
+            x = 0; y = 2;
+            foreach(PlayerInfoModel monster in MonsterList)
+            {
+                gameBoard.place(monster, x, y);
+                x++;
+            }
+
+            // place items
+            for (int i = 0; i < MaxStartItems; ++i)
+            {
+                x = DiceHelper.RollDice(1, 8);
+                y = DiceHelper.RollDice(1, 8);
+
+                // TODO ItemHelper
+                if (!gameBoard.place(ItemHelper.GetRandomItem(), x, y))
+                {
+                    --i;
+                }
+            }
         }
 
         /// <summary>

@@ -56,9 +56,9 @@ namespace Game.Engine
             // Prepare for Battle
 
             // Picks 6 Characters
-            var data = new CharacterModel();
             for (int i = CharacterList.Count(); i < MaxNumberPartyCharacters; i++)
             {
+                var data = new CharacterModel(i);
                 PopulateCharacterList(data);
             }
 

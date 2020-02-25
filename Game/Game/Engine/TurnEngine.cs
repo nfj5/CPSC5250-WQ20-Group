@@ -41,6 +41,10 @@ namespace Game.Engine
         {
             // Choose Action.  Such as Move, Attack etc.
 
+            // while an action is possible
+            // If Nearest enemy in range and have an item, then Attack
+            // If in range of an item, then move onto Item
+
             var result = Attack(Attacker);
 
             BattleScore.TurnCount++;
@@ -78,6 +82,24 @@ namespace Game.Engine
             CurrentDefender = new PlayerInfoModel(Target);
 
             return true;
+        }
+
+        /// <summary>
+        /// Move as a Turn
+        /// </summary>
+        /// <param name="Person"></param>
+        /// <returns></returns>
+        public bool Move(PlayerInfoModel Person)
+        {
+            var Target = MoveChoice(Person);
+
+            return true;
+        }
+
+        public int[,] MoveChoice(PlayerInfoModel Person)
+        {
+            int[,] location = new int[1,1];
+            return location;
         }
 
         /// <summary>

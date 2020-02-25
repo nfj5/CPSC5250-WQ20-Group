@@ -12,7 +12,6 @@ namespace Game.Engine
     /// </summary>
     public class RoundEngine : TurnEngine
     {
-        private GameBoardModel gameBoard;
         private int MaxStartItems = 7;
 
         /// <summary>
@@ -21,6 +20,7 @@ namespace Game.Engine
         /// <returns></returns>
         private bool ClearLists()
         {
+            GameBoard.Wipe();
             ItemPool.Clear();
             MonsterList.Clear();
             return true;
@@ -38,8 +38,8 @@ namespace Game.Engine
             // Make the PlayerList
             MakePlayerList();
 
-            // Create GameBoard
-            CreateGameBoard();
+            // Populate the GameBoard
+            PopulateGameBoard();
 
             // Update Score for the RoundCount
             BattleScore.RoundCount++;
@@ -50,15 +50,13 @@ namespace Game.Engine
         /// <summary>
         /// Create the Gameboard object and put Characters, Monsters and default Items.
         /// </summary>
-        public void CreateGameBoard()
+        public void PopulateGameBoard()
         {
-            gameBoard = new GameBoardModel();
-
             // place characters
             int x = 2, y = 9;
             foreach(PlayerInfoModel character in CharacterList)
             {
-                gameBoard.place(character, x, y);
+                GameBoard.Place(character, x, y);
                 Debug.WriteLine("[Character] Placed " + character.Name + " at (" + x + ", " + y + ")");
                 x++;
             }
@@ -67,7 +65,7 @@ namespace Game.Engine
             x = 0; y = 2;
             foreach(PlayerInfoModel monster in MonsterList)
             {
-                gameBoard.place(monster, x, y);
+                GameBoard.Place(monster, x, y);
                 Debug.WriteLine("[Monster] Placed " + monster.Name + " at (" + x + ", " + y + ")");
                 x++;
             }
@@ -79,7 +77,7 @@ namespace Game.Engine
                 y = DiceHelper.RollDice(1, 8);
 
                 var item = ItemHelper.GetRandomItem();
-                if (!gameBoard.place(item, x, y))
+                if (!GameBoard.Place(item, x, y))
                 {
                     --i;
                 }

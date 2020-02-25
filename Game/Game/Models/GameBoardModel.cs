@@ -4,9 +4,9 @@ namespace Game.Models
 {
     public class GameBoardModel
     {
-        private PlayerInfoModel[,] PlayerLocations;
-        private ItemModel[,] ItemLocations;
-        private int Size = 10;
+        public PlayerInfoModel[,] PlayerLocations;
+        public ItemModel[,] ItemLocations;
+        public static int Size = 10;
 
         public GameBoardModel()
         {
@@ -14,6 +14,14 @@ namespace Game.Models
             ItemLocations = new ItemModel[Size, Size];
 
             // Initialize the Gameboard to null
+            Wipe();
+        }
+
+        /// <summary>
+        /// Wipe the game board
+        /// </summary>
+        public void Wipe()
+        {
             for (int i = 0; i < Size; ++i)
             {
                 for (int j = 0; j < Size; ++j)
@@ -31,7 +39,7 @@ namespace Game.Models
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns></returns>
-        public bool place(PlayerInfoModel player, int x, int y)
+        public bool Place(PlayerInfoModel player, int x, int y)
         {
             if (PlayerLocations[x,y] != null)
             {
@@ -50,7 +58,7 @@ namespace Game.Models
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns></returns>
-        public bool place(ItemModel item, int x, int y)
+        public bool Place(ItemModel item, int x, int y)
         {
             if (ItemLocations[x, y] != null)
             {
@@ -68,7 +76,7 @@ namespace Game.Models
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns></returns>
-        public PlayerInfoModel getPlayer(int x, int y)
+        public PlayerInfoModel GetPlayer(int x, int y)
         {
             return PlayerLocations[x, y];
         }
@@ -79,9 +87,62 @@ namespace Game.Models
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns></returns>
-        public ItemModel getItem(int x, int y)
+        public ItemModel GetItem(int x, int y)
         {
             return ItemLocations[x, y];
+        }
+        
+
+        /// <summary>
+        /// Get the location of a PlayerInfoModel object
+        /// </summary>
+        /// <param name="player"></param>
+        /// <returns></returns>
+        public int[] GetPlayerLocation(PlayerInfoModel player)
+        {
+            int[] location = new int[2];
+            location[0] = Int32.MinValue;
+            location[1] = Int32.MinValue;
+
+            for (int x = 0; x < Size; ++x)
+            {
+                for (int y = 0; y < Size; ++y)
+                {
+                    if (PlayerLocations[x,y] != null && player.Id == PlayerLocations[x,y].Id)
+                    {
+                        location[0] = x;
+                        location[1] = y;
+                    }
+                }
+            }
+
+            return location;
+        }
+
+        /// <summary>
+        /// Get the location of a PlayerInfoModel object
+        /// </summary>
+        /// <param name="player"></param>
+        /// <returns></returns>
+        public int[] GetItemLocation(ItemModel item)
+        {
+            int[] location = new int[2];
+            location[0] = Int32.MinValue;
+            location[1] = Int32.MinValue;
+
+            for (int x = 0; x < Size; ++x)
+            {
+                for (int y = 0; y < Size; ++y)
+                {
+                    if (item.Id == ItemLocations[x, y].Id)
+                    {
+                        location[0] = x;
+                        location[1] = y;
+                    }
+                }
+            }
+
+            return location;
         }
     }
 }

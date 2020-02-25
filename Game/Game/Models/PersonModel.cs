@@ -44,7 +44,7 @@ namespace Game.Models
         public int BaseSpeed { get; set; } = 1;// How quickly the character can move (max number of blocks per turn). Scale of 1-5
         public int BaseStrength { get; set; } = 1;// How far the Person can throw Items. Scale of 1-9
         public int BaseHitPoints { get; set; } = 10; // How much damage the character can take. Scale of 10-20
-        public int BaseThiccness { get; set; } = 0;// How much defense a character can have.
+        public int BaseThiccness { get; set; } = 5;// How much defense a character can have.
         public int BaseStamina { get; set; } = 7;
         // How much stamina the character has, on a 1 –99 scale. Stamina resets after matches, stamina determines run duration, number of throws.
         // If not enough stamina then the user can not perform any actions. A math is 1 game(or 1 dungeon, or 1 round however you want to think of it).

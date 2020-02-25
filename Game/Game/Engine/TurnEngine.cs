@@ -4,6 +4,8 @@ using System.Diagnostics;
 
 using Game.Models;
 using Game.Helpers;
+using Game.ViewModels;
+using System;
 
 namespace Game.Engine
 {
@@ -68,18 +70,28 @@ namespace Game.Engine
         public bool Attack(PlayerInfoModel Attacker)
         {
             // For Attack, Choose Who
-            var Target = AttackChoice(Attacker);
+            var TargetLocation = AttackChoice(Attacker);
 
-            if (Target == null)
+            int[] attackerLocation = GameBoard.GetPlayerLocation(Attacker);
+            int Distance = GameBoardHelper.Distance(attackerLocation[0], attackerLocation[1], TargetLocation[0], TargetLocation[1]);
+
+            int AttackRange = 1;
+            if (Attacker.ItemOne != null)
+            {
+                AttackRange = ItemIndexViewModel.Instance.GetItem(Attacker.ItemOne).Range;
+            }
+
+            if (Distance > AttackRange || Attacker.CurrentStamina < 3)
             {
                 return false;
             }
 
             // Do Attack
-            TurnAsAttack(Attacker, Target);
+            PlayerInfoModel TargetModel = GameBoard.GetPlayer(TargetLocation[0], TargetLocation[1]);
+            TurnAsAttack(Attacker, TargetModel);
 
             CurrentAttacker = new PlayerInfoModel(Attacker);
-            CurrentDefender = new PlayerInfoModel(Target);
+            CurrentDefender = new PlayerInfoModel(TargetModel);
 
             return true;
         }
@@ -107,16 +119,16 @@ namespace Game.Engine
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public PlayerInfoModel AttackChoice(PlayerInfoModel data)
+        public int[] AttackChoice(PlayerInfoModel data)
         {
             switch (data.PersonType)
             {
                 case PersonTypeEnum.Monster:
-                    return SelectCharacterToAttack();
+                    return SelectCharacterToAttack(data);
 
                 case PersonTypeEnum.Character:
                 default:
-                    return SelectMonsterToAttack();
+                    return SelectMonsterToAttack(data);
             }
         }
 
@@ -124,8 +136,11 @@ namespace Game.Engine
         /// Pick the Character to Attack
         /// </summary>
         /// <returns></returns>
-        public PlayerInfoModel SelectCharacterToAttack()
+        public int[] SelectCharacterToAttack(PlayerInfoModel currentMonster)
         {
+            int[] monsterLocation = GameBoard.GetPlayerLocation(currentMonster);
+            int[] closestLocation = { Int32.MaxValue, Int32.MaxValue };
+
             if (CharacterList == null)
             {
                 return null;
@@ -136,20 +151,38 @@ namespace Game.Engine
                 return null;
             }
 
-            // Select first in the list
-            var Defender = CharacterList
-                .Where(m => m.Alive)
-                .OrderBy(m => m.ListOrder).FirstOrDefault();
+            // Get closest Character
+            int closestDistance = Int32.MaxValue;
+            for (int x = 0; x < GameBoardModel.Size; ++x)
+            {
+                for (int y = 0; y < GameBoardModel.Size; ++y)
+                {
+                    if (GameBoard.PlayerLocations[x,y] != null &&
+                        GameBoard.PlayerLocations[x,y].PersonType == PersonTypeEnum.Character)
+                    {
 
-            return Defender;
+                        int distance = GameBoardHelper.Distance(x, y, monsterLocation[0], monsterLocation[1]);
+                        if (distance < closestDistance)
+                        {
+                            closestLocation[0] = x;
+                            closestLocation[1] = y;
+                        }
+                    }
+                }
+            }
+
+            return closestLocation;
         }
 
         /// <summary>
         /// Pick the Monster to Attack
         /// </summary>
         /// <returns></returns>
-        public PlayerInfoModel SelectMonsterToAttack()
+        public int[] SelectMonsterToAttack(PlayerInfoModel currentPlayer)
         {
+            int[] characterLocation = GameBoard.GetPlayerLocation(currentPlayer);
+            int[] closestLocation = { Int32.MaxValue, Int32.MaxValue };
+
             if (MonsterList == null)
             {
                 return null;
@@ -160,13 +193,27 @@ namespace Game.Engine
                 return null;
             }
 
-            // Select first one to hit in the list for now...
-            // Attack the Weakness (lowest HP) MonsterModel first 
-            var Defender = MonsterList
-                .Where(m => m.Alive)
-                .OrderBy(m => m.BaseHitPoints).FirstOrDefault();
+            // Get closest Character
+            int closestDistance = Int32.MaxValue;
+            for (int x = 0; x < GameBoardModel.Size; ++x)
+            {
+                for (int y = 0; y < GameBoardModel.Size; ++y)
+                {
+                    if (GameBoard.PlayerLocations[x, y] != null &&
+                        GameBoard.PlayerLocations[x, y].PersonType == PersonTypeEnum.Monster)
+                    {
 
-            return Defender;
+                        int distance = GameBoardHelper.Distance(x, y, characterLocation[0], characterLocation[1]);
+                        if (distance < closestDistance)
+                        {
+                            closestLocation[0] = x;
+                            closestLocation[1] = y;
+                        }
+                    }
+                }
+            }
+
+            return closestLocation;
         }
 
         /// <summary>
@@ -217,7 +264,7 @@ namespace Game.Engine
             if (BattleMessagesModel.HitStatus == HitStatusEnum.Hit)
             {
                 //Calculate Damage
-                BattleMessagesModel.DamageAmount = Attacker.GetDamageRollValue();
+                BattleMessagesModel.DamageAmount = Attacker.CurrentStrength + ItemIndexViewModel.Instance.GetItem(Attacker.ItemOne).Value;
 
                 Target.TakeDamage(BattleMessagesModel.DamageAmount);
             }

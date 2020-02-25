@@ -41,17 +41,107 @@ namespace Game.Engine
         /// <returns></returns>
         public bool TakeTurn(PlayerInfoModel Attacker)
         {
+            // Replenish Stamina
+            Attacker.CurrentStamina = Attacker.BaseStamina;
+
             // Choose Action.  Such as Move, Attack etc.
 
             // while an action is possible
             // If Nearest enemy in range and have an item, then Attack
             // If in range of an item, then move onto Item
 
-            var result = Attack(Attacker);
+            // if we don't have an item
+            if (Attacker.ItemOne == null)
+            {
+                // move to item
+                int[] closestItem = GetClosestItem(Attacker);
+                if (closestItem[0] != Int32.MaxValue && closestItem[1] != Int32.MaxValue)
+                {
+                    // Move towards the Item, conserving 3 stamina for the attack
+                    Attacker.CurrentStamina = MoveTowards(Attacker, closestItem, 3);
+                }
+            }
+
+            // then try an attack
+            var attacks = Attack(Attacker);
+            if (!attacks)
+            {
+                // move toward enemy
+            }
 
             BattleScore.TurnCount++;
 
-            return result;
+            return attacks;
+        }
+
+        /// <summary>
+        /// Get the closest item to the specified Player
+        /// </summary>
+        /// <param name="player"></param>
+        /// <returns></returns>
+        public int[] GetClosestItem(PlayerInfoModel player)
+        {
+            int[] PlayerLocation = GameBoard.GetPlayerLocation(player);
+            int[] location = { Int32.MaxValue, Int32.MaxValue };
+
+            // Get closest Character
+            int closestDistance = Int32.MaxValue;
+            for (int x = 0; x < GameBoardModel.Size; ++x)
+            {
+                for (int y = 0; y < GameBoardModel.Size; ++y)
+                {
+                    if (GameBoard.ItemLocations[x, y] != null)
+                    {
+                        int distance = GameBoardHelper.Distance(x, y, PlayerLocation[0], PlayerLocation[1]);
+                        if (distance < closestDistance)
+                        {
+                            location[0] = x;
+                            location[1] = y;
+                        }
+                    }
+                }
+            }
+
+            return location;
+        }
+
+        /// <summary>
+        /// Move towards the specified location as much as possible
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="location"></param>
+        /// <param name="StaminaToConserve"></param>
+        /// <returns></returns>
+        public int MoveTowards(PlayerInfoModel player, int[] location, int StaminaToConserve)
+        {
+            int[] PlayerLocation = GameBoard.GetPlayerLocation(player);
+            int Distance = GameBoardHelper.Distance(location[0], location[1], PlayerLocation[0], PlayerLocation[1]);
+
+            Debug.WriteLine("Distance " + Distance);
+
+            // How far the Player can move when conserving the amount of stamina that they want to
+            int CanMove = player.CurrentStamina - StaminaToConserve;
+
+            if (CanMove < Distance) {
+                Distance = CanMove;
+            }
+            
+            // Determine how far to move in each direction
+            int BlocksToMove = (int) (Math.Floor(Math.Sqrt(Math.Pow(Distance, 2) / 2)));
+            int xMovement = (location[0] - PlayerLocation[0] > 0 ? BlocksToMove : -BlocksToMove);
+            int yMovement = (location[1] - PlayerLocation[1] > 0 ? BlocksToMove : -BlocksToMove);
+
+            Debug.WriteLine("Move " + (PlayerLocation[0] + xMovement) + ", " + (PlayerLocation[1] + yMovement));
+
+            // Perform the GameBoard updates
+            GameBoard.PlayerLocations[PlayerLocation[0], PlayerLocation[1]] = null;
+            GameBoard.PlayerLocations[PlayerLocation[0] + xMovement, PlayerLocation[1] + yMovement] = player;
+
+            Debug.WriteLine(player.Name + " moved towards (" + location[0] + ", " + location[1] + ")");
+
+            // Update the Player stamina
+            player.CurrentStamina -= BlocksToMove;
+            return player.CurrentStamina;
         }
 
         /// <summary>

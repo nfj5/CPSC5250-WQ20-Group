@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using Game.Models;
 namespace Game.Models
 {
@@ -108,7 +109,8 @@ namespace Game.Models
             {
                 for (int y = 0; y < Size; ++y)
                 {
-                    if (PlayerLocations[x,y] != null && player.Id == PlayerLocations[x,y].Id)
+                    // TODO Change to ID
+                    if (PlayerLocations[x,y] != null && player.Name == PlayerLocations[x,y].Name)
                     {
                         location[0] = x;
                         location[1] = y;

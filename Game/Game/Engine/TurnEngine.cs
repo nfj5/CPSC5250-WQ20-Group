@@ -79,6 +79,12 @@ namespace Game.Engine
             {
                 // move toward enemy
                 int[] TargetLocation = AttackChoice(Attacker);
+
+                if (TargetLocation[0] == Int32.MaxValue)
+                {
+                    return attacks;
+                }
+
                 Attacker.CurrentStamina = MoveTowards(Attacker, TargetLocation, 0, GameBoard.GetPlayer(TargetLocation[0], TargetLocation[1]).Name);
             }
 
@@ -144,11 +150,23 @@ namespace Game.Engine
             int xMovement = (location[0] - PlayerLocation[0] > 0 ? BlocksToMove : -BlocksToMove);
             int yMovement = (location[1] - PlayerLocation[1] > 0 ? BlocksToMove : -BlocksToMove);
 
-            Debug.WriteLine("Move " + (PlayerLocation[0] + xMovement) + ", " + (PlayerLocation[1] + yMovement));
+            // Debug.WriteLine("Move " + (PlayerLocation[0] + xMovement) + ", " + (PlayerLocation[1] + yMovement));
+
+            int newX = PlayerLocation[0] + xMovement;
+            if (PlayerLocation[0] + xMovement > 5 || PlayerLocation[0] + xMovement < 0)
+            {
+                newX = PlayerLocation[0];
+            }
+
+            int newY = PlayerLocation[1] + yMovement;
+            if (PlayerLocation[1] + yMovement > 5 || PlayerLocation[1] + yMovement < 0)
+            {
+                newY = PlayerLocation[0];
+            }
 
             // Perform the GameBoard updates
             GameBoard.PlayerLocations[PlayerLocation[0], PlayerLocation[1]] = null;
-            GameBoard.PlayerLocations[PlayerLocation[0] + xMovement, PlayerLocation[1] + yMovement] = player;
+            GameBoard.PlayerLocations[newX, newY] = player;
 
             Debug.WriteLine(player.Name + " moved towards \"" + label + "\" (" + location[0] + ", " + location[1] + ")");
 
@@ -174,6 +192,11 @@ namespace Game.Engine
         {
             // For Attack, Choose Who
             var TargetLocation = AttackChoice(Attacker);
+
+            if (TargetLocation[0] == Int32.MaxValue)
+            {
+                return false;
+            }
 
             int[] attackerLocation = GameBoard.GetPlayerLocation(Attacker);
             int Distance = GameBoardHelper.Distance(attackerLocation[0], attackerLocation[1], TargetLocation[0], TargetLocation[1]);
@@ -427,16 +450,22 @@ namespace Game.Engine
                 case PersonTypeEnum.Character:
                     CharacterList.Remove(Target);
 
+                    int[] CharacterLocation = GameBoard.GetPlayerLocation(Target);
+                    GameBoard.PlayerLocations[CharacterLocation[0], CharacterLocation[1]] = null;
+
                     // Add the MonsterModel to the killed list
                     BattleScore.CharacterAtDeathList += Target.FormatOutput() + "\n";
 
-                    DropItems(Target);
+                    // DropItems(Target);
 
                     return true;
 
                 case PersonTypeEnum.Monster:
                 default:
                     MonsterList.Remove(Target);
+
+                    int[] Location = GameBoard.GetPlayerLocation(Target);
+                    GameBoard.PlayerLocations[Location[0], Location[1]] = null;
 
                     // Add one to the monsters killed count...
                     BattleScore.MonsterSlainNumber++;

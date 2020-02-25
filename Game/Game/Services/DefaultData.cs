@@ -76,6 +76,7 @@ namespace Game.Services
                     BaseStamina = 7,
                     BaseStrength = 1,
                     BaseThiccness = 1,
+                    Ability = PersonModel<CharacterModel>.SuperstarAbility.SpeedAbility
                 },
 
                 new CharacterModel
@@ -88,7 +89,8 @@ namespace Game.Services
                     BaseStamina = 7,
                     BaseHitPoints = 1,
                     BaseStrength = 1,
-                    BaseThiccness = 1
+                    BaseThiccness = 1,
+                    Ability = PersonModel<CharacterModel>.SuperstarAbility.StaminaAbility
                 },
 
                 new CharacterModel
@@ -101,7 +103,8 @@ namespace Game.Services
                     BaseHitPoints = 5,
                     BaseStamina = 7,
                     BaseStrength = 1,
-                    BaseThiccness = 1
+                    BaseThiccness = 1,
+                    Ability = PersonModel<CharacterModel>.SuperstarAbility.ThiccnessAbility
                 },
 
                 new CharacterModel
@@ -115,6 +118,7 @@ namespace Game.Services
                     BaseStamina = 7,
                     BaseStrength = 1,
                     BaseThiccness = 1,
+                    Ability = PersonModel<CharacterModel>.SuperstarAbility.StrengthAbility
                 },
 
                 new CharacterModel
@@ -127,7 +131,8 @@ namespace Game.Services
                     BaseStamina = 7,
                     BaseHitPoints = 1,
                     BaseStrength = 1,
-                    BaseThiccness = 1
+                    BaseThiccness = 1,
+                    Ability = PersonModel<CharacterModel>.SuperstarAbility.StaminaAbility
                 },
 
                 new CharacterModel
@@ -140,7 +145,8 @@ namespace Game.Services
                     BaseHitPoints = 5,
                     BaseStamina = 7,
                     BaseStrength = 1,
-                    BaseThiccness = 1
+                    BaseThiccness = 1,
+                    Ability = PersonModel<CharacterModel>.SuperstarAbility.SpeedAbility
                 }
 
             };

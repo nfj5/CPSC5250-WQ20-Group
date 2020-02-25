@@ -59,7 +59,7 @@ namespace Game.Engine
             foreach(PlayerInfoModel character in CharacterList)
             {
                 gameBoard.place(character, x, y);
-                Debug.WriteLine("Placed " + gameBoard.get(x, y).Name + " at (" + x + ", " + y + ")");
+                Debug.WriteLine("Placed " + gameBoard.getPlayer(x, y).Name + " at (" + x + ", " + y + ")");
                 x++;
             }
 

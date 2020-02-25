@@ -31,7 +31,7 @@
                 <StackLayout HorizontalOptions="Center" Padding="75,5,75,5"> 
                
                     <Label 
-                        Text="In some smelly locker room far far away in Kansas, Patty Mahomeboy clenched his smelly jersery"
+                        Text="In some locker room far far away in Kansas, Patty Mahomeboy clenched his smelly jersery"
                         Style="{StaticResource CenterMessageStyle}"
                         FontSize="Micro"
                         LineBreakMode="WordWrap"

@@ -59,7 +59,7 @@ namespace Game.Engine
             foreach(PlayerInfoModel character in CharacterList)
             {
                 gameBoard.place(character, x, y);
-                Debug.WriteLine("Placed " + gameBoard.getPlayer(x, y).Name + " at (" + x + ", " + y + ")");
+                Debug.WriteLine("[Character] Placed " + character.Name + " at (" + x + ", " + y + ")");
                 x++;
             }
 
@@ -68,6 +68,7 @@ namespace Game.Engine
             foreach(PlayerInfoModel monster in MonsterList)
             {
                 gameBoard.place(monster, x, y);
+                Debug.WriteLine("[Monster] Placed " + monster.Name + " at (" + x + ", " + y + ")");
                 x++;
             }
 
@@ -77,11 +78,13 @@ namespace Game.Engine
                 x = DiceHelper.RollDice(1, 8);
                 y = DiceHelper.RollDice(1, 8);
 
-                // TODO ItemHelper
-                if (!gameBoard.place(ItemHelper.GetRandomItem(), x, y))
+                var item = ItemHelper.GetRandomItem();
+                if (!gameBoard.place(item, x, y))
                 {
                     --i;
                 }
+
+                Debug.WriteLine("[Item] Placed " + item.Name + " at (" + x + ", " + y + ")");
             }
         }
 

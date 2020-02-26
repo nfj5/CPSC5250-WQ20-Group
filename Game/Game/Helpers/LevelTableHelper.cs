@@ -36,13 +36,13 @@ namespace Game.Models
         /// </summary>
         public LevelTableHelper()
         {
-            ClearAndLoadDatTable();
+            ClearAndLoadDataTable();
         }
 
         /// <summary>
         /// Clear the data and relaod it
         /// </summary>
-        public void ClearAndLoadDatTable()
+        public void ClearAndLoadDataTable()
         {
             LevelDetailsList = new List<LevelDetailsModel>();
             LoadLevelData();

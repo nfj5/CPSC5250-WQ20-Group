@@ -7,6 +7,7 @@ namespace Game.Models
 {
     public class MonsterModel : PersonModel<MonsterModel>
     {
+        // Default Monster
         public MonsterModel()
         {
             PersonType = PersonTypeEnum.Monster;
@@ -15,6 +16,7 @@ namespace Game.Models
             ImageURI = "football_monster.png";
         }
 
+        // Default Monsters
         public MonsterModel(int num)
         {
             PersonType = PersonTypeEnum.Monster;

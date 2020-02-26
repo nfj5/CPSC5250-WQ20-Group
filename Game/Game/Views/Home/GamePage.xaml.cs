@@ -20,7 +20,7 @@ namespace Game.Views
 		}
 
 		/// <summary>
-		/// Jump to the Dungeon
+		/// Jump to the Stadium Page
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -30,7 +30,7 @@ namespace Game.Views
 		}
 
 		/// <summary>
-		/// Jump to the Village
+		/// Jump to the Locker Room Page
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -40,7 +40,7 @@ namespace Game.Views
 		}
 
 		/// <summary>
-		/// Jump to the Dungeon
+		/// Jump to the AutoBattle Page
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>

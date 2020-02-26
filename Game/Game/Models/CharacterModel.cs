@@ -8,7 +8,9 @@ namespace Game.Models
 {
     public class CharacterModel: PersonModel<CharacterModel>
     {
-
+        /// <summary>
+        /// Default character
+        /// </summary>
         public CharacterModel()
         {
             PersonType = PersonTypeEnum.Character;
@@ -17,6 +19,10 @@ namespace Game.Models
             ImageURI = "football_charcter.png";
         }
 
+        /// <summary>
+        /// Default characters
+        /// </summary>
+        /// <param name="num"></param>
         public CharacterModel(int num)
         {
             PersonType = PersonTypeEnum.Character;

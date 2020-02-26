@@ -25,8 +25,10 @@ namespace Game.Engine
             MonsterList.Clear();
             return true;
         }
-
-        // Call to make a new set of monsters...
+        /// <summary>
+        /// Starts new round and populates gameboard with existing monsters, characters and items.
+        /// </summary>
+        /// <returns></returns>
         public bool NewRound()
         {
             // End the existing round
@@ -52,7 +54,7 @@ namespace Game.Engine
         /// </summary>
         public void PopulateGameBoard()
         {
-            // place characters
+            // place characters on last row of the board
             int x = 0, y = 5;
             foreach(PlayerInfoModel character in CharacterList)
             {
@@ -61,8 +63,8 @@ namespace Game.Engine
                 x++;
             }
 
-            // place monsters
-            x = 0; y = 0;
+            // place monsters on first row of the board
+            x = 0; y = 0; 
             foreach(PlayerInfoModel monster in MonsterList)
             {
                 GameBoard.Place(monster, x, y);
@@ -70,7 +72,7 @@ namespace Game.Engine
                 y++;
             }
 
-            // place items
+            // place items randomly on board
             for (int i = 0; i < MaxStartItems; ++i)
             {
                 x = DiceHelper.RollDice(1, 5);
@@ -90,13 +92,6 @@ namespace Game.Engine
         /// Add Monsters to the Round
         /// 
         /// Because Monsters can be duplicated, will add 1, 2, 3 to their name
-        ///   
-        /*
-            * Hint: 
-            * I don't have crudi monsters yet so will add 6 new ones...
-            * If you have crudi monsters, then pick from the list
-            * Consdier how you will scale the monsters up to be appropriate for the characters to fight
-            */
         /// </summary>
         /// <returns></returns>
         public int AddMonstersToRound()
@@ -114,8 +109,7 @@ namespace Game.Engine
 
         /// <summary>
         /// At the end of the round
-        /// Clear the ItemModel List
-        /// Clear the MonsterModel List
+        /// Clear the ItemModel List and the MonsterModel List
         /// </summary>
         /// <returns></returns>
         public bool EndRound()
@@ -133,12 +127,11 @@ namespace Game.Engine
         }
 
         /// <summary>
-        /// Manage Next Turn
+        /// Manages the next Turn
         /// 
-        /// Decides Who's Turn
-        /// Remembers Current Player
+        /// Decides Who's Turn is next and remembers Current Player
         /// 
-        /// Starts the Turn
+        /// Then begin the next Turn
         /// 
         /// </summary>
         /// <returns></returns>
@@ -190,17 +183,17 @@ namespace Game.Engine
 
         /// <summary>
         /// Order the Players in Turn Sequence
+        /// 
+        /// Order is based by... 
+        /// Order by Speed (Desending)
+        /// Then by Highest level (Descending)
+        /// Then by Highest Experience Points (Descending)
+        /// Then by Character before MonsterModel (enum assending)
+        /// Then by Alphabetic on Name (Assending)
+        /// Then by First in list order (Assending)
         /// </summary>
         public List<PlayerInfoModel> OrderPlayerListByTurnOrder()
         {
-            // Order is based by... 
-            // Order by Speed (Desending)
-            // Then by Highest level (Descending)
-            // Then by Highest Experience Points (Descending)
-            // Then by Character before MonsterModel (enum assending)
-            // Then by Alphabetic on Name (Assending)
-            // Then by First in list order (Assending
-
             // Work with the Class variable PlayerList
             PlayerList = MakePlayerList();
 
@@ -216,7 +209,7 @@ namespace Game.Engine
         }
 
         /// <summary>
-        /// Who is Playing this round?
+        /// Generate a Player list that determines who can play this round.
         /// </summary>
         public List<PlayerInfoModel> MakePlayerList()
         {
@@ -316,7 +309,7 @@ namespace Game.Engine
         }
 
         /// <summary>
-        /// Pickup Items Dropped
+        /// Pickup Items Dropped and insert them back into the ItemPool.
         /// </summary>
         /// <param name="character"></param>
         public bool PickupItemsFromPool(PlayerInfoModel character)

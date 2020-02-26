@@ -34,7 +34,7 @@ namespace Game.Engine
         #endregion Algrorithm
 
         /// <summary>
-        /// CharacterModel Attacks...
+        /// Perform a turn and attack the target
         /// </summary>
         /// <param name="Attacker"></param>
         /// <returns></returns>
@@ -180,8 +180,8 @@ namespace Game.Engine
         /// 
         /// Pick who to go after
         /// 
-        /// Determine Attack Score
-        /// Determine DefenseScore
+        /// Determine the Attack score
+        /// Determine the Defense score
         /// 
         /// Do the Attack
         /// 
@@ -234,6 +234,11 @@ namespace Game.Engine
             return true;
         }
 
+        /// <summary>
+        /// Decide where to move
+        /// </summary>
+        /// <param name="Person"></param>
+        /// <returns></returns>
         public int[,] MoveChoice(PlayerInfoModel Person)
         {
             int[,] location = new int[1,1];
@@ -241,7 +246,7 @@ namespace Game.Engine
         }
 
         /// <summary>
-        /// Decide which to attack
+        /// Decide which to attack 
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
@@ -343,7 +348,7 @@ namespace Game.Engine
         }
 
         /// <summary>
-        /// // MonsterModel Attacks CharacterModel
+        /// Attack the Target this Turn
         /// </summary>
         /// <param name="Attacker"></param>
         /// <param name="AttackScore"></param>
@@ -405,6 +410,7 @@ namespace Game.Engine
             BattleMessagesModel.CurrentHealth = Target.CurrentHitPoints;
             BattleMessagesModel.TurnMessageSpecial = BattleMessagesModel.GetCurrentHealthMessage();
 
+            //Check if Target is dead
             RemoveIfDead(Target);
 
             BattleMessagesModel.TurnMessage = Attacker.Name + BattleMessagesModel.AttackStatus + Target.Name + BattleMessagesModel.TurnMessageSpecial;
@@ -414,7 +420,9 @@ namespace Game.Engine
         }
 
         /// <summary>
-        /// If Dead process Targed Died
+        /// Checks if the Target has died.
+        /// 
+        /// process for dead Target.
         /// </summary>
         /// <param name="Target"></param>
         public bool RemoveIfDead(PlayerInfoModel Target)
@@ -422,7 +430,7 @@ namespace Game.Engine
             // Check for alive
             if (Target.Alive == false)
             {
-                TargedDied(Target);
+                TargetDied(Target);
                 return true;
             }
 
@@ -437,14 +445,14 @@ namespace Game.Engine
         /// Returns the count of items dropped at death
         /// </summary>
         /// <param name="Target"></param>
-        public bool TargedDied(PlayerInfoModel Target)
+        public bool TargetDied(PlayerInfoModel Target)
         {
             // Mark Status in output
             BattleMessagesModel.TurnMessageSpecial = " and causes death";
 
-            // Remove target from list...
+            // Remove target from list
 
-            // Using a switch so in the future additional PlayerTypes can be added (Boss...)
+            // Using a switch so in the future additional PlayerTypes can be added (e.x: Boss...)
             switch (Target.PersonType)
             {
                 case PersonTypeEnum.Character:
@@ -481,7 +489,7 @@ namespace Game.Engine
         }
 
         /// <summary>
-        /// Drop Items
+        /// Drop equipped Items
         /// </summary>
         /// <param name="Target"></param>
         public int DropItems(PlayerInfoModel Target)
@@ -545,7 +553,7 @@ namespace Game.Engine
         }
 
         /// <summary>
-        /// Will drop between 1 and 4 items from the ItemModel set...
+        /// Gets Items dropped from Monsters randomly between 1 to 4 items from the ItemModel set
         /// </summary>
         /// <param name="round"></param>
         /// <returns></returns>

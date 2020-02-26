@@ -84,7 +84,11 @@ namespace Game.Models
 
         //Public methods
 
-        // Have the Person drop the item at the corresponding inventory index if it exists
+        /// <summary>
+        /// Have the Person drop the item at the corresponding inventory index if it exists
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
         public ItemModel RemoveItem(int index)
         {
             ItemModel item = GetItem(index);
@@ -119,8 +123,11 @@ namespace Game.Models
             NumItems--;
             return item;
         }
-
-        // Add the ItemModel to the Person's inventory if they are at not carrying capacity
+        /// <summary>
+        /// Add the ItemModel to the Person's inventory if they are at not carrying capacity
+        /// </summary>
+        /// <param name="toAdd"></param>
+        /// <returns></returns>
         public bool AddItem(ItemModel toAdd)
         {
             if (NumItems == MAX_ITEMS)
@@ -196,8 +203,10 @@ namespace Game.Models
 
             return ItemIndexViewModel.Instance.GetItem(item);
         }
-
-        // Check if the SuperstarAbility is on cooldown and applies modifiers if not on cooldown
+        /// <summary>
+        /// Check if the SuperstarAbility is on cooldown and applies modifiers if not on cooldown
+        /// </summary>
+        /// <returns></returns>
         public bool ActivateAbility()
         {
             if (PersonType == PersonTypeEnum.Monster)
@@ -231,7 +240,9 @@ namespace Game.Models
             return true;
         }
 
-        // This move will handle automatic actions that occur every turn, such as ability cooldown
+        /// <summary>
+        /// This move will handle automatic actions that occur every turn, such as ability cooldown
+        /// </summary>
         public void TurnManager()
         {
             if (!CheckCooldown())
@@ -247,19 +258,29 @@ namespace Game.Models
             }
         }
 
-        // Check to see if the Person has enough stamina currently to perform an action
+        /// <summary>
+        /// Check to see if the Person has enough stamina currently to perform an action
+        /// </summary>
+        /// <param name="actionCost"></param>
+        /// <returns></returns>
         public bool CheckStamina(int actionCost)
         {
             return (CurrentStamina - actionCost >= 0);
         }
 
-        // Update the Person's CurrentStamina with the cost of performing a specific action
+        /// <summary>
+        /// Update the Person's CurrentStamina with the cost of performing a specific action
+        /// </summary>
+        /// <param name="actionCost"></param>
         public void UpdateStamina(int actionCost)
         {
             CurrentStamina -= actionCost;
         }
 
-        // Check if the SuperstarAbility is on cooldown
+        /// <summary>
+        /// Check if the SuperstarAbility is on cooldown
+        /// </summary>
+        /// <returns></returns>
         public bool CheckCooldown()
         {
             return (CurrentCooldown != 0);
@@ -287,11 +308,14 @@ namespace Game.Models
             return myReturn;
         }
 
-
-        // Take Damage
-        // If the damage recived, is > health, then death occurs
-        // Return the number of experience received for this attack 
-        // monsters give experience to characters.  Characters don't accept expereince from monsters
+        /// <summary>
+        /// Take Damage
+        /// If the damage recived, is > health, then death occurs
+        /// Return the number of experience received for this attack 
+        /// monsters give experience to characters.  Characters don't accept expereince from monsters
+        /// </summary>
+        /// <param name="damage"></param>
+        /// <returns></returns>
         public bool TakeDamage(int damage)
         {
             if (damage <= 0)
@@ -311,19 +335,26 @@ namespace Game.Models
             return true;
         }
 
-        // Death
-        // Alive turns to False
+        /// <summary>
+        /// Death
+        /// Alive turns to False
+        /// </summary>
+        /// <returns></returns>
         public bool CauseDeath()
         {
             Alive = false;
             return Alive;
         }
 
-        // Remove ItemModel from a set location
-        // Does this by adding a new ItemModel of Null to the location
-        // This will return the previous ItemModel, and put null in its place
-        // Returns the ItemModel that was at the location
-        // Nulls out the location
+        /// <summary>
+        /// Remove ItemModel from a set location
+        /// Does this by adding a new ItemModel of Null to the location
+        /// This will return the previous ItemModel, and put null in its place
+        /// Returns the ItemModel that was at the location
+        /// Nulls out the location
+        /// </summary>
+        /// <param name="itemlocation"></param>
+        /// <returns></returns>
         public ItemModel RemoveItem(ItemLocationEnum itemlocation)
         {
             var myReturn = AddItem(itemlocation, null);
@@ -333,8 +364,11 @@ namespace Game.Models
         }
 
 
-        // Drop All Items
-        // Return a list of items for the pool of items
+        /// <summary>
+        /// Drop All Items
+        /// Return a list of items for the pool of items
+        /// </summary>
+        /// <returns></returns>
         public List<ItemModel> DropAllItems()
         {
             var myReturn = new List<ItemModel>();
@@ -383,11 +417,16 @@ namespace Game.Models
 
         public string FormatOutput() { return ""; }
 
-        // Add ItemModel
-        // Looks up the ItemModel
-        // Puts the ItemModel ID as a string in the location slot
-        // If ItemModel is null, then puts null in the slot
-        // Returns the ItemModel that was in the location
+        /// <summary>
+        /// Add ItemModel
+        /// Looks up the ItemModel
+        /// Puts the ItemModel ID as a string in the location slot
+        /// If ItemModel is null, then puts null in the slot
+        /// Returns the ItemModel that was in the location
+        /// </summary>
+        /// <param name="itemLocation"></param>
+        /// <param name="itemID"></param>
+        /// <returns></returns>
         public ItemModel AddItem(ItemLocationEnum itemLocation, string itemID)
         {
             var myReturn = GetItemByLocation(itemLocation);
@@ -426,7 +465,11 @@ namespace Game.Models
             return myReturn;
         }
 
-        // Get the ItemModel at a known string location (head, foot etc.)
+        /// <summary>
+        /// Get the ItemModel at a known string location (head, foot etc.)
+        /// </summary>
+        /// <param name="itemLocation"></param>
+        /// <returns></returns>
         public ItemModel GetItemByLocation(ItemLocationEnum itemLocation)
         {
             switch (itemLocation)

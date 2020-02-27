@@ -49,7 +49,7 @@ namespace Game.Views
                         MenuPages.Add(id, new NavigationPage(new ItemIndexPage()));
                         break;
 
-                    case (int)MenuItemEnum.Village:
+                    case (int)MenuItemEnum.LockerRoom:
                         MenuPages.Add(id, new NavigationPage(new LockerRoomPage()));
                         break;
 

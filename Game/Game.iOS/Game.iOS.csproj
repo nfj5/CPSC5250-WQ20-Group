@@ -236,4 +236,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\stadium1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\highscore_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\highscore.png" />
+  </ItemGroup>
 </Project>

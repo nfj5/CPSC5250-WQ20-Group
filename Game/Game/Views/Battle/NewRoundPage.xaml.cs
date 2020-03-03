@@ -10,6 +10,7 @@ namespace Game.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class NewRoundPage: ContentPage
 	{
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -31,14 +32,13 @@ namespace Game.Views
 
 		async void LevelUp_clicked(object sender, EventArgs e)
 		{
-			// TODO pass in information for the battle
-			await Navigation.PushModalAsync(new NavigationPage(new BattlePage()));
+			await Navigation.PushModalAsync(new NavigationPage(new LevelUpPage()));
 		}
 
 		async void RoundOver_clicked(object sender, EventArgs e)
 		{
 			// TODO pass in information for the battle
-			await Navigation.PushModalAsync(new NavigationPage(new BattlePage()));
+			await Navigation.PushModalAsync(new NavigationPage(new RoundOverPage()));
 		}
 	}
 }

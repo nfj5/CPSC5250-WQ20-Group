@@ -242,4 +242,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\highscore.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\blank_space.png" />
+  </ItemGroup>
 </Project>

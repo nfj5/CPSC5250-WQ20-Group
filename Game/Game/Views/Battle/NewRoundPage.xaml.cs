@@ -28,5 +28,17 @@ namespace Game.Views
 			// TODO pass in information for the battle
 			await Navigation.PushModalAsync(new NavigationPage(new BattlePage()));
 		}
+
+		async void LevelUp_clicked(object sender, EventArgs e)
+		{
+			// TODO pass in information for the battle
+			await Navigation.PushModalAsync(new NavigationPage(new BattlePage()));
+		}
+
+		async void RoundOver_clicked(object sender, EventArgs e)
+		{
+			// TODO pass in information for the battle
+			await Navigation.PushModalAsync(new NavigationPage(new BattlePage()));
+		}
 	}
 }

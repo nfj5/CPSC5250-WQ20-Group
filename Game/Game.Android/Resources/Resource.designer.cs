@@ -5768,7 +5768,7 @@ namespace Game.Droid
 			public const int football_monster = 2131165291;
 			
 			// aapt resource value: 0x7F07006D
-			public const int gameover = 2131165293;
+			public const int gameover2 = 2131165293;
 			
 			// aapt resource value: 0x7F07006E
 			public const int grey_door = 2131165294;

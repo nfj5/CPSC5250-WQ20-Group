@@ -12,8 +12,6 @@
             <Image Source="items.png" Style="{StaticResource ImageMediumStyle}"></Image>
             <Image Source="items.png" Style="{StaticResource ImageMediumStyle}"></Image>
 
-            <Button Clicked="PickItems_Clicked" Text="Pick Items"></Button>
-
             <Button Clicked="NextButton_Clicked" Text="Next Round"></Button>
 
         </StackLayout>

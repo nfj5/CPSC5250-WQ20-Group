@@ -27,15 +27,5 @@ namespace Game.Views
 		{
 			await Navigation.PopModalAsync();
 		}
-
-		/// <summary>
-		/// Start next Round, returning to the battle screen
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		async void PickItems_Clicked(object sender, EventArgs e)
-		{
-			await Navigation.PushModalAsync(new PickItemsPage());
-		}
 	}
 }

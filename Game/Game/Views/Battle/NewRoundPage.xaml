@@ -26,8 +26,11 @@
                 <Image Source="football_monster.png" Style="{StaticResource ImageMediumStyle}"></Image>
             </StackLayout>
 
-            <Button Clicked="BeginButton_Clicked" Text="Begin"></Button>
+            <Button Clicked="BeginButton_Clicked" Text="Begin Game"></Button>
 
+            <Button Clicked="LevelUp_clicked" Text="Level Up"></Button>
+
+            <Button Clicked="RoundOver_clicked" Text="Begin"></Button>
         </StackLayout>
         
     </ContentPage.Content>

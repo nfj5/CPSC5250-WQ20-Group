@@ -4,12 +4,47 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Game.Views.Battle.LevelUpPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+             x:Class="Game.Views.LevelUpPage"
+             Title="LevelUp">
+    <StackLayout Spacing="20" Padding="15"
+                 VerticalOptions="CenterAndExpand"
+                 HorizontalOptions="CenterAndExpand">
+
+        <Label Text="Level Up Page" Style="{StaticResource HeaderStyle}"/>
+
+        <Image Source="{Binding Data.ImageURI}" 
+                           Style="{StaticResource ImageLargeStyle}"
+                           HorizontalOptions="CenterAndExpand" 
+                           WidthRequest="200"
+                           HeightRequest="200"/>
+        <StackLayout HorizontalOptions="Center" 
+                     Padding="20"
+                     Orientation="Vertical">
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Your player, " 
+                   FontSize="Medium"></Label>
+                <Label Text="{Binding Data.Name}" d:Text="Item name" FontSize="Small"/>
+                <Label Text=", has leveled up!"
+                   FontSize="Medium"></Label>
+            </StackLayout>
+            <Label Text="Stamina: " 
+                   FontSize="Medium"></Label>
+            <Label Text="{Binding Data.BaseStamina}" d:Text="Item name" FontSize="Small"/>
+            <Label Text="Strength: " 
+                   FontSize="Medium"></Label>
+            <Label Text="{Binding Data.BaseStrength}" d:Text="Item name" FontSize="Small"/>
+            <Label Text="HitPoints: " 
+                   FontSize="Medium"></Label>
+            <Label Text="{Binding Data.BaseHitPoints}" d:Text="Item name" FontSize="Small"/>
+
+            <Button Text="Keep Brawling"
+                    Clicked="KeepBrawling_clicked"
+                    HorizontalOptions="Center"
+                    FontSize="Medium"
+                    BorderWidth="1"
+                    BorderColor="Black">
+            </Button>
         </StackLayout>
-    </ContentPage.Content>
+    </StackLayout>
 </ContentPage>
+    

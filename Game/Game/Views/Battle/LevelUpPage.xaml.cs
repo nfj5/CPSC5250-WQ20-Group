@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Game.Models;
+using Game.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,14 +9,29 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Game.Views.Battle
+namespace Game.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LevelUpPage : ContentPage
     {
-        public LevelUpPage()
+
+        GenericViewModel<CharacterModel> ViewModel;
+
+        public LevelUpPage(GenericViewModel<CharacterModel> data)
         {
             InitializeComponent();
+
+            BindingContext = this.ViewModel = data;
+        }
+
+        /// <summary>
+        /// Returns the user back to the Battle page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void KeepBrawling_clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopModalAsync();
         }
     }
 }

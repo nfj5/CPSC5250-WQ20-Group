@@ -105,7 +105,7 @@
                 </Grid>
             </Frame>
             <Frame BorderColor="#000000" Padding="10">
-                <StackLayout Orientation="Vertical" >
+                <StackLayout Orientation="Vertical">
                     <Label Text="Battle Log" TextColor="#000000" FontSize="Small"/>
                     <Editor Text="The round has begun." TextColor="#000000" BackgroundColor="#FFFFFF" IsReadOnly="True" HeightRequest="100" FontSize="Micro"/>
                 </StackLayout>

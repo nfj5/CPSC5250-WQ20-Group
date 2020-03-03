@@ -13,7 +13,7 @@ namespace Game.Views
 		/// <summary>
 		/// Constructor
 		/// </summary>
-		public NewRoundPage ()
+		public NewRoundPage(int RoundNumber)
 		{
 			InitializeComponent ();
 		}
@@ -25,7 +25,8 @@ namespace Game.Views
 		/// <param name="e"></param>
 		async void BeginButton_Clicked(object sender, EventArgs e)
 		{
-			await Navigation.PopModalAsync();
+			// TODO pass in information for the battle
+			await Navigation.PushModalAsync(new NavigationPage(new BattlePage()));
 		}
 	}
 }

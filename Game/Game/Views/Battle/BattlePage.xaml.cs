@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Game.Helpers;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -48,7 +49,7 @@ namespace Game.Views
 		/// <param name="e"></param>
 		async void NewRoundButton_Clicked(object sender, EventArgs e)
 		{
-			await Navigation.PushModalAsync(new NewRoundPage());
+			await Navigation.PushModalAsync(new NewRoundPage(GameBoardHelper.Round));
 		}
 		
 

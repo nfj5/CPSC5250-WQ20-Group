@@ -6,6 +6,9 @@ namespace Game.Helpers
 {
     class GameBoardHelper
     {
+        // Keep track of the round
+        public static int Round = 1;
+
         /// <summary>
         /// Calculate the distance between 2 positions on the gameboard.
         /// </summary>

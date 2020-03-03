@@ -132,6 +132,7 @@
     <BundleResource Include="Resources\towel.png" />
     <BundleResource Include="Resources\trophy.png" />
     <BundleResource Include="Resources\water_bottle.png" />
+    <BundleResource Include="Resources\gameover2.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

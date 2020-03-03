@@ -1,28 +1,140 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Game.Views.BattlePage">
+             x:Class="Game.Views.BattlePage"
+             Title="Battle!">
 
     <ContentPage.Content>
-        <StackLayout Style="{StaticResource VerticalStack}">
-            <Label Text="Battle Page..."></Label>
+        <StackLayout Orientation="Vertical">
+            <Frame BorderColor="#000000" Padding="5,10,5,10">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-            <Image Source="football_monster.png" Style="{StaticResource ImageMediumStyle}"></Image>
-            <Image Source="football_charcter.png" Style="{StaticResource ImageMediumStyle}"></Image>
+                    <Image Source="blank_space.png"
+                           Grid.Row="0" Grid.Column="0"/>
+                    <Image Source="blank_space.png"
+                           Grid.Row="0" Grid.Column="1"/>
+                    <Image Source="blank_space.png"
+                           Grid.Row="0" Grid.Column="2"/>
+                    <Image Source="blank_space.png"
+                           Grid.Row="0" Grid.Column="3"/>
+                    <Image Source="blank_space.png"
+                           Grid.Row="0" Grid.Column="4"/>
+                    <Image Source="blank_space.png"
+                           Grid.Row="0" Grid.Column="5"/>
 
-            <Button Clicked="AttackButton_Clicked" Text="Attack"></Button>
+                    <Image Source="blank_space.png"
+                           Grid.Row="1" Grid.Column="0"/>
+                    <Image Source="blank_space.png"
+                           Grid.Row="1" Grid.Column="1"/>
+                    <Image Source="blank_space.png"
+                           Grid.Row="1" Grid.Column="2"/>
+                    <Image Source="blank_space.png"
+                           Grid.Row="1" Grid.Column="3"/>
+                    <Image Source="blank_space.png"
+                           Grid.Row="1" Grid.Column="4"/>
+                    <Image Source="blank_space.png"
+                           Grid.Row="1" Grid.Column="5"/>
 
-            <Button Clicked="NewRoundButton_Clicked" Text="New Round"></Button>
+                    <Image Source="blank_space.png"
+                           Grid.Row="2" Grid.Column="0"/>
+                    <Image Source="blank_space.png"
+                           Grid.Row="2" Grid.Column="1"/>
+                    <Image Source="blank_space.png"
+                           Grid.Row="2" Grid.Column="2"/>
+                    <Image Source="blank_space.png"
+                           Grid.Row="2" Grid.Column="3"/>
+                    <Image Source="blank_space.png"
+                           Grid.Row="2" Grid.Column="4"/>
+                    <Image Source="blank_space.png"
+                           Grid.Row="2" Grid.Column="5"/>
 
-            <Button Clicked="RoundOverButton_Clicked" Text="Round Over"></Button>
-            
-            <Button Clicked="BattleOverButton_Clicked" Text="Battle Over"></Button>
-            
-            <Button Clicked="ExitButton_Clicked" Text="Exit"></Button>
+                    <Image Source="blank_space.png"
+                           Grid.Row="3" Grid.Column="0"/>
+                    <Image Source="blank_space.png"
+                           Grid.Row="3" Grid.Column="1"/>
+                    <Image Source="blank_space.png"
+                           Grid.Row="3" Grid.Column="2"/>
+                    <Image Source="blank_space.png"
+                           Grid.Row="3" Grid.Column="3"/>
+                    <Image Source="blank_space.png"
+                           Grid.Row="3" Grid.Column="4"/>
+                    <Image Source="blank_space.png"
+                           Grid.Row="3" Grid.Column="5"/>
 
-            <Button Clicked="QuitButton_Clicked" Text="Quit"></Button>
+                    <Image Source="blank_space.png"
+                           Grid.Row="4" Grid.Column="0"/>
+                    <Image Source="blank_space.png"
+                           Grid.Row="4" Grid.Column="1"/>
+                    <Image Source="blank_space.png"
+                           Grid.Row="4" Grid.Column="2"/>
+                    <Image Source="blank_space.png"
+                           Grid.Row="4" Grid.Column="3"/>
+                    <Image Source="blank_space.png"
+                           Grid.Row="4" Grid.Column="4"/>
+                    <Image Source="blank_space.png"
+                           Grid.Row="4" Grid.Column="5"/>
 
+                    <Image Source="blank_space.png"
+                           Grid.Row="5" Grid.Column="0"/>
+                    <Image Source="blank_space.png"
+                           Grid.Row="5" Grid.Column="1"/>
+                    <Image Source="blank_space.png"
+                           Grid.Row="5" Grid.Column="2"/>
+                    <Image Source="blank_space.png"
+                           Grid.Row="5" Grid.Column="3"/>
+                    <Image Source="blank_space.png"
+                           Grid.Row="5" Grid.Column="4"/>
+                    <Image Source="blank_space.png"
+                           Grid.Row="5" Grid.Column="5"/>
+                </Grid>
+            </Frame>
+            <Frame BorderColor="#000000" Padding="10">
+                <StackLayout Orientation="Vertical" >
+                    <Label Text="Battle Log" TextColor="#000000" FontSize="Small"/>
+                    <Editor Text="The round has begun." TextColor="#000000" BackgroundColor="#FFFFFF" IsReadOnly="True" HeightRequest="100" FontSize="Micro"/>
+                </StackLayout>
+            </Frame>
+            <Frame BorderColor="#000000" Padding="10">
+                <StackLayout Orientation="Vertical">
+                    <Label Text="Inventory" TextColor="#000000" FontSize="Small" Margin="0,0,0,10"/>
+                    <Grid>
+                        <Image Source="icon_add.png"
+                               Grid.Row="0" Grid.Column="0"
+                               WidthRequest="50" HeightRequest="50"/>
+                        <Image Source="icon_add.png"
+                               Grid.Row="0" Grid.Column="1"
+                               WidthRequest="50" HeightRequest="50"/>
+                        <Image Source="icon_add.png"
+                               Grid.Row="0" Grid.Column="2"
+                               WidthRequest="50" HeightRequest="50"/>
+                        <Image Source="icon_add.png"
+                               Grid.Row="0" Grid.Column="3"
+                               WidthRequest="50" HeightRequest="50"/>
+                        <Image Source="icon_add.png"
+                               Grid.Row="0" Grid.Column="4"
+                               WidthRequest="50" HeightRequest="50"/>
+                        <Image Source="icon_add.png"
+                               Grid.Row="0" Grid.Column="5"
+                               WidthRequest="50" HeightRequest="50"/>
+                    </Grid>
+                </StackLayout>
+            </Frame>
         </StackLayout>
-        
     </ContentPage.Content>
 </ContentPage>

@@ -30,7 +30,7 @@ namespace Game.Views
 		/// <param name="e"></param>
 		async void NextButton_Clicked(object sender, EventArgs e)
 		{
-			await Navigation.PopModalAsync();
+			await Navigation.PopAsync();
 		}
 	}
 }

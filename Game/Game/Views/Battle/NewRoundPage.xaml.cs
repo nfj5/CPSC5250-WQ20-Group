@@ -30,11 +30,21 @@ namespace Game.Views
 			await Navigation.PushModalAsync(new NavigationPage(new BattlePage()));
 		}
 
+		/// <summary>
+		/// Level Up Button Clicked
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		async void LevelUp_clicked(object sender, EventArgs e)
 		{
 			await Navigation.PushModalAsync(new NavigationPage(new LevelUpPage()));
 		}
 
+		/// <summary>
+		/// Round Over button clicked
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		async void RoundOver_clicked(object sender, EventArgs e)
 		{
 			// TODO pass in information for the battle

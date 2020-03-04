@@ -37,5 +37,7 @@ namespace Game.Views
 		{
 			await Navigation.PushAsync(new MainPage());
 		}
+
+        // Todo get real score and display. 
 	}
 }

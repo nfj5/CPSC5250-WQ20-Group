@@ -12,7 +12,7 @@
         <StackLayout Style="{StaticResource VerticalStack}">
             
             <Label Text="Score Page..."></Label>
-            <Image Source="gameOver2.png" Style="{StaticResource HeaderStyle}"/>
+            <Image Source="gameover2.png" Style="{StaticResource ImageLargeStyle}"/>
 
             <Label Text="You have lost the game!" Style="{StaticResource LabelStyle}"/>
             <Label Text="Your High Score is: 43,657" Style="{StaticResource LabelStyle}"/>

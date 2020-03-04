@@ -6,10 +6,15 @@ using System.Diagnostics;
 
 namespace Game.Models
 {
+    /// <summary>
+    /// The Characters in the Game
+    /// 
+    /// Derives from Person Model just like Monsters
+    /// </summary>
     public class CharacterModel: PersonModel<CharacterModel>
     {
         /// <summary>
-        /// Default character
+        /// Empty constructor for default Characters
         /// </summary>
         public CharacterModel()
         {
@@ -20,7 +25,7 @@ namespace Game.Models
         }
 
         /// <summary>
-        /// Default characters
+        /// Constructor for default Characters
         /// </summary>
         /// <param name="num"></param>
         public CharacterModel(int num)

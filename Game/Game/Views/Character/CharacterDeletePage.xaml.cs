@@ -11,9 +11,13 @@ using Xamarin.Forms.Xaml;
 
 namespace Game.Views
 {
+    /// <summary>
+    /// The Delete Page
+    /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CharacterDeletePage : ContentPage
     {
+        // View Model for Character
         GenericViewModel<CharacterModel> ViewModel;
 
         /// <summary>

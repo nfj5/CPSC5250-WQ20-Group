@@ -7,11 +7,19 @@ using Xamarin.Forms.Xaml;
 
 namespace Game.Views
 {
+    /// <summary>
+    /// Create Monster
+    /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MonsterCreatePage : ContentPage
     {
+        // The Monster to create
         GenericViewModel<MonsterModel> ViewModel { get; set; }
 
+        /// <summary>
+        /// Constructor for MonsterCreatePage and makes a new model
+        /// </summary>
+        /// <param name="data"></param>
         public MonsterCreatePage(GenericViewModel<MonsterModel> data)
         {
             InitializeComponent();

@@ -11,10 +11,19 @@ using Xamarin.Forms.Xaml;
 
 namespace Game.Views
 {
+    /// <summary>
+    /// The Delete Page
+    /// </summary>
     public partial class MonsterDeletePage : ContentPage
     {
+        // View Model for Monster
         GenericViewModel<MonsterModel> ViewModel;
 
+
+        /// <summary>
+        /// Constructor for Delete by taking a view model of Monster to delete
+        /// </summary>
+        /// <param name="data"></param>
         public MonsterDeletePage(GenericViewModel<MonsterModel> data)
         {
             InitializeComponent();

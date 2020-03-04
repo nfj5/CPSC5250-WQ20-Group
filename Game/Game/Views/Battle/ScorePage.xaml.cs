@@ -23,9 +23,19 @@ namespace Game.Views
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		async void CloseButton_Clicked(object sender, EventArgs e)
+		async void NewGame_Clicked(object sender, EventArgs e)
 		{
-			await Navigation.PopModalAsync();
+
+		}
+
+		async void HighScore_Clicked(object sender, EventArgs e)
+		{
+
+		}
+
+		async void MainMenu_Clicked(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

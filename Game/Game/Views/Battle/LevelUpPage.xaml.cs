@@ -15,13 +15,13 @@ namespace Game.Views
     public partial class LevelUpPage : ContentPage
     {
 
-        GenericViewModel<CharacterModel> ViewModel;
+        //GenericViewModel<CharacterModel> ViewModel;
 
-        public LevelUpPage(GenericViewModel<CharacterModel> data)
+        public LevelUpPage()//GenericViewModel<CharacterModel> data)
         {
             InitializeComponent();
 
-            BindingContext = this.ViewModel = data;
+            //BindingContext = this.ViewModel = data;
         }
 
         /// <summary>

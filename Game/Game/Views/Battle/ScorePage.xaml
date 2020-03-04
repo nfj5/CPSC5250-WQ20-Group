@@ -11,7 +11,7 @@
     <ContentPage.Content>
         <StackLayout Style="{StaticResource VerticalStack}">
             
-            <Label Text="Score Page..."></Label>
+            
             <Image Source="gameover2.png" Style="{StaticResource ImageLargeStyle}"/>
 
             <Label Text="You have lost the game!" Style="{StaticResource LabelStyle}"/>

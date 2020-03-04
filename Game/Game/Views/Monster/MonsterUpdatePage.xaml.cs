@@ -111,5 +111,14 @@ namespace Game.Views
             StaminaValue.Text = String.Format("{0}", e.NewValue);
         }
 
+        /// <summary>
+        ///  Capture value change for Level stepper
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void Level_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+        {
+            LevelValue.Text = String.Format("{0}", e.NewValue);
+        }
     }
 }

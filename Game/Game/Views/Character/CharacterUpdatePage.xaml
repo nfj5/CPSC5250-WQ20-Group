@@ -93,6 +93,15 @@
                     <Stepper Value="{Binding Data.BaseStamina, Mode=TwoWay}"
                             ValueChanged="Stamina_OnStepperValueChanged"/>
                 </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Level: " Style="{StaticResource LabelStyle}"/>
+                    <Label Text="{Binding Data.Level}"
+                            x:Name="LevelValue"
+                            Style="{StaticResource ValueStyle}" />
+                    <Stepper Value="{Binding Data.Level, Mode=TwoWay}"
+                            ValueChanged="Level_OnStepperValueChanged"/>
+                </StackLayout>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

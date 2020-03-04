@@ -11,16 +11,17 @@ using Xamarin.Forms.Xaml;
 namespace Game.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PlayerDiePage : ContentPage
+    public partial class PersonDiePage : ContentPage
     {
+
         // Handle Character death
-        public PlayerDiePage(PersonModel<CharacterModel> character)
+        public PersonDiePage(PersonModel<CharacterModel> character)
         {
             InitializeComponent();
         }
 
         // Handle Monster death
-        public PlayerDiePage(PersonModel<MonsterModel> monster)
+        public PersonDiePage(PersonModel<MonsterModel> monster)
         {
             InitializeComponent();
         }

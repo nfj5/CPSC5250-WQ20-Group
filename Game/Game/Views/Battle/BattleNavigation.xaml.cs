@@ -1,5 +1,4 @@
 ﻿using Game.Models;
-using Game.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,7 +39,7 @@ namespace Game.Views
         // Open the PickCharacters page when CharacterPicker button clicked
         public async void PersonDie_Clicked(object sender, EventArgs e)
         {
-            //await Navigation.PushAsync(new PersonDiePage(new CharacterModel()));
+            await Navigation.PushAsync(new PersonDiePage(new CharacterModel()));
         }
         // Open the PickCharacters page when CharacterPicker button clicked
         public async void RoundOver_Clicked(object sender, EventArgs e)

@@ -76,6 +76,13 @@
                     <Label Text="{Binding Data.BaseStamina}"
                            Style="{StaticResource LabelStyle}" />
                 </StackLayout>
+
+                <StackLayout Style="{StaticResource HorizontalStack}">
+                    <Label Text="Level : "
+                           Style="{StaticResource LabelStyle}" />
+                    <Label Text="{Binding Data.Level}"
+                           Style="{StaticResource LabelStyle}" />
+                </StackLayout>
             </StackLayout>
         </ScrollView>
 

@@ -36,7 +36,7 @@ namespace Game.Views
             // Make sure that they are providing information for required fields
             if (string.IsNullOrEmpty(ViewModel.Data.Name) || string.IsNullOrEmpty(ViewModel.Data.Description))
             {
-                await DisplayAlert("Invalid format", "Character must have a name and description.", "OK");
+                await DisplayAlert("Invalid format", "Monster must have a name and description.", "OK");
                 return;
             }
 

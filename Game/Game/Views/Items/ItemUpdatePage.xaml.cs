@@ -38,6 +38,13 @@ namespace Game.Views
         /// <param name="e"></param>
         async void Save_Clicked(object sender, EventArgs e)
         {
+            // Make sure that they are providing information for required fields
+            if (string.IsNullOrEmpty(ViewModel.Data.Name) || string.IsNullOrEmpty(ViewModel.Data.Description))
+            {
+                await DisplayAlert("Invalid format", "Item must have a name and description.", "OK");
+                return;
+            }
+
             // If the image in the data box is empty, use the default one..
             if (string.IsNullOrEmpty(ViewModel.Data.ImageURI))
             {

@@ -42,7 +42,8 @@
                                     <RowDefinition Height="auto"/>
                                 </Grid.RowDefinitions>
 
-                                <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="3"
+                                <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="4"
+                                       HeightRequest="50" WidthRequest="50"
                                        Source="{Binding ImageURI}"
                                        Style="{StaticResource ImageSmallStyle}"
                                        VerticalOptions="CenterAndExpand"/>

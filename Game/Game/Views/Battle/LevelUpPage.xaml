@@ -12,7 +12,7 @@
 
         <Label Text="Level Up Page" Style="{StaticResource HeaderStyle}"/>
 
-        <Image Source="{Binding Data.ImageURI}" 
+        <Image Source="football_charcter.png" 
                            Style="{StaticResource ImageLargeStyle}"
                            HorizontalOptions="CenterAndExpand" 
                            WidthRequest="200"

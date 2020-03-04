@@ -15,6 +15,8 @@
                     Text="Person Death Page"/>
             <Button Clicked="RoundOver_Clicked"
                     Text="Round Over Page"/>
+            <Button Clicked="LevelUp_Clicked"
+                    Text="Level Up Page"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

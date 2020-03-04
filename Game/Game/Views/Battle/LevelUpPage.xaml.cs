@@ -31,7 +31,7 @@ namespace Game.Views
         /// <param name="e"></param>
         async void KeepBrawling_clicked(object sender, EventArgs e)
         {
-            await Navigation.PopModalAsync();
+            await Navigation.PopAsync();
         }
     }
 }

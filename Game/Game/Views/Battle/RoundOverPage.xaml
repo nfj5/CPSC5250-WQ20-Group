@@ -1,20 +1,62 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Game.Views.RoundOverPage">
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Game.Views.RoundOverPage"
+             Title="Round Over">
+    <StackLayout Spacing="20" Padding="15"
+                 VerticalOptions="CenterAndExpand"
+                 HorizontalOptions="CenterAndExpand">
 
-    <ContentPage.Content>
-        <StackLayout Style="{StaticResource VerticalStack}">
-            <Label Text="Round Over Page..."></Label>
+        <Label Text="Round Over Page" Style="{StaticResource HeaderStyle}"/>
 
-            <Label Text="Items Found..."></Label>
+        <StackLayout HorizontalOptions="Center" 
+                     Padding="20"
+                     Orientation="Vertical">
+            <StackLayout Orientation="Horizontal">
+                <StackLayout Orientation="Vertical">
+                    <Image Source="football_charcter.png" 
+                           Style="{StaticResource ImageLargeStyle}"
+                           HorizontalOptions="CenterAndExpand" 
+                           WidthRequest="200"
+                           HeightRequest="200"/>
 
-            <Image Source="items.png" Style="{StaticResource ImageMediumStyle}"></Image>
-            <Image Source="items.png" Style="{StaticResource ImageMediumStyle}"></Image>
+                    <Label Text="Your score " 
+                       FontSize="Small"></Label>
+                    <Label Text="{Binding Data.HighScore}" d:Text="Item name" FontSize="Small"/>
+                </StackLayout>
+                
+                <StackLayout Orientation="Vertical">
+                    <Image Source="football_Monster.png" 
+                           Style="{StaticResource ImageLargeStyle}"
+                           HorizontalOptions="CenterAndExpand" 
+                           WidthRequest="200"
+                           HeightRequest="200"/>
 
-            <Button Clicked="NextButton_Clicked" Text="Next Round"></Button>
+                    <Label Text="Enemy score " 
+                   FontSize="Small"></Label>
+                    <Label Text="{Binding Data.HighScore}" d:Text="Item name" FontSize="Small"/>
+                </StackLayout>
+            </StackLayout>
+            
 
+            <Button Text="Locker Room"
+                    Clicked="LockerRoom_Clicked"
+                    HorizontalOptions="Center"
+                    FontSize="Medium"
+                    BorderWidth="1"
+                    BorderColor="Black">
+            </Button>
+
+            <Button Text="Next Round"
+                    Clicked="NextButton_Clicked"
+                    HorizontalOptions="Center"
+                    FontSize="Medium"
+                    BorderWidth="1"
+                    BorderColor="Black">
+            </Button>
         </StackLayout>
-        
-    </ContentPage.Content>
+    </StackLayout>
 </ContentPage>

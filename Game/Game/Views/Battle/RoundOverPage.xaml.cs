@@ -17,6 +17,11 @@ namespace Game.Views
 		{
 			InitializeComponent ();
 		}
+		async void LockerRoom_Clicked(object sender, EventArgs e)
+		{
+			await Navigation.PushAsync(new LockerRoomPage());
+		}
+
 
 		/// <summary>
 		/// Start next Round, returning to the battle screen
@@ -25,7 +30,7 @@ namespace Game.Views
 		/// <param name="e"></param>
 		async void NextButton_Clicked(object sender, EventArgs e)
 		{
-			await Navigation.PopModalAsync();
+			await Navigation.PopAsync();
 		}
 	}
 }

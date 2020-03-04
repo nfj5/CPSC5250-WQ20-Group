@@ -46,5 +46,9 @@ namespace Game.Views
         {
             await Navigation.PushAsync(new RoundOverPage());
         }
+        public async void LevelUp_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new LevelUpPage());
+        }
     }
 }

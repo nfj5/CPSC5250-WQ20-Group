@@ -33,7 +33,7 @@ namespace Game.Views
         public PickCharactersPage(bool UnitTest) { }
 
         /// <summary>
-        /// Constructor for Index Page
+        /// Constructor for Pick Characters Page
         /// 
         /// Get the CharacterIndexView Model
         /// </summary>

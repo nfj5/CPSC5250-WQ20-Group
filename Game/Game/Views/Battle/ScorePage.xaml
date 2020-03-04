@@ -7,8 +7,14 @@
         <StackLayout Style="{StaticResource VerticalStack}">
             
             <Label Text="Score Page..."></Label>
+            <Image Source="gameOver2.png" Style="{StaticResource HeaderStyle}"/>
 
-            <Button Clicked="CloseButton_Clicked" Text="Close"></Button>
+            <Label Text="You have lost the game!" Style="{StaticResource LabelStyle}"/>
+            <Label Text="Your High Score is: 43,657" Style="{StaticResource LabelStyle}"/>
+
+            <Button Clicked="NewGame_Clicked" Text="New Game"></Button>
+            <Button Clicked="HighScore_Clicked" Text="High Scores"></Button>
+            <Button Clicked="MainMenu_Clicked" Text="Main Menu"></Button>
 
         </StackLayout>
         

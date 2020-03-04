@@ -54,7 +54,8 @@ namespace Game.Views
                         break;
 
                     case (int)MenuItemEnum.Battle:
-                        MenuPages.Add(id, new NavigationPage(new PickCharactersPage()));
+                        // TODO change to PickCharactersPage later
+                        MenuPages.Add(id, new NavigationPage(new BattleNavigation()));
                         break;
 
                     case (int)MenuItemEnum.Monster:

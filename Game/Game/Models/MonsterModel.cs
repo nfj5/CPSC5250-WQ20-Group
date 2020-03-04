@@ -5,9 +5,16 @@ using System.Collections.Generic;
 
 namespace Game.Models
 {
+    /// <summary>
+    /// The Monsters in the Game
+    /// 
+    /// Derives from Person Model just like Character
+    /// </summary>
     public class MonsterModel : PersonModel<MonsterModel>
     {
-        // Default Monster
+        /// <summary>
+        /// Empty constructor for default Monsters
+        /// </summary>
         public MonsterModel()
         {
             PersonType = PersonTypeEnum.Monster;
@@ -16,7 +23,10 @@ namespace Game.Models
             ImageURI = "football_monster.png";
         }
 
-        // Default Monsters
+        /// <summary>
+        /// Constructor for default Monsters
+        /// </summary>
+        /// <param name="num"></param>
         public MonsterModel(int num)
         {
             PersonType = PersonTypeEnum.Monster;

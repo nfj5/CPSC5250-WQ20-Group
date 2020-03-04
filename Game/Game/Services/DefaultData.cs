@@ -76,7 +76,7 @@ namespace Game.Services
                     BaseStamina = 7,
                     BaseStrength = 1,
                     BaseThiccness = 1,
-                    Ability = PersonModel<CharacterModel>.SuperstarAbility.SpeedAbility
+                    Ability = AbilityEnum.SpeedAbility
                 },
 
                 new CharacterModel
@@ -90,7 +90,7 @@ namespace Game.Services
                     BaseHitPoints = 1,
                     BaseStrength = 1,
                     BaseThiccness = 1,
-                    Ability = PersonModel<CharacterModel>.SuperstarAbility.StaminaAbility
+                    Ability = AbilityEnum.StaminaAbility
                 },
 
                 new CharacterModel
@@ -104,7 +104,7 @@ namespace Game.Services
                     BaseStamina = 7,
                     BaseStrength = 1,
                     BaseThiccness = 1,
-                    Ability = PersonModel<CharacterModel>.SuperstarAbility.ThiccnessAbility
+                    Ability = AbilityEnum.ThiccnessAbility
                 },
 
                 new CharacterModel
@@ -118,7 +118,7 @@ namespace Game.Services
                     BaseStamina = 7,
                     BaseStrength = 1,
                     BaseThiccness = 1,
-                    Ability = PersonModel<CharacterModel>.SuperstarAbility.StrengthAbility
+                    Ability = AbilityEnum.StrengthAbility
                 },
 
                 new CharacterModel
@@ -132,7 +132,7 @@ namespace Game.Services
                     BaseHitPoints = 1,
                     BaseStrength = 1,
                     BaseThiccness = 1,
-                    Ability = PersonModel<CharacterModel>.SuperstarAbility.StaminaAbility
+                    Ability = AbilityEnum.StaminaAbility
                 },
 
                 new CharacterModel
@@ -146,7 +146,7 @@ namespace Game.Services
                     BaseStamina = 7,
                     BaseStrength = 1,
                     BaseThiccness = 1,
-                    Ability = PersonModel<CharacterModel>.SuperstarAbility.SpeedAbility
+                    Ability = AbilityEnum.SpeedAbility
                 }
 
             };

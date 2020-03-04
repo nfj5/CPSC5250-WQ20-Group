@@ -11,9 +11,13 @@ using Xamarin.Forms.Xaml;
 
 namespace Game.Views
 {
+    /// <summary>
+    /// Create Character
+    /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CharacterCreatePage : ContentPage
     {
+        // The Character to create
         GenericViewModel<CharacterModel> ViewModel { get; set; }
 
         /// <summary>

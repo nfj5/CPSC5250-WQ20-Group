@@ -10,9 +10,13 @@ using Xamarin.Forms.Xaml;
 
 namespace Game.Views
 {
+    /// <summary>
+    /// Index Page
+    /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CharacterIndexPage : ContentPage
     {
+        // The Character Index view model
         readonly CharacterIndexViewModel ViewModel;
 
         /// <summary>

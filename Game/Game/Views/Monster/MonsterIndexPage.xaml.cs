@@ -10,10 +10,19 @@ using Xamarin.Forms.Xaml;
 
 namespace Game.Views
 {
+    /// <summary>
+    /// Index Page
+    /// </summary>
     public partial class MonsterIndexPage : ContentPage
     {
+        // The Monster Index view model
         readonly MonsterIndexViewModel ViewModel;
 
+        /// <summary>
+        /// Constructor for Monster index page
+        /// 
+        /// Gets the current MonsterIndexViewModel
+        /// </summary>
         public MonsterIndexPage()
         {
             InitializeComponent();

@@ -18,6 +18,9 @@ namespace Game.Views
         // To be changed when Battle Logic is implemented
         //GenericViewModel<CharacterModel> ViewModel;
 
+        /// <summary>
+        /// Constructor for LevelUpPage
+        /// </summary>
         public LevelUpPage()//GenericViewModel<CharacterModel> data) 
         {
             InitializeComponent();

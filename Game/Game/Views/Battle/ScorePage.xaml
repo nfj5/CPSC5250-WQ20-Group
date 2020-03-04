@@ -9,7 +9,9 @@
              Title="{Binding Title}">
 
     <ContentPage.Content>
-        <StackLayout Style="{StaticResource VerticalStack}">
+        <StackLayout Spacing="20" Padding="15"
+                 VerticalOptions="CenterAndExpand"
+                 HorizontalOptions="CenterAndExpand">
             
             
             <Image Source="gameover2.png" Style="{StaticResource ImageLargeStyle}"/>

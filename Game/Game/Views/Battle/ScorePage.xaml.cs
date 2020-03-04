@@ -25,7 +25,7 @@ namespace Game.Views
 		/// <param name="e"></param>
 		async void NewGame_Clicked(object sender, EventArgs e)
 		{
-			await Navigation.PushAsync(new BattlePage());
+			await Navigation.PushAsync(new PickCharactersPage());
 		}
 
 		async void HighScore_Clicked(object sender, EventArgs e)

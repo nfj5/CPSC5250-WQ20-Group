@@ -33,6 +33,13 @@ namespace Game.Views
         /// <param name="e"></param>
         async void Save_Clicked(object sender, EventArgs e)
         {
+            // Make sure that they are providing information for required fields
+            if (string.IsNullOrEmpty(ViewModel.Data.Name) || string.IsNullOrEmpty(ViewModel.Data.Description))
+            {
+                await DisplayAlert("Invalid format", "Character must have a name and description.", "OK");
+                return;
+            }
+
             MessagingCenter.Send(this, "Update", ViewModel.Data);
             await Navigation.PopModalAsync();
         }

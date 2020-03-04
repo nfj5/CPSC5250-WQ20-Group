@@ -6,10 +6,18 @@
              mc:Ignorable="d"
              x:Class="Game.Views.PersonDiePage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Style="{StaticResource VerticalStack}"
+                     VerticalOptions="CenterAndExpand"
+                     HorizontalOptions="CenterAndExpand">
+            <Image Source="{Binding Data.ImageURI}"
+                   HeightRequest="100" WidthRequest="100"/>
+            <StackLayout Style="{StaticResource HorizontalStack}"
+                         Margin="25">
+                <Label Text="{Binding Data.Name}" />
+                <Label Text="was put on injured reserve!"/>
+            </StackLayout>
+            <Button Clicked="BackButton_Clicked"
+                    Text="Back to the Brawl!"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

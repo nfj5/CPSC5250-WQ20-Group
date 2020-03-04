@@ -25,17 +25,19 @@ namespace Game.Views
 		/// <param name="e"></param>
 		async void NewGame_Clicked(object sender, EventArgs e)
 		{
-
+			await Navigation.PushAsync(new BattlePage());
 		}
 
 		async void HighScore_Clicked(object sender, EventArgs e)
 		{
-
+			await Navigation.PushAsync(new ScoreIndexPage());
 		}
 
 		async void MainMenu_Clicked(object sender, EventArgs e)
 		{
-
+			await Navigation.PushAsync(new MainPage());
 		}
+
+        // Todo get real score and display. 
 	}
 }

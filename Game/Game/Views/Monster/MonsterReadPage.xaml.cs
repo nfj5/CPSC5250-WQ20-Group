@@ -6,10 +6,20 @@ using Xamarin.Forms;
 
 namespace Game.Views
 {
+    /// <summary>
+    /// The Read Page
+    /// </summary>
     public partial class MonsterReadPage : ContentPage
     {
+        // View Model for Monster
         GenericViewModel<MonsterModel> ViewModel { get; set; }
 
+        /// <summary>
+        /// Constructor for MonsterReadPage
+        /// 
+        /// The ViewModel is the data that should be displayed
+        /// </summary>
+        /// <param name="data"></param>
         public MonsterReadPage(GenericViewModel<MonsterModel> data)
         {
             InitializeComponent();

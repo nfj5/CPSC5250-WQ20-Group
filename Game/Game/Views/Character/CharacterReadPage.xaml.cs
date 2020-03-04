@@ -11,9 +11,13 @@ using Xamarin.Forms.Xaml;
 
 namespace Game.Views
 {
+    /// <summary>
+    /// The Read Page
+    /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CharacterReadPage : ContentPage
     {
+        // View Model for Character
         GenericViewModel<CharacterModel> ViewModel { get; set; }
         
         /// <summary>

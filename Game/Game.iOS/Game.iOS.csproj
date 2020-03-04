@@ -220,9 +220,6 @@
     <BundleResource Include="Resources\dice_20.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icon_new.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\home_background.png" />
   </ItemGroup>
   <ItemGroup>
@@ -245,5 +242,8 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\blank_space.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon_new.png" />
   </ItemGroup>
 </Project>

@@ -4,6 +4,7 @@ using Game.ViewModels;
 using SQLite;
 using System;
 using System.Collections.Generic;
+using Game.Models;
 
 namespace Game.Models
 {
@@ -13,15 +14,6 @@ namespace Game.Models
     /// <typeparam name="T"></typeparam>
     public class PersonModel<T> : BaseModel<T>
     {
-        // SuperstarAbility enum declaration
-        public enum SuperstarAbility
-        {
-            SpeedAbility,
-            StrengthAbility,
-            ThiccnessAbility,
-            StaminaAbility
-        };
-
         [Ignore]
         public int ListOrder { get; set; } = 0;
 
@@ -60,7 +52,7 @@ namespace Game.Models
         public string Nickname { get; set; } = "Character Nickname"; // The player-editable name for the Person 
 
         // Ability code
-        public SuperstarAbility Ability { get; set; } // To decide which stat to apply the ability to
+        public AbilityEnum Ability { get; set; } // To decide which stat to apply the ability to
         public float SuperstarModifier { get; set; } // The actual modifier for the ability
         public int BaseCooldown { get; set; } // How long it should take before the ability can be used again
         public int CurrentCooldown { get; set; } = 0; // The current cooldown time (in units of turns taken) of the characters special ability
@@ -221,16 +213,16 @@ namespace Game.Models
 
             switch (Ability)
             {
-                case SuperstarAbility.SpeedAbility:
+                case AbilityEnum.SpeedAbility:
                     CurrentSpeed = (int)(CurrentSpeed * SuperstarModifier);
                     break;
-                case SuperstarAbility.StaminaAbility:
+                case AbilityEnum.StaminaAbility:
                     CurrentStamina = (int)(CurrentStamina * SuperstarModifier);
                     break;
-                case SuperstarAbility.StrengthAbility:
+                case AbilityEnum.StrengthAbility:
                     CurrentStrength = (int)(CurrentStrength * SuperstarModifier);
                     break;
-                case SuperstarAbility.ThiccnessAbility:
+                case AbilityEnum.ThiccnessAbility:
                     CurrentThiccness = (int)(CurrentThiccness * SuperstarModifier);
                     break;
             }

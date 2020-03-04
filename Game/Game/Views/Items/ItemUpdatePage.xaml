@@ -66,6 +66,7 @@
                     <Picker Grid.Row="2" Grid.Column="1"
                         ItemsSource="{x:Static local_helpers:ItemLocationEnumHelper.GetListCharacter}" 
                         SelectedItem="{Binding Data.Location, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
+                        TextColor="Black"
                         x:Name="LocationPicker"/>
 
                 </Grid>

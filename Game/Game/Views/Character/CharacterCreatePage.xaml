@@ -120,6 +120,15 @@
                                  ValueChanged="Stamina_OnStepperValueChanged"/>
                     </StackLayout>
 
+                    <Label Grid.Row="9" Grid.Column="0" Text="Level" Style="{StaticResource LabelStyle}"/>
+                    <StackLayout Grid.Row="9" Grid.Column="1" Style="{StaticResource HorizontalStack}" Padding="10">
+                        <Label Text="{Binding Data.Level}"
+                               x:Name="LevelValue"
+                               Style="{StaticResource ValueStyle}" />
+                        <Stepper Value="{Binding Data.Level, Mode=TwoWay}"
+                                 ValueChanged="Level_OnStepperValueChanged"/>
+                    </StackLayout>
+
 
                 </Grid>
             </StackLayout>  

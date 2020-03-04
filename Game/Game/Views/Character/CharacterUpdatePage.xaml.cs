@@ -11,11 +11,14 @@ using Xamarin.Forms.Xaml;
 
 namespace Game.Views
 {
+    /// <summary>
+    /// The Character update Page
+    /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CharacterUpdatePage : ContentPage
     {
 
-        //Change to characterviewmodel viewmodel;
+        // The Character to create
         GenericViewModel<CharacterModel> ViewModel;
 
 

@@ -11,13 +11,20 @@ using Xamarin.Forms.Xaml;
 
 namespace Game.Views
 {
+    /// <summary>
+    /// The Monster Update Page
+    /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MonsterUpdatePage : ContentPage
     {
 
-        //Change to characterviewmodel viewmodel;
+        // The Monster to create
         GenericViewModel<MonsterModel> ViewModel;
 
+        /// <summary>
+        /// Constructor for MonsterUpdatePage by taking a view model of Monster to update
+        /// </summary>
+        /// <param name="data"></param>
         public MonsterUpdatePage(GenericViewModel<MonsterModel> data)
         {
             InitializeComponent();

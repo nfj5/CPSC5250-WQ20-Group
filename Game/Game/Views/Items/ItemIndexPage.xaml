@@ -61,7 +61,7 @@
                                            Style="{StaticResource ListStyle}"/>
                                     <Label Text="{Binding Value}"
                                        Style="{StaticResource ListStyle}"/>
-                                </StackLayout>>
+                                </StackLayout>
 
                             </Grid>
                         </ViewCell>

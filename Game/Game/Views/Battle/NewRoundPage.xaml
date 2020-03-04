@@ -28,9 +28,9 @@
 
             <Button Clicked="BeginButton_Clicked" Text="Begin Game"></Button>
 
-            <Button Clicked="LevelUp_clicked" Text="Level Up"></Button>
+            <Button Clicked="LevelUp_clicked" Text="Level Up Page"></Button>
 
-            <Button Clicked="RoundOver_clicked" Text="Begin"></Button>
+            <Button Clicked="RoundOver_clicked" Text="Round Over Page"></Button>
         </StackLayout>
         
     </ContentPage.Content>

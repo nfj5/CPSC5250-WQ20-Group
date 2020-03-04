@@ -15,9 +15,10 @@ namespace Game.Views
     public partial class LevelUpPage : ContentPage
     {
 
+        // To be changed when Battle Logic is implemented
         //GenericViewModel<CharacterModel> ViewModel;
 
-        public LevelUpPage()//GenericViewModel<CharacterModel> data)
+        public LevelUpPage()//GenericViewModel<CharacterModel> data) 
         {
             InitializeComponent();
 

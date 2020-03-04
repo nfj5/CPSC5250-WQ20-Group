@@ -11,7 +11,7 @@ namespace Game.Views
 	public partial class RoundOverPage: ContentPage
 	{
 		/// <summary>
-		/// Constructor
+		/// Constructor for Round Over Page
 		/// </summary>
 		public RoundOverPage()
 		{

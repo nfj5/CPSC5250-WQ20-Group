@@ -16,6 +16,10 @@ namespace Game.Views
     {
         GenericViewModel<CharacterModel> ViewModel;
 
+        /// <summary>
+        /// Constructor for Delete by taking a view model of character to delete
+        /// </summary>
+        /// <param name="data"></param>
         public CharacterDeletePage(GenericViewModel<CharacterModel> data)
         {
             InitializeComponent();

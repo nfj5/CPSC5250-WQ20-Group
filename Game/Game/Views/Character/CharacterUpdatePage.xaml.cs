@@ -17,7 +17,12 @@ namespace Game.Views
 
         //Change to characterviewmodel viewmodel;
         GenericViewModel<CharacterModel> ViewModel;
-        
+
+
+        /// <summary>
+        /// Constructor for CharacterUpdatePage by taking a view model of character to update
+        /// </summary>
+        /// <param name="data"></param>
         public CharacterUpdatePage(GenericViewModel<CharacterModel> data)
         {
             InitializeComponent();

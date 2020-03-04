@@ -15,6 +15,11 @@ namespace Game.Views
     {
         readonly CharacterIndexViewModel ViewModel;
 
+        /// <summary>
+        /// Constructor for character index page
+        /// 
+        /// Gets the current CharacterIndexViewModel
+        /// </summary>
         public CharacterIndexPage()
         {
             InitializeComponent();

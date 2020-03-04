@@ -16,6 +16,10 @@ namespace Game.Views
     {
         GenericViewModel<CharacterModel> ViewModel { get; set; }
 
+        /// <summary>
+        /// Constructor for Create makes a new model
+        /// </summary>
+        /// <param name="data"></param>
         public CharacterCreatePage(GenericViewModel<CharacterModel> data)
         {
             InitializeComponent();

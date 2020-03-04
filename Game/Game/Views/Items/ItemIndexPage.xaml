@@ -42,14 +42,26 @@
                                     <RowDefinition Height="auto"/>
                                 </Grid.RowDefinitions>
 
-                                <Image  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
-                                        Source="{Binding ImageURI}"
-                                        Style="{StaticResource ImageSmallStyle}"
-                                        VerticalOptions="CenterAndExpand"/>
+                                <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="3"
+                                       Source="{Binding ImageURI}"
+                                       Style="{StaticResource ImageSmallStyle}"
+                                       VerticalOptions="CenterAndExpand"/>
 
-                                <Label Grid.Column="1" Grid.Row="0"
+                                <Label Grid.Row="0" Grid.Column="1"
                                        Text="{Binding Name}" 
                                        Style="{StaticResource ListStyle}"/>
+
+                                <Label Grid.Row="2" Grid.Column="1"
+                                       Text="{Binding Description}"
+                                       Style="{StaticResource ListStyle}"/>
+
+                                <StackLayout Style="{StaticResource HorizontalStack}"
+                                             Grid.Row="3" Grid.Column="1">
+                                    <Label Text="Damage:"
+                                           Style="{StaticResource ListStyle}"/>
+                                    <Label Text="{Binding Value}"
+                                       Style="{StaticResource ListStyle}"/>
+                                </StackLayout>>
 
                             </Grid>
                         </ViewCell>

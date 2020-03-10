@@ -399,14 +399,16 @@ namespace Game.Engine
                 //Calculate Damage
                 if (Attacker.ItemOne != null)
                 {
+
+                    Damage = Attacker.CurrentStrength + ItemIndexViewModel.Instance.GetItem(Attacker.ItemOne).Value;
+
                     // Hackathon 43: Go SU RedHawks
                     if (ItemIndexViewModel.Instance.GetItem(Attacker.ItemOne).Description == "Go SU RedHawks")
                     {
                         // Inflict 2x damage
-                        Damage = 2* (Attacker.CurrentStrength + ItemIndexViewModel.Instance.GetItem(Attacker.ItemOne).Value);
-                    } else
-                    {
-                        Damage = Attacker.CurrentStrength + ItemIndexViewModel.Instance.GetItem(Attacker.ItemOne).Value;
+                        Damage *= 2;
+                        Debug.WriteLine("Go SU!");
+
                     }
                 }
 

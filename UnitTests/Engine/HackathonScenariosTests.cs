@@ -365,10 +365,10 @@ namespace Scenario
                 });
 
             BattleEngine.CharacterList.Add(MonsterPlayer);
+            var OrginalNumberOfCharacter = BattleEngine.CharacterList.Count;
 
             BattleEngine.BattleScore.RoundCount = 13;
-
-
+            
 
             //Act
             BattleEngine.BattleScore.RoundCount = 13;
@@ -379,6 +379,7 @@ namespace Scenario
 
             //Assert
             Assert.AreEqual(1, result);
+            Assert.AreNotEqual(OrginalNumberOfCharacter, result);
            
         }
     }

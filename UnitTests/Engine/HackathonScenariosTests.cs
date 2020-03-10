@@ -20,7 +20,7 @@ namespace Scenario
         [SetUp]
         public void Setup()
         {
-            AutoBattleEngine = EngineViewModel.AutoBattleEngine;
+            //AutoBattleEngine = EngineViewModel.AutoBattleEngine;
             BattleEngine = EngineViewModel.Engine;
         }
 
@@ -178,11 +178,10 @@ namespace Scenario
             var CharacterPlayer = new PlayerInfoModel(
                             new CharacterModel
                             {
-                                Speed = 200,
+                                BaseSpeed = 200,
                                 Level = 10,
-                                CurrentHealth = 100,
-                                ExperienceTotal = 100,
-                                ExperienceRemaining = 1,
+                                BaseHitPoints = 100,
+                                ExperiencePoints = 100,
                                 Name = "Bob",
                             });
 
@@ -196,11 +195,10 @@ namespace Scenario
             var MonsterPlayer = new PlayerInfoModel(
                 new MonsterModel
                 {
-                    Speed = 1,
+                    BaseSpeed = 1,
                     Level = 1,
-                    CurrentHealth = 1,
-                    ExperienceTotal = 1,
-                    ExperienceRemaining = 1,
+                    BaseHitPoints = 1,
+                    ExperiencePoints = 1,
                     Name = "Monster",
                 });
 

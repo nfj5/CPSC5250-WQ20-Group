@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using Xamarin.Forms;
+using Game.Helpers;
 
 namespace Game.Views
 {
@@ -79,6 +80,23 @@ namespace Game.Views
             if (answer)
             {
                 MessagingCenter.Send(this, "WipeDataList", true);
+            }
+        }
+
+        /// <summary>
+        /// Turn the rebound mechanic on and off
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void ReboundSettingsSwitch_OnToggled(object sender, EventArgs e)
+        {
+            if (ReboundSettingsSwitch.IsToggled == true)
+            {
+                SettingsHelper.ReboundEnabled = true;
+            }
+            else
+            {
+                SettingsHelper.ReboundEnabled = false;
             }
         }
     }

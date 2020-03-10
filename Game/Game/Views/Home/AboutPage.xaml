@@ -101,6 +101,23 @@
 
                 </StackLayout>
             </StackLayout>
+
+            <!-- Hackathon Settings Switches -->
+            <StackLayout Style="{StaticResource VerticalStack}">
+                <Label Text="Hack Settings"
+                       Style="{DynamicResource DebugSwitchStyle}"
+                       Padding="0,50,0,10"/>
+
+                <StackLayout Style="{StaticResource HorizontalStack}">
+                    <Label Text="Rebound Mechanic"
+                       Style="{DynamicResource DebugSwitchLabel}"/>
+
+                    <Switch x:Name="ReboundSettingsSwitch"
+                        HorizontalOptions="EndAndExpand"
+                        Toggled="ReboundSettingsSwitch_OnToggled"
+                        IsToggled="False"/>
+                </StackLayout>
+            </StackLayout>
         </StackLayout>
     </ScrollView>
 </ContentPage>

@@ -45,8 +45,26 @@ namespace Game.Engine
 
             // Update Score for the RoundCount
             BattleScore.RoundCount++;
+            IsRound13();
 
             return true;
+        }
+
+        /// <summary>
+        /// Kills a random character on the start of round 13.
+        /// </summary>
+   
+        public void IsRound13()
+        {
+            if (BattleScore.RoundCount == 13)
+            {
+                if (CharacterList.Count > 1)
+                {
+                    //Gets the remaining number of characters left.
+                    int CharactertoKill = DiceHelper.RollDice(1, CharacterList.Count);
+                    CharacterList.RemoveAt(CharactertoKill);
+                }
+            }
         }
 
         /// <summary>

@@ -51,6 +51,7 @@ namespace Game.Engine
         }
 
         /// <summary>
+        /// Hack number  33, Unlucky 13
         /// Kills a random character on the start of round 13.
         /// </summary>
    
@@ -62,7 +63,9 @@ namespace Game.Engine
                 {
                     //Gets the remaining number of characters left.
                     int CharactertoKill = DiceHelper.RollDice(1, CharacterList.Count);
+                    PlayerInfoModel character = CharacterList[CharactertoKill];
                     CharacterList.RemoveAt(CharactertoKill);
+                    Debug.WriteLine("Character named: " + character.Name + "obliterated");
                 }
             }
         }

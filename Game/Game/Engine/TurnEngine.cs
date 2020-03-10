@@ -405,6 +405,22 @@ namespace Game.Engine
                 BattleMessagesModel.DamageAmount = Damage;
 
                 Target.TakeDamage(BattleMessagesModel.DamageAmount);
+
+                // Hackathon 25: Rebound Damage
+                float chance = DiceHelper.RollDice(1, 100) / 100f;
+                if (SettingsHelper.ReboundEnabled && chance >= SettingsHelper.REBOUND_CHANCE)
+                {
+                    int ReboundDamage = (int) (Damage / 2);
+                    
+                    // Don't allow the player to die from rebound damage, leave them with at least 1 hit point
+                    if (Attacker.CurrentHitPoints - ReboundDamage <= 0)
+                    {
+                        ReboundDamage = Attacker.CurrentHitPoints - 1;
+                    }
+
+                    Debug.WriteLine("The attack rebounded! Took " + ReboundDamage + " damage!");
+                    Attacker.TakeDamage(ReboundDamage);
+                }
             }
 
             BattleMessagesModel.CurrentHealth = Target.CurrentHitPoints;

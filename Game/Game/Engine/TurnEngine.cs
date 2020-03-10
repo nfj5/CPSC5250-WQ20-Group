@@ -403,7 +403,8 @@ namespace Game.Engine
                     if (ItemIndexViewModel.Instance.GetItem(Attacker.ItemOne).Description == "Go SU RedHawks")
                     {
                         // Inflict 2x damage
-                        Damage = 2* (Attacker.CurrentStrength + ItemIndexViewModel.Instance.GetItem(Attacker.ItemOne).Value);
+                        Damage = Attacker.CurrentStrength + (2 * (ItemIndexViewModel.Instance.GetItem(Attacker.ItemOne).Value));
+                        Debug.WriteLine("Go SU!");
                     } else
                     {
                         Damage = Attacker.CurrentStrength + ItemIndexViewModel.Instance.GetItem(Attacker.ItemOne).Value;

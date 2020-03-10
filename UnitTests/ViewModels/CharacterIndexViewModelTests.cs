@@ -12,9 +12,9 @@ using Game.ViewModels;
 
 namespace UnitTests.ViewModels
 {
-    public class ItemIndexViewModelTests
+    public class CharacterIndexViewModelTests
     {
-        ItemIndexViewModel ViewModel;
+        CharacterIndexViewModel ViewModel;
 
         [SetUp]
         public void Setup()
@@ -25,7 +25,7 @@ namespace UnitTests.ViewModels
             // Add each model here to warm up and load it.
             Game.Helpers.DataSetsHelper.WarmUp();
 
-            ViewModel = ItemIndexViewModel.Instance;
+            ViewModel = CharacterIndexViewModel.Instance;
         }
 
         [TearDown]
@@ -35,7 +35,7 @@ namespace UnitTests.ViewModels
         }
 
         [Test]
-        public async Task ItemIndexViewModel_Read_Invalid_ID_Bogus_Should_Fail()
+        public async Task CharacterIndexViewModel_Read_Invalid_ID_Bogus_Should_Fail()
         {
             // Arrange
 
@@ -49,7 +49,7 @@ namespace UnitTests.ViewModels
         }
 
         [Test]
-        public void ItemIndexViewModel_Constructor_Default_Should_Pass()
+        public void CharacterIndexViewModel_Constructor_Default_Should_Pass()
         {
             // Arrange
 
@@ -63,16 +63,16 @@ namespace UnitTests.ViewModels
         }
 
         [Test]
-        public void ItemIndexViewModel_SortDataSet_Default_Should_Pass()
+        public void CharacterIndexViewModel_SortDataSet_Default_Should_Pass()
         {
             // Arrange
 
             // Add items into the list Z ordered
-            var dataList = new List<ItemModel>
+            var dataList = new List<CharacterModel>
             {
-                new ItemModel { Name = "z" },
-                new ItemModel { Name = "m" },
-                new ItemModel { Name = "a" }
+                new CharacterModel { Name = "z" },
+                new CharacterModel { Name = "m" },
+                new CharacterModel { Name = "a" }
             };
 
             // Act
@@ -87,17 +87,17 @@ namespace UnitTests.ViewModels
         }
 
         [Test]
-        public async Task ItemIndexViewModel_CheckIfItemExists_Default_Should_Pass()
+        public async Task CharacterIndexViewModel_CheckIfItemExists_Default_Should_Pass()
         {
             // Arrange
 
             // Add items into the list Z ordered
-            var dataTest = new ItemModel { Name = "test" };
+            var dataTest = new CharacterModel { Name = "test" };
             await ViewModel.CreateAsync(dataTest);
 
-            await ViewModel.CreateAsync(new ItemModel { Name = "z" });
-            await ViewModel.CreateAsync(new ItemModel { Name = "m" });
-            await ViewModel.CreateAsync(new ItemModel { Name = "a" });
+            await ViewModel.CreateAsync(new CharacterModel { Name = "z" });
+            await ViewModel.CreateAsync(new CharacterModel { Name = "m" });
+            await ViewModel.CreateAsync(new CharacterModel { Name = "a" });
 
             // Act
             var result = ViewModel.CheckIfExists(dataTest);
@@ -109,31 +109,17 @@ namespace UnitTests.ViewModels
         }
 
         [Test]
-        public void ItemIndexViewModel_CheckIfItemExists_Invalid_Null_Should_Fail ()
-        {
-            // Arrange
-
-            // Act
-            var result = ViewModel.CheckIfExists(null);
-
-            // Reset
-
-            // Assert
-            Assert.AreEqual(null, result);
-        }
-
-        [Test]
-        public async Task ItemIndexViewModel_CheckIfItemExists_InValid_Missing_Should_Fail()
+        public async Task CharacterIndexViewModel_CheckIfItemExists_InValid_Missing_Should_Fail()
         {
             // Arrange
 
             // Add items into the list Z ordered
-            var dataTest = new ItemModel { Name = "test" };
+            var dataTest = new CharacterModel { Name = "test" };
             // Don't add it to the list await ViewModel.CreateAsync(dataTest);
 
-            await ViewModel.CreateAsync(new ItemModel { Name = "z" });
-            await ViewModel.CreateAsync(new ItemModel { Name = "m" });
-            await ViewModel.CreateAsync(new ItemModel { Name = "a" });
+            await ViewModel.CreateAsync(new CharacterModel { Name = "z" });
+            await ViewModel.CreateAsync(new CharacterModel { Name = "m" });
+            await ViewModel.CreateAsync(new CharacterModel { Name = "a" });
 
             // Act
             var result = ViewModel.CheckIfExists(dataTest);
@@ -145,16 +131,17 @@ namespace UnitTests.ViewModels
         }
 
         [Test]
-        public async Task ItemIndexViewModel_Message_Delete_Valid_Should_Pass()
+        public async Task CharacterIndexViewModel_Message_Delete_Valid_Should_Pass()
         {
             // Arrange
-            await ViewModel.CreateAsync(new ItemModel());
+
+            await ViewModel.CreateAsync(new CharacterModel());
 
             // Get the item to delete
             var first = ViewModel.Dataset.FirstOrDefault();
 
             // Make a Delete Page
-            var myPage = new Game.Views.ItemDeletePage(true);
+            var myPage = new Game.Views.CharacterDeletePage(true);
 
             // Act
             MessagingCenter.Send(myPage, "Delete", first);
@@ -168,10 +155,10 @@ namespace UnitTests.ViewModels
         }
 
         [Test]
-        public async Task ItemIndexViewModel_Delete_Valid_Should_Pass()
+        public async Task CharacterIndexViewModel_Delete_Valid_Should_Pass()
         {
             // Arrange
-            await ViewModel.CreateAsync(new ItemModel());
+            await ViewModel.CreateAsync(new CharacterModel());
 
             var first = ViewModel.Dataset.FirstOrDefault();
 
@@ -187,10 +174,10 @@ namespace UnitTests.ViewModels
         }
 
         [Test]
-        public async Task ItemIndexViewModel_Delete_Invalid_Should_Fail()
+        public async Task CharacterIndexViewModel_Delete_Invalid_Should_Fail()
         {
             // Arrange
-            var data = new ItemModel
+            var data = new CharacterModel
             {
                 Id = "bogus"
             };
@@ -205,7 +192,7 @@ namespace UnitTests.ViewModels
         }
 
         [Test]
-        public async Task ItemIndexViewModel_Delete_Invalid_Null_Should_Fail()
+        public async Task CharacterIndexViewModel_Delete_Invalid_Null_Should_Fail()
         {
             // Arrange
 
@@ -219,15 +206,15 @@ namespace UnitTests.ViewModels
         }
 
         [Test]
-        public void ItemIndexViewModel_Message_Create_Valid_Should_Pass()
+        public void CharacterIndexViewModel_Message_Create_Valid_Should_Pass()
         {
             // Arrange
 
             // Make a new Item
-            var data = new ItemModel();
+            var data = new CharacterModel();
 
             // Make a Delete Page
-            var myPage = new Game.Views.ItemCreatePage(true);
+            var myPage = new Game.Views.CharacterCreatePage(true);
 
             var countBefore = ViewModel.Dataset.Count();
 
@@ -242,17 +229,17 @@ namespace UnitTests.ViewModels
         }
 
         [Test]
-        public async Task ItemIndexViewModel_Message_Update_Valid_Should_Pass()
+        public async Task CharacterIndexViewModel_Message_Update_Valid_Should_Pass()
         {
             // Arrange
-            await ViewModel.CreateAsync(new ItemModel());
+            await ViewModel.CreateAsync(new CharacterModel());
 
             // Get the item to delete
             var first = ViewModel.Dataset.FirstOrDefault();
             first.Name = "test";
 
             // Make a Delete Page
-            var myPage = new Game.Views.ItemUpdatePage(true);
+            var myPage = new Game.Views.CharacterUpdatePage(true);
 
             // Act
             MessagingCenter.Send(myPage, "Update", first);
@@ -265,7 +252,7 @@ namespace UnitTests.ViewModels
         }
 
         [Test]
-        public async Task ItemIndexViewModel_Message_SetDataSource_Valid_Should_Pass()
+        public async Task CharacterIndexViewModel_Message_SetDataSource_Valid_Should_Pass()
         {
             // Arrange
 
@@ -287,14 +274,14 @@ namespace UnitTests.ViewModels
         }
 
         [Test]
-        public async Task ItemIndexViewModel_Message_WipeDataList_Valid_Should_Pass()
+        public async Task CharacterIndexViewModel_Message_WipeDataList_Valid_Should_Pass()
         {
             // Arrange
 
             // Make the page Page
             var myPage = new Game.Views.AboutPage(true);
 
-            var data = new ItemModel();
+            var data = new CharacterModel();
             await ViewModel.CreateAsync(data);
 
             // Act
@@ -304,21 +291,21 @@ namespace UnitTests.ViewModels
             // Reset
 
             // Assert
-            Assert.AreEqual(23, countAfter); // Count of 0 for the load was skipped
+            Assert.AreEqual(7, countAfter); // Count of 0 for the load was skipped
         }
 
         [Test]
-        public async Task ItemIndexViewModel_Update_Valid_Should_Pass()
+        public async Task CharacterIndexViewModel_Update_Valid_Should_Pass()
         {
             // Arrange
-            await ViewModel.CreateAsync(new ItemModel());
+            await ViewModel.CreateAsync(new CharacterModel());
 
             // Find the First ID
             var first = ViewModel.Dataset.FirstOrDefault();
 
             // Make a new item
             first.Name = "New Item";
-            first.Value = 1000;
+            first.Level = 1000;
 
             // Act
             var result = await ViewModel.UpdateAsync(first);
@@ -328,16 +315,16 @@ namespace UnitTests.ViewModels
             // Assert
             Assert.AreEqual(true, result);  // Update returned Pas
             Assert.AreEqual("New Item", first.Name);  // The Name was updated
-            Assert.AreEqual(1000, first.Value);  // The Value was updated
+            Assert.AreEqual(1000, first.Level);  // The Value was updated
         }
 
         [Test]
-        public async Task ItemIndexViewModel_Update_Invalid_Bogus_Should_Fail()
+        public async Task CharacterIndexViewModel_Update_Invalid_Bogus_Should_Fail()
         {
             // Arrange
 
             // Update only updates what is in the list, so update on something that does not exist will fail
-            var newData = new ItemModel();
+            var newData = new CharacterModel();
 
             // Act
             var result = await ViewModel.UpdateAsync(newData);
@@ -349,7 +336,7 @@ namespace UnitTests.ViewModels
         }
 
         [Test]
-        public async Task ItemIndexViewModel_Update_Invalid_Null_Should_Fail()
+        public async Task CharacterIndexViewModel_Update_Invalid_Null_Should_Fail()
         {
             // Arrange
 
@@ -363,10 +350,10 @@ namespace UnitTests.ViewModels
         }
 
         [Test]
-        public async Task ItemIndexViewModel_Create_Valid_Should_Pass()
+        public async Task CharacterIndexViewModel_Create_Valid_Should_Pass()
         {
             // Arrange
-            var data = new ItemModel
+            var data = new CharacterModel
             {
                 Name = "New Item"
             };
@@ -381,7 +368,7 @@ namespace UnitTests.ViewModels
         }
 
         [Test]
-        public async Task ItemIndexViewModel_Create_InValid_Null_Should_Fail()
+        public async Task CharacterIndexViewModel_Create_InValid_Null_Should_Fail()
         {
             // Arrange
 
@@ -395,7 +382,7 @@ namespace UnitTests.ViewModels
         }
 
         [Test]
-        public void ItemIndexViewModel_ExecuteLoadDataCommand_Valid_Should_Pass()
+        public void CharacterIndexViewModel_ExecuteLoadDataCommand_Valid_Should_Pass()
         {
             // Arrange
 
@@ -412,12 +399,12 @@ namespace UnitTests.ViewModels
         }
 
         [Test]
-        public async Task ItemIndexViewModel_ExecuteLoadDataCommand_InValid_Exception_Should_Fail()
+        public async Task CharacterIndexViewModel_ExecuteLoadDataCommand_InValid_Exception_Should_Fail()
         {
             // Arrange
-            await ViewModel.CreateAsync(new ItemModel());
-
             var oldDataset = ViewModel.Dataset;
+
+            await ViewModel.CreateAsync(new CharacterModel());
 
             // Null dataset will throw
 
@@ -434,7 +421,7 @@ namespace UnitTests.ViewModels
         }
 
         [Test]
-        public void ItemIndexViewModel_ExecuteLoadDataCommand_Valid_IsBusy_Should_Pass()
+        public void CharacterIndexViewModel_ExecuteLoadDataCommand_Valid_IsBusy_Should_Pass()
         {
             // Arrange
 
@@ -457,7 +444,7 @@ namespace UnitTests.ViewModels
         }
 
         [Test]
-        public async Task ItemIndexViewModel_SetDataSource_SQL_Should_Pass()
+        public async Task CharacterIndexViewModel_SetDataSource_SQL_Should_Pass()
         {
             // Arrange
 
@@ -471,7 +458,7 @@ namespace UnitTests.ViewModels
         }
 
         [Test]
-        public async Task ItemIndexViewModel_SetDataSource_Mock_Should_Pass()
+        public async Task CharacterIndexViewModel_SetDataSource_Mock_Should_Pass()
         {
             // Arrange
 
@@ -485,10 +472,10 @@ namespace UnitTests.ViewModels
         }
 
         [Test]
-        public async Task ItemIndexViewModel_CreateUpdateAsync_Valid_Create_Should_Pass()
+        public async Task CharacterIndexViewModel_CreateUpdateAsync_Valid_Create_Should_Pass()
         {
             // Arrange
-            var data = new ItemModel
+            var data = new CharacterModel
             {
                 Name = "New Item"
             };
@@ -503,10 +490,10 @@ namespace UnitTests.ViewModels
         }
 
         [Test]
-        public async Task ItemIndexViewModel_CreateUpdateAsync_Valid_Update_Should_Pass()
+        public async Task CharacterIndexViewModel_CreateUpdateAsync_Valid_Update_Should_Pass()
         {
             // Arrange
-            var data = new ItemModel
+            var data = new CharacterModel
             {
                 Name = "New Item"
             };
@@ -525,7 +512,7 @@ namespace UnitTests.ViewModels
         }
 
         [Test]
-        public async Task ItemIndexViewModel_CreateUpdateAsync_InValid_Null_Should_Fail()
+        public async Task CharacterIndexViewModel_CreateUpdateAsync_InValid_Null_Should_Fail()
         {
             // Arrange
 
@@ -539,10 +526,10 @@ namespace UnitTests.ViewModels
         }
 
         [Test]
-        public void ItemIndexViewModel_Create_Sync_Valid_Update_Should_Pass()
+        public void CharacterIndexViewModel_Create_Sync_Valid_Update_Should_Pass()
         {
             // Arrange
-            var data = new ItemModel
+            var data = new CharacterModel
             {
                 Name = "New Item"
             };
@@ -557,7 +544,7 @@ namespace UnitTests.ViewModels
         }
 
         [Test]
-        public void ItemIndexViewModel_Create_Sync_InValid_Null_Should_Pass()
+        public void CharacterIndexViewModel_Create_Sync_InValid_Null_Should_Pass()
         {
             // Arrange
 
@@ -568,107 +555,6 @@ namespace UnitTests.ViewModels
 
             // Assert
             Assert.AreEqual(false, result);  // Update returned Pass
-        }
-
-        [Test]
-        public void ItemIndexViewModel_GetDefaultItemId_Unknown_Should_Fail()
-        {
-            // Arrange
-
-            // Act
-            var result = ViewModel.GetDefaultItemId(ItemLocationEnum.Unknown);
-
-            // Reset
-
-            // Assert
-            Assert.AreEqual(null, result);  // Update returned Pass
-        }
-
-        [Test]
-        public async Task ItemIndexViewModel_GetDefaultItemId_Head_Should_Pass()
-        {
-            // Arrange
-            await ViewModel.CreateAsync(new ItemModel { Location = ItemLocationEnum.Head});
-
-            // Act
-            var result = ViewModel.GetDefaultItemId(ItemLocationEnum.Head);
-
-            // Reset
-
-            // Assert
-            Assert.AreNotEqual(null, result);  // Update returned Pass
-        }
-
-        [Test]
-        public async Task ItemIndexViewModel_GetDefaultItem_Unknown_Should_Fail()
-        {
-            // Arrange
-            await ViewModel.CreateAsync(new ItemModel { Location = ItemLocationEnum.Head });
-
-            // Act
-            var result = ViewModel.GetDefaultItem(ItemLocationEnum.Unknown);
-
-            // Reset
-
-            // Assert
-            Assert.AreEqual(null, result);  // Update returned Pass
-        }
-
-        [Test]
-        public async Task ItemIndexViewModel_GetDefaultItem_Head_Should_Pass()
-        {
-            // Arrange
-            await ViewModel.CreateAsync(new ItemModel { Location = ItemLocationEnum.Head });
-
-            // Act
-            var result = ViewModel.GetDefaultItem(ItemLocationEnum.Head);
-
-            // Reset
-
-            // Assert
-            Assert.AreNotEqual(null, result);  // Update returned Pass
-        }
-
-        [Test]
-        public void ItemIndexViewModel_GetLocationItems_Head_Should_Pass()
-        {
-            // Arrange
-
-            // Act
-            var result = ViewModel.GetLocationItems(ItemLocationEnum.Head);
-
-            // Reset
-
-            // Assert
-            Assert.AreNotEqual(null, result);  // Update returned Pass
-        }
-
-        [Test]
-        public void ItemIndexViewModel_GetLocationItems_RightFinger_Should_Pass()
-        {
-            // Arrange
-
-            // Act
-            var result = ViewModel.GetLocationItems(ItemLocationEnum.RightFinger);
-
-            // Reset
-
-            // Assert
-            Assert.AreNotEqual(null, result);  // Update returned Pass
-        }
-
-        [Test]
-        public void ItemIndexViewModel_GetLocationItems_LeftFinger_Should_Pass()
-        {
-            // Arrange
-
-            // Act
-            var result = ViewModel.GetLocationItems(ItemLocationEnum.LeftFinger);
-
-            // Reset
-
-            // Assert
-            Assert.AreNotEqual(null, result);  // Update returned Pass
         }
     }
 }

@@ -294,5 +294,92 @@ namespace Scenario
             Assert.AreEqual(true, result);
             Assert.AreEqual(HitStatusEnum.Hit, BattleEngine.BattleMessagesModel.HitStatus);
         }
+
+        [Test]
+        public void HackathonScenario_Scenario_33_Lucky_Round_13_Random_Character_Dies()
+        {
+            /* 
+             * Scenario Number:  
+             *      33
+             *      
+             * Description: 
+             *      At the start of round 13 as long as there are 2 chracter alive one of them randmly dies.
+             * 
+             * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+             *      Changed the RoundEngine.CS
+             *                 
+             * Test Algrorithm:
+             *     Make two characters
+             *     Make a monster
+             *     Set round count to 13
+             * 
+             * Test Conditions:
+             *      If round round count is 13 and atleast 2 chracters at still alive one of them dies. 
+             *  
+             *  Validation
+             *      list of characters is 1 after dying. 
+             *      
+             */
+
+            //Arrange
+
+            // Set Character Conditions
+
+            BattleEngine.MaxNumberPartyCharacters = 2;
+
+            var CharacterPlayer = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                BaseSpeed = 200,
+                                Level = 10,
+                                BaseHitPoints = 100,
+                                ExperiencePoints = 100,
+                                Name = "Mike",
+                            });
+            var CharacterPlayer2 = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                BaseSpeed = 200,
+                                Level = 10,
+                                BaseHitPoints = 100,
+                                ExperiencePoints = 100,
+                                Name = "Nick",
+                            });
+
+            BattleEngine.CharacterList.Add(CharacterPlayer);
+            BattleEngine.CharacterList.Add(CharacterPlayer2);
+
+            // Set Monster Conditions
+
+            // Add a monster to attack
+            BattleEngine.MaxNumberPartyCharacters = 1;
+
+            var MonsterPlayer = new PlayerInfoModel(
+                new MonsterModel
+                {
+                    BaseSpeed = 1,
+                    Level = 1,
+                    BaseHitPoints = 1,
+                    ExperiencePoints = 1,
+                    Name = "Monster",
+                });
+
+            BattleEngine.CharacterList.Add(MonsterPlayer);
+
+            BattleEngine.BattleScore.RoundCount = 13;
+
+
+
+            //Act
+            BattleEngine.BattleScore.RoundCount = 13;
+            var result = BattleEngine.CharacterList.Count;
+
+            //Reset
+            
+
+            //Assert
+            Assert.AreEqual(1, result);
+           
+        }
     }
 }

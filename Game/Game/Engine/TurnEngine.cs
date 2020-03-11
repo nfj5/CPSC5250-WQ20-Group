@@ -473,7 +473,12 @@ namespace Game.Engine
             return true;
         }
 
-
+        /// <summary> 
+        /// This helper function helps determine if the Attacker's total attributes are
+        /// equal to a prime number. If so, then the Attacker will guarantee a hit.
+        /// </summary>
+        /// <param name="Attacker"></param>
+        /// <returns></returns>
         public bool isTotalPrime(PlayerInfoModel Attacker)
         {
             int num = Attacker.CurrentSpeed + Attacker.CurrentStrength + Attacker.CurrentThiccness;
@@ -483,6 +488,14 @@ namespace Game.Engine
             return true;
         }
 
+        /// <summary>
+        /// This function calculates whether the Attacker's total attributes
+        /// are equal to a prime number. If so, set Attacker to deal Max Damage.
+        /// Otherwise, deal the same damage.
+        /// </summary>
+        /// <param name="Attacker"></param>
+        /// <param name="Damage"></param>
+        /// <returns></returns>
         public int isPrime(PlayerInfoModel Attacker, int Damage)
         {
             int num = Attacker.CurrentSpeed + Attacker.CurrentStrength + Attacker.CurrentThiccness;

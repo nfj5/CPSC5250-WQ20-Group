@@ -43,7 +43,7 @@ namespace Game.Models
         // Also different actions take different amount of stamina so we are not assuming a character will get 99 turns.  
 
         public int CurrentSpeed { get; set; }// How quickly the character can currently move
-        public int CurrentStrength { get; set; } // How strong the character currently is
+        public int CurrentStrength { get; set; } = 1; // How strong the character currently is
         public int CurrentHitPoints { get; set; } // How much damage the character can currently take
         public int CurrentThiccness { get; set; } //The current thicness level of the character. 
         public int CurrentStamina { get; set; } // How much stamina the character currently has during their turn

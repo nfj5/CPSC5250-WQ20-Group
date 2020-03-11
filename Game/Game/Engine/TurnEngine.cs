@@ -405,18 +405,18 @@ namespace Game.Engine
                 //Calculate Damage
                 if (Attacker.ItemOne != null)
                 {
-                    //Damage = CalculateDamage(Attacker);
+                    Damage = CalculateDamage(Attacker);
                     // Hackathon 43: Go SU RedHawks
-                    if (ItemIndexViewModel.Instance.GetItem(Attacker.ItemOne).Description == "Go SU RedHawks")
-                    {
-                        // Inflict 2x damage
-                        Damage = Attacker.CurrentStrength + (2 * (ItemIndexViewModel.Instance.GetItem(Attacker.ItemOne).Value));
-                        Debug.WriteLine("Go SU!");
-                    }
-                    else
-                    {
-                        Damage = Attacker.CurrentStrength + ItemIndexViewModel.Instance.GetItem(Attacker.ItemOne).Value;
-                    }
+                    //if (ItemIndexViewModel.Instance.GetItem(Attacker.ItemOne).Description == "Go SU RedHawks")
+                    //{
+                    //    // Inflict 2x damage
+                    //    Damage = Attacker.CurrentStrength + (2 * (ItemIndexViewModel.Instance.GetItem(Attacker.ItemOne).Value));
+                    //    Debug.WriteLine("Go SU!");
+                    //}
+                    //else
+                    //{
+                    //    Damage = Attacker.CurrentStrength + ItemIndexViewModel.Instance.GetItem(Attacker.ItemOne).Value;
+                    //}
                 }
 
                 BattleMessagesModel.DamageAmount = Damage;
@@ -456,29 +456,29 @@ namespace Game.Engine
         /// This is the code for calculating damage. 
         /// 
         /// It also includes code for hackathon 43: Team spirit
-        /// Items with "Go SU RedHawks" description has the item value doubled.
+        /// Items descriptions with "Go SU RedHawks" has the item value doubled.
         /// </summary>
         /// <param name="Attacker"></param>
         /// <returns></returns>
-        //public int CalculateDamage(PlayerInfoModel Attacker)
-        //{
-        //    int Damage = Attacker.BaseStrength;
-        //    // Hackathon 43: Go SU RedHawks
-        //    if (Attacker.ItemOne != null)
-        //    {
-        //        if (ItemIndexViewModel.Instance.GetItem(Attacker.ItemOne).Description == "Go SU RedHawks")
-        //        {
-        //            // Inflict 2x damage
-        //            Damage = Attacker.CurrentStrength + (2 * (ItemIndexViewModel.Instance.GetItem(Attacker.ItemOne).Value));
-        //            Debug.WriteLine("Go SU!");
-        //        }
-        //        else
-        //        {
-        //            Damage = Attacker.CurrentStrength + ItemIndexViewModel.Instance.GetItem(Attacker.ItemOne).Value;
-        //        }
-        //    }
-        //    return Damage;
-        //}
+        public int CalculateDamage(PlayerInfoModel Attacker)
+        {
+            int Damage = Attacker.CurrentStrength;
+            // Hackathon 43: Go SU RedHawks
+            if (Attacker.ItemOne != null)
+            {
+                if (ItemIndexViewModel.Instance.GetItem(Attacker.ItemOne).Description == "Go SU RedHawks")
+                {
+                    // Inflict 2x damage
+                    Damage = Attacker.CurrentStrength + (2 * (ItemIndexViewModel.Instance.GetItem(Attacker.ItemOne).Value));
+                    Debug.WriteLine("Go SU!");
+                }
+                else
+                {
+                    Damage = Attacker.CurrentStrength + ItemIndexViewModel.Instance.GetItem(Attacker.ItemOne).Value;
+                }
+            }
+            return (Attacker.CurrentStrength);
+        }
 
         /// <summary>
         /// Checks if the Target has died.

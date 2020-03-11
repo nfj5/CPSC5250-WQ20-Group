@@ -389,14 +389,14 @@ namespace Scenario
 
 
         [Test]
-        public void HackathonScenario_Scenario_43_Team_Spirit_Item_Description_Equal_Go_SU_Redhawks_Should_Double_Value()
+        public void HackathonScenario_Scenario_43_Team_Spirit_Item_Description_Equal_Go_SU_Redhawks_Should_Use_Double_Value()
         {
             /* 
              * Scenario Number:  
              *      43
              *      
              * Description: 
-             *      Whenever an item with the description "Go SU RedHawks", the item will have 2x
+             *      Whenever an item with the description "Go SU RedHawks", the item will use 2x
              *      the value of the item.
              * 
              * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
@@ -428,7 +428,6 @@ namespace Scenario
                                 Damage = 20
                             };
 
-            // BattleEngine.ItemPool.Add(StrongItem);
             ItemIndexViewModel.Instance.CreateAsync(StrongItem);
 
             // Create Character
@@ -440,35 +439,81 @@ namespace Scenario
                                 BaseHitPoints = 100,
                                 ExperiencePoints = 100,
                                 BaseStrength = 10,
+                                CurrentStrength = 10,
                                 Name = "Mike",
                                 ItemOne = StrongItem.Id
                             });
 
-            BattleEngine.CharacterList.Add(CharacterPlayer);
+            //Act
+            var result = BattleEngine.CalculateDamage(CharacterPlayer);
 
-            // Create Monster
-            var MonsterPlayer = new PlayerInfoModel(
-                            new MonsterModel
+            //Reset
+
+            //Assert
+            Assert.AreEqual(50, result);
+        }
+
+        [Test]
+        public void HackathonScenario_Scenario_43_Team_Spirit_Item_Description_NotEqual_Go_SU_Redhawks_Should_Use_Value()
+        {
+            /* 
+             * Scenario Number:  
+             *      43
+             *      
+             * Description: 
+             *      Whenever an item does not have the description "Go SU RedHawks", the item will use 
+             *      the value of the item.
+             * 
+             * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+             *      Changed the TurnEngine.cs
+             *                 
+             * Test Algrorithm:
+             *     Make an Item
+             *     Make a Character
+             *     Set Item description to "Exciting stick to attack"
+             *     Set the Character to equip the item
+             * Test Conditions:
+             *      If Item equals "Go SU RedHawks" then it should have 2x the value of the item.
+             *  
+             *  Validation
+             *      Damage taken is increased
+             *      
+             */
+
+            //Arrange
+
+            // Create Item
+            var StrongItem = new ItemModel
+            {
+                Name = "Hackathon 43 Item",
+                Description = "Exciting stick to attack",
+                Range = 10,
+                Value = 20,
+                Damage = 20
+            };
+
+            ItemIndexViewModel.Instance.CreateAsync(StrongItem);
+
+            // Create Character
+            var CharacterPlayer = new PlayerInfoModel(
+                            new CharacterModel
                             {
                                 BaseSpeed = 5,
                                 Level = 10,
                                 BaseHitPoints = 100,
                                 ExperiencePoints = 100,
                                 BaseStrength = 10,
-                                Name = "Monster Mike"
+                                CurrentStrength = 10,
+                                Name = "Mike",
                             });
 
-            BattleEngine.MonsterList.Add(MonsterPlayer);
-
             //Act
-            var result = BattleEngine.TurnAsAttack(CharacterPlayer, MonsterPlayer); // damage
-            //var result = BattleEngine.CalculateDamage(CharacterPlayer);
+            var result = BattleEngine.CalculateDamage(CharacterPlayer);
 
             //Reset
 
             //Assert
-            //Assert.AreEqual(0, result);
-            Assert.AreEqual(true, result);
+            Assert.AreEqual(10, result);
         }
     }
 }

@@ -563,6 +563,55 @@ namespace Scenario
             Assert.AreEqual(10, result);
         }
 
+
+        [Test]
+        public void HackathonScenario_Scenario_47_Attribiutes_Are_Equal_Prime()
+        {
+            /* 
+             * Scenario Number:  
+             *      47
+             *      
+             * Description: 
+             *      Whenever the total attributes of the character equals prime
+             *      the character has Max Damage.
+             * 
+             * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+             *      Changed the TurnEngine.cs
+             *                 
+             * Test Algrorithm:
+             *     Make a Character
+             *     
+             *  
+             *  Validation
+             *      Damage calculation based on character total attributes.
+             *      
+             */
+
+            //Arrange
+
+            // Create Character
+            var CharacterPlayer = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                BaseSpeed = 5,
+                                Level = 10,
+                                BaseHitPoints = 100,
+                                ExperiencePoints = 100,
+                                CurrentSpeed = 10,
+                                CurrentStrength = 10,
+                                CurrentThiccness = 3,
+                                Name = "Mike",
+                            });
+
+            //Act
+            var result = BattleEngine.isPrime(23);
+
+            //Reset
+
+            //Assert
+            Assert.AreEqual(true, result);
+        }
+
         [Test]
         public void HackathonScenario_Scenario_25_Rebound_Attack_Should_Hit_Attacker_With_Half_Power()
         {

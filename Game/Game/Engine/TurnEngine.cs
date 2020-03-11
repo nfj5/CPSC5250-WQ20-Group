@@ -381,7 +381,20 @@ namespace Game.Engine
             BattleMessagesModel.TargetName = Target.Name;
             BattleMessagesModel.AttackerName = Attacker.Name;
 
-            BattleMessagesModel.HitStatus = RollToHitTarget(AttackScore, DefenseScore);
+
+            // Hack #47
+            bool checkprime = false;
+            int totalattributes = Attacker.CurrentSpeed + Attacker.CurrentStrength + Attacker.CurrentThiccness;
+            if (isPrime(totalattributes) == true)
+            {
+                BattleMessagesModel.HitStatus = HitStatusEnum.Hit;
+                checkprime = true;
+            }
+            else
+            {
+                BattleMessagesModel.HitStatus = RollToHitTarget(AttackScore, DefenseScore);
+                checkprime = false;
+            }
 
             // Hackathon #2: Characters named Bob should miss
             if (Attacker.Name.Contains("Bob"))
@@ -406,6 +419,10 @@ namespace Game.Engine
                 if (Attacker.ItemOne != null)
                 {
                     Damage = CalculateDamage(Attacker);
+                    if (checkprime == true)
+                    {
+                        Damage = SetMaxDamage();
+                    }
                     // Hackathon 43: Go SU RedHawks
                     //if (ItemIndexViewModel.Instance.GetItem(Attacker.ItemOne).Description == "Go SU RedHawks")
                     //{
@@ -451,6 +468,24 @@ namespace Game.Engine
             Debug.WriteLine(BattleMessagesModel.TurnMessage);
 
             return true;
+        }
+
+
+        public bool isPrime(int num)
+        {
+            for (int i = 2; i < num; i++)
+                if (num % i == 0)
+                    return false;
+            return true;
+        }
+
+        /// <summary>
+        /// Set Maximum Damage Value
+        /// </summary>
+        /// <returns></returns>
+        public int SetMaxDamage()
+        {
+            return 1000;
         }
 
         /// <summary>

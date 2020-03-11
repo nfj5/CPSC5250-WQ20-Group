@@ -478,7 +478,7 @@ namespace Game.Engine
                     Damage = Attacker.CurrentStrength + ItemIndexViewModel.Instance.GetItem(Attacker.ItemOne).Value;
                 }
             }
-            return (Attacker.CurrentStrength);
+            return Damage;
         }
 
         /// <summary>

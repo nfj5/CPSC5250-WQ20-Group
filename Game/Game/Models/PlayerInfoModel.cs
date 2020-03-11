@@ -59,7 +59,16 @@ namespace Game.Models
             Level = data.Level;
             Name = data.Name;
             Description = data.Description;
-            BaseSpeed = data.CurrentSpeed;
+            BaseSpeed = data.BaseSpeed;
+            BaseStamina = data.BaseStamina;
+            BaseStrength = data.BaseStrength;
+            BaseThiccness = data.BaseThiccness;
+            CurrentCooldown = data.CurrentCooldown;
+            CurrentHitPoints = data.CurrentHitPoints;
+            CurrentStamina = data.CurrentStamina;
+            CurrentStrength = data.CurrentStrength;
+            CurrentSpeed = data.CurrentSpeed;
+            CurrentThiccness = data.CurrentThiccness;
             ImageURI = data.ImageURI;
             BaseHitPoints = data.CurrentHitPoints;
 

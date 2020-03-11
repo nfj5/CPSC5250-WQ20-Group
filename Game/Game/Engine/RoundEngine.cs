@@ -55,7 +55,7 @@ namespace Game.Engine
         /// Kills a random character on the start of round 13.
         /// </summary>
    
-        public void IsRound13()
+        public  void IsRound13()
         {
             if (BattleScore.RoundCount == 13)
             {

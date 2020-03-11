@@ -346,8 +346,8 @@ namespace Scenario
                                 Name = "Nick",
                             });
 
-            BattleEngine.CharacterList.Add(CharacterPlayer);
-            BattleEngine.CharacterList.Add(CharacterPlayer2);
+            //BattleEngine.CharacterList.Add(CharacterPlayer);
+            //BattleEngine.CharacterList.Add(CharacterPlayer2);
 
             // Set Monster Conditions
 
@@ -372,14 +372,15 @@ namespace Scenario
 
             //Act
             BattleEngine.BattleScore.RoundCount = 13;
+            BattleEngine.IsRound13();
             var result = BattleEngine.CharacterList.Count;
 
             //Reset
             
 
             //Assert
-            Assert.AreEqual(1, result);
-            Assert.AreNotEqual(OrginalNumberOfCharacter, result);
+            Assert.AreEqual(OrginalNumberOfCharacter - 1, result);
+            
            
         }
     }

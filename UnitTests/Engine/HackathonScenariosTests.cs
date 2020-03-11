@@ -406,10 +406,10 @@ namespace Scenario
              *     Set the Character to equip the item
              * 
              * Test Conditions:
-             *      If Item equals "Go SU RedHawks" then it should have 2x the value of the item.
+             *      If Item description equals "Go SU RedHawks" then it should use 2x the value of the item.
              *  
              *  Validation
-             *      Damage taken is increased
+             *      Damage calculation based on double item value.
              *      
              */
 
@@ -470,10 +470,10 @@ namespace Scenario
              *     Set Item description to "Exciting stick to attack"
              *     Set the Character to equip the item
              * Test Conditions:
-             *      If Item equals "Go SU RedHawks" then it should have 2x the value of the item.
+             *      If Item description does not equal "Go SU RedHawks" then it should use the value of the item.
              *  
              *  Validation
-             *      Damage taken is increased
+             *      Damage calculation based on item value.
              *      
              */
 
@@ -490,6 +490,56 @@ namespace Scenario
             };
 
             ItemIndexViewModel.Instance.CreateAsync(StrongItem);
+
+            // Create Character
+            var CharacterPlayer = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                BaseSpeed = 5,
+                                Level = 10,
+                                BaseHitPoints = 100,
+                                ExperiencePoints = 100,
+                                BaseStrength = 10,
+                                CurrentStrength = 10,
+                                Name = "Mike",
+                                ItemOne = StrongItem.Id
+                            });
+
+            //Act
+            var result = BattleEngine.CalculateDamage(CharacterPlayer);
+
+            //Reset
+
+            //Assert
+            Assert.AreEqual(30, result);
+        }
+
+        [Test]
+        public void HackathonScenario_Scenario_43_Team_Spirit_Item_Description_NotEqual_Go_SU_Redhawks_Should_Use_Strength()
+        {
+            /* 
+             * Scenario Number:  
+             *      43
+             *      
+             * Description: 
+             *      Whenever an item does not have the description "Go SU RedHawks", the item will use 
+             *      the value of the item.
+             * 
+             * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+             *      Changed the TurnEngine.cs
+             *                 
+             * Test Algrorithm:
+             *     Make a Character
+             *     Set the Character to unequip any items
+             * Test Conditions:
+             *     If no items are equipped then it should use the strength of the character.
+             *  
+             *  Validation
+             *      Damage calculation based on character current strength.
+             *      
+             */
+
+            //Arrange
 
             // Create Character
             var CharacterPlayer = new PlayerInfoModel(

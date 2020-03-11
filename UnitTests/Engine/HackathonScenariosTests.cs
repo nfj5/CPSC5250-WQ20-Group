@@ -439,7 +439,8 @@ namespace Scenario
                                 BaseHitPoints = 100,
                                 ExperiencePoints = 100,
                                 BaseStrength = 10,
-                                Name = "Mike"
+                                Name = "Mike",
+                                ItemOne = StrongItem.Id
                             });
 
             BattleEngine.CharacterList.Add(CharacterPlayer);
@@ -458,33 +459,15 @@ namespace Scenario
 
             BattleEngine.MonsterList.Add(MonsterPlayer);
 
-            // Add a monster to attack
-            BattleEngine.MaxNumberPartyCharacters = 1;
-
-            var MonsterPlayer = new PlayerInfoModel(
-                new MonsterModel
-                {
-                    BaseSpeed = 1,
-                    Level = 1,
-                    BaseHitPoints = 1,
-                    ExperiencePoints = 1,
-                    Name = "Monster",
-                });
-
-            BattleEngine.CharacterList.Add(MonsterPlayer);
-            var OrginalNumberOfCharacter = BattleEngine.CharacterList.Count;
-
-
             //Act
-            BattleEngine.BattleScore.RoundCount = 13;
-            var result = BattleEngine.TurnAsAttack // damage
+            var result = BattleEngine.TurnAsAttack(CharacterPlayer, MonsterPlayer); // damage
+            //var result = BattleEngine.CalculateDamage(CharacterPlayer);
 
             //Reset
 
-
             //Assert
-            Assert.AreEqual(10 + 20, result);
-            Assert.AreEqual(10 + 2* 20, result);
+            //Assert.AreEqual(0, result);
+            Assert.AreEqual(true, result);
         }
     }
 }

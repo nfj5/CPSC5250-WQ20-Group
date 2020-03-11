@@ -383,6 +383,12 @@ namespace Game.Engine
 
             BattleMessagesModel.HitStatus = RollToHitTarget(AttackScore, DefenseScore);
 
+            // Hackathon #2: Characters named Bob should miss
+            if (Attacker.Name.Contains("Bob"))
+            {
+                BattleMessagesModel.HitStatus = HitStatusEnum.Miss;
+            }
+
             Debug.WriteLine(BattleMessagesModel.GetTurnMessage());
 
             // It's a Miss

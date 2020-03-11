@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Game.Helpers;
 using System.Linq;
 using Game.ViewModels;
+using System;
 
 namespace Scenario
 {
@@ -384,10 +385,6 @@ namespace Scenario
            
         }
 
-
-
-
-
         [Test]
         public void HackathonScenario_Scenario_43_Team_Spirit_Item_Description_Equal_Go_SU_Redhawks_Should_Double_Value()
         {
@@ -469,6 +466,81 @@ namespace Scenario
             //Assert
             //Assert.AreEqual(0, result);
             Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public void HackathonScenario_Scenario_25_Rebound_Attack_Should_Hit_Attacker_With_Half_Power()
+        {
+            /* 
+             * Scenario Number:  
+             *      25
+             *      
+             * Description: 
+             *      When the Attacker hits an opposing Person, if the random chance that a rebound occurs
+             *      is triggered, Attacker takes 50% of damage (down to at most 1 hit point remaining).
+             * 
+             * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+             *      Changed the TurnEngine.cs
+             *                 
+             * Test Algrorithm:
+             *     Set ReboundEnabled to true, chance 100%
+             *     Create Character and Monster
+             *     Have Character Attack Monster
+             *     Verify that Attacker health has decreased.
+             * 
+             * Test Conditions:
+             *      If rebound chance is 
+             *  
+             *  Validation
+             *      Attacker health has decreased directly following an attack.
+             *      
+             */
+
+            //Arrange
+
+            // Turn on Rebound
+            SettingsHelper.ReboundEnabled = true;
+
+            // Set rebound chance to 100%
+            SettingsHelper.REBOUND_CHANCE = 1f;
+
+            // Create Character
+            var CharacterPlayer = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                BaseSpeed = 5,
+                                Level = 10,
+                                BaseHitPoints = 100,
+                                CurrentHitPoints = 100,
+                                ExperiencePoints = 100,
+                                BaseStrength = 10,
+                                Name = "Mike"
+                            });
+
+            BattleEngine.CharacterList.Add(CharacterPlayer);
+
+            // Create Monster
+            var MonsterPlayer = new PlayerInfoModel(
+                            new MonsterModel
+                            {
+                                BaseSpeed = 5,
+                                Level = 10,
+                                BaseHitPoints = 100,
+                                CurrentHitPoints = 100,
+                                ExperiencePoints = 100,
+                                BaseStrength = 10,
+                                Name = "Monster Mike"
+                            });
+
+            BattleEngine.MonsterList.Add(MonsterPlayer);
+
+            //Act
+            var result = BattleEngine.TurnAsAttack(CharacterPlayer, MonsterPlayer);
+
+            //Reset
+
+            //Assert
+            Assert.AreEqual(true, CharacterPlayer.CurrentHitPoints < CharacterPlayer.BaseHitPoints);
         }
     }
 }

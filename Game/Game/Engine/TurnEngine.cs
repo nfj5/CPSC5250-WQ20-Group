@@ -425,7 +425,7 @@ namespace Game.Engine
 
                 // Hackathon 25: Rebound Damage
                 float chance = DiceHelper.RollDice(1, 100) / 100f;
-                if (SettingsHelper.ReboundEnabled && chance >= SettingsHelper.REBOUND_CHANCE)
+                if (SettingsHelper.ReboundEnabled && chance <= SettingsHelper.REBOUND_CHANCE)
                 {
                     int ReboundDamage = (int) (Damage / 2);
                     
@@ -436,7 +436,8 @@ namespace Game.Engine
                     }
 
                     Debug.WriteLine("The attack rebounded! Took " + ReboundDamage + " damage!");
-                    Attacker.TakeDamage(ReboundDamage);
+                    //Attacker.TakeDamage(ReboundDamage);
+                    Attacker.CurrentHitPoints -= ReboundDamage;
                 }
             }
 

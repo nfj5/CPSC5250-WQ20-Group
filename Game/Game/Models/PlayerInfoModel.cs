@@ -63,6 +63,7 @@ namespace Game.Models
             BaseStamina = data.BaseStamina;
             BaseStrength = data.BaseStrength;
             BaseThiccness = data.BaseThiccness;
+            BaseHitPoints = data.BaseHitPoints;
             CurrentCooldown = data.CurrentCooldown;
             CurrentHitPoints = data.CurrentHitPoints;
             CurrentStamina = data.CurrentStamina;
@@ -70,7 +71,7 @@ namespace Game.Models
             CurrentSpeed = data.CurrentSpeed;
             CurrentThiccness = data.CurrentThiccness;
             ImageURI = data.ImageURI;
-            BaseHitPoints = data.CurrentHitPoints;
+           
 
             //We dont have a max health at the moment. Might add later if needed.
             //MaxHealth = data.GetMaxHealthTotal;
@@ -98,9 +99,19 @@ namespace Game.Models
             Level = data.Level;
             Name = data.Name;
             Description = data.Description;
-            BaseSpeed = data.CurrentSpeed;
+            BaseSpeed = data.BaseSpeed;
+            BaseStamina = data.BaseStamina;
+            BaseStrength = data.BaseStrength;
+            BaseThiccness = data.BaseThiccness;
+            BaseHitPoints = data.BaseHitPoints;
+            CurrentCooldown = data.CurrentCooldown;
+            CurrentHitPoints = data.CurrentHitPoints;
+            CurrentStamina = data.CurrentStamina;
+            CurrentStrength = data.CurrentStrength;
+            CurrentSpeed = data.CurrentSpeed;
+            CurrentThiccness = data.CurrentThiccness;
             ImageURI = data.ImageURI;
-            BaseHitPoints = data.CurrentHitPoints;
+            
 
             // Set the strings for the items
             ItemOne = data.ItemOne;

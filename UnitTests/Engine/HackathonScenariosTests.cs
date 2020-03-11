@@ -602,12 +602,11 @@ namespace Scenario
                             });
 
             //Act
-            var result = BattleEngine.isPrime(23);
-
+            var result = BattleEngine.isPrime(CharacterPlayer, CharacterPlayer.CurrentStrength);
             //Reset
 
             //Assert
-            Assert.AreEqual(true, result);
+            Assert.AreEqual(1000, result);
         }
 
         [Test]

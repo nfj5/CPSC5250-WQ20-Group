@@ -382,18 +382,14 @@ namespace Game.Engine
             BattleMessagesModel.AttackerName = Attacker.Name;
 
 
-            // Hack #47
-            bool checkprime = false;
-            int totalattributes = Attacker.CurrentSpeed + Attacker.CurrentStrength + Attacker.CurrentThiccness;
-            if (isPrime(totalattributes) == true)
+            // Hack #47: Character Attribute equal Prime should deal Max damage
+            if (isTotalPrime(Attacker) == true)
             {
                 BattleMessagesModel.HitStatus = HitStatusEnum.Hit;
-                checkprime = true;
             }
             else
             {
                 BattleMessagesModel.HitStatus = RollToHitTarget(AttackScore, DefenseScore);
-                checkprime = false;
             }
 
             // Hackathon #2: Characters named Bob should miss
@@ -419,10 +415,10 @@ namespace Game.Engine
                 if (Attacker.ItemOne != null)
                 {
                     Damage = CalculateDamage(Attacker);
-                    if (checkprime == true)
-                    {
-                        Damage = SetMaxDamage();
-                    }
+
+                    // Hack 47: Continued
+                    Damage = isPrime(Attacker, Damage);
+
                     // Hackathon 43: Go SU RedHawks
                     //if (ItemIndexViewModel.Instance.GetItem(Attacker.ItemOne).Description == "Go SU RedHawks")
                     //{
@@ -478,12 +474,22 @@ namespace Game.Engine
         }
 
 
-        public bool isPrime(int num)
+        public bool isTotalPrime(PlayerInfoModel Attacker)
         {
+            int num = Attacker.CurrentSpeed + Attacker.CurrentStrength + Attacker.CurrentThiccness;
             for (int i = 2; i < num; i++)
                 if (num % i == 0)
                     return false;
             return true;
+        }
+
+        public int isPrime(PlayerInfoModel Attacker, int Damage)
+        {
+            int num = Attacker.CurrentSpeed + Attacker.CurrentStrength + Attacker.CurrentThiccness;
+            for (int i = 2; i < num; i++)
+                if (num % i == 0)
+                    return Damage;
+            return SetMaxDamage();
         }
 
         /// <summary>

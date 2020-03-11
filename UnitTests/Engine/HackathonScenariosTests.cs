@@ -129,6 +129,7 @@ namespace Scenario
 
             //Act
             var result = await AutoBattleEngine.RunAutoBattle();
+            Console.WriteLine("result " + result);
 
             //Reset
 
@@ -347,8 +348,8 @@ namespace Scenario
                                 Name = "Nick",
                             });
 
-            //BattleEngine.CharacterList.Add(CharacterPlayer);
-            //BattleEngine.CharacterList.Add(CharacterPlayer2);
+            BattleEngine.CharacterList.Add(CharacterPlayer);
+            BattleEngine.CharacterList.Add(CharacterPlayer2);
 
             // Set Monster Conditions
 
@@ -370,7 +371,6 @@ namespace Scenario
 
             BattleEngine.BattleScore.RoundCount = 13;
             
-
             //Act
             BattleEngine.BattleScore.RoundCount = 13;
             BattleEngine.IsRound13();
@@ -381,8 +381,6 @@ namespace Scenario
 
             //Assert
             Assert.AreEqual(OrginalNumberOfCharacter - 1, result);
-            
-           
         }
 
         [Test]
@@ -658,7 +656,100 @@ namespace Scenario
                                 CurrentHitPoints = 100,
                                 ExperiencePoints = 100,
                                 BaseStrength = 10,
+                                CurrentStrength = 10,
+                                CurrentSpeed = 10,
                                 Name = "Mike"
+                            });
+
+            BattleEngine.CharacterList.Add(CharacterPlayer);
+
+            // Create Monster
+            var MonsterPlayer = new PlayerInfoModel(
+                            new MonsterModel
+                            {
+                                BaseSpeed = 5,
+                                Level = 10,
+                                BaseHitPoints = 100,
+                                CurrentHitPoints = 100,
+                                ExperiencePoints = 100,
+                                BaseStrength = 10,
+                                CurrentStrength = 10,
+                                CurrentSpeed = 10,
+                                Name = "Monster Mike"
+                            });
+
+            BattleEngine.MonsterList.Add(MonsterPlayer);
+
+            //Act
+            BattleEngine.TurnAsAttack(CharacterPlayer, MonsterPlayer);
+
+            //Reset
+
+            //Assert
+            Assert.AreEqual(true, CharacterPlayer.CurrentHitPoints < CharacterPlayer.BaseHitPoints);
+        }
+
+        [Test]
+        public async Task HackathonScenario_Scenario_24_Rental_Insurance_Item_Should_Break()
+        {
+            /* 
+             * Scenario Number:  
+             *      24
+             *      
+             * Description: 
+             *      When the Attacker hits an opposing Person, if the random chance that a break occurs
+             *      is triggered, the Attacker's item breaks.
+             * 
+             * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+             *      Changed the TurnEngine.cs
+             *                 
+             * Test Algrorithm:
+             *     Set RentalInsuranceEnabled to true, chance 100%
+             *     Create an Item
+             *     Create Character and Monster
+             *     Have Character Attack Monster
+             *     Verify that Attacker has dropped the Item
+             * 
+             * Test Conditions:
+             *      If rebound chance is 
+             *  
+             *  Validation
+             *      Attacker has dropped the Item
+             *      
+             */
+
+            //Arrange
+
+            // Turn on RentalInsurance
+            SettingsHelper.RentalInsuranceEnabled = true;
+
+            // Set rental insurance chance to 100%
+            SettingsHelper.RENTAL_INSURANCE_TEST = 1f;
+
+            // Create Item
+            var BreakingItem = new ItemModel
+            {
+                Name = "Breaking Item",
+                Description = "This Item is made to break.",
+                Range = 10,
+                Value = 20,
+                Damage = 20
+            };
+
+            await ItemIndexViewModel.Instance.CreateAsync(BreakingItem);
+
+            // Create Character
+            var CharacterPlayer = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                BaseSpeed = 5,
+                                Level = 10,
+                                BaseHitPoints = 100,
+                                CurrentHitPoints = 100,
+                                ExperiencePoints = 100,
+                                BaseStrength = 10,
+                                Name = "Mike",
+                                ItemOne = BreakingItem.Id
                             });
 
             BattleEngine.CharacterList.Add(CharacterPlayer);
@@ -679,12 +770,14 @@ namespace Scenario
             BattleEngine.MonsterList.Add(MonsterPlayer);
 
             //Act
-            var result = BattleEngine.TurnAsAttack(CharacterPlayer, MonsterPlayer);
+            BattleEngine.TurnAsAttack(CharacterPlayer, MonsterPlayer);
 
             //Reset
+            SettingsHelper.RentalInsuranceEnabled = false;
+            SettingsHelper.RENTAL_INSURANCE_TEST = 0.8f;
 
             //Assert
-            Assert.AreEqual(true, CharacterPlayer.CurrentHitPoints < CharacterPlayer.BaseHitPoints);
+            Assert.AreEqual(true, CharacterPlayer.ItemOne == null);
         }
     }
 }

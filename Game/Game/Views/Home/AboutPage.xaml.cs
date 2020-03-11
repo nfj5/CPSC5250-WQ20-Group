@@ -99,5 +99,22 @@ namespace Game.Views
                 SettingsHelper.ReboundEnabled = false;
             }
         }
+
+        /// <summary>
+        /// Turn the rental insurance mechanic on and off
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void RentalInsuranceSettingsSwitch_OnToggled(object sender, EventArgs e)
+        {
+            if (RentalInsuranceSettingsSwitch.IsToggled == true)
+            {
+                SettingsHelper.RentalInsuranceEnabled = true;
+            }
+            else
+            {
+                SettingsHelper.RentalInsuranceEnabled = false;
+            }
+        }
     }
 }

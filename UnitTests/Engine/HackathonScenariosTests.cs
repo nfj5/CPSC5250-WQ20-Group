@@ -386,7 +386,7 @@ namespace Scenario
         }
 
         [Test]
-        public void HackathonScenario_Scenario_43_Team_Spirit_Item_Description_Equal_Go_SU_Redhawks_Should_Use_Double_Value()
+        public void HackathonScenario_Scenario_43_Item_Description_Equal_Go_SU_Redhawks_Should_Use_Double_Value()
         {
             /* 
              * Scenario Number:  
@@ -451,7 +451,7 @@ namespace Scenario
         }
 
         [Test]
-        public void HackathonScenario_Scenario_43_Team_Spirit_Item_Description_NotEqual_Go_SU_Redhawks_Should_Use_Value()
+        public void HackathonScenario_Scenario_43_Item_Description_NotEqual_Go_SU_Redhawks_Should_Use_Value()
         {
             /* 
              * Scenario Number:  
@@ -515,7 +515,7 @@ namespace Scenario
         }
 
         [Test]
-        public void HackathonScenario_Scenario_43_Team_Spirit_Item_Description_NotEqual_Go_SU_Redhawks_Should_Use_Strength()
+        public void HackathonScenario_Scenario_43_No_Item_Equipped_Should_Use_Strength()
         {
             /* 
              * Scenario Number:  

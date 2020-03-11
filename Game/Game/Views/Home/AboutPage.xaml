@@ -117,6 +117,16 @@
                         Toggled="ReboundSettingsSwitch_OnToggled"
                         IsToggled="False"/>
                 </StackLayout>
+
+                <StackLayout Style="{StaticResource HorizontalStack}">
+                    <Label Text="Rental Insurance Mechanic"
+                       Style="{DynamicResource DebugSwitchLabel}"/>
+
+                    <Switch x:Name="RentalInsuranceSettingsSwitch"
+                        HorizontalOptions="EndAndExpand"
+                        Toggled="RentalInsuranceSettingsSwitch_OnToggled"
+                        IsToggled="False"/>
+                </StackLayout>
             </StackLayout>
         </StackLayout>
     </ScrollView>

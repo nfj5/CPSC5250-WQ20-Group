@@ -436,8 +436,15 @@ namespace Game.Engine
                     }
 
                     Debug.WriteLine("The attack rebounded! Took " + ReboundDamage + " damage!");
-                    //Attacker.TakeDamage(ReboundDamage);
-                    Attacker.CurrentHitPoints -= ReboundDamage;
+                    Attacker.TakeDamage(ReboundDamage);
+                }
+
+                // Hackathon 24: Rental Insurance (Break Item)
+                chance = DiceHelper.RollDice(1, 100) / 100f;
+                if (SettingsHelper.RentalInsuranceEnabled && chance <= SettingsHelper.RENTAL_INSURANCE_TEST)
+                {
+                    Debug.WriteLine(Attacker.Name + "'s " + ItemIndexViewModel.Instance.GetItem(Attacker.ItemOne).Name + " broke!");
+                    Attacker.ItemOne = null;
                 }
             }
 
@@ -534,8 +541,9 @@ namespace Game.Engine
                 default:
                     MonsterList.Remove(Target);
 
-                    int[] Location = GameBoard.GetPlayerLocation(Target);
-                    GameBoard.PlayerLocations[Location[0], Location[1]] = null;
+                    // comment out (IndexOutOfRangeException)
+                    //int[] Location = GameBoard.GetPlayerLocation(Target);
+                    //GameBoard.PlayerLocations[Location[0], Location[1]] = null;
 
                     // Add one to the monsters killed count...
                     BattleScore.MonsterSlainNumber++;

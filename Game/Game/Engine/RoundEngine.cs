@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using Game.Helpers;
@@ -62,7 +63,7 @@ namespace Game.Engine
                 if (CharacterList.Count > 1)
                 {
                     //Gets the remaining number of characters left.
-                    int CharactertoKill = DiceHelper.RollDice(1, CharacterList.Count);
+                    int CharactertoKill = DiceHelper.RollDice(1, CharacterList.Count-1);
                     PlayerInfoModel character = CharacterList[CharactertoKill];
                     CharacterList.RemoveAt(CharactertoKill);
                     Debug.WriteLine("Character named: " + character.Name + "obliterated");

@@ -428,7 +428,8 @@ namespace Scenario
                                 Damage = 20
                             };
 
-            BattleEngine.ItemPool.Add(StrongItem);
+            // BattleEngine.ItemPool.Add(StrongItem);
+            ItemIndexViewModel.Instance.CreateAsync(StrongItem);
 
             // Create Character
             var CharacterPlayer = new PlayerInfoModel(

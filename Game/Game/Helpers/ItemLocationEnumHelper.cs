@@ -65,23 +65,23 @@ namespace Game.Helpers
             switch (position)
             {
                 case 1:
-                    return ItemLocationEnum.ItemOne;
+                    return ItemLocationEnum.Head;
 
                 case 2:
-                    return ItemLocationEnum.ItemTwo;
+                    return ItemLocationEnum.Necklass;
 
                 case 3:
-                    return ItemLocationEnum.ItemThree;
+                    return ItemLocationEnum.PrimaryHand;
 
                 case 4:
-                    return ItemLocationEnum.ItemFour;
+                    return ItemLocationEnum.OffHand;
 
                 case 5:
-                    return ItemLocationEnum.ItemFive;
+                    return ItemLocationEnum.Finger;
 
                 case 6:
                 default:
-                    return ItemLocationEnum.ItemSix;
+                    return ItemLocationEnum.Feet;
             }
         }
     }

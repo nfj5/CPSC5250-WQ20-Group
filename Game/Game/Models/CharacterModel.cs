@@ -19,6 +19,7 @@ namespace Game.Models
         public CharacterModel()
         {
             PersonType = PersonTypeEnum.Character;
+            PersonJob = PersonJobEnum.QB;
             Name = "Bob Joe";
             Description = "A basic Footbrawler";
             ImageURI = "football_charcter.png";

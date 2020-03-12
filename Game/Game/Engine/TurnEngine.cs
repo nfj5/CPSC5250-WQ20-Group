@@ -50,7 +50,7 @@ namespace Game.Engine
             // If in range of an item, then move onto Item
 
             // if we don't have an item
-            if (Attacker.ItemOne == null)
+            if (Attacker.Head == null)
             {
                 // move to item
                 int[] closestItem = GetClosestItem(Attacker);
@@ -67,7 +67,7 @@ namespace Game.Engine
                     GameBoardHelper.Distance(newestClosest[0], newestClosest[1], PlayerLocation[0], PlayerLocation[1]) <= 1)
                 {
                     ItemModel temp = GameBoard.ItemLocations[newestClosest[0], newestClosest[1]];
-                    Attacker.ItemOne = temp.Id;
+                    Attacker.Head = temp.Id;
                     Debug.WriteLine(Attacker.Name + " picked up " + temp.Name);
                     GameBoard.ItemLocations[newestClosest[0], newestClosest[1]] = null;
                 }
@@ -202,9 +202,9 @@ namespace Game.Engine
             int Distance = GameBoardHelper.Distance(attackerLocation[0], attackerLocation[1], TargetLocation[0], TargetLocation[1]);
 
             int AttackRange = 1;
-            if (Attacker.ItemOne != null)
+            if (Attacker.Head != null)
             {
-                AttackRange = ItemIndexViewModel.Instance.GetItem(Attacker.ItemOne).Range;
+                AttackRange = ItemIndexViewModel.Instance.GetItem(Attacker.Head).Range;
             }
 
             if (Distance > AttackRange || Attacker.CurrentStamina < 3)
@@ -412,7 +412,7 @@ namespace Game.Engine
                 int Damage = Attacker.CurrentStrength;
 
                 //Calculate Damage
-                if (Attacker.ItemOne != null)
+                if (Attacker.Head != null)
                 {
                     Damage = CalculateDamage(Attacker);
 
@@ -456,8 +456,8 @@ namespace Game.Engine
                 chance = DiceHelper.RollDice(1, 100) / 100f;
                 if (SettingsHelper.RentalInsuranceEnabled && chance <= SettingsHelper.RENTAL_INSURANCE_TEST)
                 {
-                    Debug.WriteLine(Attacker.Name + "'s " + ItemIndexViewModel.Instance.GetItem(Attacker.ItemOne).Name + " broke!");
-                    Attacker.ItemOne = null;
+                    Debug.WriteLine(Attacker.Name + "'s " + ItemIndexViewModel.Instance.GetItem(Attacker.Head).Name + " broke!");
+                    Attacker.Head = null;
                 }
             }
 
@@ -513,17 +513,17 @@ namespace Game.Engine
         {
             int Damage = Attacker.CurrentStrength;
             // Hackathon 43: Go SU RedHawks
-            if (Attacker.ItemOne != null)
+            if (Attacker.Head != null)
             {
-                if (ItemIndexViewModel.Instance.GetItem(Attacker.ItemOne).Description == "Go SU RedHawks")
+                if (ItemIndexViewModel.Instance.GetItem(Attacker.Head).Description == "Go SU RedHawks")
                 {
                     // Inflict 2x damage
-                    Damage = Attacker.CurrentStrength + (2 * (ItemIndexViewModel.Instance.GetItem(Attacker.ItemOne).Value));
+                    Damage = Attacker.CurrentStrength + (2 * (ItemIndexViewModel.Instance.GetItem(Attacker.Head).Value));
                     Debug.WriteLine("Go SU!");
                 }
                 else
                 {
-                    Damage = Attacker.CurrentStrength + ItemIndexViewModel.Instance.GetItem(Attacker.ItemOne).Value;
+                    Damage = Attacker.CurrentStrength + ItemIndexViewModel.Instance.GetItem(Attacker.Head).Value;
                 }
             }
             return Damage;

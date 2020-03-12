@@ -137,10 +137,11 @@ namespace Game.Engine
         public bool EndRound()
         {
             // Have each character pickup items...
-            foreach (var character in CharacterList)
-            {
-                PickupItemsFromPool(character);
-            }
+            // Do not pick up Items at the end of the round
+            //foreach (var character in CharacterList)
+            //{
+            //    PickupItemsFromPool(character);
+            //}
 
             // Reset Monster and Item Lists
             ClearLists();
@@ -338,12 +339,12 @@ namespace Game.Engine
         {
             // Have the character, walk the items in the pool, and decide if any are better than current one.
 
-            GetItemFromPoolIfBetter(character, ItemLocationEnum.ItemOne);
-            GetItemFromPoolIfBetter(character, ItemLocationEnum.ItemTwo);
-            GetItemFromPoolIfBetter(character, ItemLocationEnum.ItemThree);
-            GetItemFromPoolIfBetter(character, ItemLocationEnum.ItemFour);
-            GetItemFromPoolIfBetter(character, ItemLocationEnum.ItemFive);
-            GetItemFromPoolIfBetter(character, ItemLocationEnum.ItemSix); 
+            GetItemFromPoolIfBetter(character, ItemLocationEnum.Head);
+            GetItemFromPoolIfBetter(character, ItemLocationEnum.Head);
+            GetItemFromPoolIfBetter(character, ItemLocationEnum.Head);
+            GetItemFromPoolIfBetter(character, ItemLocationEnum.Head);
+            GetItemFromPoolIfBetter(character, ItemLocationEnum.Head);
+            GetItemFromPoolIfBetter(character, ItemLocationEnum.Head); 
 
             return true;
         }

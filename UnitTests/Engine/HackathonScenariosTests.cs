@@ -438,7 +438,7 @@ namespace Scenario
                                 BaseStrength = 10,
                                 CurrentStrength = 10,
                                 Name = "Mike",
-                                ItemOne = StrongItem.Id
+                                Head = StrongItem.Id
                             });
 
             //Act
@@ -502,7 +502,7 @@ namespace Scenario
                                 BaseStrength = 10,
                                 CurrentStrength = 10,
                                 Name = "Mike",
-                                ItemOne = StrongItem.Id
+                                Head = StrongItem.Id
                             });
 
             //Act
@@ -797,7 +797,7 @@ namespace Scenario
                                 ExperiencePoints = 100,
                                 BaseStrength = 10,
                                 Name = "Mike",
-                                ItemOne = BreakingItem.Id
+                                Head = BreakingItem.Id
                             });
 
             BattleEngine.CharacterList.Add(CharacterPlayer);
@@ -830,7 +830,7 @@ namespace Scenario
             DiceHelper.DisableForcedRolls();
 
             //Assert
-            Assert.AreEqual(true, CharacterPlayer.ItemOne == null);
+            Assert.AreEqual(true, CharacterPlayer.Head == null);
         }
     }
 }

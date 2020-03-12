@@ -20,7 +20,7 @@ namespace Game.Services
                     Range = 5,
                     Damage = 9,
                     Value = 9,
-                    Location = ItemLocationEnum.ItemOne,
+                    Location = ItemLocationEnum.Head,
                     Attribute = AttributeEnum.CurrentHealth},
 
                 new ItemModel {
@@ -30,7 +30,7 @@ namespace Game.Services
                     Range = 3,
                     Damage = 0,
                     Value = 9,
-                    Location = ItemLocationEnum.ItemOne,
+                    Location = ItemLocationEnum.Head,
                     Attribute = AttributeEnum.Defense},
 
                 new ItemModel {
@@ -40,7 +40,7 @@ namespace Game.Services
                     Range = 2,
                     Damage = 0,
                     Value = 9,
-                    Location = ItemLocationEnum.ItemOne,
+                    Location = ItemLocationEnum.Head,
                     Attribute = AttributeEnum.Speed},
 
                 new ItemModel {
@@ -50,7 +50,7 @@ namespace Game.Services
                     Range = 3,
                     Damage = 0,
                     Value = 9,
-                    Location = ItemLocationEnum.ItemOne,
+                    Location = ItemLocationEnum.Head,
                     Attribute = AttributeEnum.Attack},
             };
 

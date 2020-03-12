@@ -36,12 +36,12 @@ namespace Game.Models
             //MaxHealth = data.GetMaxHealthTotal;
 
             // Set the strings for the items
-            ItemOne = data.ItemOne;
-            ItemTwo = data.ItemTwo;
-            ItemThree = data.ItemThree;
-            ItemFour = data.ItemFour;
-            ItemFive = data.ItemFive;
-            ItemSix = data.ItemSix;
+            Head = data.Head;
+            Necklass = data.Necklass;
+            PrimaryHand = data.PrimaryHand;
+            OffHand = data.OffHand;
+            Finger = data.Finger;
+            Feet = data.Feet;
             
             
         }
@@ -76,12 +76,12 @@ namespace Game.Models
             //MaxHealth = data.GetMaxHealthTotal;
 
             // Set the strings for the items
-            ItemOne = data.ItemOne;
-            ItemTwo = data.ItemTwo;
-            ItemThree = data.ItemThree;
-            ItemFour = data.ItemFour;
-            ItemFive = data.ItemFive;
-            ItemSix = data.ItemSix;
+            Head = data.Head;
+            Necklass = data.Necklass;
+            PrimaryHand = data.PrimaryHand;
+            OffHand = data.OffHand;
+            Finger = data.Finger;
+            Feet = data.Feet;
 
         }
 
@@ -103,12 +103,12 @@ namespace Game.Models
             BaseHitPoints = data.CurrentHitPoints;
 
             // Set the strings for the items
-            ItemOne = data.ItemOne;
-            ItemTwo = data.ItemTwo;
-            ItemThree = data.ItemThree;
-            ItemFour = data.ItemFour;
-            ItemFive = data.ItemFive;
-            ItemSix = data.ItemSix;
+            Head = data.Head;
+            Necklass = data.Necklass;
+            PrimaryHand = data.PrimaryHand;
+            OffHand = data.OffHand;
+            Finger = data.Finger;
+            Feet = data.Feet;
 
         }
     }

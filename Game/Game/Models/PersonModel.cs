@@ -4,7 +4,6 @@ using Game.ViewModels;
 using SQLite;
 using System;
 using System.Collections.Generic;
-using Game.Models;
 
 namespace Game.Models
 {
@@ -66,12 +65,12 @@ namespace Game.Models
         public int NumItems { get; set; } = 0; // Keep track of how many items the Character is currently holding
 
         // Strings to hold the GUID of each item for each slot
-        public string ItemOne { get; set; } = null;
-        public string ItemTwo { get; set; } = null;
-        public string ItemThree { get; set; } = null;
-        public string ItemFour { get; set; } = null;
-        public string ItemFive { get; set; } = null;
-        public string ItemSix { get; set; } = null;
+        public string Head { get; set; } = null;
+        public string Necklass { get; set; } = null;
+        public string PrimaryHand { get; set; } = null;
+        public string OffHand { get; set; } = null;
+        public string Finger { get; set; } = null;
+        public string Feet { get; set; } = null;
 
         [Ignore]
         // Return the Damage value, it is 25% of the Level rounded up
@@ -96,22 +95,22 @@ namespace Game.Models
             switch (index)
             {
                 case 1:
-                    ItemOne = null;
+                    Head = null;
                     break;
                 case 2:
-                    ItemTwo = null;
+                    Necklass = null;
                     break;
                 case 3:
-                    ItemThree = null;
+                    PrimaryHand = null;
                     break;
                 case 4:
-                    ItemFour = null;
+                    OffHand = null;
                     break;
                 case 5:
-                    ItemFive = null;
+                    Finger = null;
                     break;
                 case 6:
-                    ItemSix = null;
+                    Feet = null;
                     break;
             }
 
@@ -133,22 +132,22 @@ namespace Game.Models
             switch (NumItems + 1)
             {
                 case 1:
-                    ItemOne = toAdd.Id;
+                    Head = toAdd.Id;
                     break;
                 case 2:
-                    ItemTwo = toAdd.Id;
+                    Necklass = toAdd.Id;
                     break;
                 case 3:
-                    ItemThree = toAdd.Id;
+                    PrimaryHand = toAdd.Id;
                     break;
                 case 4:
-                    ItemFour = toAdd.Id;
+                    OffHand = toAdd.Id;
                     break;
                 case 5:
-                    ItemFive = toAdd.Id;
+                    Finger = toAdd.Id;
                     break;
                 case 6:
-                    ItemSix = toAdd.Id;
+                    Feet = toAdd.Id;
                     break;
             }
 
@@ -172,22 +171,22 @@ namespace Game.Models
             switch (index)
             {
                 case 1:
-                    item = ItemOne;
+                    item = Head;
                     break;
                 case 2:
-                    item = ItemTwo;
+                    item = Necklass;
                     break;
                 case 3:
-                    item = ItemThree;
+                    item = PrimaryHand;
                     break;
                 case 4:
-                    item = ItemFour;
+                    item = OffHand;
                     break;
                 case 5:
-                    item = ItemFive;
+                    item = Finger;
                     break;
                 case 6:
-                    item = ItemSix;
+                    item = Feet;
                     break;
             }
 
@@ -290,7 +289,7 @@ namespace Game.Models
             var myReturn = 0;
 
             //Come back and do something about using other items. 
-            var myItem = ItemIndexViewModel.Instance.GetItem(ItemOne);
+            var myItem = ItemIndexViewModel.Instance.GetItem(Head);
             if (myItem != null)
             {
                 // Dice of the weapon.  So sword of Damage 10 is d10
@@ -371,37 +370,37 @@ namespace Game.Models
             // Drop all Items
             ItemModel myItem;
 
-            myItem = RemoveItem(ItemLocationEnum.ItemOne);
+            myItem = RemoveItem(ItemLocationEnum.Head);
             if (myItem != null)
             {
                 myReturn.Add(myItem);
             }
 
-            myItem = RemoveItem(ItemLocationEnum.ItemTwo);
+            myItem = RemoveItem(ItemLocationEnum.Necklass);
             if (myItem != null)
             {
                 myReturn.Add(myItem);
             }
 
-            myItem = RemoveItem(ItemLocationEnum.ItemThree);
+            myItem = RemoveItem(ItemLocationEnum.PrimaryHand);
             if (myItem != null)
             {
                 myReturn.Add(myItem);
             }
 
-            myItem = RemoveItem(ItemLocationEnum.ItemFour);
+            myItem = RemoveItem(ItemLocationEnum.OffHand);
             if (myItem != null)
             {
                 myReturn.Add(myItem);
             }
 
-            myItem = RemoveItem(ItemLocationEnum.ItemFive);
+            myItem = RemoveItem(ItemLocationEnum.Finger);
             if (myItem != null)
             {
                 myReturn.Add(myItem);
             }
 
-            myItem = RemoveItem(ItemLocationEnum.ItemSix);
+            myItem = RemoveItem(ItemLocationEnum.Feet);
             if (myItem != null)
             {
                 myReturn.Add(myItem);
@@ -428,28 +427,28 @@ namespace Game.Models
 
             switch (itemLocation)
             {
-                case ItemLocationEnum.ItemOne:
-                    ItemOne = itemID;
+                case ItemLocationEnum.Head:
+                    Head = itemID;
                     break;
 
-                case ItemLocationEnum.ItemTwo:
-                    ItemTwo = itemID;
+                case ItemLocationEnum.Necklass:
+                    Necklass = itemID;
                     break;
 
-                case ItemLocationEnum.ItemThree:
-                    ItemThree = itemID;
+                case ItemLocationEnum.PrimaryHand:
+                    PrimaryHand = itemID;
                     break;
 
-                case ItemLocationEnum.ItemFour:
-                    ItemFour = itemID;
+                case ItemLocationEnum.OffHand:
+                    OffHand = itemID;
                     break;
 
-                case ItemLocationEnum.ItemFive:
-                    ItemFive = itemID;
+                case ItemLocationEnum.Finger:
+                    Finger = itemID;
                     break;
 
-                case ItemLocationEnum.ItemSix:
-                    ItemSix = itemID;
+                case ItemLocationEnum.Feet:
+                    Feet = itemID;
                     break;
 
                 default:
@@ -469,22 +468,22 @@ namespace Game.Models
         {
             switch (itemLocation)
             {
-                case ItemLocationEnum.ItemOne:
+                case ItemLocationEnum.Head:
                     return GetItem(1);
 
-                case ItemLocationEnum.ItemTwo:
+                case ItemLocationEnum.Necklass:
                     return GetItem(2);
 
-                case ItemLocationEnum.ItemThree:
+                case ItemLocationEnum.PrimaryHand:
                     return GetItem(3);
 
-                case ItemLocationEnum.ItemFour:
+                case ItemLocationEnum.OffHand:
                     return GetItem(4);
 
-                case ItemLocationEnum.ItemFive:
+                case ItemLocationEnum.Finger:
                     return GetItem(5);
 
-                case ItemLocationEnum.ItemSix:
+                case ItemLocationEnum.Feet:
                     return GetItem(6);
 
                 

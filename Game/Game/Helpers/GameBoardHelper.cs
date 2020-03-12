@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Game.Helpers
 {
-    class GameBoardHelper
+    public class GameBoardHelper
     {
         // Keep track of the round
         public static int Round = 1;

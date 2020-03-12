@@ -62,8 +62,6 @@
     <Compile Remove="ViewModels\ItemIndexViewModelTests.cs" />
     <Compile Remove="ViewModels\BattleEngineViewModelTests.cs" />
     <Compile Remove="ViewModels\ScoreIndexViewModelTests.cs" />
-    <Compile Remove="Views\MenuPageTests.cs" />
-    <Compile Remove="Views\MainPageTests.cs" />
     <Compile Remove="Engine\AutoBattleEngineScenerioTests.cs" />
     <Compile Remove="Engine\RoundEngineTests.cs" />
     <Compile Remove="Engine\BattleEngineTests.cs" />

@@ -3,25 +3,18 @@ using System.Diagnostics;
 using Game.Models;
 namespace Game.Models
 {
-    public class GameBoardModel
+    public static class GameBoardModel
     {
-        public PlayerInfoModel[,] PlayerLocations;
-        public ItemModel[,] ItemLocations;
+       
         public static int Size = 6;
+        public static PlayerInfoModel[,] PlayerLocations = new PlayerInfoModel[Size,Size];
+        public static ItemModel[,] ItemLocations = new ItemModel[Size, Size];
 
-        public GameBoardModel()
-        {
-            PlayerLocations = new PlayerInfoModel[Size, Size];
-            ItemLocations = new ItemModel[Size, Size];
-
-            // Initialize the Gameboard to null
-            Wipe();
-        }
-
+        
         /// <summary>
         /// Wipe the game board
         /// </summary>
-        public void Wipe()
+        public static void Wipe()
         {
             for (int i = 0; i < Size; ++i)
             {
@@ -40,7 +33,7 @@ namespace Game.Models
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns></returns>
-        public bool Place(PlayerInfoModel player, int x, int y)
+        public static bool Place(PlayerInfoModel player, int x, int y)
         {
             if (PlayerLocations[x,y] != null)
             {
@@ -59,7 +52,7 @@ namespace Game.Models
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns></returns>
-        public bool Place(ItemModel item, int x, int y)
+        public static bool Place(ItemModel item, int x, int y)
         {
             if (ItemLocations[x, y] != null)
             {
@@ -77,7 +70,7 @@ namespace Game.Models
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns></returns>
-        public PlayerInfoModel GetPlayer(int x, int y)
+        public static PlayerInfoModel GetPlayer(int x, int y)
         {
             return PlayerLocations[x, y];
         }
@@ -88,7 +81,7 @@ namespace Game.Models
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns></returns>
-        public ItemModel GetItem(int x, int y)
+        public static ItemModel GetItem(int x, int y)
         {
             return ItemLocations[x, y];
         }
@@ -99,7 +92,7 @@ namespace Game.Models
         /// </summary>
         /// <param name="player"></param>
         /// <returns></returns>
-        public int[] GetPlayerLocation(PlayerInfoModel player)
+        public static int[] GetPlayerLocation(PlayerInfoModel player)
         {
             int[] location = new int[2];
             location[0] = Int32.MinValue;
@@ -126,7 +119,7 @@ namespace Game.Models
         /// </summary>
         /// <param name="player"></param>
         /// <returns></returns>
-        public int[] GetItemLocation(ItemModel item)
+        public static int[] GetItemLocation(ItemModel item)
         {
             int[] location = new int[2];
             location[0] = Int32.MinValue;
@@ -146,5 +139,7 @@ namespace Game.Models
 
             return location;
         }
+
+        
     }
 }

@@ -2,6 +2,8 @@
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Game.Engine;
+using Game.Models;
 
 namespace Game.Views
 {
@@ -91,6 +93,15 @@ namespace Game.Views
 			{
 				await Navigation.PopModalAsync();
 			}
+		}
+
+        async void LocationClicked(object sender, EventArgs e)
+        {
+			Image clicked = (Image) sender;
+			int row = Grid.GetRow(clicked);
+			int column = Grid.GetColumn(clicked);
+
+            if(BattleEngine.GameBoard
 		}
 	}
 }

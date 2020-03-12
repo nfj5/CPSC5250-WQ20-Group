@@ -56,11 +56,11 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void GamePage_DungeonButton_Clicked_Default_Should_Pass()
+        public void GamePage_StadiumButton_Clicked_Default_Should_Pass()
         {
             // Arrange
             // Act
-            page.DungeonButton_Clicked(null, null);
+            page.StadiumButton_Clicked(null, null);
 
             // Reset
 
@@ -69,11 +69,11 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void GamePage_VillageButton_Clicked_Default_Should_Pass()
+        public void GamePage_LockerRoomButton_Clicked_Default_Should_Pass()
         {
             // Arrange
             // Act
-            page.VillageButton_Clicked(null, null);
+            page.LockerRoomButton_Clicked(null, null);
 
             // Reset
 

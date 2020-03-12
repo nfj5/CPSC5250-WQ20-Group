@@ -24,7 +24,7 @@ namespace Game.Views
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-        async void StadiumButton_Clicked(object sender, EventArgs e)
+		public async void StadiumButton_Clicked(object sender, EventArgs e)
         {
 			// TODO change to PickCharactersPage later
 			await Navigation.PushAsync(new BattleNavigation());
@@ -35,7 +35,7 @@ namespace Game.Views
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		async void LockerRoomButton_Clicked(object sender, EventArgs e)
+		public async void LockerRoomButton_Clicked(object sender, EventArgs e)
 		{
 			await Navigation.PushAsync(new LockerRoomPage());
 		}
@@ -45,7 +45,7 @@ namespace Game.Views
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		async void AutobattleButton_Clicked(object sender, EventArgs e)
+		public async void AutobattleButton_Clicked(object sender, EventArgs e)
 		{
 			// Run the Autobattle simulation from here
 			AutoBattleEngine engine = new AutoBattleEngine();

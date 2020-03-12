@@ -110,7 +110,7 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void MonsterCreatePage_Attack_OnStepperAttackChanged_Default_Should_Pass()
+        public void MonsterCreatePage_Strength_OnStepperValueChanged_Default_Should_Pass()
         {
             // Arrange
             var data = new MonsterModel();
@@ -123,7 +123,7 @@ namespace UnitTests.Views
             var args = new ValueChangedEventArgs(oldAttack, newAttack);
 
             // Act
-            page.Attack_OnStepperValueChanged(null, args);
+            page.Strength_OnStepperValueChanged(null, args);
 
             // Reset
 
@@ -154,7 +154,7 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void MonsterCreatePage_Defense_OnStepperDefenseChanged_Default_Should_Pass()
+        public void MonsterCreatePage_Thiccness_OnStepperValueChanged_Default_Should_Pass()
         {
             // Arrange
             var data = new MonsterModel();
@@ -167,7 +167,7 @@ namespace UnitTests.Views
             var args = new ValueChangedEventArgs(oldDefense, newDefense);
 
             // Act
-            page.Defense_OnStepperValueChanged(null, args);
+            page.Thiccness_OnStepperValueChanged(null, args);
 
             // Reset
 
@@ -175,110 +175,110 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
-        [Test]
-        public void MonsterCreatePage_RollDice_Clicked_Default_Should_Pass()
-        {
-            // Arrange
+        //[Test]
+        //public void MonsterCreatePage_RollDice_Clicked_Default_Should_Pass()
+        //{
+        //    // Arrange
 
-            // Act
-            page.RollDice_Clicked(null,null);
+        //    // Act
+        //    page.RollDice_Clicked(null,null);
 
-            // Reset
+        //    // Reset
 
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
+        //    // Assert
+        //    Assert.IsTrue(true); // Got to here, so it happened...
+        //}
 
-        [Test]
-        public void MonsterCreatePage_ClosePopup_Default_Should_Pass()
-        {
-            // Arrange
+        //[Test]
+        //public void MonsterCreatePage_ClosePopup_Default_Should_Pass()
+        //{
+        //    // Arrange
 
-            // Act
-            page.ClosePopup();
+        //    // Act
+        //    page.ClosePopup();
 
-            // Reset
+        //    // Reset
 
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
+        //    // Assert
+        //    Assert.IsTrue(true); // Got to here, so it happened...
+        //}
 
-        [Test]
-        public void MonsterCreatePage_ClosePopup_Clicked_Default_Should_Pass()
-        {
-            // Arrange
+        //[Test]
+        //public void MonsterCreatePage_ClosePopup_Clicked_Default_Should_Pass()
+        //{
+        //    // Arrange
 
-            // Act
-            page.ClosePopup_Clicked(null, null);
+        //    // Act
+        //    page.ClosePopup_Clicked(null, null);
 
-            // Reset
+        //    // Reset
 
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
+        //    // Assert
+        //    Assert.IsTrue(true); // Got to here, so it happened...
+        //}
 
-        [Test]
-        public void MonsterCreatePage_ShowPopup_Default_Should_Pass()
-        {
-            // Arrange
+        //[Test]
+        //public void MonsterCreatePage_ShowPopup_Default_Should_Pass()
+        //{
+        //    // Arrange
 
-            // Act
-            page.ShowPopup(new ItemModel());
+        //    // Act
+        //    page.ShowPopup(new ItemModel());
 
-            // Reset
+        //    // Reset
 
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
+        //    // Assert
+        //    Assert.IsTrue(true); // Got to here, so it happened...
+        //}
 
-        [Test]
-        public void MonsterCreatePage_OnPopupItemSelected_Clicked_Default_Should_Pass()
-        {
-            // Arrange
+        //[Test]
+        //public void MonsterCreatePage_OnPopupItemSelected_Clicked_Default_Should_Pass()
+        //{
+        //    // Arrange
 
-            var data = new ItemModel();
+        //    var data = new ItemModel();
 
-            var selectedMonsterChangedEventArgs = new SelectedItemChangedEventArgs(data, 0);
+        //    var selectedMonsterChangedEventArgs = new SelectedItemChangedEventArgs(data, 0);
 
-            // Act
-            page.OnPopupItemSelected(null, selectedMonsterChangedEventArgs);
+        //    // Act
+        //    page.OnPopupItemSelected(null, selectedMonsterChangedEventArgs);
 
-            // Reset
+        //    // Reset
 
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
+        //    // Assert
+        //    Assert.IsTrue(true); // Got to here, so it happened...
+        //}
 
-        [Test]
-        public void MonsterCreatePage_OnPopupItemSelected_Clicked_Null_Should_Fail()
-        {
-            // Arrange
+        //[Test]
+        //public void MonsterCreatePage_OnPopupItemSelected_Clicked_Null_Should_Fail()
+        //{
+        //    // Arrange
 
-            var selectedMonsterChangedEventArgs = new SelectedItemChangedEventArgs(null, 0);
+        //    var selectedMonsterChangedEventArgs = new SelectedItemChangedEventArgs(null, 0);
 
-            // Act
-            page.OnPopupItemSelected(null, selectedMonsterChangedEventArgs);
+        //    // Act
+        //    page.OnPopupItemSelected(null, selectedMonsterChangedEventArgs);
 
-            // Reset
+        //    // Reset
 
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
+        //    // Assert
+        //    Assert.IsTrue(true); // Got to here, so it happened...
+        //}
 
-        [Test]
-        public void MonsterCreatePage_Item_ShowPopup_Default_Should_Pass()
-        {
-            // Arrange
+        //[Test]
+        //public void MonsterCreatePage_Item_ShowPopup_Default_Should_Pass()
+        //{
+        //    // Arrange
 
-            var item = page.GetItemToDisplay();
+        //    var item = page.GetItemToDisplay();
 
-            // Act
-            var itemButton = item.Children.FirstOrDefault(m => m.GetType().Name.Equals("Button"));
+        //    // Act
+        //    var itemButton = item.Children.FirstOrDefault(m => m.GetType().Name.Equals("Button"));
 
-            // Reset
+        //    // Reset
 
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
+        //    // Assert
+        //    Assert.IsTrue(true); // Got to here, so it happened...
+        //}
     }
 }

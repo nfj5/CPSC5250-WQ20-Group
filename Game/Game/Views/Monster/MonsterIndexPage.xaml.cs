@@ -18,6 +18,9 @@ namespace Game.Views
         // The Monster Index view model
         readonly MonsterIndexViewModel ViewModel;
 
+        // Empty Constructor for UTs
+        public MonsterIndexPage(bool UnitTest) { }
+
         /// <summary>
         /// Constructor for Monster index page
         /// 
@@ -35,7 +38,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void AddMonster_Clicked(object sender, EventArgs e)
+        public async void AddMonster_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new MonsterCreatePage(new ViewModels.GenericViewModel<Models.MonsterModel>())));
             
@@ -46,7 +49,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
+        public async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
             MonsterModel data = args.SelectedItem as MonsterModel;
             if (data == null)

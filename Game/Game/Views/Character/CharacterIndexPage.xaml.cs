@@ -19,6 +19,9 @@ namespace Game.Views
         // The Character Index view model
         readonly CharacterIndexViewModel ViewModel;
 
+        // Empty Constructor for UTs
+        public CharacterIndexPage(bool UnitTest) { }
+
         /// <summary>
         /// Constructor for character index page
         /// 
@@ -37,7 +40,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void AddCharacter_Clicked(object sender, EventArgs e)
+        public async void AddCharacter_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new CharacterCreatePage(new ViewModels.GenericViewModel<Models.CharacterModel>())));
         }
@@ -47,7 +50,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
+        public async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
             CharacterModel data = args.SelectedItem as CharacterModel;
             if (data == null)

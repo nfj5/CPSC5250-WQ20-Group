@@ -83,98 +83,98 @@ namespace UnitTests.Views
         //    Assert.IsTrue(true); // Got to here, so it happened...
         //}
 
-        [Test]
-        public void ScorePage_CreateCharacterBox_Null_Should_Pass()
-        {
-            // Arrange
+        //[Test]
+        //public void ScorePage_CreateCharacterBox_Null_Should_Pass()
+        //{
+        //    // Arrange
 
-            // Act
-            page.CreateCharacterDisplayBox(null);
+        //    // Act
+        //    page.CreateCharacterDisplayBox(null);
 
-            // Reset
+        //    // Reset
 
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
+        //    // Assert
+        //    Assert.IsTrue(true); // Got to here, so it happened...
+        //}
 
-        [Test]
-        public void ScorePage_CreateMonsterBox_Default_Should_Pass()
-        {
-            // Arrange
-            var data = new PlayerInfoModel(new MonsterModel());
+        //[Test]
+        //public void ScorePage_CreateMonsterBox_Default_Should_Pass()
+        //{
+        //    // Arrange
+        //    var data = new PlayerInfoModel(new MonsterModel());
 
-            // Act
-            page.CreateMonsterDisplayBox(data);
+        //    // Act
+        //    page.CreateMonsterDisplayBox(data);
 
-            // Reset
+        //    // Reset
 
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
+        //    // Assert
+        //    Assert.IsTrue(true); // Got to here, so it happened...
+        //}
 
-        [Test]
-        public void ScorePage_CreateMonsterBox_Null_Should_Pass()
-        {
-            // Arrange
+        //[Test]
+        //public void ScorePage_CreateMonsterBox_Null_Should_Pass()
+        //{
+        //    // Arrange
 
-            // Act
-            page.CreateMonsterDisplayBox(null);
+        //    // Act
+        //    page.CreateMonsterDisplayBox(null);
 
-            // Reset
+        //    // Reset
 
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
+        //    // Assert
+        //    Assert.IsTrue(true); // Got to here, so it happened...
+        //}
 
-        [Test]
-        public void ScorePage_CreateItemBox_Default_Should_Pass()
-        {
-            // Arrange
-            var data = new ItemModel();
+        //[Test]
+        //public void ScorePage_CreateItemBox_Default_Should_Pass()
+        //{
+        //    // Arrange
+        //    var data = new ItemModel();
 
-            // Act
-            page.CreateItemDisplayBox(data);
+        //    // Act
+        //    page.CreateItemDisplayBox(data);
 
-            // Reset
+        //    // Reset
 
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
+        //    // Assert
+        //    Assert.IsTrue(true); // Got to here, so it happened...
+        //}
 
-        [Test]
-        public void ScorePage_CreateItemBox_Null_Should_Pass()
-        {
-            // Arrange
+        //[Test]
+        //public void ScorePage_CreateItemBox_Null_Should_Pass()
+        //{
+        //    // Arrange
 
-            // Act
-            page.CreateItemDisplayBox(null);
+        //    // Act
+        //    page.CreateItemDisplayBox(null);
 
-            // Reset
+        //    // Reset
 
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
+        //    // Assert
+        //    Assert.IsTrue(true); // Got to here, so it happened...
+        //}
 
-        [Test]
-        public void ScorePage__Default_Should_Pass()
-        {
-            // Arrange
+        //[Test]
+        //public void ScorePage__Default_Should_Pass()
+        //{
+        //    // Arrange
 
-            BattleEngineViewModel.Instance.Engine.BattleScore.CharacterModelDeathList.Add(new PlayerInfoModel(new CharacterModel()));
+        //    BattleEngineViewModel.Instance.Engine.BattleScore.CharacterModelDeathList.Add(new PlayerInfoModel(new CharacterModel()));
 
-            // Draw the Monsters
-            BattleEngineViewModel.Instance.Engine.BattleScore.MonsterModelDeathList.Add(new PlayerInfoModel(new CharacterModel()));
+        //    // Draw the Monsters
+        //    BattleEngineViewModel.Instance.Engine.BattleScore.MonsterModelDeathList.Add(new PlayerInfoModel(new CharacterModel()));
 
-            // Draw the Items
-            BattleEngineViewModel.Instance.Engine.BattleScore.ItemModelDropList.Add(new ItemModel());
+        //    // Draw the Items
+        //    BattleEngineViewModel.Instance.Engine.BattleScore.ItemModelDropList.Add(new ItemModel());
     
-            // Act
-            page.DrawOutput();
+        //    // Act
+        //    page.DrawOutput();
 
-            // Reset
+        //    // Reset
 
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
+        //    // Assert
+        //    Assert.IsTrue(true); // Got to here, so it happened...
+        //}
     }
 }

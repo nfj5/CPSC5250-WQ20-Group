@@ -12,7 +12,10 @@ namespace Game.Views
     public partial class MonsterReadPage : ContentPage
     {
         // View Model for Monster
-        GenericViewModel<MonsterModel> ViewModel { get; set; }
+        public GenericViewModel<MonsterModel> ViewModel { get; set; }
+
+        // Empty Constructor for UTs
+        public MonsterReadPage(bool UnitTest) { }
 
         /// <summary>
         /// Constructor for MonsterReadPage
@@ -34,7 +37,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void Update_Clicked(object sender, EventArgs e)
+        public async void Update_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new MonsterUpdatePage(new GenericViewModel<MonsterModel>(ViewModel.Data))));
             await Navigation.PopAsync();
@@ -45,7 +48,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void Delete_Clicked(object sender, EventArgs e)
+        public async void Delete_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new MonsterDeletePage(new GenericViewModel<MonsterModel>(ViewModel.Data))));
             await Navigation.PopAsync();

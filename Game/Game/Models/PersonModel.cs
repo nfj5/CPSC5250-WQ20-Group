@@ -26,7 +26,7 @@ namespace Game.Models
         // To denote which kind of Person this model is being used as
         public PersonTypeEnum PersonType { get; set; }
 
-        // Where the Item goes on the character.  Head, Foot etc.
+        // The postion the person holds, qb, rb, wr.
         public PersonJobEnum PersonJob { get; set; } = PersonJobEnum.Unknown;
 
         // The amount of experience that the Person has

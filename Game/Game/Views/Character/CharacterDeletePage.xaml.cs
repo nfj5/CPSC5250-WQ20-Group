@@ -20,6 +20,9 @@ namespace Game.Views
         // View Model for Character
         GenericViewModel<CharacterModel> ViewModel;
 
+        // Empty Constructor for UTs
+        public CharacterDeletePage(bool UnitTest) { }
+
         /// <summary>
         /// Constructor for Delete by taking a view model of character to delete
         /// </summary>
@@ -38,7 +41,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void Delete_Clicked(object sender, EventArgs e)
+        public async void Delete_Clicked(object sender, EventArgs e)
         {
             MessagingCenter.Send(this, "Delete", ViewModel.Data);
             await Navigation.PopModalAsync();
@@ -49,7 +52,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void Cancel_Clicked(object sender, EventArgs e)
+        public async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
         }

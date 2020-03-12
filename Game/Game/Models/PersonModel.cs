@@ -62,8 +62,6 @@ namespace Game.Models
         public int TrainingPoints { get; set; } = 0; // Points used to upgrade speed, strength, hit_points, stamina.
         new public string ImageURI { get; set; } = CharacterService.DefaultImageURI; // The image to use for this Person
 
-        public int NumItems { get; set; } = 0; // Keep track of how many items the Character is currently holding
-
         // Strings to hold the GUID of each item for each slot
         public string Head { get; set; } = null;
         public string Necklass { get; set; } = null;
@@ -79,124 +77,37 @@ namespace Game.Models
         //Public methods
 
         /// <summary>
-        /// Have the Person drop the item at the corresponding inventory index if it exists
-        /// </summary>
-        /// <param name="index"></param>
-        /// <returns></returns>
-        public ItemModel RemoveItem(int index)
-        {
-            ItemModel item = GetItem(index);
-
-            if (item == null)
-            {
-                return null;
-            }
-
-            switch (index)
-            {
-                case 1:
-                    Head = null;
-                    break;
-                case 2:
-                    Necklass = null;
-                    break;
-                case 3:
-                    PrimaryHand = null;
-                    break;
-                case 4:
-                    OffHand = null;
-                    break;
-                case 5:
-                    Finger = null;
-                    break;
-                case 6:
-                    Feet = null;
-                    break;
-            }
-
-            NumItems--;
-            return item;
-        }
-        /// <summary>
         /// Add the ItemModel to the Person's inventory if they are at not carrying capacity
         /// </summary>
         /// <param name="toAdd"></param>
         /// <returns></returns>
         public bool AddItem(ItemModel toAdd)
         {
-            if (NumItems == MAX_ITEMS)
+            switch (toAdd.Location)
             {
-                return false;
-            }
-
-            switch (NumItems + 1)
-            {
-                case 1:
+                case ItemLocationEnum.Head:
                     Head = toAdd.Id;
                     break;
-                case 2:
+                case ItemLocationEnum.Necklass:
                     Necklass = toAdd.Id;
                     break;
-                case 3:
+                case ItemLocationEnum.PrimaryHand:
                     PrimaryHand = toAdd.Id;
                     break;
-                case 4:
+                case ItemLocationEnum.OffHand:
                     OffHand = toAdd.Id;
                     break;
-                case 5:
+                case ItemLocationEnum.Finger:
                     Finger = toAdd.Id;
                     break;
-                case 6:
+                case ItemLocationEnum.Feet:
                     Feet = toAdd.Id;
                     break;
             }
 
-            NumItems++;
             return true;
         }
 
-        /// <summary>
-        /// Get the ItemModel for the item at the given index
-        /// </summary>
-        /// <param name="index"></param>
-        /// <returns></returns>
-        public ItemModel GetItem(int index)
-        {
-            if (NumItems < index || index < 1)
-            {
-                return null;
-            }
-
-            string item = null;
-            switch (index)
-            {
-                case 1:
-                    item = Head;
-                    break;
-                case 2:
-                    item = Necklass;
-                    break;
-                case 3:
-                    item = PrimaryHand;
-                    break;
-                case 4:
-                    item = OffHand;
-                    break;
-                case 5:
-                    item = Finger;
-                    break;
-                case 6:
-                    item = Feet;
-                    break;
-            }
-
-            if (item == null)
-            {
-                return null;
-            }
-
-            return ItemIndexViewModel.Instance.GetItem(item);
-        }
         /// <summary>
         /// Check if the SuperstarAbility is on cooldown and applies modifiers if not on cooldown
         /// </summary>
@@ -466,30 +377,35 @@ namespace Game.Models
         /// <returns></returns>
         public ItemModel GetItemByLocation(ItemLocationEnum itemLocation)
         {
+            string item = null;
             switch (itemLocation)
             {
                 case ItemLocationEnum.Head:
-                    return GetItem(1);
-
+                    item = Head;
+                    break;
                 case ItemLocationEnum.Necklass:
-                    return GetItem(2);
-
+                    item = Necklass;
+                    break;
                 case ItemLocationEnum.PrimaryHand:
-                    return GetItem(3);
-
+                    item = PrimaryHand;
+                    break;
                 case ItemLocationEnum.OffHand:
-                    return GetItem(4);
-
+                    item = OffHand;
+                    break;
                 case ItemLocationEnum.Finger:
-                    return GetItem(5);
-
+                    item = Finger;
+                    break;
                 case ItemLocationEnum.Feet:
-                    return GetItem(6);
-
-                
+                    item = Feet;
+                    break;
             }
 
-            return null;
+            if (item == null)
+            {
+                return null;
+            }
+
+            return ItemIndexViewModel.Instance.GetItem(item);
         }
     }
 

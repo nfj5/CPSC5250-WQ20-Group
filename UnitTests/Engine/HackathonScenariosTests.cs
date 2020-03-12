@@ -748,12 +748,17 @@ namespace Scenario
 
             BattleEngine.MonsterList.Add(MonsterPlayer);
 
+            DiceHelper.EnableForcedRolls();
+            DiceHelper.SetForcedRandomValue(18);
+
             //Act
             BattleEngine.TurnAsAttack(CharacterPlayer, MonsterPlayer);
 
             //Reset
             SettingsHelper.RentalInsuranceEnabled = false;
             SettingsHelper.RENTAL_INSURANCE_TEST = 0.8f;
+
+            DiceHelper.DisableForcedRolls();
 
             //Assert
             Assert.AreEqual(true, CharacterPlayer.ItemOne == null);

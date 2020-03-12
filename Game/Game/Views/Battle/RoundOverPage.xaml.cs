@@ -17,7 +17,7 @@ namespace Game.Views
 		{
 			InitializeComponent ();
 		}
-		async void LockerRoom_Clicked(object sender, EventArgs e)
+		public async void LockerRoom_Clicked(object sender, EventArgs e)
 		{
 			await Navigation.PushAsync(new LockerRoomPage());
 		}
@@ -28,7 +28,7 @@ namespace Game.Views
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		async void NextButton_Clicked(object sender, EventArgs e)
+		public async void NextButton_Clicked(object sender, EventArgs e)
 		{
 			await Navigation.PopAsync();
 		}

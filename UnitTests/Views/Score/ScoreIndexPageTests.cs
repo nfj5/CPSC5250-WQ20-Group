@@ -53,12 +53,12 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void ScoreIndexPage_AddScore_Clicked_Default_Should_Pass()
+        public void ScoreIndexPage_AddItem_Clicked_Default_Should_Pass()
         {
             // Arrange
 
             // Act
-            page.AddScore_Clicked(null, null);
+            page.AddItem_Clicked(null, null);
 
             // Reset
 

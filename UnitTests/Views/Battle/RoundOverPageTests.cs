@@ -56,11 +56,24 @@ namespace UnitTests.Views
         }
 
         [Test]
+        public void RoundOverPage_LockerRoom_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+            // Act
+            page.LockerRoom_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
         public void RoundOverPage_NextButton_Clicked_Default_Should_Pass()
         {
             // Arrange
             // Act
-            page.CloseButton_Clicked(null, null);
+            page.NextButton_Clicked(null, null);
 
             // Reset
 
@@ -68,182 +81,169 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
-        [Test]
-        public void RoundOverPage_AutoAssignButton_Clicked_Default_Should_Pass()
-        {
-            // Arrange
-            // Act
-            page.AutoAssignButton_Clicked(null, null);
+        //[Test]
+        //public void RoundOverPage_ClosePopup_Clicked_Default_Should_Pass()
+        //{
+        //    // Arrange
+        //    // Act
+        //    page.ClosePopup_Clicked(null, null);
 
-            // Reset
+        //    // Reset
 
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
+        //    // Assert
+        //    Assert.IsTrue(true); // Got to here, so it happened...
+        //}
 
-        [Test]
-        public void RoundOverPage_ClosePopup_Clicked_Default_Should_Pass()
-        {
-            // Arrange
-            // Act
-            page.ClosePopup_Clicked(null, null);
+        //[Test]
+        //public void RoundOverPage_ShowPopup_Default_Should_Pass()
+        //{
+        //    // Arrange
+        //    // Act
+        //    page.ShowPopup(new ItemModel());
 
-            // Reset
+        //    // Reset
 
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
+        //    // Assert
+        //    Assert.IsTrue(true); // Got to here, so it happened...
+        //}
 
-        [Test]
-        public void RoundOverPage_ShowPopup_Default_Should_Pass()
-        {
-            // Arrange
-            // Act
-            page.ShowPopup(new ItemModel());
+        //[Test]
+        //public void RoundOverPage_CreatePlayerDisplayBox_Null_Should_Pass()
+        //{
+        //    // Arrange
+        //    // Act
+        //    page.CreatePlayerDisplayBox(null);
 
-            // Reset
+        //    // Reset
 
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
+        //    // Assert
+        //    Assert.IsTrue(true); // Got to here, so it happened...
+        //}
 
-        [Test]
-        public void RoundOverPage_CreatePlayerDisplayBox_Null_Should_Pass()
-        {
-            // Arrange
-            // Act
-            page.CreatePlayerDisplayBox(null);
+        //[Test]
+        //public void RoundOverPage_GetItemToDisplay_Null_Should_Pass()
+        //{
+        //    // Arrange
+        //    // Act
+        //    page.GetItemToDisplay(null);
 
-            // Reset
+        //    // Reset
 
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
+        //    // Assert
+        //    Assert.IsTrue(true); // Got to here, so it happened...
+        //}
 
-        [Test]
-        public void RoundOverPage_GetItemToDisplay_Null_Should_Pass()
-        {
-            // Arrange
-            // Act
-            page.GetItemToDisplay(null);
+        //[Test]
+        //public void RoundOverPage_GetItemToDisplay_InValid_Id_Should_Pass()
+        //{
+        //    // Arrange
+        //    // Act
+        //    page.GetItemToDisplay(new ItemModel { Id = "" });
 
-            // Reset
+        //    // Reset
 
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
+        //    // Assert
+        //    Assert.IsTrue(true); // Got to here, so it happened...
+        //}
 
-        [Test]
-        public void RoundOverPage_GetItemToDisplay_InValid_Id_Should_Pass()
-        {
-            // Arrange
-            // Act
-            page.GetItemToDisplay(new ItemModel { Id = "" });
+        //[Test]
+        //public async Task RoundOverPage_GetItemToDisplay_Valid_Should_Pass()
+        //{
+        //    // Arrange
+        //    var data = new ItemModel { Name = "Mike" };
+        //    await ItemIndexViewModel.Instance.CreateAsync(data);
 
-            // Reset
+        //    // Act
+        //    page.GetItemToDisplay(data);
 
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
+        //    // Reset
 
-        [Test]
-        public async Task RoundOverPage_GetItemToDisplay_Valid_Should_Pass()
-        {
-            // Arrange
-            var data = new ItemModel { Name = "Mike" };
-            await ItemIndexViewModel.Instance.CreateAsync(data);
+        //    // Assert
+        //    Assert.IsTrue(true); // Got to here, so it happened...
+        //}
 
-            // Act
-            page.GetItemToDisplay(data);
+        //[Test]
+        //public void RoundOverPage_DrawCharacterList_Valid_Should_Pass()
+        //{
+        //    // Arrange
 
-            // Reset
+        //    BattleEngineViewModel.Instance.Engine.BattleScore.CharacterModelDeathList.Add(new PlayerInfoModel(new CharacterModel()));
 
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
+        //    // Draw the Monsters
+        //    BattleEngineViewModel.Instance.Engine.BattleScore.MonsterModelDeathList.Add(new PlayerInfoModel(new CharacterModel()));
 
-        [Test]
-        public void RoundOverPage_DrawCharacterList_Valid_Should_Pass()
-        {
-            // Arrange
+        //    // Do it two times
+        //    page.DrawCharacterList();
 
-            BattleEngineViewModel.Instance.Engine.BattleScore.CharacterModelDeathList.Add(new PlayerInfoModel(new CharacterModel()));
+        //    // Act
+        //    page.DrawCharacterList();
 
-            // Draw the Monsters
-            BattleEngineViewModel.Instance.Engine.BattleScore.MonsterModelDeathList.Add(new PlayerInfoModel(new CharacterModel()));
+        //    // Reset
 
-            // Do it two times
-            page.DrawCharacterList();
+        //    // Assert
+        //    Assert.IsTrue(true); // Got to here, so it happened...
+        //}
 
-            // Act
-            page.DrawCharacterList();
+        //[Test]
+        //public void RoundOverPage_DrawDroppedItems_Valid_Should_Pass()
+        //{
+        //    // Arrange
 
-            // Reset
+        //    // Draw the Items
+        //    BattleEngineViewModel.Instance.Engine.BattleScore.ItemModelDropList.Add(new ItemModel());
 
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
+        //    // Draw two times
+        //    page.DrawDroppedItems();
 
-        [Test]
-        public void RoundOverPage_DrawDroppedItems_Valid_Should_Pass()
-        {
-            // Arrange
+        //    // Act
+        //    page.DrawDroppedItems();
 
-            // Draw the Items
-            BattleEngineViewModel.Instance.Engine.BattleScore.ItemModelDropList.Add(new ItemModel());
+        //    // Reset
 
-            // Draw two times
-            page.DrawDroppedItems();
+        //    // Assert
+        //    Assert.IsTrue(true); // Got to here, so it happened...
+        //}
 
-            // Act
-            page.DrawDroppedItems();
+        //[Test]
+        //public void RoundOverPage_DrawItemLists_Valid_Should_Pass()
+        //{
+        //    // Arrange
 
-            // Reset
+        //    // Draw the Items
+        //    BattleEngineViewModel.Instance.Engine.BattleScore.ItemModelDropList.Add(new ItemModel());
+        //    BattleEngineViewModel.Instance.Engine.BattleScore.ItemModelSelectList.Add(new ItemModel());
 
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
+        //    // Draw two times
+        //    page.DrawItemLists();
 
-        [Test]
-        public void RoundOverPage_DrawItemLists_Valid_Should_Pass()
-        {
-            // Arrange
+        //    // Act
+        //    page.DrawItemLists();
 
-            // Draw the Items
-            BattleEngineViewModel.Instance.Engine.BattleScore.ItemModelDropList.Add(new ItemModel());
-            BattleEngineViewModel.Instance.Engine.BattleScore.ItemModelSelectList.Add(new ItemModel());
+        //    // Reset
 
-            // Draw two times
-            page.DrawItemLists();
+        //    // Assert
+        //    Assert.IsTrue(true); // Got to here, so it happened...
+        //}
 
-            // Act
-            page.DrawItemLists();
+        //[Test]
+        //public void RoundOverPage_DrawSelectedItems_Valid_Should_Pass()
+        //{
+        //    // Arrange
 
-            // Reset
+        //    // Draw the Items
+        //    BattleEngineViewModel.Instance.Engine.BattleScore.ItemModelDropList.Add(new ItemModel());
+        //    BattleEngineViewModel.Instance.Engine.BattleScore.ItemModelSelectList.Add(new ItemModel());
 
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
+        //    // Draw two times
+        //    page.DrawSelectedItems();
 
-        [Test]
-        public void RoundOverPage_DrawSelectedItems_Valid_Should_Pass()
-        {
-            // Arrange
+        //    // Act
+        //    page.DrawSelectedItems();
 
-            // Draw the Items
-            BattleEngineViewModel.Instance.Engine.BattleScore.ItemModelDropList.Add(new ItemModel());
-            BattleEngineViewModel.Instance.Engine.BattleScore.ItemModelSelectList.Add(new ItemModel());
+        //    // Reset
 
-            // Draw two times
-            page.DrawSelectedItems();
-
-            // Act
-            page.DrawSelectedItems();
-
-            // Reset
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
+        //    // Assert
+        //    Assert.IsTrue(true); // Got to here, so it happened...
+        //}
     }
 }

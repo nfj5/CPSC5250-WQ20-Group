@@ -68,50 +68,50 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
-        [Test]
-        public void NewRoundPage_CreatePlayerDisplayBox_Valid_Should_Pass()
-        {
-            // Arrange
-            // Act
-            var result = page.CreatePlayerDisplayBox(new PlayerInfoModel(new CharacterModel { Name="test"}));
+        //[Test]
+        //public void NewRoundPage_CreatePlayerDisplayBox_Valid_Should_Pass()
+        //{
+        //    // Arrange
+        //    // Act
+        //    var result = page.CreatePlayerDisplayBox(new PlayerInfoModel(new CharacterModel { Name="test"}));
 
-            // Reset
+        //    // Reset
 
-            // Assert
-            Assert.IsNotNull(result); // Got to here, so it happened...
-        }
+        //    // Assert
+        //    Assert.IsNotNull(result); // Got to here, so it happened...
+        //}
 
-        [Test]
-        public void NewRoundPage_CreatePlayerDisplayBox_Null_Should_Pass()
-        {
-            // Arrange
-            // Act
-            var result = page.CreatePlayerDisplayBox(null);
+        //[Test]
+        //public void NewRoundPage_CreatePlayerDisplayBox_Null_Should_Pass()
+        //{
+        //    // Arrange
+        //    // Act
+        //    var result = page.CreatePlayerDisplayBox(null);
 
-            // Reset
+        //    // Reset
 
-            // Assert
-            Assert.IsNotNull(result); // Got to here, so it happened...
-        }
+        //    // Assert
+        //    Assert.IsNotNull(result); // Got to here, so it happened...
+        //}
 
-        [Test]
-        public void NewRoundPage_NewRoundPage_CharacterList_MonsterList_Should_Pass()
-        {
-            // Arrange
-            // Act
+        //[Test]
+        //public void NewRoundPage_NewRoundPage_CharacterList_MonsterList_Should_Pass()
+        //{
+        //    // Arrange
+        //    // Act
 
-            BattleEngineViewModel.Instance.Engine.CharacterList = new List<PlayerInfoModel>();
-            BattleEngineViewModel.Instance.Engine.CharacterList.Add(new PlayerInfoModel(new CharacterModel()));
+        //    BattleEngineViewModel.Instance.Engine.CharacterList = new List<PlayerInfoModel>();
+        //    BattleEngineViewModel.Instance.Engine.CharacterList.Add(new PlayerInfoModel(new CharacterModel()));
 
-            BattleEngineViewModel.Instance.Engine.MonsterList = new List<PlayerInfoModel>();
-            BattleEngineViewModel.Instance.Engine.MonsterList.Add(new PlayerInfoModel(new MonsterModel()));
+        //    BattleEngineViewModel.Instance.Engine.MonsterList = new List<PlayerInfoModel>();
+        //    BattleEngineViewModel.Instance.Engine.MonsterList.Add(new PlayerInfoModel(new MonsterModel()));
 
-            var result = new NewRoundPage();
+        //    var result = new NewRoundPage();
 
-            // Reset
+        //    // Reset
 
-            // Assert
-            Assert.IsNotNull(result); // Got to here, so it happened...
-        }
+        //    // Assert
+        //    Assert.IsNotNull(result); // Got to here, so it happened...
+        //}
     }
 }

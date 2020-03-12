@@ -24,7 +24,7 @@ namespace Game.Views
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		async void BeginButton_Clicked(object sender, EventArgs e)
+		public async void BeginButton_Clicked(object sender, EventArgs e)
 		{
 			// TODO pass in information for the battle
 			await Navigation.PushModalAsync(new NavigationPage(new BattlePage()));
@@ -35,7 +35,7 @@ namespace Game.Views
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		async void LevelUp_clicked(object sender, EventArgs e)
+		public async void LevelUp_clicked(object sender, EventArgs e)
 		{
 			await Navigation.PushModalAsync(new NavigationPage(new LevelUpPage()));
 		}
@@ -45,7 +45,7 @@ namespace Game.Views
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		async void RoundOver_clicked(object sender, EventArgs e)
+		public async void RoundOver_clicked(object sender, EventArgs e)
 		{
 			// TODO pass in information for the battle
 			await Navigation.PushModalAsync(new NavigationPage(new RoundOverPage()));

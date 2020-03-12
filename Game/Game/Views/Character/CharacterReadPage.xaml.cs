@@ -19,7 +19,10 @@ namespace Game.Views
     {
         // View Model for Character
         GenericViewModel<CharacterModel> ViewModel { get; set; }
-        
+
+        // Empty Constructor for UTs
+        public CharacterReadPage(bool UnitTest) { }
+
         /// <summary>
         /// Constructor for CharacterReadPage
         /// 
@@ -39,7 +42,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void Update_Clicked(object sender, EventArgs e)
+        public async void Update_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new CharacterUpdatePage(new GenericViewModel<CharacterModel>(ViewModel.Data))));
             await Navigation.PopAsync();
@@ -50,7 +53,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void Delete_Clicked(object sender, EventArgs e)
+        public async void Delete_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new CharacterDeletePage(new GenericViewModel<CharacterModel>(ViewModel.Data))));
             await Navigation.PopAsync();

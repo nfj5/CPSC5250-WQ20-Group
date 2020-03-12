@@ -47,7 +47,7 @@ namespace Game.Engine
         public int MaxNumberPartyMonsters = 6;
 
         // To keep track of Player and Item locations
-        public GameBoardModel GameBoard = new GameBoardModel();
+        //public GameBoardModel GameBoard = new GameBoardModel();
 
         #endregion Properties
     }

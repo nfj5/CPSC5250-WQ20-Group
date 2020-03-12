@@ -57,19 +57,19 @@ namespace Game.Engine
                 if (closestItem[0] != Int32.MaxValue && closestItem[1] != Int32.MaxValue)
                 {
                     // Move towards the Item, conserving 3 stamina for the attack
-                    Attacker.CurrentStamina = MoveTowards(Attacker, closestItem, 3, GameBoard.GetItem(closestItem[0], closestItem[1]).Name);
+                    Attacker.CurrentStamina = MoveTowards(Attacker, closestItem, 3, GameBoardModel.GetItem(closestItem[0], closestItem[1]).Name);
                 }
 
-                int[] PlayerLocation = GameBoard.GetPlayerLocation(Attacker);
+                int[] PlayerLocation = GameBoardModel.GetPlayerLocation(Attacker);
 
                 int[] newestClosest = GetClosestItem(Attacker);
                 if (newestClosest[0] != Int32.MaxValue && newestClosest[1] != Int32.MaxValue &&
                     GameBoardHelper.Distance(newestClosest[0], newestClosest[1], PlayerLocation[0], PlayerLocation[1]) <= 1)
                 {
-                    ItemModel temp = GameBoard.ItemLocations[newestClosest[0], newestClosest[1]];
+                    ItemModel temp = GameBoardModel.ItemLocations[newestClosest[0], newestClosest[1]];
                     Attacker.Head = temp.Id;
                     Debug.WriteLine(Attacker.Name + " picked up " + temp.Name);
-                    GameBoard.ItemLocations[newestClosest[0], newestClosest[1]] = null;
+                    GameBoardModel.ItemLocations[newestClosest[0], newestClosest[1]] = null;
                 }
             }
 
@@ -85,7 +85,7 @@ namespace Game.Engine
                     return attacks;
                 }
 
-                Attacker.CurrentStamina = MoveTowards(Attacker, TargetLocation, 0, GameBoard.GetPlayer(TargetLocation[0], TargetLocation[1]).Name);
+                Attacker.CurrentStamina = MoveTowards(Attacker, TargetLocation, 0, GameBoardModel.GetPlayer(TargetLocation[0], TargetLocation[1]).Name);
             }
 
             BattleScore.TurnCount++;
@@ -100,7 +100,7 @@ namespace Game.Engine
         /// <returns></returns>
         public int[] GetClosestItem(PlayerInfoModel player)
         {
-            int[] PlayerLocation = GameBoard.GetPlayerLocation(player);
+            int[] PlayerLocation = GameBoardModel.GetPlayerLocation(player);
             int[] location = { Int32.MaxValue, Int32.MaxValue };
 
             // Get closest Character
@@ -109,7 +109,7 @@ namespace Game.Engine
             {
                 for (int y = 0; y < GameBoardModel.Size; ++y)
                 {
-                    if (GameBoard.ItemLocations[x, y] != null)
+                    if (GameBoardModel.ItemLocations[x, y] != null)
                     {
                         int distance = GameBoardHelper.Distance(x, y, PlayerLocation[0], PlayerLocation[1]);
                         if (distance < closestDistance)
@@ -133,7 +133,7 @@ namespace Game.Engine
         /// <returns></returns>
         public int MoveTowards(PlayerInfoModel player, int[] location, int StaminaToConserve, string label)
         {
-            int[] PlayerLocation = GameBoard.GetPlayerLocation(player);
+            int[] PlayerLocation = GameBoardModel.GetPlayerLocation(player);
             int Distance = GameBoardHelper.Distance(location[0], location[1], PlayerLocation[0], PlayerLocation[1]);
 
             Debug.WriteLine("Distance " + Distance);
@@ -165,8 +165,8 @@ namespace Game.Engine
             }
 
             // Perform the GameBoard updates
-            GameBoard.PlayerLocations[PlayerLocation[0], PlayerLocation[1]] = null;
-            GameBoard.PlayerLocations[newX, newY] = player;
+            GameBoardModel.PlayerLocations[PlayerLocation[0], PlayerLocation[1]] = null;
+            GameBoardModel.PlayerLocations[newX, newY] = player;
 
             Debug.WriteLine(player.Name + " moved towards \"" + label + "\" (" + location[0] + ", " + location[1] + ")");
 
@@ -198,7 +198,7 @@ namespace Game.Engine
                 return false;
             }
 
-            int[] attackerLocation = GameBoard.GetPlayerLocation(Attacker);
+            int[] attackerLocation = GameBoardModel.GetPlayerLocation(Attacker);
             int Distance = GameBoardHelper.Distance(attackerLocation[0], attackerLocation[1], TargetLocation[0], TargetLocation[1]);
 
             int AttackRange = 1;
@@ -213,7 +213,7 @@ namespace Game.Engine
             }
 
             // Do Attack
-            PlayerInfoModel TargetModel = GameBoard.GetPlayer(TargetLocation[0], TargetLocation[1]);
+            PlayerInfoModel TargetModel = GameBoardModel.GetPlayer(TargetLocation[0], TargetLocation[1]);
             TurnAsAttack(Attacker, TargetModel);
 
             CurrentAttacker = new PlayerInfoModel(Attacker);
@@ -269,7 +269,7 @@ namespace Game.Engine
         /// <returns></returns>
         public int[] SelectCharacterToAttack(PlayerInfoModel currentMonster)
         {
-            int[] monsterLocation = GameBoard.GetPlayerLocation(currentMonster);
+            int[] monsterLocation = GameBoardModel.GetPlayerLocation(currentMonster);
             int[] closestLocation = { Int32.MaxValue, Int32.MaxValue };
 
             if (CharacterList == null)
@@ -288,8 +288,8 @@ namespace Game.Engine
             {
                 for (int y = 0; y < GameBoardModel.Size; ++y)
                 {
-                    if (GameBoard.PlayerLocations[x,y] != null &&
-                        GameBoard.PlayerLocations[x,y].PersonType == PersonTypeEnum.Character)
+                    if (GameBoardModel.PlayerLocations[x,y] != null &&
+                        GameBoardModel.PlayerLocations[x,y].PersonType == PersonTypeEnum.Character)
                     {
 
                         int distance = GameBoardHelper.Distance(x, y, monsterLocation[0], monsterLocation[1]);
@@ -311,7 +311,7 @@ namespace Game.Engine
         /// <returns></returns>
         public int[] SelectMonsterToAttack(PlayerInfoModel currentPlayer)
         {
-            int[] characterLocation = GameBoard.GetPlayerLocation(currentPlayer);
+            int[] characterLocation = GameBoardModel.GetPlayerLocation(currentPlayer);
             int[] closestLocation = { Int32.MaxValue, Int32.MaxValue };
 
             if (MonsterList == null)
@@ -330,8 +330,8 @@ namespace Game.Engine
             {
                 for (int y = 0; y < GameBoardModel.Size; ++y)
                 {
-                    if (GameBoard.PlayerLocations[x, y] != null &&
-                        GameBoard.PlayerLocations[x, y].PersonType == PersonTypeEnum.Monster)
+                    if (GameBoardModel.PlayerLocations[x, y] != null &&
+                        GameBoardModel.PlayerLocations[x, y].PersonType == PersonTypeEnum.Monster)
                     {
 
                         int distance = GameBoardHelper.Distance(x, y, characterLocation[0], characterLocation[1]);
@@ -568,8 +568,8 @@ namespace Game.Engine
                 case PersonTypeEnum.Character:
                     CharacterList.Remove(Target);
 
-                    int[] CharacterLocation = GameBoard.GetPlayerLocation(Target);
-                    GameBoard.PlayerLocations[CharacterLocation[0], CharacterLocation[1]] = null;
+                    int[] CharacterLocation = GameBoardModel.GetPlayerLocation(Target);
+                    GameBoardModel.PlayerLocations[CharacterLocation[0], CharacterLocation[1]] = null;
 
                     // Add the MonsterModel to the killed list
                     BattleScore.CharacterAtDeathList += Target.FormatOutput() + "\n";

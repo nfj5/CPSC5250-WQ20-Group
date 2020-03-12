@@ -2,6 +2,8 @@
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Game.Engine;
+using Game.Models;
 
 namespace Game.Views
 {
@@ -92,5 +94,26 @@ namespace Game.Views
 				await Navigation.PopModalAsync();
 			}
 		}
+
+        async void LocationClicked(object sender, EventArgs e)
+        {
+			Image clicked = (Image) sender;
+			int row = Grid.GetRow(clicked);
+			int column = Grid.GetColumn(clicked);
+
+            //Checks if the row column that was clicked has a Character type person.
+            if (GameBoardModel.isPlayer(row, column))
+            {
+                //Assigns character type person to player to pass to UpdateInventory
+				PlayerInfoModel player = GameBoardModel.GetPlayer(row, column);
+				UpdateInventory(player);
+            }
+
+		}
+
+        async void UpdateInventory(PlayerInfoModel player)
+        {
+
+        }
 	}
 }

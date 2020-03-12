@@ -118,7 +118,7 @@
                                Source="icon_add.png"
                                Grid.Row="0" Grid.Column="0"
                                WidthRequest="50" HeightRequest="50"/>
-                        <Image x:Name="InventoryNeckless"
+                        <Image x:Name="InventoryNecklass"
                                Source="icon_add.png"
                                Grid.Row="0" Grid.Column="1"
                                WidthRequest="50" HeightRequest="50"/>
@@ -126,7 +126,7 @@
                                Source="icon_add.png"
                                Grid.Row="0" Grid.Column="2"
                                WidthRequest="50" HeightRequest="50"/>
-                        <Image x:Name="OffHand"
+                        <Image x:Name="InventoryOffHand"
                                Source="icon_add.png"
                                Grid.Row="0" Grid.Column="3"
                                WidthRequest="50" HeightRequest="50"/>

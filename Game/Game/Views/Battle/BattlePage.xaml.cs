@@ -113,6 +113,9 @@ namespace Game.Views
 
 		public async void UpdateInventory(PlayerInfoModel player)
         {
+            //Loop through player items and check if they are null
+            //If null set image to "icon_add.png"
+            //If not set to image name
 
         }
 	}

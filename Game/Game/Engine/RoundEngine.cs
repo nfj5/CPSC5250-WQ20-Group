@@ -21,7 +21,7 @@ namespace Game.Engine
         /// <returns></returns>
         private bool ClearLists()
         {
-            GameBoard.Wipe();
+            GameBoardModel.Wipe();
             ItemPool.Clear();
             MonsterList.Clear();
             return true;
@@ -80,7 +80,7 @@ namespace Game.Engine
             int x = 0, y = 5;
             foreach(PlayerInfoModel character in CharacterList)
             {
-                GameBoard.Place(character, x, y);
+                GameBoardModel.Place(character, x, y);
                 Debug.WriteLine("[Character] Placed " + character.Name + " at (" + x + ", " + y + ")");
                 x++;
             }
@@ -89,7 +89,7 @@ namespace Game.Engine
             x = 0; y = 0; 
             foreach(PlayerInfoModel monster in MonsterList)
             {
-                GameBoard.Place(monster, x, y);
+                GameBoardModel.Place(monster, x, y);
                 Debug.WriteLine("[Monster] Placed " + monster.Name + " at (" + x + ", " + y + ")");
                 y++;
             }
@@ -101,7 +101,7 @@ namespace Game.Engine
                 y = DiceHelper.RollDice(1, 5);
 
                 var item = ItemHelper.GetRandomItem();
-                if (!GameBoard.Place(item, x, y))
+                if (!GameBoardModel.Place(item, x, y))
                 {
                     --i;
                 }

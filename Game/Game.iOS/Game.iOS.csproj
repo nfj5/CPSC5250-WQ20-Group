@@ -249,4 +249,28 @@
   <ItemGroup>
     <BundleResource Include="Resources\autobattle.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\footballer_char1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\footballer_char2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\footballer_char4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\footballer_monster1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\footballer_monster2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\footballer_monster3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\footballer_monster4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\footballer_char3.png" />
+  </ItemGroup>
 </Project>

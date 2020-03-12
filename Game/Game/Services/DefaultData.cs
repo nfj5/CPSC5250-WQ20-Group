@@ -70,7 +70,7 @@ namespace Game.Services
                 {
                     Name = "Bob Jones",
                     Nickname = "BJ",
-                    ImageURI = "football_charcter.png",
+                    ImageURI = "footballer_char4.png",
                     BaseSpeed = 9,
                     BaseHitPoints = 9,
                     BaseStamina = 7,
@@ -83,7 +83,7 @@ namespace Game.Services
                 {
                     Name = "Adam Jones",
                     Nickname = "AJ",
-                    ImageURI = "football_charcter.png",
+                    ImageURI = "footballer_char1.png",
                     Level = 1,
                     BaseSpeed = 1,
                     BaseStamina = 7,
@@ -97,7 +97,7 @@ namespace Game.Services
                 {
                     Name = "Derick Jones",
                     Nickname = "DJ",
-                    ImageURI = "football_charcter.png",
+                    ImageURI = "footballer_char2.png",
                     Level = 2,
                     BaseSpeed = 5,
                     BaseHitPoints = 5,
@@ -111,7 +111,7 @@ namespace Game.Services
                 {
                     Name = "Aaron Jones",
                     Nickname = "AJ",
-                    ImageURI = "football_charcter.png",
+                    ImageURI = "footballer_char3.png",
                     Level = 1,
                     BaseSpeed = 4,
                     BaseHitPoints = 9,
@@ -125,7 +125,7 @@ namespace Game.Services
                 {
                     Name = "Sam Jones",
                     Nickname = "SJ",
-                    ImageURI = "football_charcter.png",
+                    ImageURI = "footballer_char4.png",
                     Level = 1,
                     BaseSpeed = 5,
                     BaseStamina = 7,
@@ -139,7 +139,7 @@ namespace Game.Services
                 {
                     Name = "Kane Jones",
                     Nickname = "KJ",
-                    ImageURI = "football_charcter.png",
+                    ImageURI = "footballer_char3.png",
                     Level = 2,
                     BaseSpeed = 6,
                     BaseHitPoints = 5,
@@ -167,7 +167,7 @@ namespace Game.Services
                 {
                     Name = "Bob Jones",
                     Nickname = "BJ",
-                    ImageURI = "football_monster.png",
+                    ImageURI = "footballer_monster1.png",
                     Level = 2,
                     BaseSpeed = 2,
                     BaseHitPoints = 1,
@@ -180,7 +180,7 @@ namespace Game.Services
                 {
                     Name = "Adam Jones",
                     Nickname = "AJ",
-                    ImageURI = "football_monster.png",
+                    ImageURI = "footballer_monster2.png",
                     Level = 2,
                     BaseSpeed = 3,
                     BaseStamina = 10,
@@ -193,7 +193,7 @@ namespace Game.Services
                 {
                     Name = "Derick Jones",
                     Nickname = "DJ",
-                    ImageURI = "football_monster.png",
+                    ImageURI = "footballer_monster3.png",
                     Level = 2,
                     BaseSpeed = 5,
                     BaseHitPoints = 1,
@@ -206,7 +206,7 @@ namespace Game.Services
                 {
                     Name = "Aaron Jones",
                     Nickname = "AJ",
-                    ImageURI = "football_monster.png",
+                    ImageURI = "footballer_monster4.png",
                     Level = 2,
                     BaseSpeed = 9,
                     BaseHitPoints = 1,
@@ -219,7 +219,7 @@ namespace Game.Services
                 {
                     Name = "Sam Jones",
                     Nickname = "SJ",
-                    ImageURI = "football_monster.png",
+                    ImageURI = "footballer_monster1.png",
                     Level = 2,
                     BaseSpeed = 1,
                     BaseStamina = 10,
@@ -232,7 +232,7 @@ namespace Game.Services
                 {
                     Name = "Kane Jones",
                     Nickname = "KJ",
-                    ImageURI = "football_monster.png",
+                    ImageURI = "footballer_monster3.png",
                     Level = 2,
                     BaseSpeed = 4,
                     BaseHitPoints = 1,

@@ -19,11 +19,11 @@
 
                 <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center">
                     <Image
-                         Source="football_charcter.png"
+                         Source="footballer_char4.png"
                          Style="{StaticResource ImageLargeStyle}"/>
 
                     <Image
-                         Source="football_monster.png"
+                         Source="footballer_monster1.png"
                          Style="{StaticResource ImageLargeStyle}"/>
                 
                 </StackLayout>

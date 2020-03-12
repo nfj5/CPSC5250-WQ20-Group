@@ -18,7 +18,10 @@ namespace Game.Views
     public partial class CharacterCreatePage : ContentPage
     {
         // The Character to create
-        GenericViewModel<CharacterModel> ViewModel { get; set; }
+        public GenericViewModel<CharacterModel> ViewModel { get; set; }
+
+        // Empty Constructor for UTs
+        public CharacterCreatePage(bool UnitTest) { }
 
         /// <summary>
         /// Constructor for Create makes a new model
@@ -37,13 +40,13 @@ namespace Game.Views
             
             AbilityPicker.SelectedItem = data.Data.Ability.ToString();
         }
-        
+
         /// <summary>
         /// Save the new Character by calling Create
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void Save_Clicked(object sender, EventArgs e)
+        public async void Save_Clicked(object sender, EventArgs e)
         {
             // Make sure that they are providing information for required fields
             if (string.IsNullOrEmpty(ViewModel.Data.Name) || string.IsNullOrEmpty(ViewModel.Data.Description))
@@ -66,7 +69,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void Cancel_Clicked(object sender, EventArgs e)
+        public async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
         }
@@ -76,7 +79,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void Speed_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+        public void Speed_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
         {
             SpeedValue.Text = String.Format("{0}", e.NewValue);
         }
@@ -86,7 +89,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void Strength_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+        public void Strength_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
         {
             StrengthValue.Text = String.Format("{0}", e.NewValue);
         }
@@ -96,7 +99,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void HitPoints_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+        public void HitPoints_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
         {
             HitPointsValue.Text = String.Format("{0}", e.NewValue);
         }
@@ -106,7 +109,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void Thiccness_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+        public void Thiccness_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
         {
             ThiccnessValue.Text = String.Format("{0}", e.NewValue);
         }
@@ -116,7 +119,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void Stamina_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+        public void Stamina_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
         {
             StaminaValue.Text = String.Format("{0}", e.NewValue);
         }
@@ -126,7 +129,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void Level_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+        public void Level_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
         {
             LevelValue.Text = String.Format("{0}", e.NewValue);
         }

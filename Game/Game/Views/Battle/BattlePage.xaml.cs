@@ -4,6 +4,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Game.Engine;
 using Game.Models;
+using Game.ViewModels;
 
 namespace Game.Views
 {
@@ -108,15 +109,37 @@ namespace Game.Views
 				PlayerInfoModel player = GameBoardModel.GetPlayer(row, column);
 				UpdateInventory(player);
             }
-
+			
 		}
 
 		public async void UpdateInventory(PlayerInfoModel player)
         {
-            //Loop through player items and check if they are null
-            //If null set image to "icon_add.png"
-            //If not set to image name
+            //Checks if player has a head item. If so assigns it to inventory.
+			if (player.Head != null)
+				InventoryHead.Source = ItemIndexViewModel.Instance.GetItem(player.Head).ImageURI;
 
-        }
+            //Checks if player has necklass item. If so assigns it to inventory. 
+			if (player.Necklass != null)
+				InventoryNecklass.Source = ItemIndexViewModel.Instance.GetItem(player.Necklass).ImageURI;
+
+			//Checks if player has PrimaryHand item. If so assigns it to inventory.
+			if (player.PrimaryHand != null)
+				InventoryPrimaryHand.Source = ItemIndexViewModel.Instance.GetItem(player.PrimaryHand).ImageURI;
+
+			//Checks if player has offHand item. If so assigns it to inventory.
+			if (player.OffHand != null)
+				InventoryOffHand.Source = ItemIndexViewModel.Instance.GetItem(player.OffHand).ImageURI;
+
+			//Checks if player has Feet item. If so assigns it to inventory.
+			if (player.Feet != null)
+				InventoryFeet.Source = ItemIndexViewModel.Instance.GetItem(player.Feet).ImageURI;
+
+			//Cehcks if palyer has Finger item. If so assigns it to inventory.
+			if (player.Finger != null)
+				InventoryFinger.Source = ItemIndexViewModel.Instance.GetItem(player.Finger).ImageURI;
+
+
+		}
+
 	}
 }

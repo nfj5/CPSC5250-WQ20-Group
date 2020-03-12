@@ -111,5 +111,7 @@ namespace Game.Models
             Feet = data.Feet;
 
         }
+
+        public string head { get; internal set; }
     }
 }

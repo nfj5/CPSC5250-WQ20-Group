@@ -13,6 +13,9 @@ namespace Game.Views
     [DesignTimeVisible(false)]
     public partial class ItemIndexPage : ContentPage
     {
+        // Empty Constructor for UTs
+        public ItemIndexPage(bool UnitTest) { }
+
         // The view model, used for data binding
         readonly ItemIndexViewModel ViewModel;
 
@@ -33,7 +36,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
+        public async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
             ItemModel data = args.SelectedItem as ItemModel;
             if (data == null)
@@ -53,7 +56,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void AddItem_Clicked(object sender, EventArgs e)
+        public async void AddItem_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new ItemCreatePage(new GenericViewModel<ItemModel>())));
         }

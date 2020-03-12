@@ -114,25 +114,25 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
-        [Test]
-        public void ItemCreatePage_Value_OnStepperValueChanged_Default_Should_Pass()
-        {
-            // Arrange
+        //[Test]
+        //public void ItemCreatePage_Value_OnStepperValueChanged_Default_Should_Pass()
+        //{
+        //    // Arrange
 
-            page = new ItemCreatePage();
-            double oldValue = 0.0;
-            double newValue = 1.0;
+        //    page = new ItemCreatePage();
+        //    double oldValue = 0.0;
+        //    double newValue = 1.0;
 
-            var args = new ValueChangedEventArgs(oldValue, newValue);
+        //    var args = new ValueChangedEventArgs(oldValue, newValue);
 
-            // Act
-            page.Value_OnStepperValueChanged(null, args);
+        //    // Act
+        //    page.Value_OnStepperValueChanged(null, args);
 
-            // Reset
+        //    // Reset
 
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
+        //    // Assert
+        //    Assert.IsTrue(true); // Got to here, so it happened...
+        //}
         
         [Test]
         public void ItemCreatePage_Range_OnStepperValueChanged_Default_Should_Pass()
@@ -155,7 +155,7 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void ItemCreatePage_Damage_OnStepperDamageChanged_Default_Should_Pass()
+        public void ItemCreatePage_Damage_OnStepperValueChanged_Default_Should_Pass()
         {
             // Arrange
             page = new ItemCreatePage();

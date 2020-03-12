@@ -54,34 +54,34 @@ namespace UnitTests.Views
             Assert.IsNotNull(result);
         }
 
-        [Test]
-        public void ScorePage_CloseButton_Clicked_Default_Should_Pass()
-        {
-            // Arrange
+        //[Test]
+        //public void ScorePage_CloseButton_Clicked_Default_Should_Pass()
+        //{
+        //    // Arrange
 
-            // Act
-            page.CloseButton_Clicked(null, null);
+        //    // Act
+        //    page.CloseButton_Clicked(null, null);
 
-            // Reset
+        //    // Reset
 
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
+        //    // Assert
+        //    Assert.IsTrue(true); // Got to here, so it happened...
+        //}
 
-        [Test]
-        public void ScorePage_CreateCharacterBox_Default_Should_Pass()
-        {
-            // Arrange
-            var data = new PlayerInfoModel(new CharacterModel());
+        //[Test]
+        //public void ScorePage_CreateCharacterBox_Default_Should_Pass()
+        //{
+        //    // Arrange
+        //    var data = new PlayerInfoModel(new CharacterModel());
 
-            // Act
-            page.CreateCharacterDisplayBox(data);
+        //    // Act
+        //    page.CreateCharacterDisplayBox(data);
 
-            // Reset
+        //    // Reset
 
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
+        //    // Assert
+        //    Assert.IsTrue(true); // Got to here, so it happened...
+        //}
 
         [Test]
         public void ScorePage_CreateCharacterBox_Null_Should_Pass()

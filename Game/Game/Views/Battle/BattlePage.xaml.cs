@@ -101,7 +101,19 @@ namespace Game.Views
 			int row = Grid.GetRow(clicked);
 			int column = Grid.GetColumn(clicked);
 
-            if(BattleEngine.GameBoard
+            //Checks if the row column that was clicked has a Character type person.
+            if (GameBoardModel.isPlayer(row, column))
+            {
+                //Assigns character type person to player to pass to UpdateInventory
+				PlayerInfoModel player = GameBoardModel.GetPlayer(row, column);
+				UpdateInventory(player);
+            }
+
 		}
+
+        async void UpdateInventory(PlayerInfoModel player)
+        {
+
+        }
 	}
 }

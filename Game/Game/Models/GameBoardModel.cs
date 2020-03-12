@@ -75,6 +75,20 @@ namespace Game.Models
             return PlayerLocations[x, y];
         }
 
+        public static bool isPlayer(int x, int y)
+        {
+            if(PlayerLocations[x,y] != null)
+            {
+                PlayerInfoModel player = PlayerLocations[x, y];
+                if(player.PersonType == PersonTypeEnum.Character)
+                    return true;
+            }
+            return false;
+
+        }
+
+        
+
         /// <summary>
         /// Get the ItemModel from the desired position
         /// </summary>

@@ -22,9 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Views\Battle\AutoBattlePageTests.cs" />
     <Compile Remove="Views\Village\VillagePageTests.cs" />
-    <Compile Remove="Views\Battle\PickItemsPageTests.cs" />
     <Compile Remove="Services\HttpClientServiceTests.cs" />
     <Compile Remove="Helpers\AbilityEnumHelperTests.cs" />
     <Compile Remove="Helpers\DifficultyEnumHelperTests.cs" />
@@ -76,13 +74,5 @@
     <Compile Remove="ConstantsTests.cs" />
     <Compile Remove="UnitTest1.cs" />
     <Compile Remove="ViewModels\BaseViewModelTests.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\" />
-    <Folder Include="Views\" />
-    <Folder Include="Views\" />
-    <Folder Include="Views\" />
-    <Folder Include="Views\" />
-    <Folder Include="Views\" />
   </ItemGroup>
 </Project>

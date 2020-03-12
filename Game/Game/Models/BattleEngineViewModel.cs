@@ -50,6 +50,7 @@ namespace Game.ViewModels
         /// The Battle Engine
         /// </summary>
         public Engine.BattleEngine Engine = new Engine.BattleEngine();
+        public Engine.AutoBattleEngine AutoBattleEngine = new Engine.AutoBattleEngine();
 
         // Hold the Proposed List of Characters for the Battle to Use
         public ObservableCollection<CharacterModel> PartyCharacterList { get; set; } = new ObservableCollection<CharacterModel>();

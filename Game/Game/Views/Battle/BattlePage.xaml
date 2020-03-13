@@ -7,7 +7,7 @@
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
             <Frame BorderColor="#000000" Padding="5,10,5,10">
-                <Grid>
+                <Grid x:Name="GameBoardGrid">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>

@@ -31,6 +31,48 @@ namespace Game.Views
 				GameBoardModel.PlayerLocations[left, 0] = character;
 				left++;
 			}
+
+			left = 0;
+			foreach (PlayerInfoModel monster in EngineViewModel.Engine.MonsterList)
+			{
+				GameBoardModel.PlayerLocations[left, GameBoardModel.Size - 1] = monster;
+				left++;
+			}
+
+			RefreshGameBoard();
+		}
+
+		// Wipe the gameboard
+		public void WipeGameBoard()
+		{
+			GameBoardGrid.Children.Clear();
+		}
+
+		// Update the game board
+		public void RefreshGameBoard()
+		{
+			WipeGameBoard();
+
+			for (int x = 0; x < GameBoardModel.Size; ++x)
+			{
+				for (int y = 0; y < GameBoardModel.Size; ++y)
+				{
+					string source = "blank_space.png";
+					PlayerInfoModel player = GameBoardModel.GetPlayer(x, y);
+
+					if (player != null)
+					{
+						source = player.ImageURI;
+					}
+
+					ImageButton currentButton = new ImageButton { Source = source };
+					Grid.SetRow(currentButton, x);
+					Grid.SetColumn(currentButton, y);
+
+					currentButton.Clicked += (sender, e) => LocationClicked(sender, e);
+					GameBoardGrid.Children.Add(currentButton);
+				}
+			}
 		}
 
 		/// <summary>

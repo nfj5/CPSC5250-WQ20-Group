@@ -42,7 +42,7 @@ namespace Game.Views
 				EngineViewModel.Engine.MonsterList.Add(newMonster);
 			}
 
-			Debug.WriteLine(EngineViewModel.Engine.MonsterList.Count);
+			Debug.WriteLine("Generated " + EngineViewModel.Engine.MonsterList.Count + " monsters.");
 		}
 
 		/// <summary>

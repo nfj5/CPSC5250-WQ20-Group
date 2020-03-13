@@ -25,9 +25,11 @@ namespace Game.Views
 		{
 			InitializeComponent ();
 
+			int left = 0;
 			foreach (PlayerInfoModel character in EngineViewModel.Engine.CharacterList)
 			{
-				Debug.WriteLine("Found " + character.Name);
+				GameBoardModel.PlayerLocations[left, 0] = character;
+				left++;
 			}
 		}
 
@@ -122,6 +124,7 @@ namespace Game.Views
 					if (GameBoardHelper.SelectedCharacter == player.Id)
 					{
 						GameBoardHelper.SelectedCharacter = null;
+						BattleLog.Text += "\nDeselected " + player.Name;
 						return;
 					}
 
@@ -129,6 +132,7 @@ namespace Game.Views
 					if (GameBoardHelper.SelectedCharacter == null)
 					{
 						GameBoardHelper.SelectedCharacter = player.Id;
+						BattleLog.Text += "\nSelected " + player.Name;
 					}
 
 					UpdateInventory(player);

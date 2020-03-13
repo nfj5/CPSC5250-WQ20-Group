@@ -35,12 +35,12 @@ namespace Game.Models
         /// <returns></returns>
         public static bool Place(PlayerInfoModel player, int x, int y)
         {
-            if (PlayerLocations[x,y] != null)
+            if (PlayerLocations[y,x] != null)
             {
                 return false;
             }
 
-            PlayerLocations[x, y] = player;
+            PlayerLocations[y, x] = player;
 
             return true;
         }
@@ -54,12 +54,12 @@ namespace Game.Models
         /// <returns></returns>
         public static bool Place(ItemModel item, int x, int y)
         {
-            if (ItemLocations[x, y] != null)
+            if (ItemLocations[y, x] != null)
             {
                 return false;
             }
 
-            ItemLocations[x, y] = item;
+            ItemLocations[y, x] = item;
 
             return true;
         }
@@ -72,14 +72,14 @@ namespace Game.Models
         /// <returns></returns>
         public static PlayerInfoModel GetPlayer(int x, int y)
         {
-            return PlayerLocations[x, y];
+            return PlayerLocations[y, x];
         }
 
         public static bool isPlayer(int x, int y)
         {
-            if(PlayerLocations[x,y] != null)
+            if(PlayerLocations[y, x] != null)
             {
-                PlayerInfoModel player = PlayerLocations[x, y];
+                PlayerInfoModel player = PlayerLocations[y, x];
                 if(player.PersonType == PersonTypeEnum.Character)
                     return true;
             }
@@ -97,7 +97,7 @@ namespace Game.Models
         /// <returns></returns>
         public static ItemModel GetItem(int x, int y)
         {
-            return ItemLocations[x, y];
+            return ItemLocations[y, x];
         }
         
 
@@ -143,7 +143,7 @@ namespace Game.Models
             {
                 for (int y = 0; y < Size; ++y)
                 {
-                    if (item.Id == ItemLocations[x, y].Id)
+                    if (item.Id == ItemLocations[y, x].Id)
                     {
                         location[0] = x;
                         location[1] = y;

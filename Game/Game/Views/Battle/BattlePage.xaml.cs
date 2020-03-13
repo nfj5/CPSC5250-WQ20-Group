@@ -15,12 +15,20 @@ namespace Game.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class BattlePage: ContentPage
 	{
+		// This uses the Instance so it can be shared with other Battle Pages as needed
+		public BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
 		public BattlePage ()
 		{
 			InitializeComponent ();
+
+			foreach (PlayerInfoModel character in EngineViewModel.Engine.CharacterList)
+			{
+				Debug.WriteLine("Found " + character.Name);
+			}
 		}
 
 		/// <summary>
@@ -108,11 +116,26 @@ namespace Game.Views
             {
                 //Assigns character type person to player to pass to UpdateInventory
 				PlayerInfoModel player = GameBoardModel.GetPlayer(row, column);
-				UpdateInventory(player);
+				if (player != null)
+				{
+					// Unselect if we are currently selected
+					if (GameBoardHelper.SelectedCharacter == player.Id)
+					{
+						GameBoardHelper.SelectedCharacter = null;
+						return;
+					}
+
+					// Select the player
+					if (GameBoardHelper.SelectedCharacter == null)
+					{
+						GameBoardHelper.SelectedCharacter = player.Id;
+					}
+
+					UpdateInventory(player);
+				}
             }
 
 			Debug.WriteLine("Clicked " + row + "," + column);
-			
 		}
 
 		public void UpdateInventory(PlayerInfoModel player)

@@ -10,21 +10,13 @@
 
             <Label Text="Characters..."></Label>
 
-            <StackLayout Style="{StaticResource HorizontalStack}">
-                <Image Source="football_charcter.png" Style="{StaticResource ImageMediumStyle}"></Image>
-                <Image Source="football_charcter.png" Style="{StaticResource ImageMediumStyle}"></Image>
-            </StackLayout>
-            
+            <StackLayout Style="{StaticResource HorizontalStack}"
+                         x:Name="CharactersList"/>
+
             <Label Text="Monsters..."></Label>
 
-            <StackLayout Style="{StaticResource HorizontalStack}">
-                <Image Source="football_monster.png" Style="{StaticResource ImageMediumStyle}"></Image>
-                <Image Source="football_monster.png" Style="{StaticResource ImageMediumStyle}"></Image>
-                <Image Source="football_monster.png" Style="{StaticResource ImageMediumStyle}"></Image>
-                <Image Source="football_monster.png" Style="{StaticResource ImageMediumStyle}"></Image>
-                <Image Source="football_monster.png" Style="{StaticResource ImageMediumStyle}"></Image>
-                <Image Source="football_monster.png" Style="{StaticResource ImageMediumStyle}"></Image>
-            </StackLayout>
+            <StackLayout Style="{StaticResource HorizontalStack}"
+                         x:Name="MonstersList"/>
 
             <Button Clicked="BeginButton_Clicked" Text="Begin Game"></Button>
 

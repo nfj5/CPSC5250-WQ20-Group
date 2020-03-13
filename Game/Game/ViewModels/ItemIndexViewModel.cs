@@ -5,6 +5,7 @@ using Xamarin.Forms;
 using System.Linq;
 using System.Collections.Generic;
 using Game.Services;
+using Game.Helpers;
 
 namespace Game.ViewModels
 {
@@ -160,6 +161,50 @@ namespace Game.ViewModels
                     .OrderBy(a => a.Name)
                     .ThenBy(a => a.Description)
                     .ToList();
+        }
+
+        /// <summary>
+        /// Get the First item of the location from the list
+        /// </summary>
+        /// <param name="location"></param>
+        /// <returns></returns>
+        public ItemModel GetDefaultItem(ItemLocationEnum location)
+        {
+            var dataList = GetLocationItems(location);
+            if (dataList.Count() == 0)
+            {
+                return null;
+            }
+
+            var data = dataList.FirstOrDefault();
+
+            return data;
+        }
+
+        /// <summary>
+        /// Get all the items for a set location
+        /// </summary>
+        /// <param name="location"></param>
+        /// <returns></returns>
+        public List<ItemModel> GetLocationItems(ItemLocationEnum location)
+        {
+            List<ItemModel> data = null;
+
+            // Convert Right and Left Finger to Finger
+            if (location == ItemLocationEnum.RightFinger)
+            {
+                location = ItemLocationEnum.Finger;
+            }
+
+            if (location == ItemLocationEnum.LeftFinger)
+            {
+                location = ItemLocationEnum.Finger;
+            }
+
+            // Find the Items that meet the criteria
+            data = Dataset.Where(m => m.Location == location).ToList();
+
+            return data;
         }
 
         #endregion SortDataSet

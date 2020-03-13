@@ -148,32 +148,32 @@
             </Frame>
             <Frame BorderColor="#000000" Padding="10">
                 <StackLayout Orientation="Vertical">
-                    <Label Text="Inventory" TextColor="#000000" FontSize="Small" Margin="0,0,0,10"/>
+                    <Label x:Name="InventoryLabel" Text="Inventory" TextColor="#000000" FontSize="Small" Margin="0,0,0,10"/>
                     <Grid>
                         <Image x:Name="InventoryHead"
                                Source="icon_add.png"
                                Grid.Row="0" Grid.Column="0"
-                               WidthRequest="50" HeightRequest="50"/>
+                               WidthRequest="80" HeightRequest="80"/>
                         <Image x:Name="InventoryNecklass"
                                Source="icon_add.png"
                                Grid.Row="0" Grid.Column="1"
-                               WidthRequest="50" HeightRequest="50"/>
+                               WidthRequest="80" HeightRequest="80"/>
                         <Image x:Name="InventoryPrimaryHand"
                                Source="icon_add.png"
                                Grid.Row="0" Grid.Column="2"
-                               WidthRequest="50" HeightRequest="50"/>
+                               WidthRequest="80" HeightRequest="80"/>
                         <Image x:Name="InventoryOffHand"
                                Source="icon_add.png"
                                Grid.Row="0" Grid.Column="3"
-                               WidthRequest="50" HeightRequest="50"/>
+                               WidthRequest="80" HeightRequest="80"/>
                         <Image x:Name="InventoryFeet"
                                Source="icon_add.png"
                                Grid.Row="0" Grid.Column="4"
-                               WidthRequest="50" HeightRequest="50"/>
+                               WidthRequest="80" HeightRequest="80"/>
                         <Image x:Name="InventoryFinger"
                                Source="icon_add.png"
                                Grid.Row="0" Grid.Column="5"
-                               WidthRequest="50" HeightRequest="50"/>
+                               WidthRequest="80" HeightRequest="80"/>
                     </Grid>
                 </StackLayout>
             </Frame>

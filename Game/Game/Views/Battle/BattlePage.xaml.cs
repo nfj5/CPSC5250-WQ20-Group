@@ -125,6 +125,7 @@ namespace Game.Views
 					{
 						GameBoardHelper.SelectedCharacter = null;
 						BattleLog.Text += "\nDeselected " + player.Name;
+						WipeInventory();
 						return;
 					}
 
@@ -133,15 +134,18 @@ namespace Game.Views
 					{
 						GameBoardHelper.SelectedCharacter = player.Id;
 						BattleLog.Text += "\nSelected " + player.Name;
+						UpdateInventory(player);
 					}
-
-					UpdateInventory(player);
 				}
             }
 
 			Debug.WriteLine("Clicked " + row + "," + column);
 		}
 
+		/// <summary>
+		/// Update the inventory display with Character's items
+		/// </summary>
+		/// <param name="player"></param>
 		public void UpdateInventory(PlayerInfoModel player)
         {
             //Checks if player has a head item. If so assigns it to inventory.
@@ -168,7 +172,24 @@ namespace Game.Views
 			if (player.Finger != null)
 				InventoryFinger.Source = ItemIndexViewModel.Instance.GetItem(player.Finger).ImageURI;
 
+			// Update the label
+			InventoryLabel.Text = player.Name + "'s Inventory";
+		}
 
+		/// <summary>
+		/// Wipe the inventory display
+		/// </summary>
+		public void WipeInventory()
+		{
+			InventoryHead.Source = "icon_add.png";
+			InventoryNecklass.Source = "icon_add.png";
+			InventoryPrimaryHand.Source = "icon_add.png";
+			InventoryOffHand.Source = "icon_add.png";
+			InventoryFeet.Source = "icon_add.png";
+			InventoryFinger.Source = "icon_add.png";
+
+			// Update the label
+			InventoryLabel.Text = "Inventory";
 		}
 
 	}

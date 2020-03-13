@@ -26,6 +26,7 @@ namespace Game.Views
 			// Read in the Characters that are still alive, show their images in the list
 			foreach (PlayerInfoModel character in EngineViewModel.Engine.CharacterList)
 			{
+				character.Head = ItemIndexViewModel.Instance.GetDefaultItem(ItemLocationEnum.Head).Id;
 				var image = new Image { Source = character.ImageURI, Style = (Xamarin.Forms.Style) App.Current.Resources["ImageMediumStyle"] };
 				CharactersList.Children.Add(image);
 			}

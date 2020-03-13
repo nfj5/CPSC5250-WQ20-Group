@@ -135,7 +135,7 @@ namespace UnitTests.Views
         //}
 
         [Test]
-        public void PickCharactersPage_UpdateButtonState_Default_Should_Pass()
+        public void PickCharactersPage_UpdateNextButtonState_Default_Should_Pass()
         {
             // Arrange
 

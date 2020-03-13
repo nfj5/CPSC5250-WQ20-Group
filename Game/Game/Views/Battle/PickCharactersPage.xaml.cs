@@ -105,7 +105,7 @@ namespace Game.Views
         /// Show the Count of the party
         /// 
         /// </summary>
-        private void UpdateNextButtonState()
+        public void UpdateNextButtonState()
         {
             // If no characters disable Next button
             BeginBattleButton.IsEnabled = true;

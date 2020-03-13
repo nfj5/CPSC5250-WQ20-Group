@@ -32,7 +32,7 @@ namespace UnitTests.Views
             app = new App();
             Application.Current = app;
 
-            page = new NewRoundPage();
+            page = new NewRoundPage(1);
         }
 
         [TearDown]

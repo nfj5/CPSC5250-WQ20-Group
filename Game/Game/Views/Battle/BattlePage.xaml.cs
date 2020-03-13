@@ -7,6 +7,7 @@ using Game.Models;
 using Game.ViewModels;
 using System.Diagnostics;
 
+//BattlePage.xaml.cs
 namespace Game.Views
 {
 	/// <summary>

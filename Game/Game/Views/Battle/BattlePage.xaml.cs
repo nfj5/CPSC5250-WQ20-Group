@@ -5,6 +5,7 @@ using Xamarin.Forms.Xaml;
 using Game.Engine;
 using Game.Models;
 using Game.ViewModels;
+using System.Diagnostics;
 
 namespace Game.Views
 {
@@ -96,9 +97,9 @@ namespace Game.Views
 			}
 		}
 
-		public async void LocationClicked(object sender, EventArgs e)
+		public void LocationClicked(object sender, EventArgs e)
         {
-			Image clicked = (Image) sender;
+			ImageButton clicked = (ImageButton) sender;
 			int row = Grid.GetRow(clicked);
 			int column = Grid.GetColumn(clicked);
 
@@ -109,10 +110,12 @@ namespace Game.Views
 				PlayerInfoModel player = GameBoardModel.GetPlayer(row, column);
 				UpdateInventory(player);
             }
+
+			Debug.WriteLine("Clicked " + row + "," + column);
 			
 		}
 
-		public async void UpdateInventory(PlayerInfoModel player)
+		public void UpdateInventory(PlayerInfoModel player)
         {
             //Checks if player has a head item. If so assigns it to inventory.
 			if (player.Head != null)

@@ -104,6 +104,8 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\SplashScreen.scale-125.png" />
+    <Content Include="Assets\SplashScreen.scale-150.png" />
     <Content Include="autobattle.png" />
     <Content Include="battleboard.jpg" />
     <Content Include="blank_space.png" />
@@ -129,6 +131,7 @@
     <Content Include="highscore.png" />
     <Content Include="highscore_icon.png" />
     <Content Include="home_background.png" />
+    <Content Include="splashscreen.png" />
     <Content Include="icon.png" />
     <Content Include="icon_add.png" />
     <Content Include="icon_cancel.png" />
@@ -174,7 +177,6 @@
     <Content Include="score.png" />
     <Content Include="shoe.png" />
     <Content Include="smelly_jersery.png" />
-    <Content Include="splashscreen.jpg" />
     <Content Include="stadium.png" />
     <Content Include="stadium1.png" />
     <Content Include="towel.png" />

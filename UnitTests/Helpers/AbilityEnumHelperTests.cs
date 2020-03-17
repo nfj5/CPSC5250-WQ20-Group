@@ -13,12 +13,12 @@ namespace UnitTests.Helpers
     class AbilityEnumHelperTests
     {
         [Test]
-        public void AbilityEnumHelper_GetFullList_Should_Pass()
+        public void AbilityEnumHelper_GetListItem_Should_Pass()
         {
             // Arrange
 
             // Act
-            var result = AbilityEnumHelper.GetFullList;
+            var result = AbilityEnumHelper.GetListItem;
 
             // Assert
             Assert.AreEqual(10,result.Count());
@@ -27,39 +27,15 @@ namespace UnitTests.Helpers
         }
 
         [Test]
-        public void AbilityEnumHelper_GetListFighter_Should_Pass()
+        public void AbilityEnumHelper_GetListCharacter_Should_Pass()
         {
             // Arrange
 
             // Act
-            var result = AbilityEnumHelper.GetListFighter;
+            var result = AbilityEnumHelper.GetListCharacter;
 
             // Assert
             Assert.AreEqual(4, result.Count());
-        }
-
-        [Test]
-        public void AbilityEnumHelper_GetListCleric_Should_Pass()
-        {
-            // Arrange
-
-            // Act
-            var result = AbilityEnumHelper.GetListCleric;
-
-            // Assert
-            Assert.AreEqual(5, result.Count());
-        }
-
-        [Test]
-        public void AbilityEnumHelper_GetListOthers_Should_Pass()
-        {
-            // Arrange
-
-            // Act
-            var result = AbilityEnumHelper.GetListOthers;
-
-            // Assert
-            Assert.AreEqual(1, result.Count());
         }
 
         [Test]
@@ -82,6 +58,54 @@ namespace UnitTests.Helpers
                 // Assert
                 Assert.AreEqual(myExpected, myActual, "string: " + item + TestContext.CurrentContext.Test.Name);
             }
+        }
+
+        [Test]
+        public void AbilityEnumHelper_GetLocationByPosition_Speed_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = AbilityEnumHelper.GetLocationByPosition(1);
+
+            // Assert
+            Assert.AreEqual(AbilityEnum.SpeedAbility, result);
+        }
+
+        [Test]
+        public void AbilityEnumHelper_GetLocationByPosition_Strength_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = AbilityEnumHelper.GetLocationByPosition(2);
+
+            // Assert
+            Assert.AreEqual(AbilityEnum.StrengthAbility, result);
+        }
+
+        [Test]
+        public void AbilityEnumHelper_GetLocationByPosition_Thiccness_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = AbilityEnumHelper.GetLocationByPosition(3);
+
+            // Assert
+            Assert.AreEqual(AbilityEnum.ThiccnessAbility, result);
+        }
+
+        [Test]
+        public void AbilityEnumHelper_GetLocationByPosition_Stamina_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = AbilityEnumHelper.GetLocationByPosition(4);
+
+            // Assert
+            Assert.AreEqual(AbilityEnum.StaminaAbility, result);
         }
     }
 }

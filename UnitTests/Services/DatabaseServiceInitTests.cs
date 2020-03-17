@@ -19,11 +19,11 @@ namespace UnitTests.Services
     {
         DatabaseService<ItemModel> DataStore;
 
-        [SetUp]
-        public void Setup()
-        {
-            DataStore = DatabaseService<ItemModel>.Instance;
-        }
+        //[SetUp]
+        //public void Setup()
+        //{
+        //    DataStore = DatabaseService<ItemModel>.Instance;
+        //}
 
         [TearDown]
         public async Task TearDown()
@@ -45,18 +45,18 @@ namespace UnitTests.Services
             Assert.IsNotNull(result);
         }
 
-        [Test]
-        public void DatabaseService_GetDataConnection_Default_Should_Pass()
-        {
-            // Arrange
+        //[Test]
+        //public void DatabaseService_GetDataConnection_Default_Should_Pass()
+        //{
+        //    // Arrange
 
-            // Act
-            var result = DatabaseService<ItemModel>.GetDataConnection();
+        //    // Act
+        //    var result = DatabaseService<ItemModel>.GetDataConnection();
 
-            // Reset
+        //    // Reset
 
-            // Assert
-            Assert.IsNotNull(result);
-        }
+        //    // Assert
+        //    Assert.IsNotNull(result);
+        //}
     }
 }

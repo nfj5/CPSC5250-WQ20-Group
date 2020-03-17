@@ -156,6 +156,7 @@ namespace Game.Models
             }
             else
             {
+                CurrentStrength = BaseStrength;
                 CurrentSpeed = BaseSpeed;
                 CurrentStamina = BaseStamina;
                 CurrentHitPoints = BaseHitPoints;

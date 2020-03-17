@@ -117,5 +117,37 @@ namespace Game.ViewModels
             return dataset.OrderBy(a => a.Name).ToList();
         }
         #endregion SortDataSet
+
+        #region Methods 
+        /// <summary>
+        /// Returns the Character passed in
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public CharacterModel CheckIfExists(CharacterModel data)
+        {
+            // This will walk the Characters and find if there is one that is the same.
+            // If so, it returns the Character...
+
+            var myList = Dataset.Where(a =>
+                                        a.Name == data.Name &&
+                                        a.Description == data.Description &&
+                                        a.Level == data.Level &&
+                                        a.ExperiencePoints == data.ExperiencePoints &&
+                                        a.BaseHitPoints == data.BaseHitPoints &&
+                                        a.CurrentHitPoints == data.CurrentHitPoints
+                                        )
+                                        .FirstOrDefault();
+
+            if (myList == null)
+            {
+                // it's not a match, return false;
+                return null;
+            }
+
+            return myList;
+        }
+
+        #endregion SortDataSet
     }
 }

@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Game.Helpers
 {
-    class AbilityEnumHelper
+    public static class AbilityEnumHelper
     {
         /// <summary>
         /// Gets the list of locations that an Item can have.

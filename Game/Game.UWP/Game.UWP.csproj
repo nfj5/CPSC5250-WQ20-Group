@@ -129,6 +129,7 @@
     <Content Include="highscore.png" />
     <Content Include="highscore_icon.png" />
     <Content Include="home_background.png" />
+    <Content Include="icon.png" />
     <Content Include="icon_add.png" />
     <Content Include="icon_cancel.png" />
     <Content Include="icon_delete.png" />

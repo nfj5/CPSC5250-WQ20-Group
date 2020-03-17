@@ -273,4 +273,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\footballer_char3.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon.png" />
+  </ItemGroup>
 </Project>

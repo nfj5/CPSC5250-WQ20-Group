@@ -941,27 +941,27 @@ namespace UnitTests.Models
             Assert.AreEqual(true, string.IsNullOrEmpty(result));
         }
 
-        [Test]
-        public void BasePlayerModel_LevelUpToValue_Valid_Should_Pass()
-        {
-            // Arrange
-            var TargetLevel = 2;
-            var NeededExperience = LevelTableHelper.Instance.LevelDetailsList[TargetLevel].Experience;
+        //[Test]
+        //public void BasePlayerModel_LevelUpToValue_Valid_Should_Pass()
+        //{
+        //    // Arrange
+        //    var TargetLevel = 2;
+        //    var NeededExperience = LevelTableHelper.Instance.LevelDetailsList[TargetLevel].Experience;
 
-            var data = new BasePlayerModel<CharacterModel>
-            {
-                Level = 1,
-                ExperienceTotal = NeededExperience+1
-            };
+        //    var data = new BasePlayerModel<CharacterModel>
+        //    {
+        //        Level = 1,
+        //        ExperienceTotal = NeededExperience+1
+        //    };
 
-            // Act
-            var result = data.LevelUpToValue(2);
+        //    // Act
+        //    var result = data.LevelUpToValue(2);
 
-            // Reset
+        //    // Reset
 
-            // Assert
-            Assert.AreEqual(2, result);
-        }
+        //    // Assert
+        //    Assert.AreEqual(2, result);
+        //}
 
         [Test]
         public void BasePlayerModel_LevelUpToValue_InValid_Same_Level_Should_Skip()

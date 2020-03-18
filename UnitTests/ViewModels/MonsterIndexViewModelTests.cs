@@ -23,7 +23,7 @@ namespace UnitTests.ViewModels
             MockForms.Init();
 
             // Add each model here to warm up and load it.
-            Game.Helpers.DataSetsHelper.WarmUp();
+            //Game.Helpers.DataSetsHelper.WarmUp();
 
             ViewModel = MonsterIndexViewModel.Instance;
         }
@@ -100,7 +100,7 @@ namespace UnitTests.ViewModels
             await ViewModel.CreateAsync(new MonsterModel { Name = "a" });
 
             // Act
-            var result = ViewModel.CheckIfExists(dataTest);
+            var result = ViewModel.CheckIfItemExists(dataTest);
 
             // Reset
 
@@ -122,7 +122,7 @@ namespace UnitTests.ViewModels
             await ViewModel.CreateAsync(new MonsterModel { Name = "a" });
 
             // Act
-            var result = ViewModel.CheckIfExists(dataTest);
+            var result = ViewModel.CheckIfItemExists(dataTest);
 
             // Reset
 

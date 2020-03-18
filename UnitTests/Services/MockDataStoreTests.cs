@@ -12,11 +12,11 @@ namespace UnitTests.Services
     {
         MockDataStore<ItemModel> DataStore;
 
-        [SetUp]
-        public void Setup()
-        {
-            DataStore = MockDataStore<ItemModel>.Instance;
-        }
+        //[SetUp]
+        //public void Setup()
+        //{
+        //    DataStore = MockDataStore<ItemModel>.Instance;
+        //}
 
         [TearDown]
         public async Task TearDown()
@@ -38,44 +38,44 @@ namespace UnitTests.Services
             Assert.IsNotNull(result);
         }
 
-        [Test]
-        public async Task MockDataStore_SetNeedsRefresh_Valid_True_Should_Pass()
-        {
-            // Arrange
-            var originalState = await DataStore.GetNeedsInitializationAsync();
+        //[Test]
+        //public async Task MockDataStore_SetNeedsRefresh_Valid_True_Should_Pass()
+        //{
+        //    // Arrange
+        //    var originalState = await DataStore.GetNeedsInitializationAsync();
 
-            // Act
-            DataStore.NeedsInitialization=true;
-            var newState = await DataStore.GetNeedsInitializationAsync();
+        //    // Act
+        //    DataStore.NeedsInitialization=true;
+        //    var newState = await DataStore.GetNeedsInitializationAsync();
 
-            // Reset
+        //    // Reset
 
-            // Turn it back to the original state
-            DataStore.NeedsInitialization = originalState;
+        //    // Turn it back to the original state
+        //    DataStore.NeedsInitialization = originalState;
 
-            // Assert
-            Assert.AreEqual(true, newState);
-        }
+        //    // Assert
+        //    Assert.AreEqual(true, newState);
+        //}
 
-        [Test]
-        public async Task MockDataStore_SetNeedsRefresh_Twice_True_Should_Pass()
-        {
-            // Arrange
-            var originalState = await DataStore.GetNeedsInitializationAsync();
+        //[Test]
+        //public async Task MockDataStore_SetNeedsRefresh_Twice_True_Should_Pass()
+        //{
+        //    // Arrange
+        //    var originalState = await DataStore.GetNeedsInitializationAsync();
 
-            // Act
-            DataStore.NeedsInitialization = true;
-            var newState = await DataStore.GetNeedsInitializationAsync();
-            var newState2 = await DataStore.GetNeedsInitializationAsync();
+        //    // Act
+        //    DataStore.NeedsInitialization = true;
+        //    var newState = await DataStore.GetNeedsInitializationAsync();
+        //    var newState2 = await DataStore.GetNeedsInitializationAsync();
 
-            // Reset
+        //    // Reset
 
-            // Turn it back to the original state
-            DataStore.NeedsInitialization = originalState;
+        //    // Turn it back to the original state
+        //    DataStore.NeedsInitialization = originalState;
 
-            // Assert
-            Assert.AreEqual(false, newState2);
-        }
+        //    // Assert
+        //    Assert.AreEqual(false, newState2);
+        //}
 
         [Test]
         public async Task MockDataStore_WipeDataListAsync_Valid_True_Should_Pass()

@@ -21,7 +21,7 @@ namespace UnitTests.ViewModels
             MockForms.Init();
 
             // Add each model here to warm up and load it.
-            Game.Helpers.DataSetsHelper.WarmUp();
+            //Game.Helpers.DataSetsHelper.WarmUp();
 
             ViewModel = ScoreIndexViewModel.Instance;
         }

@@ -35,7 +35,7 @@ namespace UnitTests.Models
             // Assert
             Assert.IsNotNull(result);
 
-            Assert.AreEqual(PlayerTypeEnum.Unknown, result.PlayerType);
+            Assert.AreEqual(PersonTypeEnum.Unknown, result.PlayerType);
 
             Assert.AreEqual(HitStatusEnum.Unknown, result.HitStatus);
 
@@ -149,7 +149,7 @@ namespace UnitTests.Models
         {
             // Arrange
             var message = new BattleMessagesModel();
-            message.PlayerType = PlayerTypeEnum.Monster;
+            message.PlayerType = PersonTypeEnum.Monster;
 
             // Act
             var result = message.GetHTMLFormattedTurnMessage();
@@ -165,7 +165,7 @@ namespace UnitTests.Models
         {
             // Arrange
             var message = new BattleMessagesModel();
-            message.PlayerType = PlayerTypeEnum.Character;
+            message.PlayerType = PersonTypeEnum.Character;
 
             // Act
             var result = message.GetHTMLFormattedTurnMessage();

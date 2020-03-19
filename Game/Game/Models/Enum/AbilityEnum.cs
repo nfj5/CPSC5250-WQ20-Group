@@ -22,4 +22,42 @@
         // Stamina ability grants Characters extra HitPoints
         StaminaAbility = 30
     }
+
+    public static class AbilityEnumExtensions
+    {
+        /// <summary>
+        /// Display a String for the Enums
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static string ToMessage(this AbilityEnum value)
+        {
+            // Default String
+            var Message = "None";
+
+            switch (value)
+            {
+                case AbilityEnum.SpeedAbility:
+                    Message = "Speed boost";
+                    break;
+
+                case AbilityEnum.StrengthAbility:
+                    Message = "Strength boost";
+                    break;
+
+                case AbilityEnum.ThiccnessAbility:
+                    Message = "Stamina boost";
+                    break;
+
+                case AbilityEnum.StaminaAbility:
+                    Message = "Stamina boost";
+                    break;
+                case AbilityEnum.Unknown:
+                default:
+                    break;
+            }
+
+            return Message;
+        }
+    }
 }

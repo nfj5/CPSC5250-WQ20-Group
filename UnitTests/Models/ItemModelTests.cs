@@ -80,40 +80,40 @@ namespace UnitTests.Models
             Assert.AreEqual(ItemLocationEnum.Feet, result.Location);
         }
 
-        [Test]
-        public void ItemModel_Update_Default_Should_Pass()
-        {
-            // Arrange
-            var dataOriginal = new ItemModel();
-            dataOriginal.Value = 1;
+        //[Test]
+        //public void ItemModel_Update_Default_Should_Pass()
+        //{
+        //    // Arrange
+        //    var dataOriginal = new ItemModel();
+        //    dataOriginal.Value = 1;
 
-            var dataNew = new ItemModel();
-            dataNew.Value = 2;
+        //    var dataNew = new ItemModel();
+        //    dataNew.Value = 2;
 
-            // Act
-            var result = dataOriginal.Update(dataNew);
+        //    // Act
+        //    var result = dataOriginal.Update(dataNew);
 
-            // Reset
+        //    // Reset
 
-            // Assert 
-            Assert.AreEqual(2, dataOriginal.Value);
-        }
+        //    // Assert 
+        //    Assert.AreEqual(2, dataOriginal.Value);
+        //}
 
-        [Test]
-        public void ItemModel_Update_InValid_Null_Should_Fail()
-        {
-            // Arrange
-            var dataOriginal = new ItemModel();
-            dataOriginal.Value = 2;
+        //[Test]
+        //public void ItemModel_Update_InValid_Null_Should_Fail()
+        //{
+        //    // Arrange
+        //    var dataOriginal = new ItemModel();
+        //    dataOriginal.Value = 2;
 
-            // Act
-            var result = dataOriginal.Update(null);
+        //    // Act
+        //    var result = dataOriginal.Update(null);
 
-            // Reset
+        //    // Reset
 
-            // Assert 
-            Assert.AreEqual(2, dataOriginal.Value);
-        }
+        //    // Assert 
+        //    Assert.AreEqual(2, dataOriginal.Value);
+        //}
 
         [Test]
         public void ItemModel_FormatOuput_Default_Should_Pass()
@@ -130,38 +130,38 @@ namespace UnitTests.Models
             Assert.AreEqual("This is an Item , Item Description for Unknown with Unknown+0 , Damage : 0 , Range : 0", result);
         }
 
-        [Test]
-        public void ItemModel_ScaleLevel_Default_Should_Pass()
-        {
-            // Arrange
-            var data = new ItemModel();
+        //[Test]
+        //public void ItemModel_ScaleLevel_Default_Should_Pass()
+        //{
+        //    // Arrange
+        //    var data = new ItemModel();
 
-            // Act
-            var result = data.ScaleLevel(1);
+        //    // Act
+        //    var result = data.ScaleLevel(1);
 
-            // Reset
+        //    // Reset
 
-            // Assert 
-            Assert.AreEqual(1,result);
-        }
+        //    // Assert 
+        //    Assert.AreEqual(1,result);
+        //}
 
-        [Test]
-        public void ItemModel_ScaleLevel_ForcedVaue_Should_Pass()
-        {
-            // Arrange
-            var data = new ItemModel();
+        //[Test]
+        //public void ItemModel_ScaleLevel_ForcedVaue_Should_Pass()
+        //{
+        //    // Arrange
+        //    var data = new ItemModel();
 
-            DiceHelper.EnableForcedRolls();
-            DiceHelper.SetForcedRollValue(1);
+        //    DiceHelper.EnableForcedRolls();
+        //    DiceHelper.SetForcedRollValue(1);
 
-            // Act
-            var result = data.ScaleLevel(1);
+        //    // Act
+        //    var result = data.ScaleLevel(1);
 
-            // Reset
-            DiceHelper.DisableForcedRolls();
+        //    // Reset
+        //    DiceHelper.DisableForcedRolls();
             
-            // Assert 
-            Assert.AreEqual(1, result);
-        }
+        //    // Assert 
+        //    Assert.AreEqual(1, result);
+        //}
     }
 }

@@ -432,5 +432,15 @@ namespace Game.ViewModels
         }
 
         #endregion INotifyPropertyChanged
+
+        /// <summary>
+        /// Returns the needs refresh value
+        /// </summary>
+        /// <returns></returns>
+        public bool GetNeedsRefresh()
+        {
+            return _needsRefresh;
+        }
+
     }
 }

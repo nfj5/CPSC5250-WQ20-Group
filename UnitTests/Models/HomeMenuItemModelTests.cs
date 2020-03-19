@@ -30,16 +30,16 @@ namespace UnitTests.Models
             // Act
 
             // Test all the Setters
-            result.Id = MenuItemEnum.Village;
-            result.Title = "bogus title";
+            result.Id = MenuItemEnum.LockerRoom;
+            result.Title = "Locker Room";
 
             // Reset
 
             // Assert
 
             // The Get is tested by retrieving it here as well.
-            Assert.AreEqual("bogus title", result.Title);
-            Assert.AreEqual(MenuItemEnum.Village, result.Id);
+            Assert.AreEqual("Locker Room", result.Title);
+            Assert.AreEqual(MenuItemEnum.LockerRoom, result.Id);
         }
     }
 }

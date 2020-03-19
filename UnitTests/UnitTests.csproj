@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -23,45 +23,6 @@
 
   <ItemGroup>
     <Compile Remove="Views\Village\VillagePageTests.cs" />
-    <Compile Remove="Services\HttpClientServiceTests.cs" />
-    <Compile Remove="Helpers\AbilityEnumHelperTests.cs" />
-    <Compile Remove="Helpers\DifficultyEnumHelperTests.cs" />
-    <Compile Remove="Helpers\IntEnumConverterHelperTests.cs" />
-    <Compile Remove="Helpers\AttributeEnumHelperTests.cs" />
-    <Compile Remove="Helpers\ItemLocationEnumHelperTests.cs" />
-    <Compile Remove="Helpers\ItemModelJsonHelperTests.cs" />
-    <Compile Remove="Helpers\JsonHelperTests.cs" />
-    <Compile Remove="Helpers\StringEnumConverterHelperTests.cs" />
-    <Compile Remove="Helpers\RollDiceHelperTests.cs" />
-    <Compile Remove="Helpers\RandomPlayerHelperTests.cs" />
-    <Compile Remove="Models\BaseModelTests.cs" />
-    <Compile Remove="Models\BasePlayerModelTests.cs" />
-    <Compile Remove="Models\BattleMessageModelTests.cs" />
-    <Compile Remove="Models\CharacterModelTests.cs" />
-    <Compile Remove="Models\CordinatesModelTests.cs" />
-    <Compile Remove="Models\Enum\AbilityEnumExtensionsTests.cs" />
-    <Compile Remove="Models\Enum\AttributeEnumExtensionsTests.cs" />
-    <Compile Remove="Models\Enum\ActionEnumExtensionsTests.cs" />
-    <Compile Remove="Models\ItemModelTests.cs" />
-    <Compile Remove="Models\HomeMenuItemModelTests.cs" />
-    <Compile Remove="Models\Enum\ItemLocationEnumExtensionsTests.cs" />
-    <Compile Remove="Models\Enum\HitStatusEnumExtensionsTests.cs" />
-    <Compile Remove="Models\Enum\DifficultyEnumExtensionsTests.cs" />
-    <Compile Remove="Models\Enum\CharacterJobEnumExtensionsTests.cs" />
-    <Compile Remove="Models\ScoreModelTests.cs" />
-    <Compile Remove="Models\MapModelTests.cs" />
-    <Compile Remove="Models\MonsterModelTests.cs" />
-    <Compile Remove="Models\PlayerInfoModelTests.cs" />
-    <Compile Remove="Services\DatabaseServiceInitTests.cs" />
-    <Compile Remove="Services\ItemServiceTests.cs" />
-    <Compile Remove="Services\MockDataStoreTests.cs" />
-    <Compile Remove="Services\DatabaseServiceTests.cs" />
-    <Compile Remove="ViewModels\MonsterIndexViewModelTests.cs" />
-    <Compile Remove="ViewModels\CharacterIndexViewModelTests.cs" />
-    <Compile Remove="ViewModels\GenericViewModelTests.cs" />
-    <Compile Remove="ViewModels\ItemIndexViewModelTests.cs" />
-    <Compile Remove="ViewModels\BattleEngineViewModelTests.cs" />
-    <Compile Remove="ViewModels\ScoreIndexViewModelTests.cs" />
     <Compile Remove="Engine\AutoBattleEngineScenerioTests.cs" />
     <Compile Remove="Engine\RoundEngineTests.cs" />
     <Compile Remove="Engine\BattleEngineTests.cs" />
@@ -71,6 +32,5 @@
     <Compile Remove="AppTests.cs" />
     <Compile Remove="ConstantsTests.cs" />
     <Compile Remove="UnitTest1.cs" />
-    <Compile Remove="ViewModels\BaseViewModelTests.cs" />
   </ItemGroup>
 </Project>

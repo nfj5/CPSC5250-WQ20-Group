@@ -23,7 +23,7 @@ namespace UnitTests.ViewModels
             MockForms.Init();
 
             // Add each model here to warm up and load it.
-            Game.Helpers.DataSetsHelper.WarmUp();
+            //Game.Helpers.DataSetsHelper.WarmUp();
 
             ViewModel = ItemIndexViewModel.Instance;
         }
@@ -100,7 +100,7 @@ namespace UnitTests.ViewModels
             await ViewModel.CreateAsync(new ItemModel { Name = "a" });
 
             // Act
-            var result = ViewModel.CheckIfExists(dataTest);
+            var result = ViewModel.CheckIfItemExists(dataTest);
 
             // Reset
 
@@ -114,7 +114,7 @@ namespace UnitTests.ViewModels
             // Arrange
 
             // Act
-            var result = ViewModel.CheckIfExists(null);
+            var result = ViewModel.CheckIfItemExists(null);
 
             // Reset
 
@@ -136,7 +136,7 @@ namespace UnitTests.ViewModels
             await ViewModel.CreateAsync(new ItemModel { Name = "a" });
 
             // Act
-            var result = ViewModel.CheckIfExists(dataTest);
+            var result = ViewModel.CheckIfItemExists(dataTest);
 
             // Reset
 
@@ -576,7 +576,7 @@ namespace UnitTests.ViewModels
             // Arrange
 
             // Act
-            var result = ViewModel.GetDefaultItemId(ItemLocationEnum.Unknown);
+            var result = ViewModel.GetDefaultData();
 
             // Reset
 
@@ -591,7 +591,7 @@ namespace UnitTests.ViewModels
             await ViewModel.CreateAsync(new ItemModel { Location = ItemLocationEnum.Head});
 
             // Act
-            var result = ViewModel.GetDefaultItemId(ItemLocationEnum.Head);
+            var result = ViewModel.GetDefaultItem(ItemLocationEnum.Head);
 
             // Reset
 

@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Battle Engine">
+    <Position X="14.5" Y="7.5" Height="0.455" Width="1.823" />
+  </Comment>
+  <Comment CommentText="Models">
+    <Position X="4.915" Y="0.627" Height="0.455" Width="1.823" />
+  </Comment>
+  <Comment CommentText="View Models">
+    <Position X="4.851" Y="7.505" Height="0.455" Width="1.823" />
+  </Comment>
+  <Comment CommentText="Enums">
+    <Position X="14.378" Y="0.595" Height="0.455" Width="1.823" />
+  </Comment>
+  <Class Name="Game.Engine.AutoBattleEngine" Collapsed="true">
+    <Position X="14.5" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Engine\AutoBattleEngine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.Engine.BaseEngine" Collapsed="true">
+    <Position X="14.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAFogAAAAAAAAAAAAACBAgAAAAAAAAgAAAAAAAE=</HashCode>
+      <FileName>Engine\BaseEngine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.Engine.BattleEngine" Collapsed="true">
+    <Position X="14.5" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAABAAAAAIAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Engine\BattleEngine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.Engine.RoundEngine" Collapsed="true">
+    <Position X="14.5" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAgAAIEAACAAAAAIAAIAACAAAAgAAARAAQAAAQABAA=</HashCode>
+      <FileName>Engine\RoundEngine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.Engine.TurnEngine" Collapsed="true">
+    <Position X="14.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAIgAQQJAAAAAAAAAEAEAAAMBCAAAAACAAgAAAAQA=</HashCode>
+      <FileName>Engine\TurnEngine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.Models.LevelTableHelper" Collapsed="true">
+    <Position X="12" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAAAAgAAQAAAABAAAEE=</HashCode>
+      <FileName>Helpers\LevelTableHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.Models.AbilityEnumExtensions" Collapsed="true">
+    <Position X="12" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>Models\Enum\AbilityEnum.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.Models.AttributeEnumExtensions" Collapsed="true">
+    <Position X="13.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>Models\Enum\AttributeEnum.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.Models.HitStatusEnumExtensions" Collapsed="true">
+    <Position X="12" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>Models\Enum\HitStatusEnum.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.Models.ItemLocationEnumExtensions" Collapsed="true">
+    <Position X="15.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>Models\Enum\ItemLocationEnum.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.Models.PersonJobEnumExtensions" Collapsed="true">
+    <Position X="13.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>Models\Enum\PersonJobEnum.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.Models.BaseModel&lt;T&gt;" Collapsed="true">
+    <Position X="5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\BaseModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.Models.BattleMessagesModel" Collapsed="true">
+    <Position X="15.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAQACAAAAACAAQAAgCGQABAAAACCgAAACAAAAAEA=</HashCode>
+      <FileName>Models\BattleMessagesModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.Models.CharacterModel" Collapsed="true">
+    <Position X="2.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\CharacterModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.Models.DefaultModel" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAAAAAQAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\DefaultModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.Models.GameBoardModel" Collapsed="true">
+    <Position X="17.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAABAiEAAAAGAAAAAAAAEAAAAAEAIAAAAAAA=</HashCode>
+      <FileName>Models\GameBoardModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.Models.HomeMenuItemModel" Collapsed="true">
+    <Position X="13.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\HomeMenuItemModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.Models.ItemModel" Collapsed="true">
+    <Position X="9.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAACAAAACCAAAAAIAAAAAAAAAAAAAAAAgAAAAAAE=</HashCode>
+      <FileName>Models\ItemModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.Models.LevelDetailsModel" Collapsed="true">
+    <Position X="17.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAQAAAEAAAABAARAAAABAAAAAAAAQAA=</HashCode>
+      <FileName>Models\LevelDetailsModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.Models.MonsterModel" Collapsed="true">
+    <Position X="5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\MonsterModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.Models.PersonModel&lt;T&gt;" Collapsed="true">
+    <Position X="2.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BCIBgVIADQAoApAAIAAgQMSAkAAAwJQFAEKAhAABAAE=</HashCode>
+      <FileName>Models\PersonModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.Models.PlayerInfoModel" Collapsed="true">
+    <Position X="0.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\PlayerInfoModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.Models.ScoreModel" Collapsed="true">
+    <Position X="7.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AASAAQAAAAEAAAgAAAIAAAAgQAQAAAAAAAAQBCEAAAA=</HashCode>
+      <FileName>Models\ScoreModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.ViewModels.BattleEngineViewModel" Collapsed="true">
+    <Position X="12" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAEAQQAAAAAAEAABAAAAARAAAAAAAAAA=</HashCode>
+      <FileName>Models\BattleEngineViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.ViewModels.BaseViewModel&lt;T&gt;" Collapsed="true">
+    <Position X="5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAgABAAQAIAA0AQYECCAQRIgQEAQEgAAAABAIAICoE=</HashCode>
+      <FileName>ViewModels\BaseViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Game.ViewModels.CharacterIndexViewModel" Collapsed="true">
+    <Position X="7.25" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQQAAAAAAAAQBAAAAAQAAAAAQAgAA=</HashCode>
+      <FileName>ViewModels\CharacterIndexViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.ViewModels.GenericViewModel&lt;T&gt;" Collapsed="true">
+    <Position X="0.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAQAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\GenericViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.ViewModels.ItemIndexViewModel" Collapsed="true">
+    <Position X="5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAgAAAAEAQQAAAAAAAAQBAAAAAQAAAAAQAAAA=</HashCode>
+      <FileName>ViewModels\ItemIndexViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.ViewModels.MonsterIndexViewModel" Collapsed="true">
+    <Position X="9.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQQAAAAAAAAQBAAAAAQAAAAAQAAAA=</HashCode>
+      <FileName>ViewModels\MonsterIndexViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.ViewModels.ScoreIndexViewModel" Collapsed="true">
+    <Position X="2.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAQQAAAAAAAAQBAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\ScoreIndexViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Game.Models.AbilityEnum" Collapsed="true">
+    <Position X="12" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAQAAhA=</HashCode>
+      <FileName>Models\Enum\AbilityEnum.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Game.Models.AttributeEnum" Collapsed="true">
+    <Position X="13.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAQBAIAAAAAAAAAAAgAAABA=</HashCode>
+      <FileName>Models\Enum\AttributeEnum.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Game.Models.HitStatusEnum" Collapsed="true">
+    <Position X="17.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAIAAAAAAAACAQAAAAAAAAAAABA=</HashCode>
+      <FileName>Models\Enum\HitStatusEnum.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Game.Models.ItemLocationEnum" Collapsed="true">
+    <Position X="12" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAABQCAAIAEAAAAAACAAAAAgAAAAAAAAAAAABA=</HashCode>
+      <FileName>Models\Enum\ItemLocationEnum.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Game.Models.MenuItemEnum" Collapsed="true">
+    <Position X="13.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAACAkAAAAACAAAAAgAAAAAAgAAAAAACAA=</HashCode>
+      <FileName>Models\Enum\MenuItemEnum.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Game.Models.PersonJobEnum" Collapsed="true">
+    <Position X="15.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAEACABA=</HashCode>
+      <FileName>Models\Enum\PersonJobEnum.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Game.Models.PersonTypeEnum" Collapsed="true">
+    <Position X="17.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAACBA=</HashCode>
+      <FileName>Models\Enum\PersonTypeEnum.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Game.Models.RoundEnum" Collapsed="true">
+    <Position X="12" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAABBA=</HashCode>
+      <FileName>Models\Enum\RoundEnum.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Game.Models.DataStoreEnum" Collapsed="true">
+    <Position X="15.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAABA=</HashCode>
+      <FileName>Models\DataStore.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

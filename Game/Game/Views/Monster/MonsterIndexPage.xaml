@@ -8,7 +8,7 @@
              Title="Monsters">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Clicked="AddMonster_Clicked" IconImageSource="icon_add.png"/>
+        <ToolbarItem Text="Draft" Clicked="AddMonster_Clicked" IconImageSource="icon_add.png"/>
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>

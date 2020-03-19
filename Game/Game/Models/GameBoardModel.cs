@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Diagnostics;
 using Game.Models;
+using Game.Models.Enum;
+
 namespace Game.Models
 {
     public static class GameBoardModel
@@ -10,7 +12,21 @@ namespace Game.Models
         public static PlayerInfoModel[,] PlayerLocations = new PlayerInfoModel[Size,Size];
         public static ItemModel[,] ItemLocations = new ItemModel[Size, Size];
 
+        public static MapObject[,] Locations = new MapObject[Size, Size];
+
         
+        public static void Init()
+        {
+            // Wipe the MapObjects
+            for (int i = 0; i < Size; ++i)
+            {
+                for (int j = 0; j < Size; ++j)
+                {
+                    Locations[i, j] = new MapObject(i, j, MapObjectEnum.Blank);
+                }
+            }
+        }
+
         /// <summary>
         /// Wipe the game board
         /// </summary>
@@ -22,6 +38,15 @@ namespace Game.Models
                 {
                     PlayerLocations[i, j] = null;
                     ItemLocations[i, j] = null;
+                }
+            }
+
+            // Wipe the MapObjects
+            for (int i = 0; i < Size; ++i)
+            {
+                for (int j = 0; j < Size; ++j)
+                {
+                    Locations[i, j].MapObjectType = MapObjectEnum.Blank;
                 }
             }
         }
@@ -61,6 +86,11 @@ namespace Game.Models
 
             ItemLocations[y, x] = item;
 
+            // MapObject stuff
+            Locations[y, x].MapObjectType = MapObjectEnum.Item;
+            Locations[y, x].ImageURI = item.ImageURI;
+            Locations[y, x].Id = item.Id;
+
             return true;
         }
 
@@ -72,6 +102,7 @@ namespace Game.Models
         /// <returns></returns>
         public static PlayerInfoModel GetPlayer(int x, int y)
         {
+            // Rewrite with MapObject
             return PlayerLocations[y, x];
         }
 
@@ -143,7 +174,7 @@ namespace Game.Models
             {
                 for (int y = 0; y < Size; ++y)
                 {
-                    if (item.Id == ItemLocations[y, x].Id)
+                    if (item.Id == ItemLocations[y, x].Id || item.Id == Locations[y, x].Id)
                     {
                         location[0] = x;
                         location[1] = y;

@@ -39,7 +39,7 @@ namespace Game.Views
 				LevelDetailsModel info = LevelTableHelper.Instance.LevelDetailsList.Find(a => a.Level == GameBoardHelper.Round);
 
 				// TODO Generate monsters based upon round number
-				PlayerInfoModel newMonster = new PlayerInfoModel(new MonsterModel() { BaseSpeed = info.Speed, BaseStrength = info.Strength, BaseHitPoints = info.Hitpoints, BaseThiccness = info.Thiccness, BaseStamina = info.Stamina, ImageURI = "footballer_monster" + ((i+1)%4)+".png" }); ;
+				PlayerInfoModel newMonster = new PlayerInfoModel(new MonsterModel() { BaseSpeed = info.Speed, BaseStrength = info.Strength, BaseHitPoints = info.Hitpoints, BaseThiccness = info.Thiccness, BaseStamina = info.Stamina, ImageURI = "footballer_monster" + (((i+1)%4)+1) + ".png" }); ;
 
 				var image = new Image { Source = newMonster.ImageURI, Style = (Xamarin.Forms.Style)App.Current.Resources["ImageMediumStyle"] };
 				MonstersList.Children.Add(image);

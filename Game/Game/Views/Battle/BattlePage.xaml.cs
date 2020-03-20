@@ -3,6 +3,7 @@ using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Game.Engine;
+using Game.Models.Enum;
 using Game.Models;
 using Game.ViewModels;
 using System.Diagnostics;
@@ -26,17 +27,25 @@ namespace Game.Views
 		{
 			InitializeComponent ();
 
+			GameBoardModel.Init();
+
 			int left = 0;
 			foreach (PlayerInfoModel character in EngineViewModel.Engine.CharacterList)
 			{
-				GameBoardModel.PlayerLocations[left, 0] = character;
+				GameBoardModel.Locations[0, left].Id = character.Id;
+				GameBoardModel.Locations[0, left].ImageURI = character.ImageURI;
+				GameBoardModel.Locations[0, left].MapObjectType = MapObjectEnum.Character;
+				GameBoardModel.Locations[0, left].Selected = false;
 				left++;
 			}
 
 			left = 0;
 			foreach (PlayerInfoModel monster in EngineViewModel.Engine.MonsterList)
 			{
-				GameBoardModel.PlayerLocations[left, GameBoardModel.Size - 1] = monster;
+				GameBoardModel.Locations[GameBoardModel.Size - 1, left].Id = monster.Id;
+				GameBoardModel.Locations[GameBoardModel.Size - 1, left].ImageURI = monster.ImageURI;
+				GameBoardModel.Locations[GameBoardModel.Size - 1, left].MapObjectType = MapObjectEnum.Monster;
+				GameBoardModel.Locations[GameBoardModel.Size - 1, left].Selected = false;
 				left++;
 			}
 
@@ -54,25 +63,14 @@ namespace Game.Views
 		{
 			WipeGameBoard();
 
-			for (int x = 0; x < GameBoardModel.Size; ++x)
+			foreach (MapObject MapSpace in GameBoardModel.Locations)
 			{
-				for (int y = 0; y < GameBoardModel.Size; ++y)
-				{
-					string source = "blank_space.png";
-					PlayerInfoModel player = GameBoardModel.GetPlayer(x, y);
+				ImageButton currentButton = new ImageButton { Source = MapSpace.ImageURI };
+				Grid.SetRow(currentButton, MapSpace.x);
+				Grid.SetColumn(currentButton, MapSpace.y);
 
-					if (player != null)
-					{
-						source = player.ImageURI;
-					}
-
-					ImageButton currentButton = new ImageButton { Source = source };
-					Grid.SetRow(currentButton, x);
-					Grid.SetColumn(currentButton, y);
-
-					currentButton.Clicked += (sender, e) => LocationClicked(sender, e);
-					GameBoardGrid.Children.Add(currentButton);
-				}
+				currentButton.Clicked += (sender, e) => LocationClicked(sender, e);
+				GameBoardGrid.Children.Add(currentButton);
 			}
 		}
 
@@ -156,29 +154,28 @@ namespace Game.Views
 			int row = Grid.GetRow(clicked);
 			int column = Grid.GetColumn(clicked);
 
-            //Checks if the row column that was clicked has a Character type person.
-            if (GameBoardModel.isPlayer(row, column))
-            {
-                //Assigns character type person to player to pass to UpdateInventory
-				PlayerInfoModel player = GameBoardModel.GetPlayer(row, column);
-				if (player != null)
-				{
-					// Unselect if we are currently selected
-					if (GameBoardHelper.SelectedCharacter == player.Id)
-					{
-						GameBoardHelper.SelectedCharacter = null;
-						BattleLog.Text += "\nDeselected " + player.Name;
-						WipeInventory();
-						return;
-					}
+			MapObject LocationClicked = GameBoardModel.Locations[row, column];
 
-					// Select the player
-					if (GameBoardHelper.SelectedCharacter == null)
-					{
-						GameBoardHelper.SelectedCharacter = player.Id;
-						BattleLog.Text += "\nSelected " + player.Name;
-						UpdateInventory(player);
-					}
+			//Checks if the row column that was clicked has a Character type person.
+			if (LocationClicked.MapObjectType == MapObjectEnum.Character)
+            {
+				//Assigns character type person to player to pass to UpdateInventory
+				PlayerInfoModel player = EngineViewModel.Engine.CharacterList.Find(a => a.Id == LocationClicked.Id);
+				// Unselect if we are currently selected
+				if (GameBoardHelper.SelectedCharacter == player.Id)
+				{
+					GameBoardHelper.SelectedCharacter = null;
+					BattleLog.Text += "\nDeselected " + player.Name;
+					WipeInventory();
+					return;
+				}
+
+				// Select the player
+				if (GameBoardHelper.SelectedCharacter == null)
+				{
+					GameBoardHelper.SelectedCharacter = player.Id;
+					BattleLog.Text += "\nSelected " + player.Name;
+					UpdateInventory(player);
 				}
             }
 

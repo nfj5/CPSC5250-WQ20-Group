@@ -27,7 +27,7 @@ namespace Game.Views
 		public async void StadiumButton_Clicked(object sender, EventArgs e)
         {
 			// TODO change to PickCharactersPage later
-			await Navigation.PushAsync(new BattleNavigation());
+			await Navigation.PushAsync(new PickCharactersPage());
 		}
 
 		/// <summary>

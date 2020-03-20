@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Game.Models;
 using Game.Models.Enum;
+using Game.ViewModels;
 
 namespace Game.Models
 {
@@ -15,7 +16,6 @@ namespace Game.Models
 
         public static List<MapObject> Locations = new List<MapObject>();
 
-        
         public static void Wipe()
         {
             // Wipe the MapObjects
@@ -80,7 +80,8 @@ namespace Game.Models
         public static PlayerInfoModel GetPlayer(int x, int y)
         {
             // Rewrite with MapObject
-            return PlayerLocations[y, x];
+            PlayerInfoModel player = BattleEngineViewModel.Instance.Engine.CharacterList.Find(a => a.Id == Locations.Find(b => (b.x == x && b.y == y)).Id);
+            return player;
         }
 
         public static bool isPlayer(int x, int y)

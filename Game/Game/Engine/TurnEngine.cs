@@ -85,7 +85,6 @@ namespace Game.Engine
                     return attacks;
                 }
 
-                Attacker.CurrentStamina = MoveTowards(Attacker, TargetLocation, 0, GameBoardModel.GetPlayer(TargetLocation[0], TargetLocation[1]).Name);
             }
 
             BattleScore.TurnCount++;

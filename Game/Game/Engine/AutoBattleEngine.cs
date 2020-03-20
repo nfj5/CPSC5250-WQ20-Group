@@ -57,11 +57,8 @@ namespace Game.Engine
             // Prepare for Battle
 
             // Picks 6 Characters
-            foreach (var data in CharacterIndexViewModel.Instance.Dataset)
-            {
-                PopulateCharacterList(data);
-            }
-
+            CreateCharacterParty();
+            
             // Start Battle in AutoBattle mode
             StartBattle(true);
 
@@ -87,5 +84,22 @@ namespace Game.Engine
 
             return true;
         }
+
+        public bool CreateCharacterParty()
+        {
+            foreach (var data in CharacterIndexViewModel.Instance.Dataset)
+            {
+                if (CharacterList.Count() >= MaxNumberPartyCharacters)
+                {
+                    break;
+                }
+                PopulateCharacterList(data);
+            }
+
+            return true;
+        }
+
+
     }
+
 }

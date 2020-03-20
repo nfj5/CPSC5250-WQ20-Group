@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using Game.Models;
 using Game.Models.Enum;
@@ -12,7 +13,7 @@ namespace Game.Models
         public static PlayerInfoModel[,] PlayerLocations = new PlayerInfoModel[Size,Size];
         public static ItemModel[,] ItemLocations = new ItemModel[Size, Size];
 
-        public static MapObject[,] Locations = new MapObject[Size, Size];
+        public static List<MapObject> Locations = new List<MapObject>();
 
         
         public static void Wipe()
@@ -22,7 +23,7 @@ namespace Game.Models
             {
                 for (int j = 0; j < Size; ++j)
                 {
-                    Locations[i, j] = new MapObject(i, j, MapObjectEnum.Blank);
+                    Locations.Add(new MapObject(i, j, MapObjectEnum.Blank));
                 }
             }
         }
@@ -55,17 +56,17 @@ namespace Game.Models
         /// <returns></returns>
         public static bool Place(ItemModel item, int x, int y)
         {
-            if (ItemLocations[y, x] != null)
+            MapObject location = Locations.Find(a => (a.x == x && a.y == y));
+
+            if (location.MapObjectType != MapObjectEnum.Blank)
             {
                 return false;
             }
 
-            ItemLocations[y, x] = item;
-
             // MapObject stuff
-            Locations[y, x].MapObjectType = MapObjectEnum.Item;
-            Locations[y, x].ImageURI = item.ImageURI;
-            Locations[y, x].Id = item.Id;
+            location.MapObjectType = MapObjectEnum.Item;
+            location.ImageURI = item.ImageURI;
+            location.Id = item.Id;
 
             return true;
         }
@@ -150,7 +151,7 @@ namespace Game.Models
             {
                 for (int y = 0; y < Size; ++y)
                 {
-                    if (item.Id == ItemLocations[y, x].Id || item.Id == Locations[y, x].Id)
+                    if (item.Id == ItemLocations[y, x].Id || item.Id == Locations.Find(a => (a.x == x && a.y == y)).Id)
                     {
                         location[0] = x;
                         location[1] = y;

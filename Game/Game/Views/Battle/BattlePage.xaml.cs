@@ -166,6 +166,7 @@ namespace Game.Views
 				{
 					GameBoardHelper.SelectedCharacter = null;
 					BattleLog.Text += "\nDeselected " + player.Name;
+					clicked.BackgroundColor = Xamarin.Forms.Color.FromRgba(0,0,0,0);
 					WipeInventory();
 					return;
 				}
@@ -176,6 +177,7 @@ namespace Game.Views
 					GameBoardHelper.SelectedCharacter = player.Id;
 					BattleLog.Text += "\nSelected " + player.Name;
 					UpdateInventory(player);
+					clicked.BackgroundColor = Xamarin.Forms.Color.FromHex("#FFFF00");
 				}
             }
 

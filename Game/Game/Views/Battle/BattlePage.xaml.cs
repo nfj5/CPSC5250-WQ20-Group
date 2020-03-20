@@ -32,20 +32,22 @@ namespace Game.Views
 			int left = 0;
 			foreach (PlayerInfoModel character in EngineViewModel.Engine.CharacterList)
 			{
-				GameBoardModel.Locations[0, left].Id = character.Id;
-				GameBoardModel.Locations[0, left].ImageURI = character.ImageURI;
-				GameBoardModel.Locations[0, left].MapObjectType = MapObjectEnum.Character;
-				GameBoardModel.Locations[0, left].Selected = false;
+				MapObject location = GameBoardModel.Locations.Find(a => (a.x == left && a.y == 0));
+				location.Id = character.Id;
+				location.ImageURI = character.ImageURI;
+				location.MapObjectType = MapObjectEnum.Character;
+				location.Selected = false;
 				left++;
 			}
 
 			left = 0;
 			foreach (PlayerInfoModel monster in EngineViewModel.Engine.MonsterList)
 			{
-				GameBoardModel.Locations[GameBoardModel.Size - 1, left].Id = monster.Id;
-				GameBoardModel.Locations[GameBoardModel.Size - 1, left].ImageURI = monster.ImageURI;
-				GameBoardModel.Locations[GameBoardModel.Size - 1, left].MapObjectType = MapObjectEnum.Monster;
-				GameBoardModel.Locations[GameBoardModel.Size - 1, left].Selected = false;
+				MapObject location = GameBoardModel.Locations.Find(a => (a.x == left && a.y == GameBoardModel.Size - 1));
+				location.Id = monster.Id;
+				location.ImageURI = monster.ImageURI;
+				location.MapObjectType = MapObjectEnum.Monster;
+				location.Selected = false;
 				left++;
 			}
 
@@ -66,8 +68,8 @@ namespace Game.Views
 			foreach (MapObject MapSpace in GameBoardModel.Locations)
 			{
 				ImageButton currentButton = new ImageButton { Source = MapSpace.ImageURI };
-				Grid.SetRow(currentButton, MapSpace.x);
-				Grid.SetColumn(currentButton, MapSpace.y);
+				Grid.SetColumn(currentButton, MapSpace.x);
+				Grid.SetRow(currentButton, MapSpace.y);
 
 				currentButton.Clicked += (sender, e) => LocationClicked(sender, e);
 				GameBoardGrid.Children.Add(currentButton);
@@ -154,7 +156,7 @@ namespace Game.Views
 			int row = Grid.GetRow(clicked);
 			int column = Grid.GetColumn(clicked);
 
-			MapObject LocationClicked = GameBoardModel.Locations[row, column];
+			MapObject LocationClicked = GameBoardModel.Locations.Find(a => (a.x == column && a.y == row));
 
 			//Checks if the row column that was clicked has a Character type person.
 			if (LocationClicked.MapObjectType == MapObjectEnum.Character)
@@ -166,6 +168,7 @@ namespace Game.Views
 				{
 					GameBoardHelper.SelectedCharacter = null;
 					BattleLog.Text += "\nDeselected " + player.Name;
+					clicked.BackgroundColor = Xamarin.Forms.Color.FromRgba(0,0,0,0);
 					WipeInventory();
 					return;
 				}
@@ -176,8 +179,18 @@ namespace Game.Views
 					GameBoardHelper.SelectedCharacter = player.Id;
 					BattleLog.Text += "\nSelected " + player.Name;
 					UpdateInventory(player);
+					clicked.BackgroundColor = Xamarin.Forms.Color.FromHex("#FFFF00");
 				}
             }
+
+			// Check for blank space
+			if (LocationClicked.MapObjectType == MapObjectEnum.Blank)
+			{
+				if (GameBoardHelper.SelectedCharacter != null)
+				{
+					GameBoardModel.Locations.Find(a => a.Id == GameBoardHelper.SelectedCharacter);
+				}
+			}
 
 			Debug.WriteLine("Clicked " + row + "," + column);
 		}

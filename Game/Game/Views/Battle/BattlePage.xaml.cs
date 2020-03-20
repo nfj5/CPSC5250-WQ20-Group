@@ -167,9 +167,10 @@ namespace Game.Views
 				if (GameBoardHelper.SelectedCharacter == player.Id)
 				{
 					GameBoardHelper.SelectedCharacter = null;
+					WipeInventory();
+
 					BattleLog.Text += "\nDeselected " + player.Name;
 					clicked.BackgroundColor = Xamarin.Forms.Color.FromRgba(0,0,0,0);
-					WipeInventory();
 					return;
 				}
 
@@ -188,7 +189,17 @@ namespace Game.Views
 			{
 				if (GameBoardHelper.SelectedCharacter != null)
 				{
-					GameBoardModel.Locations.Find(a => a.Id == GameBoardHelper.SelectedCharacter);
+					MapObject character = GameBoardModel.Locations.Find(a => a.Id == GameBoardHelper.SelectedCharacter);
+					LocationClicked.x = character.x;
+					LocationClicked.y = character.y;
+
+					character.x = column;
+					character.y = row;
+
+					GameBoardHelper.SelectedCharacter = null;
+					WipeInventory();
+
+					RefreshGameBoard();
 				}
 			}
 

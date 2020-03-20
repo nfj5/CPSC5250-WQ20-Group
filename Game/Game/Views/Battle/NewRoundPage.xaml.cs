@@ -4,6 +4,7 @@ using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Diagnostics;
+using Game.Helpers;
 
 namespace Game.Views
 {
@@ -34,6 +35,9 @@ namespace Game.Views
 			// Create some monsters for this round, show them in the list
 			for (int i = 0; i < EngineViewModel.Engine.CharacterList.Count; ++i)
 			{
+				// Load stats for level == round
+				LevelDetailsModel info = LevelTableHelper.Instance.LevelDetailsList.Find(a => a.Level == GameBoardHelper.Round);
+
 				// TODO Generate monsters based upon round number
 				PlayerInfoModel newMonster = new PlayerInfoModel(new MonsterModel());
 

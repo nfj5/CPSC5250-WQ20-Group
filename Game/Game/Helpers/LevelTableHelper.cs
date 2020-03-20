@@ -58,7 +58,7 @@ namespace Game.Models
 
             // Character Level Chart...
 
-            // Sequence is Level,Experince,Strength,Thiccness(defense),Speed,Stamina,Hit Points, SuperStart
+            // Sequence is Experince, Level,Strength,Thiccness(defense),Speed,Stamina,Hit Points, SuperStart
 
             LevelDetailsList.Add(new LevelDetailsModel(0, 1, 1, 0, 0, 0, 1, 0));
             LevelDetailsList.Add(new LevelDetailsModel(300, 2, 1, 1, 0, 0, 2, 0));

@@ -27,7 +27,7 @@ namespace Game.Views
 		{
 			InitializeComponent ();
 
-			GameBoardModel.Init();
+			GameBoardModel.Wipe();
 
 			int left = 0;
 			foreach (PlayerInfoModel character in EngineViewModel.Engine.CharacterList)

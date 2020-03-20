@@ -15,7 +15,7 @@ namespace Game.Models
         public static MapObject[,] Locations = new MapObject[Size, Size];
 
         
-        public static void Init()
+        public static void Wipe()
         {
             // Wipe the MapObjects
             for (int i = 0; i < Size; ++i)
@@ -23,30 +23,6 @@ namespace Game.Models
                 for (int j = 0; j < Size; ++j)
                 {
                     Locations[i, j] = new MapObject(i, j, MapObjectEnum.Blank);
-                }
-            }
-        }
-
-        /// <summary>
-        /// Wipe the game board
-        /// </summary>
-        public static void Wipe()
-        {
-            for (int i = 0; i < Size; ++i)
-            {
-                for (int j = 0; j < Size; ++j)
-                {
-                    PlayerLocations[i, j] = null;
-                    ItemLocations[i, j] = null;
-                }
-            }
-
-            // Wipe the MapObjects
-            for (int i = 0; i < Size; ++i)
-            {
-                for (int j = 0; j < Size; ++j)
-                {
-                    Locations[i, j].MapObjectType = MapObjectEnum.Blank;
                 }
             }
         }

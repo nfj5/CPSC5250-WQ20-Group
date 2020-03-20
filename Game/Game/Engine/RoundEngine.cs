@@ -21,6 +21,7 @@ namespace Game.Engine
         /// <returns></returns>
         private bool ClearLists()
         {
+            
             GameBoardModel.Wipe();
             ItemPool.Clear();
             MonsterList.Clear();
